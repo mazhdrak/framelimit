@@ -159,36 +159,33 @@
 <section id="deals-section">
   <div class="section-inner">
     <div class="section-header">
-      <div class="section-label">Live Price Tracker</div>
-      <h2 class="section-title">Today's Best Deals</h2>
-      <p class="section-sub">Prices checked every 6 hours. Timers show deal expiry estimates.</p>
+      <div class="section-label">Editor's Picks</div>
+      <h2 class="section-title">Top Picks Right Now</h2>
+      <p class="section-sub">Our recommended buys across budget, mid-range, and flagship. Click through to see live pricing on Amazon.</p>
     </div>
     <div class="deals-grid">
       <div class="deal-card">
-        <span class="deal-badge badge-hot">🔥 HOT</span>
+        <span class="deal-badge badge-hot">⭐ BEST VALUE</span>
         <div class="deal-brand">LENOVO</div>
         <div class="deal-name">Legion 5i Gen 10</div>
         <div class="deal-spec">RTX 5070 · 16" OLED 165Hz · 32GB DDR5 · 1TB NVMe</div>
-        <div class="deal-prices"><span class="deal-price">$1,399</span><span class="deal-was">$1,499</span><span class="deal-save">Save $100</span></div>
-        <div class="deal-timer" id="timer1">⏱ Expires in: --:--:--</div>
+        <div class="deal-prices"><span class="deal-price">See current price on Amazon</span></div>
         <a href="https://www.amazon.com/dp/B0FGY9NS9Z?tag=framelimit20-20" class="deal-btn" rel="nofollow sponsored">Buy on Amazon →</a>
       </div>
       <div class="deal-card">
-        <span class="deal-badge badge-new">NEW</span>
+        <span class="deal-badge badge-new">🔥 FLAGSHIP</span>
         <div class="deal-brand">MSI</div>
         <div class="deal-name">Raider 18 HX AI</div>
-        <div class="deal-spec">RTX 5080 150W · 18" MiniLED 240Hz · 64GB DDR5</div>
-        <div class="deal-prices"><span class="deal-price">$3,199</span><span class="deal-was">$3,299</span><span class="deal-save">Save $100</span></div>
-        <div class="deal-timer" id="timer2">⏱ Expires in: --:--:--</div>
+        <div class="deal-spec">RTX 5080 175W · 18" QHD+ 240Hz · 64GB DDR5 · 2TB</div>
+        <div class="deal-prices"><span class="deal-price">See current price on Amazon</span></div>
         <a href="https://www.amazon.com/dp/B0DYQ762BY?tag=framelimit20-20" class="deal-btn" rel="nofollow sponsored">Buy on Amazon →</a>
       </div>
       <div class="deal-card">
-        <span class="deal-badge badge-sale">SALE</span>
+        <span class="deal-badge badge-sale">💰 BUDGET PICK</span>
         <div class="deal-brand">ASUS</div>
         <div class="deal-name">TUF Gaming A16</div>
-        <div class="deal-spec">RX 7600M XT · 16" FHD 165Hz · 7.1hr battery</div>
-        <div class="deal-prices"><span class="deal-price">$1,049</span><span class="deal-was">$1,099</span><span class="deal-save">Save $50</span></div>
-        <div class="deal-timer" id="timer3">⏱ Expires in: --:--:--</div>
+        <div class="deal-spec">RTX 5060 · 16" FHD+ 165Hz · 32GB DDR5 · 1TB NVMe</div>
+        <div class="deal-prices"><span class="deal-price">See current price on Amazon</span></div>
         <a href="https://www.amazon.com/dp/B0G3QSC6H4?tag=framelimit20-20" class="deal-btn" rel="nofollow sponsored">Buy on Amazon →</a>
       </div>
     </div>
@@ -540,16 +537,6 @@ function toggleMobileNav(){
 }
 
 // ── DEAL TIMERS ──
-function startTimer(id,hours){
-  const end=Date.now()+hours*3600000;
-  setInterval(()=>{
-    const diff=end-Date.now();
-    if(diff<=0){document.getElementById(id).textContent='⏱ Deal ended';return}
-    const h=Math.floor(diff/3600000),m=Math.floor(diff%3600000/60000),s=Math.floor(diff%60000/1000);
-    document.getElementById(id).textContent=`⏱ Expires in: ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-  },1000);
-}
-startTimer('timer1',11);startTimer('timer2',23);startTimer('timer3',7);
 
 // ── GPU BENCHMARK CHART (per-game grouped horizontal bars) ──
 // Laptops: name, GPU, CPU, color
