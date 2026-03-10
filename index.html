@@ -23,226 +23,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
-<style>
-:root{--black:#080A0C;--deep:#0B0E12;--panel:#0F1419;--border:#1E2A36;--muted:#7A94A8;--text:#D8E8F4;--white:#F0F8FF;--cyan:#00D4FF;--orange:#FF4500;--green:#00FF88;--yellow:#FFD600;--purple:#A855F7;--amd:#FF6B35;--amd-dim:#CC5529}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:hidden}
-body{background:var(--black);color:var(--text);font-family:'Barlow',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden;max-width:100vw}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(8,10,12,.97);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);height:64px}
-.nav-inner{max-width:1400px;margin:0 auto;height:100%;display:flex;align-items:center;padding:0 32px;gap:32px}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:4px;color:var(--white);text-decoration:none;flex-shrink:0}.nav-logo span{color:var(--cyan)}
-.nav-links{display:flex;gap:6px;list-style:none;flex:1}
-.nav-links>li{position:relative}
-.nav-links>li>a{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);text-decoration:none;letter-spacing:1.5px;text-transform:uppercase;padding:8px 14px;display:block;transition:color .2s}.nav-links>li>a:hover{color:var(--white)}
-.nav-search{margin-left:auto;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.2);color:var(--cyan);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;padding:6px 14px;cursor:pointer}
-.nav-cta{background:var(--cyan);color:var(--black);font-family:'Barlow',sans-serif;font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:8px 20px;text-decoration:none;white-space:nowrap;flex-shrink:0}.nav-cta:hover{background:var(--white)}
-/* Hamburger */
-.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;flex-shrink:0}
-.nav-hamburger span{width:24px;height:2px;background:var(--white);transition:all .3s}
-.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav-hamburger.open span:nth-child(2){opacity:0}
-.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-/* Mobile drawer */
-.mobile-drawer{position:fixed;top:64px;left:0;width:85%;max-width:340px;bottom:0;background:var(--deep);z-index:299;transform:translateX(-100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;border-right:1px solid var(--border)}
-.mobile-drawer.open{transform:translateX(0)}
-.md-section{padding:20px 24px;border-bottom:1px solid var(--border)}
-.md-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
-.md-links{list-style:none;display:flex;flex-direction:column;gap:4px}
-.md-links a{font-size:14px;color:var(--text);text-decoration:none;padding:8px 0;display:block;border-bottom:1px solid transparent}.md-links a:hover{color:var(--cyan)}
-.md-cta{margin:20px 24px;background:var(--cyan);color:var(--black);font-weight:700;font-size:13px;text-decoration:none;padding:14px 20px;display:block;text-align:center;letter-spacing:1px;text-transform:uppercase}
-.drawer-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:298}
-.drawer-overlay.open{display:block}
-
-/* ── HERO ── */
-.hero{min-height:100vh;display:flex;align-items:center;padding:100px 32px 60px;position:relative;overflow:hidden;background:linear-gradient(135deg,#050709 0%,#0a0f15 50%,#060b10 100%)}
-.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,212,255,.015) 2px,rgba(0,212,255,.015) 4px);pointer-events:none}
-.hero-inner{max-width:1400px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 480px;gap:60px;align-items:center}
-.hero-cat{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px}
-.hero-cat::before{content:'';width:40px;height:1px;background:var(--cyan)}
-.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,8vw,100px);color:var(--white);line-height:.95;letter-spacing:1px;margin-bottom:24px}
-.hero-title span{color:var(--cyan)}
-.hero-sub{font-size:17px;color:var(--muted);line-height:1.8;margin-bottom:36px;max-width:520px}
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
-.btn-primary{background:var(--cyan);color:var(--black);font-family:'Barlow',sans-serif;font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;padding:14px 28px;text-decoration:none;transition:all .2s}.btn-primary:hover{background:var(--white)}
-.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text);font-family:'Barlow',sans-serif;font-weight:600;font-size:13px;letter-spacing:1px;text-transform:uppercase;padding:14px 28px;text-decoration:none;transition:all .2s}.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
-.hero-stats{display:flex;gap:32px;flex-wrap:wrap}
-.hs{text-align:left}
-.hs-num{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--white);line-height:1}
-.hs-num span{color:var(--cyan)}
-.hs-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}
-/* Top picks stack */
-.hero-picks{display:flex;flex-direction:column;gap:8px}
-.hp-card{background:var(--panel);border:1px solid var(--border);padding:16px 18px;cursor:pointer;transition:border-color .2s;position:relative;overflow:hidden}
-.hp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background .2s}
-.hp-card:hover{border-color:var(--cyan)}.hp-card:hover::before{background:var(--cyan)}
-.hp-rank{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:6px}
-.hp-name{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--white);margin-bottom:4px}
-.hp-spec{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted)}
-.hp-price{font-size:14px;font-weight:700;color:var(--green);margin-top:6px}
-
-/* ── SECTIONS ── */
-section{padding:80px 32px}
-.section-inner{max-width:1400px;margin:0 auto}
-.section-header{margin-bottom:48px}
-.section-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:12px}
-.section-label::before{content:'';width:32px;height:1px;background:var(--cyan)}
-.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,56px);color:var(--white);letter-spacing:1px;line-height:1.05}
-.section-sub{font-size:16px;color:var(--muted);margin-top:10px;max-width:600px}
-
-/* ── AFFILIATE RIBBON ── */
-.aff-ribbon{background:rgba(255,214,0,.08);border-bottom:1px solid rgba(255,214,0,.15);padding:8px 32px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--yellow);letter-spacing:1.5px;margin-top:64px}
-
-/* ── DEALS ── */
-#deals-section{background:var(--deep)}
-.deals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.deal-card{background:var(--panel);border:1px solid var(--border);padding:20px;position:relative;transition:border-color .2s}.deal-card:hover{border-color:var(--cyan)}
-.deal-badge{position:absolute;top:12px;right:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 8px}
-.badge-hot{background:var(--orange);color:var(--white)}
-.badge-new{background:var(--cyan);color:var(--black)}
-.badge-sale{background:var(--green);color:var(--black)}
-.deal-brand{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
-.deal-name{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);margin-bottom:6px}
-.deal-spec{font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.6}
-.deal-prices{display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
-.deal-price{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--green)}
-.deal-was{font-size:13px;color:var(--muted);text-decoration:line-through}
-.deal-save{font-size:11px;color:var(--green);font-weight:700}
-.deal-timer{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--yellow);margin-bottom:14px}
-.deal-btn{display:block;background:var(--cyan);color:var(--black);text-align:center;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:10px;text-decoration:none}.deal-btn:hover{background:var(--white)}
-
-/* ── GPU COMPARE ── */
-#compare-tool{background:var(--black)}
-.gpu-tabs{display:flex;gap:0;margin-bottom:28px;border:1px solid var(--border)}
-.gpu-tab{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px;background:none;border:none;color:var(--muted);cursor:pointer;transition:all .2s;border-right:1px solid var(--border)}
-.gpu-tab:last-child{border-right:none}
-.gpu-tab.active{background:var(--cyan);color:var(--black)}
-.chart-wrap{background:var(--panel);border:1px solid var(--border);padding:24px;margin-bottom:24px}
-.chart-title{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
-
-/* ── BEST PICKS ── */
-#best-picks{background:var(--deep)}
-.picks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.pick-card{background:var(--panel);border:1px solid var(--border);padding:20px;transition:border-color .2s;position:relative}.pick-card:hover{border-color:var(--cyan)}
-.pick-badge{font-family:'JetBrains Mono',monospace;font-size:8px;padding:3px 8px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;display:inline-block}
-.pick-name{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--white);margin-bottom:4px}
-.pick-spec{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px}
-.pick-price{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--green);margin-bottom:12px}
-.pick-score{position:absolute;top:16px;right:16px;font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--white);line-height:1;text-align:right}
-.pick-score-sub{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);text-align:right;letter-spacing:1px}
-.pick-btn{display:block;background:transparent;border:1px solid var(--border);color:var(--text);text-align:center;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:8px;text-decoration:none;transition:all .2s}.pick-btn:hover{border-color:var(--cyan);color:var(--cyan)}
-
-/* ── BUDGET FINDER ── */
-#finder{background:var(--black)}
-.finder-wrap{background:var(--panel);border:1px solid var(--border);padding:32px}
-.finder-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
-.finder-title{font-size:18px;font-weight:700;color:var(--white);margin-bottom:20px}
-.range-row{display:flex;align-items:center;gap:16px;margin-bottom:24px;flex-wrap:wrap}
-input[type=range]{flex:1;min-width:200px;accent-color:var(--cyan)}
-.range-val{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--cyan);min-width:80px}
-.platform-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
-.chip{background:var(--deep);border:1px solid var(--border);color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;padding:6px 14px;cursor:pointer;transition:all .2s}
-.chip.active{background:var(--cyan);color:var(--black);border-color:var(--cyan)}
-.finder-result{background:var(--deep);border:1px solid var(--border);border-left:3px solid var(--cyan);padding:20px;margin-top:20px}
-.fr-title{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--white);margin-bottom:6px}
-.fr-sub{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px}
-.fr-link{display:inline-block;background:var(--cyan);color:var(--black);font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:10px 20px;text-decoration:none}.fr-link:hover{background:var(--white)}
-
-/* ── PRICE ALERT ── */
-#price-alert{background:var(--deep)}
-.pricedrop-bg{background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(168,85,247,.04));border:1px solid rgba(0,212,255,.15);padding:40px}
-.pa-title{font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--white);margin-bottom:8px}
-.pa-sub{font-size:15px;color:var(--muted);margin-bottom:28px}
-.pa-form{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end;flex-wrap:wrap}
-.pa-field{display:flex;flex-direction:column;gap:6px}
-.pa-field label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}
-.pa-field input,.pa-field select{background:var(--panel);border:1px solid var(--border);color:var(--text);font-family:'Barlow',sans-serif;font-size:14px;padding:10px 14px;width:100%}
-.pa-btn{background:var(--cyan);color:var(--black);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;padding:11px 24px;border:none;cursor:pointer;white-space:nowrap}.pa-btn:hover{background:var(--white)}
-.pa-stats{display:flex;gap:32px;margin-top:20px;flex-wrap:wrap}
-.pa-stat{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
-.pa-stat strong{color:var(--cyan)}
-.pa-success{display:none;background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.2);color:var(--green);padding:16px;font-size:14px;margin-top:16px}
-
-/* ── BLOG ── */
-#blog{background:var(--black)}
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.blog-card{background:var(--panel);border:1px solid var(--border);transition:border-color .2s;text-decoration:none}.blog-card:hover{border-color:var(--cyan)}
-.bc-img{height:140px;background:linear-gradient(135deg,var(--deep),var(--border));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--border)}
-.bc-body{padding:18px}
-.bc-cat{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
-.bc-title{font-size:15px;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:8px}
-.bc-sub{font-size:13px;color:var(--muted);line-height:1.6}
-.bc-meta{display:flex;gap:12px;padding:12px 18px;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted)}
-
-/* ── MODAL TOOLS ── */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:500;overflow-y:auto;padding:40px 20px}
-.modal-overlay.open{display:flex;align-items:flex-start;justify-content:center}
-.modal{background:var(--deep);border:1px solid var(--border);max-width:800px;width:100%;padding:32px;position:relative}
-.modal-close{position:absolute;top:16px;right:16px;background:none;border:1px solid var(--border);color:var(--muted);font-size:18px;width:32px;height:32px;cursor:pointer;display:flex;align-items:center;justify-content:center}.modal-close:hover{color:var(--white);border-color:var(--white)}
-.modal-title{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);margin-bottom:6px}
-.modal-sub{font-size:13px;color:var(--muted);margin-bottom:24px}
-/* Display tool table */
-.disp-table{width:100%;border-collapse:collapse;font-size:13px}
-.disp-table th{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:8px 12px;background:var(--panel);border-bottom:2px solid var(--border);text-align:left}
-.disp-table td{padding:9px 12px;border-bottom:1px solid rgba(30,42,54,.5);font-size:12px;vertical-align:top}
-.disp-table tr:hover{background:rgba(0,212,255,.02)}
-.dtag-best{background:rgba(0,212,255,.12);color:var(--cyan);font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 6px}
-.dtag-good{background:rgba(0,255,136,.1);color:var(--green);font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 6px}
-.dtag-ok{background:rgba(255,214,0,.1);color:var(--yellow);font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 6px}
-
-/* ── TOOLS BAR ── */
-.tools-bar{background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 32px}
-.tools-inner{max-width:1400px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-.tool-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-right:8px}
-.tool-btn{background:var(--deep);border:1px solid var(--border);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;padding:8px 16px;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}.tool-btn:hover{border-color:var(--cyan);color:var(--cyan)}
-
-/* ── AD SLOTS ── */
-.ad-slot{background:var(--panel);border:1px solid var(--border);height:90px;display:flex;align-items:center;justify-content:center;color:var(--border);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;margin:32px 0}
-
-/* ── FOOTER ── */
-footer{background:var(--deep);border-top:1px solid var(--border);padding:48px 32px 32px}
-.footer-inner{max-width:1400px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-.footer-brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:4px;color:var(--white);margin-bottom:10px}.footer-brand-name span{color:var(--cyan)}
-.footer-desc{font-size:13px;color:var(--muted);line-height:1.8}
-.footer-col-title{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
-.footer-links a{font-size:13px;color:var(--muted);text-decoration:none}.footer-links a:hover{color:var(--white)}
-.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap;gap:16px}
-.footer-copy{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)}
-.footer-aff{font-size:11px;color:var(--muted);max-width:600px;line-height:1.6}
-
-/* ── RESPONSIVE ── */
-@media(max-width:1100px){
-  .hero-inner{grid-template-columns:1fr}
-  .hero-picks{display:grid;grid-template-columns:repeat(2,1fr)}
-  .deals-grid{grid-template-columns:repeat(2,1fr)}
-  .picks-grid{grid-template-columns:repeat(2,1fr)}
-  .blog-grid{grid-template-columns:repeat(2,1fr)}
-  .footer-top{grid-template-columns:1fr 1fr}
-}
-@media(max-width:768px){
-  .nav-links{display:none}
-  .nav-search{display:none}
-  .nav-hamburger{display:flex}
-  .nav-inner{padding:0 20px}
-  .hero{padding:90px 20px 50px}
-  section{padding:60px 20px}
-  .deals-grid{grid-template-columns:1fr}
-  .picks-grid{grid-template-columns:1fr}
-  .blog-grid{grid-template-columns:1fr}
-  .pa-form{grid-template-columns:1fr}
-  .footer-top{grid-template-columns:1fr}
-  .tools-bar{padding:12px 20px}
-  .aff-ribbon{padding:8px 20px}
-}
-@media(max-width:600px){
-  .hero-picks{grid-template-columns:1fr}
-  .hero-stats{gap:20px}
-  .gpu-tabs{flex-wrap:wrap}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -252,7 +34,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:48px 32
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="gaming-laptops-affiliate.html" class="nav-logo">FRAME<span>LIMIT</span></a>
+    <a href="index.html" class="nav-logo">FRAME<span>LIMIT</span></a>
     <ul class="nav-links">
       <li><a href="#best-picks">Best Picks</a></li>
       <li><a href="reviews.html">Reviews</a></li>
@@ -272,22 +54,35 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:48px 32
 <!-- MOBILE DRAWER -->
 <div class="mobile-drawer" id="mobile-drawer">
   <div class="md-section">
-    <div class="md-label">Navigation</div>
+    <div class="md-label">Main Pages</div>
     <ul class="md-links">
-      <li><a href="#best-picks" onclick="toggleMobileNav()">Best Picks 2026</a></li>
-      <li><a href="reviews.html" onclick="toggleMobileNav()">Full Reviews</a></li>
-      <li><a href="#compare-tool" onclick="toggleMobileNav()">GPU Compare Tool</a></li>
-      <li><a href="#finder" onclick="toggleMobileNav()">Laptop Finder Quiz</a></li>
-      <li><a href="#blog" onclick="toggleMobileNav()">Buying Guides</a></li>
+      <li><a href="index.html" onclick="toggleMobileNav()">🏠 Home</a></li>
+      <li><a href="reviews.html" onclick="toggleMobileNav()">⭐ Full Reviews</a></li>
+      <li><a href="#best-picks" onclick="toggleMobileNav()">🏆 Best Picks 2026</a></li>
+      <li><a href="#deals-section" onclick="toggleMobileNav()">🔥 Today's Deals</a></li>
     </ul>
   </div>
   <div class="md-section">
-    <div class="md-label">Top Laptops</div>
+    <div class="md-label">Buying Guides</div>
     <ul class="md-links">
-      <li><a href="reviews.html#raider18" onclick="toggleMobileNav()">MSI Raider 18 HX AI — $3,299</a></li>
-      <li><a href="reviews.html#blade16" onclick="toggleMobileNav()">Razer Blade 16 RTX 5090 — $4,499</a></li>
-      <li><a href="reviews.html#legion5i" onclick="toggleMobileNav()">Lenovo Legion 5i Gen 10 — $1,499</a></li>
-      <li><a href="reviews.html#tufa16" onclick="toggleMobileNav()">ASUS TUF A16 AMD — $1,099</a></li>
+      <li><a href="guide-gaming-laptop-buying-guide-2026.html" onclick="toggleMobileNav()">Complete Buying Guide</a></li>
+      <li><a href="guide-best-gaming-laptops-2026.html" onclick="toggleMobileNav()">Best Laptops 2026</a></li>
+      <li><a href="guide-best-gaming-laptop-under-1500.html" onclick="toggleMobileNav()">Best Under $1,500</a></li>
+      <li><a href="guide-best-gaming-laptop-under-1000.html" onclick="toggleMobileNav()">Best Under $1,000</a></li>
+      <li><a href="guide-best-gaming-laptop-college-2026.html" onclick="toggleMobileNav()">Best for College</a></li>
+      <li><a href="guide-best-thin-light-gaming-laptop-2026.html" onclick="toggleMobileNav()">Best Thin & Light</a></li>
+      <li><a href="guide-best-amd-gaming-laptop-2026.html" onclick="toggleMobileNav()">Best AMD Laptops</a></li>
+      <li><a href="guide-rtx-vs-amd-2026.html" onclick="toggleMobileNav()">RTX vs AMD</a></li>
+      <li><a href="guide-gaming-laptop-vs-desktop-2026.html" onclick="toggleMobileNav()">Laptop vs Desktop</a></li>
+      <li><a href="guide-gaming-laptop-cooling-thermals-2026.html" onclick="toggleMobileNav()">Cooling Guide</a></li>
+    </ul>
+  </div>
+  <div class="md-section">
+    <div class="md-label">Tools</div>
+    <ul class="md-links">
+      <li><a href="#compare-tool" onclick="toggleMobileNav()">📊 GPU Benchmarks</a></li>
+      <li><a href="#finder" onclick="toggleMobileNav()">🎯 Laptop Finder</a></li>
+      <li><a href="#price-alert" onclick="toggleMobileNav()">🔔 Price Alerts</a></li>
     </ul>
   </div>
   <a href="#deals-section" class="md-cta" onclick="toggleMobileNav()">🔥 View All Deals</a>
