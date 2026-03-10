@@ -201,19 +201,30 @@
     <div class="section-header">
       <div class="section-label">GPU Benchmark Tool</div>
       <h2 class="section-title">GPU Performance Comparison</h2>
-      <p class="section-sub">Real benchmark data across 11 games. Select resolution to compare.</p>
+      <p class="section-sub">Per-game results across 6 laptops. Each bar = one laptop. Settings shown on axis. Toggle resolution to compare.</p>
     </div>
+
+    <!-- Resolution tabs -->
     <div class="gpu-tabs">
       <button class="gpu-tab active" onclick="switchRes('1080p',this)">1080p</button>
       <button class="gpu-tab" onclick="switchRes('1440p',this)">1440p</button>
       <button class="gpu-tab" onclick="switchRes('4K',this)">4K</button>
-      <button class="gpu-tab" onclick="switchRes('avg',this)">Avg All Games</button>
     </div>
-    <div class="chart-wrap">
-      <div class="chart-title" id="chart-title">1080p ULTRA — Average FPS</div>
-      <canvas id="gpuChart" height="120"></canvas>
+
+    <!-- Legend -->
+    <div id="bench-legend" style="display:flex;flex-wrap:wrap;gap:10px 20px;padding:12px 0 4px;"></div>
+
+    <!-- Chart container — tall for horizontal bars -->
+    <div class="chart-wrap" style="overflow-x:auto;">
+      <div id="chart-title" style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.06em;color:var(--cyan);padding-bottom:8px">1080p — ULTRA SETTINGS</div>
+      <div style="min-width:620px;position:relative;height:1100px">
+        <canvas id="gpuChart" style="width:100%;height:100%"></canvas>
+      </div>
     </div>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted)">Sources: KitGuru, GamersNexus, TechSpot — Jan–Mar 2026. All laptops at full rated TGP.</div>
+
+    <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:8px">
+      Sources: Notebookcheck, LaptopMag, Tom's Hardware, Jarrod's Tech — Jan–Mar 2026 · All laptops at rated full TGP · DLSS / FSR / XeSS as noted per game
+    </div>
   </div>
 </section>
 
@@ -540,23 +551,200 @@ function startTimer(id,hours){
 }
 startTimer('timer1',11);startTimer('timer2',23);startTimer('timer3',7);
 
-// ── GPU CHART ──
-const gpuData={
-  '1080p':{label:'1080p Ultra Avg FPS',data:[158,142,120,102,96,82,78],colors:['#00D4FF','#00D4FF','#00D4FF','#00D4FF','#FF6B35','#00D4FF','#FF6B35']},
-  '1440p':{label:'1440p Ultra Avg FPS',data:[138,118,95,93,78,70,66],colors:['#00D4FF','#00D4FF','#00D4FF','#00D4FF','#FF6B35','#00D4FF','#FF6B35']},
-  '4K':{label:'4K Ultra Avg FPS',data:[82,72,58,56,44,42,38],colors:['#00D4FF','#00D4FF','#00D4FF','#00D4FF','#FF6B35','#00D4FF','#FF6B35']},
-  'avg':{label:'Average All 11 Games (1440p)',data:[138,118,95,93,78,70,66],colors:['#00D4FF','#00D4FF','#00D4FF','#00D4FF','#FF6B35','#00D4FF','#FF6B35']}
-};
-const gpuLabels=['RTX 5090','RTX 5080 150W','RTX 5080 140W','RTX 5070','RX 7900M','RTX 5060','RX 7600M XT'];
-const ctx=document.getElementById('gpuChart').getContext('2d');
-let gpuChart=new Chart(ctx,{type:'bar',data:{labels:gpuLabels,datasets:[{label:'Avg FPS',data:gpuData['1080p'].data,backgroundColor:gpuData['1080p'].colors,borderRadius:3}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,grid:{color:'rgba(30,42,54,.5)'},ticks:{color:'#7A94A8',font:{family:'JetBrains Mono',size:10}}},x:{grid:{display:false},ticks:{color:'#D8E8F4',font:{family:'Barlow',size:12}}}}}});
-function switchRes(res,btn){
-  document.querySelectorAll('.gpu-tab').forEach(t=>t.classList.remove('active'));
+// ── GPU BENCHMARK CHART (per-game grouped horizontal bars) ──
+// Laptops: name, GPU, CPU, color
+const laptops = [
+  { id:'blade16',   name:'Razer Blade 16',           gpu:'RTX 5090 150W', cpu:'Ryzen AI 9 HX 370', color:'#A855F7' },
+  { id:'pro7i',     name:'Legion Pro 7i Gen 10',      gpu:'RTX 5080 175W', cpu:'Core Ultra 9 275HX',color:'#00D4FF' },
+  { id:'omenmax',   name:'HP Omen Max 16',             gpu:'RTX 5080 175W', cpu:'Core Ultra 9 275HX',color:'#00AACC' },
+  { id:'scar18',    name:'ASUS ROG Strix SCAR 18',     gpu:'RTX 5090 175W', cpu:'Core Ultra 9 275HX',color:'#FF4500' },
+  { id:'legion5i',  name:'Lenovo Legion 5i Gen 10',    gpu:'RTX 5070 115W', cpu:'Core Ultra 7 255HX',color:'#FFD600' },
+  { id:'tufa16',    name:'ASUS TUF Gaming A16',         gpu:'RTX 5060 85W',  cpu:'Ryzen AI 7 260',    color:'#00FF88' },
+];
+
+// Games: label (2 lines: name + settings), and FPS per resolution per laptop
+// settings shown inline in label: DLSS/FSR/XeSS + quality preset
+const games = [
+  {
+    name: 'Cyberpunk 2077',
+    settings1080: 'RT Overdrive · DLSS 4 Quality',
+    settings1440: 'RT Overdrive · DLSS 4 Quality',
+    settings4K:   'RT Overdrive · DLSS 4 Quality',
+    fps: {
+      // [blade16, pro7i, omenmax, scar18, legion5i, tufa16]
+      '1080p': [148, 200, 220, 210, 148, 112],
+      '1440p': [130, 131, 143, 142, 102,  72],
+      '4K':    [ 88,  88,  98, 102,  62,  38],
+    }
+  },
+  {
+    name: 'Black Myth: Wukong',
+    settings1080: 'Cinematic · RT Ultra · DLSS 4',
+    settings1440: 'Cinematic · RT Ultra · DLSS 4',
+    settings4K:   'High · DLSS 4 Quality',
+    fps: {
+      '1080p': [152, 155, 168, 178, 118,  90],
+      '1440p': [123, 123, 118, 132,  85,  55],
+      '4K':    [ 55,  66,  68,  75,  40,  28],
+    }
+  },
+  {
+    name: 'Alan Wake 2',
+    settings1080: 'Path Tracing · DLSS 4 Quality',
+    settings1440: 'Path Tracing · DLSS 4 Quality',
+    settings4K:   'High RT · DLSS 4 Balanced',
+    fps: {
+      '1080p': [140, 155, 158, 165, 110,  82],
+      '1440p': [122, 118, 128, 127,  88,  58],
+      '4K':    [ 71,  75,  80,  84,  50,  30],
+    }
+  },
+  {
+    name: 'Assassin\'s Creed Shadows',
+    settings1080: 'Ultra High · DLSS 4 Quality · 2× FG',
+    settings1440: 'Ultra High · DLSS 4 Quality · 2× FG',
+    settings4K:   'Ultra High · DLSS 4 Quality',
+    fps: {
+      '1080p': [132, 128, 136, 140, 100,  72],
+      '1440p': [108, 105, 112, 118,  80,  52],
+      '4K':    [ 68,  66,  70,  75,  46,  28],
+    }
+  },
+  {
+    name: 'Total War: Warhammer 3',
+    settings1080: 'Ultra · No upscaling',
+    settings1440: 'Ultra · No upscaling',
+    settings4K:   'Ultra · DLSS 4 Quality',
+    fps: {
+      '1080p': [118, 130, 140, 158, 100,  78],
+      '1440p': [ 96, 108, 115, 128,  82,  58],
+      '4K':    [ 55,  62,  68,  75,  45,  30],
+    }
+  },
+  {
+    name: 'Forza Horizon 5',
+    settings1080: 'Extreme · No upscaling',
+    settings1440: 'Extreme · No upscaling',
+    settings4K:   'Extreme · No upscaling',
+    fps: {
+      '1080p': [218, 240, 240, 240, 200, 148],
+      '1440p': [218, 200, 215, 220, 168, 102],
+      '4K':    [157, 145, 160, 165, 112,  65],
+    }
+  },
+  {
+    name: 'Red Dead Redemption 2',
+    settings1080: 'Max settings · DLSS Quality',
+    settings1440: 'Max settings · DLSS Quality',
+    settings4K:   'High · DLSS Quality',
+    fps: {
+      '1080p': [118, 128, 132, 138, 102,  78],
+      '1440p': [ 98, 105, 110, 118,  85,  60],
+      '4K':    [ 60,  64,  68,  75,  48,  30],
+    }
+  },
+  {
+    name: 'Call of Duty: Black Ops 6',
+    settings1080: 'Extreme · DLSS Quality',
+    settings1440: 'Extreme · DLSS Quality',
+    settings4K:   'Ultra · DLSS Quality',
+    fps: {
+      '1080p': [148, 160, 168, 175, 128, 105],
+      '1440p': [122, 130, 140, 148, 108,  80],
+      '4K':    [ 82,  88,  95, 100,  68,  45],
+    }
+  },
+];
+
+// Build legend
+const legendEl = document.getElementById('bench-legend');
+laptops.forEach(l => {
+  const d = document.createElement('div');
+  d.style.cssText = 'display:flex;align-items:center;gap:6px;font-family:"Barlow",sans-serif;font-size:12px;color:#D8E8F4';
+  d.innerHTML = `<span style="display:inline-block;width:14px;height:14px;border-radius:2px;background:${l.color};flex-shrink:0"></span>
+    <span><b>${l.name}</b> <span style="color:#7A94A8;font-size:11px">${l.gpu} · ${l.cpu}</span></span>`;
+  legendEl.appendChild(d);
+});
+
+let currentRes = '1080p';
+
+function buildChartData(res) {
+  // Y-axis labels: "Game Name\nSettings"
+  const labels = games.map(g => [g.name, g[`settings${res}`]]);
+  const datasets = laptops.map((l, i) => ({
+    label: `${l.name} — ${l.gpu}`,
+    data: games.map(g => g.fps[res][i]),
+    backgroundColor: l.color + 'CC',
+    borderColor: l.color,
+    borderWidth: 1,
+    borderRadius: 3,
+  }));
+  return { labels, datasets };
+}
+
+// Chart height: 8 games × 6 laptops × ~18px/bar + padding
+const canvas = document.getElementById('gpuChart');
+
+const ctx = document.getElementById('gpuChart').getContext('2d');
+let gpuChart = new Chart(ctx, {
+  type: 'bar',
+  data: buildChartData('1080p'),
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          title: (items) => {
+            const g = games[items[0].dataIndex];
+            return `${g.name} · ${g[`settings${currentRes}`]}`;
+          },
+          label: (item) => {
+            const l = laptops[item.datasetIndex];
+            return ` ${l.name} (${l.gpu}): ${item.raw} fps`;
+          }
+        },
+        titleFont: { family: 'Barlow', size: 13 },
+        bodyFont:  { family: 'JetBrains Mono', size: 11 },
+        backgroundColor: '#0F1419',
+        borderColor: '#1E2A36',
+        borderWidth: 1,
+        titleColor: '#00D4FF',
+        bodyColor: '#D8E8F4',
+        padding: 10,
+      }
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        grid: { color: 'rgba(30,42,54,.5)' },
+        ticks: { color: '#7A94A8', font: { family: 'JetBrains Mono', size: 10 } },
+        title: { display: true, text: 'Frames Per Second (FPS) — Higher is better', color: '#7A94A8', font: { family: 'Barlow', size: 11 } }
+      },
+      y: {
+        grid: { display: false },
+        ticks: {
+          color: '#D8E8F4',
+          font: { family: 'Barlow', size: 12, weight: '600' },
+          autoSkip: false,
+        }
+      }
+    }
+  }
+});
+
+function switchRes(res, btn) {
+  document.querySelectorAll('.gpu-tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
-  gpuChart.data.datasets[0].data=gpuData[res].data;
-  gpuChart.data.datasets[0].backgroundColor=gpuData[res].colors;
+  currentRes = res;
+  const d = buildChartData(res);
+  gpuChart.data.labels = d.labels;
+  gpuChart.data.datasets = d.datasets;
   gpuChart.update();
-  document.getElementById('chart-title').textContent=gpuData[res].label.toUpperCase();
+  const resLabels = { '1080p': '1080p', '1440p': '1440p', '4K': '4K' };
+  document.getElementById('chart-title').textContent = `${resLabels[res]} — SETTINGS SHOWN PER GAME`;
 }
 
 // ── BUDGET FINDER ──
