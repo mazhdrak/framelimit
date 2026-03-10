@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://framelimit.com/sitemap.xml
+
+# Block admin/private paths if added later
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.env
