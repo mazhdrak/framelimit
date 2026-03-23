@@ -1,0 +1,15 @@
+name: Patch reviews.html
+on: workflow_dispatch
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: python3 patch_reviews_apply.py reviews.html
+      - run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git add reviews.html
+          git commit -m "auto-patch: wire laptops.js into reviews.html" || echo "nothing to commit"
+          git push
