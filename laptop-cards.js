@@ -171,7 +171,7 @@ function flRenderTable(laptops) {
     const sc = flScoreColor(l.score);
     const gc = flGpuColor(l.gpu);
     const highlight = i === 0 ? 'fl-table-top' : '';
-    const hidden = i >= 4 ? ' class="fl-table-hidden"' : '';
+    const hidden = i >= 4 ? ' class="fl-table-hidden" style="display:none"' : '';
     const reviewUrl = flReviewLink(l.id);
     const reviewLink = reviewUrl
       ? `<a href="${reviewUrl}" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);text-decoration:none;display:block;margin-top:2px" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--muted)'">Review →</a>`
@@ -227,15 +227,11 @@ function flToggleTable(tid) {
   const btn   = document.getElementById(tid + '-btn');
   if (!table || !btn) return;
   const hidden = table.querySelectorAll('.fl-table-hidden');
-  const isCollapsed = hidden[0] && hidden[0].style.display === 'none' || getComputedStyle(hidden[0]).display === 'none';
-  // Actually check via class presence vs inline style
-  const firstHidden = table.querySelector('.fl-table-hidden');
-  if (!firstHidden) return;
-  const collapsed = firstHidden.style.display !== 'table-row';
-  hidden.forEach(row => row.style.display = collapsed ? 'table-row' : 'none');
-  btn.textContent = collapsed
-    ? 'Show fewer ▲'
-    : `Show all ${table.querySelectorAll('tbody tr').length} laptops ▼`;
+  if (!hidden.length) return;
+  const isCollapsed = hidden[0].style.display === 'none' || hidden[0].style.display === '';
+  hidden.forEach(row => { row.style.display = isCollapsed ? 'table-row' : 'none'; });
+  const total = table.querySelectorAll('tbody tr').length;
+  btn.textContent = isCollapsed ? 'Show fewer ▲' : `Show all ${total} laptops ▼`;
 }
 
 /* ══════════════════════════════════════════════════════
@@ -308,21 +304,21 @@ function flInjectStyles() {
   style.id = 'fl-styles';
   style.textContent = `
 /* ── FL CARD IMAGE ── */
-.fl-img-wrap{position:relative;height:200px;overflow:hidden;margin:-24px -24px 20px -24px}
-.fl-img-wrap img{width:100%;height:100%;object-fit:contain;object-position:center;padding:16px;transition:transform .5s ease}
+.fl-img-wrap{position:relative;height:220px;overflow:hidden;margin:-24px -24px 20px -24px;background:#0d1117}
+.fl-img-wrap img{width:100%;height:100%;object-fit:contain;object-position:center;padding:20px;transition:transform .5s ease;display:block}
 .fl-card:hover .fl-img-wrap img{transform:scale(1.04)}
-.fl-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,var(--panel) 100%);pointer-events:none}
-.fl-img-badge{position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:1.5px;padding:4px 10px;text-transform:uppercase}
-.fl-img-placeholder{height:120px;display:flex;align-items:center;justify-content:center;margin:-24px -24px 20px -24px;border-bottom:1px solid var(--border)}
+.fl-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,#111820 100%);pointer-events:none}
+.fl-img-badge{position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:1.5px;padding:4px 10px;text-transform:uppercase;z-index:2}
+.fl-img-placeholder{height:120px;display:flex;align-items:center;justify-content:center;margin:-24px -24px 20px -24px;border-bottom:1px solid #1E2A36;background:#0d1117}
 
 /* ── HERO PICK IMAGE ── */
-.hp-img{height:80px;overflow:hidden;margin:-16px -18px 12px -18px;background:var(--deep)}
-.hp-img img{width:100%;height:100%;object-fit:contain;object-position:center;padding:8px;transition:transform .4s}
+.hp-img{height:90px;overflow:hidden;margin:-16px -18px 12px -18px;background:#0d1117;border-bottom:1px solid #1E2A36}
+.hp-img img{width:100%;height:100%;object-fit:contain;object-position:center;padding:10px;display:block;transition:transform .4s}
 .hp-card:hover .hp-img img{transform:scale(1.05)}
 
 /* ── DEAL CARD IMAGE ── */
-.deal-img{height:130px;overflow:hidden;margin:-20px -20px 16px -20px;border-bottom:1px solid var(--border)}
-.deal-img img{width:100%;height:100%;object-fit:contain;object-position:center;padding:12px;transition:transform .4s}
+.deal-img{height:140px;overflow:hidden;margin:-20px -20px 16px -20px;border-bottom:1px solid #1E2A36;background:#0d1117}
+.deal-img img{width:100%;height:100%;object-fit:contain;object-position:center;padding:14px;display:block;transition:transform .4s}
 .deal-card:hover .deal-img img{transform:scale(1.04)}
 
 /* ── FL CARD ── */
@@ -366,7 +362,7 @@ function flInjectStyles() {
 .fl-table tr:hover td{background:rgba(0,212,255,.02)}
 .fl-table-top td{background:rgba(0,212,255,.03)}
 .fl-table-top td:first-child{border-left:2px solid var(--cyan,#00D4FF)}
-.fl-table-hidden{display:none}
+.fl-table-hidden{display:none!important}
 .fl-td-brand{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted,#7A94A8);letter-spacing:1px;display:block;margin-bottom:2px}
 .fl-td-model{font-family:'Bebas Neue',sans-serif;font-size:17px;color:var(--white,#F2F8FF);display:block;line-height:1.2}
 .fl-table-buy{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan,#00D4FF);font-weight:700;text-decoration:none;white-space:nowrap}
@@ -413,8 +409,6 @@ function flInit() {
     const val = el.dataset.flTable;
     const list = val === 'all' ? sortByScore(LAPTOPS) : sortByScore(LAPTOPS_BY_TIER[val] || []);
     el.innerHTML = flRenderTable(list);
-    // Hide rows beyond first 4 on initial load
-    el.querySelectorAll('.fl-table-hidden').forEach(r => r.style.display = 'none');
   });
 
   document.querySelectorAll('[data-fl-picks]').forEach(el => {

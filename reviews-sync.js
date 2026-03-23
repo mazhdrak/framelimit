@@ -119,20 +119,39 @@
       /* keep existing label text but update the link */
     });
 
-    /* ── 8. Update the rc-price-live badge (top-right price button) ── */
+    /* ── 8. Update the rc-price-live badge — no fake price, just CTA ── */
     const priceLive = article.querySelector('.rc-price-live, .rc-price');
     if (priceLive) {
       priceLive.href = l.amazonUrl;
-      priceLive.textContent = `~$${l.price.toLocaleString()} · Amazon ↓`;
+      priceLive.textContent = 'Check Price on Amazon ↓';
     }
 
-    /* ── 9. Inject a "Starting from" note below the CTA row if not already there ── */
+    /* ── 9. Add review link if not already present ── */
     const ctaRow = article.querySelector('.cta-row');
-    if (ctaRow && !ctaRow.querySelector('.fl-price-from')) {
+    if (ctaRow && !ctaRow.querySelector('.fl-review-injected')) {
+      const reviewUrl = (function() {
+        const map = {
+          'asus-rog-scar-18-2026':'scar18','asus-rog-scar-16-2026':'scar16',
+          'asus-rog-zephyrus-g16-high':'g16','asus-rog-zephyrus-g14-2026':'g14',
+          'asus-tuf-a16-entry':'tufa16','asus-tuf-a15-rtx5060':'tufa15',
+          'asus-tuf-gaming-f16-rtx5070':'tuff16','lenovo-legion-pro-7i-gen10':'pro7i',
+          'lenovo-legion-5i-gen10':'legion5i','lenovo-legion-5-gen10-amd':'legion5amd',
+          'lenovo-loq-15-gen10':'loq15','lenovo-loq-16-gen10':'loq16',
+          'msi-titan-18-hx-ai':'titan18','msi-raider-18-hx-ai':'raider18',
+          'msi-vector-16-hx-ai':'vector16','msi-katana-15-hx':'katana15',
+          'razer-blade-18-2026':'blade18','razer-blade-16-oled-2026':'blade16',
+          'alienware-18-area-51':'area51-18','dell-alienware-16x-aurora':'aurora16x',
+          'hp-omen-max-16-2026':'omenmax5080','hp-omen-16-rtx5070-2026':'omen16',
+          'acer-predator-helios-neo-16-2025':'heliosneo16',
+          'acer-nitro-16-2025':'nitro16','acer-nitro-v-16':'nitrov16',
+        };
+        return map[lid] ? `reviews.html#${map[lid]}` : null;
+      })();
+      // Add affiliate note (no price)
       const note = document.createElement('div');
-      note.className = 'fl-price-from';
-      note.style.cssText = 'font-family:"JetBrains Mono",monospace;font-size:9px;color:var(--muted);margin-top:10px';
-      note.textContent = `Starting ~$${l.price.toLocaleString()} · Prices updated daily · tag: framelimit20-20`;
+      note.className = 'fl-review-injected';
+      note.style.cssText = 'font-family:"JetBrains Mono",monospace;font-size:9px;color:#7A94A8;margin-top:10px';
+      note.textContent = '⚠ Affiliate link · framelimit20-20 · Price shown on Amazon';
       ctaRow.appendChild(note);
     }
   }
