@@ -1,0 +1,12 @@
+# Cloudflare Pages redirect rules
+# Fixes "Page with redirect" and canonical issues in Google Search Console
+
+# Redirect www to non-www (canonical)
+https://www.framelimit.com/* https://framelimit.com/:splat 301
+
+# Redirect any old /guides/ path variants to root
+/guides/* /:splat 301
+
+# Redirect trailing slash to clean URL
+/index.html / 301
+/reviews.html/  /reviews.html 301

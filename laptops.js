@@ -47,6 +47,8 @@ const LAPTOPS = [
     avoidIf: 'You need to carry it anywhere',
     amazonUrl: 'https://www.amazon.com/s?k=MSI+Titan+18+HX+AI+RTX+5090&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://asset.msi.com/resize/image/global/product/product_1706087693c9ccb04a93e20059becc2ef1a0c5a.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png',
+    imgBg: '#0a0a0a',
     tags: ['desktop-replacement', 'nvidia', '4k', 'flagship'],
   },
 
@@ -81,6 +83,8 @@ const LAPTOPS = [
     avoidIf: 'You want OLED or portability',
     amazonUrl: 'https://www.amazon.com/s?k=MSI+Raider+18+HX+AI+RTX+5080&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://asset.msi.com/resize/image/global/product/product_1685471437a6f9b2b5e5b5b5b5b5b5b5.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png',
+    imgBg: '#0a0a0a',
     tags: ['desktop-replacement', 'nvidia', 'high-refresh', 'flagship'],
   },
 
@@ -115,6 +119,8 @@ const LAPTOPS = [
     avoidIf: 'Battery life or portability matter',
     amazonUrl: 'https://www.amazon.com/s?k=ASUS+ROG+Strix+SCAR+18+2026+RTX+5090&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://dlcdnwebimgs.asus.com/files/media/C1F15F0F-5EA6-41C5-99C6-8CC7E0D9E9B7/v1/img/kv.png',
+    imgBg: '#0d0d14',
     tags: ['desktop-replacement', 'nvidia', 'amd-cpu', 'cooling-king', 'flagship'],
   },
 
@@ -149,6 +155,8 @@ const LAPTOPS = [
     avoidIf: 'You need OLED or prefer Intel',
     amazonUrl: 'https://www.amazon.com/s?k=ASUS+ROG+Strix+SCAR+16+2026+RTX+5080&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://dlcdnwebimgs.asus.com/files/media/0B3B0657-E7D2-4E86-9C95-E3E2A4CF3D7F/v1/img/kv.png',
+    imgBg: '#0d0d14',
     tags: ['16-inch', 'nvidia', 'amd-cpu', 'cooling-king', 'flagship'],
   },
 
@@ -183,6 +191,8 @@ const LAPTOPS = [
     avoidIf: 'You want OLED display or AMD CPU',
     amazonUrl: 'https://www.amazon.com/s?k=Lenovo+Legion+Pro+7i+Gen+10+RTX+5080&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://p4-ofp.static.pub/fes/cms/2024/10/15/m4cuzn3a0k3w53tnxbfas7hxj8pjvq180481.png',
+    imgBg: '#070d12',
     tags: ['16-inch', 'nvidia', 'intel-cpu', 'flagship', 'best-value-flagship'],
   },
 
@@ -217,6 +227,8 @@ const LAPTOPS = [
     avoidIf: 'Budget exists, weight/portability matter at all',
     amazonUrl: 'https://www.amazon.com/s?k=Alienware+18+Area-51+RTX+5090&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell/alienware/alienware-m-series/alienware-area-51-laptop/pdp/alienware-area-51-laptop-pdp-gallery-504x350.jpg',
+    imgBg: '#07070f',
     tags: ['desktop-replacement', 'nvidia', 'flagship', '480hz'],
   },
 
@@ -251,6 +263,8 @@ const LAPTOPS = [
     avoidIf: 'You want maximum TGP or user-upgradeable RAM',
     amazonUrl: 'https://www.amazon.com/s?k=Razer+Blade+16+2026+RTX+5080+OLED&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://assets3.razerzone.com/sVRn4X6wJX6u0PnFJWvE3rF-GDk=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fhe2%2Fhf7%2F9695017787422%2Frazer-blade-16-500x500.png',
+    imgBg: '#060606',
     tags: ['16-inch', 'nvidia', 'oled', 'thin', 'flagship', 'premium-build'],
   },
 
@@ -285,6 +299,8 @@ const LAPTOPS = [
     avoidIf: 'Better value exists at same price elsewhere',
     amazonUrl: 'https://www.amazon.com/s?k=Razer+Blade+18+2026+RTX+5090&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://assets3.razerzone.com/xD-r6CWcm0s25rA9hxkPlnfL0Yk=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh1e%2Fhd8%2F9695116697%2Frazer-blade-18-500x500.png',
+    imgBg: '#060606',
     tags: ['desktop-replacement', 'nvidia', 'flagship', 'premium-build'],
   },
 
@@ -319,6 +335,8 @@ const LAPTOPS = [
     avoidIf: 'Brand prestige or OLED matters to you',
     amazonUrl: 'https://www.amazon.com/s?k=HP+Omen+Max+16+RTX+5080+2026&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lookups/c08553671.png',
+    imgBg: '#0a0a0a',
     tags: ['16-inch', 'nvidia', 'flagship', 'best-value-flagship'],
   },
 
@@ -353,6 +371,8 @@ const LAPTOPS = [
     avoidIf: 'You need full 175W TGP or upgradeable RAM',
     amazonUrl: 'https://www.amazon.com/dp/B0FLM687GK?tag=framelimit20-20',
     amazonAsin: 'B0FLM687GK',
+    imgUrl: 'https://dlcdnwebimgs.asus.com/files/media/7CFCED06-2B83-4782-B3AB-BDD44D8BF499/v1/img/kv.png',
+    imgBg: '#080d12',
     tags: ['16-inch', 'nvidia', 'oled', 'thin', 'flagship'],
   },
 
@@ -390,6 +410,8 @@ const LAPTOPS = [
     avoidIf: 'You want OLED or thin chassis',
     amazonUrl: 'https://www.amazon.com/s?k=Lenovo+Legion+5i+Gen+10+RTX+5070+Ti&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://p4-ofp.static.pub/fes/cms/2024/10/15/m4cuzn3a0k3w53tnxbfas7hxj8pjvq180481.png',
+    imgBg: '#070d12',
     tags: ['16-inch', 'nvidia', 'intel-cpu', 'best-value', 'mid-range'],
   },
 
@@ -424,6 +446,8 @@ const LAPTOPS = [
     avoidIf: 'You want 1440p display or higher TGP',
     amazonUrl: 'https://www.amazon.com/s?k=Lenovo+Legion+5+Gen+10+AMD+RTX+5070&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://p4-ofp.static.pub/fes/cms/2024/10/15/m4cuzn3a0k3w53tnxbfas7hxj8pjvq180481.png',
+    imgBg: '#070d12',
     tags: ['16-inch', 'nvidia', 'amd-cpu', 'best-value', 'mid-range'],
   },
 
@@ -458,6 +482,8 @@ const LAPTOPS = [
     avoidIf: 'You need max FPS or upgradeable RAM',
     amazonUrl: 'https://www.amazon.com/s?k=ASUS+ROG+Zephyrus+G14+2026+RTX+5070&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://dlcdnwebimgs.asus.com/files/media/5D7D94D7-3E18-4B1D-9E8A-5F8E4B4B4B4B/v1/img/kv.png',
+    imgBg: '#0d0d14',
     tags: ['14-inch', 'nvidia', 'amd-cpu', 'oled', 'thin', 'mid-range'],
   },
 
@@ -492,6 +518,8 @@ const LAPTOPS = [
     avoidIf: 'Max TGP or upgradeable RAM is required',
     amazonUrl: 'https://www.amazon.com/s?k=ASUS+ROG+Zephyrus+G16+RTX+5070+Ti&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://dlcdnwebimgs.asus.com/files/media/7CFCED06-2B83-4782-B3AB-BDD44D8BF499/v1/img/kv.png',
+    imgBg: '#080d12',
     tags: ['16-inch', 'nvidia', 'oled', 'thin', 'mid-range'],
   },
 
@@ -526,6 +554,8 @@ const LAPTOPS = [
     avoidIf: 'Build quality or display premium matters',
     amazonUrl: 'https://www.amazon.com/s?k=Acer+Predator+Helios+Neo+16+RTX+5070&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://static.acer.com/up/Resource/Acer/Laptops/Predator_Helios_Neo_16/Images/20230323/acer-predator-helios-neo-16-keyvisual-1920x1080.png',
+    imgBg: '#05100a',
     tags: ['16-inch', 'nvidia', 'intel-cpu', 'mid-range', 'best-value'],
   },
 
@@ -560,6 +590,8 @@ const LAPTOPS = [
     avoidIf: '1440p or high-nit display is important to you',
     amazonUrl: 'https://www.amazon.com/s?k=HP+Omen+16+RTX+5070+2026&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lookups/c08553671.png',
+    imgBg: '#0a0a0a',
     tags: ['16-inch', 'nvidia', 'intel-cpu', 'mid-range'],
   },
 
@@ -594,6 +626,8 @@ const LAPTOPS = [
     avoidIf: 'You need maximum GPU TGP',
     amazonUrl: 'https://www.amazon.com/s?k=ASUS+TUF+Gaming+F16+RTX+5070+2026&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://dlcdnwebimgs.asus.com/files/media/9ED97DEC-5C01-4A0E-A498-BD58B1A03948/v1/img/kv.png',
+    imgBg: '#0a0d0a',
     tags: ['16-inch', 'nvidia', 'intel-cpu', 'mid-range', 'best-value'],
   },
 
@@ -628,6 +662,8 @@ const LAPTOPS = [
     avoidIf: 'You want Nvidia DLSS 4 or max rasterization perf',
     amazonUrl: 'https://www.amazon.com/s?k=ASUS+TUF+Gaming+A16+AMD+Advantage+2026&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://dlcdnwebimgs.asus.com/files/media/9ED97DEC-5C01-4A0E-A498-BD58B1A03948/v1/img/kv.png',
+    imgBg: '#0a0d0a',
     tags: ['16-inch', 'amd-gpu', 'amd-cpu', 'mid-range'],
   },
 
@@ -662,6 +698,8 @@ const LAPTOPS = [
     avoidIf: 'OLED display or thin chassis is a priority',
     amazonUrl: 'https://www.amazon.com/s?k=MSI+Vector+16+HX+AI+RTX+5070+Ti&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://asset.msi.com/resize/image/global/product/product_1706087693c9ccb04a93e20059becc2ef1a0c5a.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png',
+    imgBg: '#0d0d0d',
     tags: ['16-inch', 'nvidia', 'intel-cpu', 'mid-range'],
   },
 
@@ -696,6 +734,8 @@ const LAPTOPS = [
     avoidIf: 'Better value exists from Legion/SCAR at same price',
     amazonUrl: 'https://www.amazon.com/s?k=Alienware+16X+Aurora+RTX+5070+Ti&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell/alienware/alienware-x-series/alienware-16x/pdp/alienware-16x-aurora-pdp-504x350.jpg',
+    imgBg: '#07070f',
     tags: ['16-inch', 'nvidia', 'amd-cpu', 'mid-range'],
   },
 
@@ -733,6 +773,8 @@ const LAPTOPS = [
     avoidIf: '1440p or OLED is something you care about',
     amazonUrl: 'https://www.amazon.com/s?k=Lenovo+LOQ+15+Gen+10+RTX+5060&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://p4-ofp.static.pub/fes/cms/2024/03/07/9t8h76cvgr3mk7l3a8a61e9lkdrns1741855.png',
+    imgBg: '#070d12',
     tags: ['15-inch', 'nvidia', 'intel-cpu', 'budget', 'best-value'],
   },
 
@@ -767,6 +809,8 @@ const LAPTOPS = [
     avoidIf: 'Battery life is critical',
     amazonUrl: 'https://www.amazon.com/s?k=Lenovo+LOQ+16+Gen+10+RTX+5060&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://p4-ofp.static.pub/fes/cms/2024/03/07/9t8h76cvgr3mk7l3a8a61e9lkdrns1741855.png',
+    imgBg: '#070d12',
     tags: ['16-inch', 'nvidia', 'intel-cpu', 'budget'],
   },
 
@@ -801,6 +845,8 @@ const LAPTOPS = [
     avoidIf: 'You want a premium chassis feel',
     amazonUrl: 'https://www.amazon.com/s?k=Acer+Nitro+16+2025+RTX+5060&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://static.acer.com/up/Resource/Acer/Laptops/Nitro_16/Images/20230427/acer-nitro-16-keyvisual-1920x1080.png',
+    imgBg: '#05100a',
     tags: ['16-inch', 'nvidia', 'amd-cpu', 'budget', '1440p'],
   },
 
@@ -835,6 +881,8 @@ const LAPTOPS = [
     avoidIf: 'You play demanding AAA titles at high settings',
     amazonUrl: 'https://www.amazon.com/s?k=Acer+Nitro+V+16+2025+RTX+5050&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://static.acer.com/up/Resource/Acer/Laptops/Nitro_V_16/Images/20230427/acer-nitro-v-16-keyvisual-1920x1080.png',
+    imgBg: '#05100a',
     tags: ['16-inch', 'nvidia', 'amd-cpu', 'budget'],
   },
 
@@ -869,6 +917,8 @@ const LAPTOPS = [
     avoidIf: '1440p display matters, or you want more TGP',
     amazonUrl: 'https://www.amazon.com/s?k=HP+Victus+16+RTX+5060+2025&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lookups/c08302286.png',
+    imgBg: '#0a0a0a',
     tags: ['16-inch', 'nvidia', 'amd-cpu', 'budget'],
   },
 
@@ -903,6 +953,8 @@ const LAPTOPS = [
     avoidIf: '1440p or above 1080p display matters',
     amazonUrl: 'https://www.amazon.com/s?k=ASUS+TUF+Gaming+A15+RTX+5060+2026&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://dlcdnwebimgs.asus.com/files/media/9ED97DEC-5C01-4A0E-A498-BD58B1A03948/v1/img/kv.png',
+    imgBg: '#0a0d0a',
     tags: ['15-inch', 'nvidia', 'amd-cpu', 'budget', 'battery-life'],
   },
 
@@ -937,6 +989,8 @@ const LAPTOPS = [
     avoidIf: 'You want RTX 5070+ performance',
     amazonUrl: 'https://www.amazon.com/s?k=ASUS+TUF+Gaming+A16+RTX+5060+2026&tag=framelimit20-20',
     amazonAsin: 'B0G3QSC6H4',
+    imgUrl: 'https://dlcdnwebimgs.asus.com/files/media/9ED97DEC-5C01-4A0E-A498-BD58B1A03948/v1/img/kv.png',
+    imgBg: '#0a0d0a',
     tags: ['16-inch', 'nvidia', 'amd-cpu', 'budget'],
   },
 
@@ -971,6 +1025,8 @@ const LAPTOPS = [
     avoidIf: 'Battery life or display quality matters',
     amazonUrl: 'https://www.amazon.com/s?k=MSI+Katana+15+HX+RTX+5060&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: 'https://asset.msi.com/resize/image/global/product/product_1706087693c9ccb04a93e20059becc2ef1a0c5a.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png',
+    imgBg: '#0a0a0a',
     tags: ['15-inch', 'nvidia', 'intel-cpu', 'budget'],
   },
 
@@ -1005,6 +1061,8 @@ const LAPTOPS = [
     avoidIf: 'Battery life is non-negotiable',
     amazonUrl: 'https://www.amazon.com/s?k=Gigabyte+G6+RTX+5060+2026&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: null,
+    imgBg: '#0d1117',
     tags: ['16-inch', 'nvidia', 'intel-cpu', 'budget'],
   },
 
@@ -1039,6 +1097,8 @@ const LAPTOPS = [
     avoidIf: 'Battery or portability is important',
     amazonUrl: 'https://www.amazon.com/s?k=Dell+G15+RTX+5060+2026&tag=framelimit20-20',
     amazonAsin: null,
+    imgUrl: null,
+    imgBg: '#0d1117',
     tags: ['15-inch', 'nvidia', 'intel-cpu', 'budget'],
   },
 
