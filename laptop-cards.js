@@ -100,12 +100,12 @@ function flRenderCard(laptop) {
 
   const imgHtml = laptop.imgUrl
     ? `<div class="fl-img-wrap" style="background:${laptop.imgBg || '#0d1117'}">
-        <img src="${laptop.imgUrl}" alt="${laptop.name}" onerror="this.parentElement.style.display='none'" loading="lazy">
+        <img src="${laptop.imgUrl}" alt="${laptop.name}" referrerpolicy="no-referrer" crossorigin="anonymous" onerror="this.style.display='none'" loading="lazy">
         <div class="fl-img-overlay"></div>
         <span class="fl-img-badge" style="background:${tier.color};color:var(--black)">${tier.label}</span>
       </div>`
     : `<div class="fl-img-placeholder" style="background:${laptop.imgBg || '#0d1117'}">
-        <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--muted);letter-spacing:2px">${laptop.brand}</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:#3a4a5a;letter-spacing:2px">${laptop.brand}</span>
       </div>`;
 
   return `
@@ -245,8 +245,8 @@ function flRenderHeroPicks(ids) {
     const href = reviewUrl || l.amazonUrl;
     const rel  = reviewUrl ? '' : 'rel="nofollow sponsored" target="_blank"';
     const imgEl = l.imgUrl
-      ? `<div class="hp-img" style="background:${l.imgBg||'#0d1117'}"><img src="${l.imgUrl}" alt="${l.shortName}" onerror="this.parentElement.style.display='none'" loading="lazy"></div>`
-      : '';
+      ? `<div class="hp-img" style="background:${l.imgBg||'#0d1117'};border-bottom:1px solid #1E2A36"><img src="${l.imgUrl}" alt="${l.shortName}" referrerpolicy="no-referrer" crossorigin="anonymous" onerror="this.style.display='none'" loading="lazy" style="width:100%;height:100%;object-fit:contain;padding:10px;display:block"></div>`
+      : `<div class="hp-img" style="background:#0d1117;border-bottom:1px solid #1E2A36;display:flex;align-items:center;justify-content:center"><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#3a4a5a;letter-spacing:2px">${l.brand.toUpperCase()}</span></div>`;
     return `
 <a href="${href}" class="hp-card" ${rel} style="text-decoration:none">
   ${imgEl}
@@ -276,8 +276,8 @@ function flRenderDeals(ids) {
       ? `<a href="${reviewUrl}" class="deal-review-btn">Read Review →</a>`
       : '';
     const imgEl = l.imgUrl
-      ? `<div class="deal-img" style="background:${l.imgBg||'#0d1117'}"><img src="${l.imgUrl}" alt="${l.name}" onerror="this.parentElement.style.display='none'" loading="lazy"></div>`
-      : '';
+      ? `<div class="deal-img" style="background:${l.imgBg||'#0d1117'}"><img src="${l.imgUrl}" alt="${l.name}" referrerpolicy="no-referrer" crossorigin="anonymous" onerror="this.style.display='none'" loading="lazy" style="width:100%;height:100%;object-fit:contain;padding:14px;display:block"></div>`
+      : `<div class="deal-img" style="background:#0d1117;display:flex;align-items:center;justify-content:center"><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#3a4a5a;letter-spacing:2px">${l.brand.toUpperCase()}</span></div>`;
     return `
 <div class="deal-card">
   <span class="deal-badge ${badgeClass}">${badgeText}</span>

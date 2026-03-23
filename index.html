@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<div class="aff-ribbon">⚠ This site contains affiliate links. We earn commissions on purchases at no extra cost to you. <a href="#footer-disclosure" style="color:var(--yellow)">Disclosure</a> — Never influences our scores or recommendations.</div>
+<div class="aff-ribbon">⚠ This site contains affiliate links. We earn commissions on purchases at no extra cost to you. <a href="affiliate-disclosure.html" style="color:var(--yellow)">Disclosure</a> — Never influences our scores or recommendations.</div>
 
 <!-- NAV -->
 <nav>
@@ -26,8 +26,9 @@
     <li><a href="guide-gaming-laptop-buying-guide-2026.html">Buying Guide</a></li>
     <li><a href="reviews.html">Reviews</a></li>
     <li><a href="index.html#blog">Guides</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="index.html#deals-section" class="nav-cta">🔥 Deals</a>
 </nav>
 
 <!-- MOBILE DRAWER -->
@@ -38,7 +39,9 @@
       <li><a href="index.html" onclick="toggleMobileNav()">🏠 Home</a></li>
       <li><a href="reviews.html" onclick="toggleMobileNav()">⭐ Full Reviews</a></li>
       <li><a href="#best-picks" onclick="toggleMobileNav()">🏆 Best Picks 2026</a></li>
-      <li><a href="#deals-section" onclick="toggleMobileNav()">🔥 Today's Deals</a></li>
+      <li><a href="about.html" onclick="toggleMobileNav()">👤 About</a></li>
+      <li><a href="contact.html" onclick="toggleMobileNav()">✉️ Contact</a></li>
+      <li><a href="affiliate-disclosure.html" onclick="toggleMobileNav()">⚠️ Affiliate Disclosure</a></li>
     </ul>
   </div>
   <div class="md-section">
@@ -64,7 +67,7 @@
       <li><a href="#price-alert" onclick="toggleMobileNav()">🔔 Price Alerts</a></li>
     </ul>
   </div>
-  <a href="#deals-section" class="md-cta" onclick="toggleMobileNav()">🔥 View All Deals</a>
+  <a href="guide-best-gaming-laptops-2026.html" class="md-cta" onclick="toggleMobileNav()">🏆 See Best Laptops</a>
 </div>
 <div class="drawer-overlay" id="drawer-overlay" onclick="toggleMobileNav()"></div>
 
@@ -163,7 +166,7 @@
       <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);margin-bottom:6px">3DMark · Cinebench R24 · Thermals</h3>
       <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Time Spy = overall GPU. Port Royal = ray tracing. CineBench R24 = CPU. Temps + noise at sustained full load.</p>
       <div style="overflow-x:auto">
-        <table style="width:100%;border-collapse:collapse">
+        <table id="synth-table" style="width:100%;border-collapse:collapse">
           <thead>
             <tr>
               <th style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:left;white-space:nowrap">Laptop / GPU</th>
@@ -178,6 +181,7 @@
           <tbody id="synth-tbody"></tbody>
         </table>
       </div>
+      <button class="fl-expand-btn" id="synth-expand-btn" onclick="toggleInlineTable('synth-table','synth-expand-btn','laptops')">Show all laptops ▼</button>
     </div>
 
     <!-- ── 1% LOWS / STUTTER ── -->
@@ -186,7 +190,7 @@
       <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);margin-bottom:6px">Avg FPS vs 1% Lows — 1440p Ultra</h3>
       <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Format: <span style="color:var(--white)">Avg</span> / <span style="color:var(--green)">1% Low</span>. Closer together = smoother experience. 1% lows below 65% of avg = noticeable stutter.</p>
       <div style="overflow-x:auto">
-        <table style="width:100%;border-collapse:collapse">
+        <table id="lows-table" style="width:100%;border-collapse:collapse">
           <thead>
             <tr>
               <th style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:left">Laptop</th>
@@ -199,6 +203,7 @@
           <tbody id="lows-tbody"></tbody>
         </table>
       </div>
+      <button class="fl-expand-btn" id="lows-expand-btn" onclick="toggleInlineTable('lows-table','lows-expand-btn','laptops')">Show all laptops ▼</button>
       <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:8px">1440p · DLSS 4.5 Quality · Sustained 30-min load · Jan–Mar 2026</div>
     </div>
 
@@ -684,14 +689,15 @@ function renderSynthTable() {
   const maxPr = Math.max(...synthData.map(d => d.portRoyal));
   const tbody = document.getElementById('synth-tbody');
   if (!tbody) return;
-  tbody.innerHTML = synthData.map(d => {
+  tbody.innerHTML = synthData.map((d, i) => {
     const tsColor   = d.timeSpy   >= maxTs * .95 ? 'var(--green)' : d.timeSpy   >= maxTs * .75 ? 'var(--yellow)' : 'var(--text)';
     const prColor   = d.portRoyal >= maxPr * .95 ? 'var(--green)' : d.portRoyal >= maxPr * .75 ? 'var(--yellow)' : 'var(--text)';
     const tempC     = parseInt(d.gpuTemp);
     const tempColor = tempC >= 92 ? 'var(--orange)' : tempC >= 85 ? 'var(--yellow)' : 'var(--green)';
     const dbC       = parseInt(d.fanDb);
     const dbColor   = dbC  >= 50 ? 'var(--orange)' : dbC  >= 46  ? 'var(--yellow)' : 'var(--green)';
-    return `<tr style="border-bottom:1px solid rgba(30,42,54,.5)">
+    const hidden    = i >= 4 ? ' class="synth-hidden" style="display:none"' : '';
+    return `<tr${hidden} style="${i>=4?'display:none;':''}border-bottom:1px solid rgba(30,42,54,.5)">
       <td style="padding:10px 14px;font-family:'Barlow',sans-serif;font-size:13px;font-weight:600;color:var(--white)">${d.name}<br><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);font-weight:400">${d.gpu}</span></td>
       <td style="padding:10px 14px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px;color:${tsColor}">${d.timeSpy.toLocaleString()}</td>
       <td style="padding:10px 14px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px;color:${prColor}">${d.portRoyal.toLocaleString()}</td>
@@ -701,6 +707,8 @@ function renderSynthTable() {
       <td style="padding:10px 14px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px;color:${dbColor}">${d.fanDb}</td>
     </tr>`;
   }).join('');
+  const btn = document.getElementById('synth-expand-btn');
+  if (btn) btn.textContent = `Show all ${synthData.length} laptops ▼`;
 }
 
 /* ── 1% LOWS TABLE ── */
@@ -718,13 +726,14 @@ const lowsData = [
 function renderLowsTable() {
   const tbody = document.getElementById('lows-tbody');
   if (!tbody) return;
-  tbody.innerHTML = lowsData.map(d => {
+  tbody.innerHTML = lowsData.map((d, i) => {
     const fmt = (avg, low) => {
       const pct = Math.round(low / avg * 100);
       const c   = pct >= 80 ? 'var(--green)' : pct >= 65 ? 'var(--yellow)' : 'var(--orange)';
       return `<span style="color:var(--white)">${avg}</span>&thinsp;/&thinsp;<span style="color:${c}">${low}</span>`;
     };
-    return `<tr style="border-bottom:1px solid rgba(30,42,54,.5)">
+    const hidden = i >= 4 ? ' style="display:none"' : '';
+    return `<tr${hidden} style="border-bottom:1px solid rgba(30,42,54,.5)${i>=4?';display:none':''}">
       <td style="padding:10px 14px;font-family:'Barlow',sans-serif;font-size:13px;font-weight:600;color:var(--white)">${d.name}</td>
       <td style="padding:10px 14px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px">${fmt(...d.cp)}</td>
       <td style="padding:10px 14px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px">${fmt(...d.bm)}</td>
@@ -732,6 +741,23 @@ function renderLowsTable() {
       <td style="padding:10px 14px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:${d.sColor}">${d.stutter}</td>
     </tr>`;
   }).join('');
+  const btn = document.getElementById('lows-expand-btn');
+  if (btn) btn.textContent = `Show all ${lowsData.length} laptops ▼`;
+}
+
+/* ── GENERIC INLINE TABLE TOGGLE ── */
+function toggleInlineTable(tableId, btnId, label) {
+  const tbody = document.querySelector('#' + tableId + ' tbody');
+  const btn   = document.getElementById(btnId);
+  if (!tbody || !btn) return;
+  const rows  = Array.from(tbody.querySelectorAll('tr'));
+  const hiddenRows = rows.slice(4);
+  if (!hiddenRows.length) return;
+  const isCollapsed = hiddenRows[0].style.display === 'none' || hiddenRows[0].style.display === '';
+  hiddenRows.forEach(r => { r.style.display = isCollapsed ? 'table-row' : 'none'; });
+  btn.textContent = isCollapsed
+    ? `Show fewer ▲`
+    : `Show all ${rows.length} ${label} ▼`;
 }
 
 /* ── INIT ── */
