@@ -1,0 +1,74 @@
+name: Patch reviews.html
+on: workflow_dispatch
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Apply data-laptop-id patches
+        run: |
+          python3 - <<'EOF'
+          import re
+
+          with open('reviews.html', 'r', encoding='utf-8') as f:
+              html = f.read()
+
+          MAPPING = {
+              'scar18': 'asus-rog-scar-18-2026',
+              'scar16': 'asus-rog-scar-16-2026',
+              'g16': 'asus-rog-zephyrus-g16-high',
+              'g14': 'asus-rog-zephyrus-g14-2026',
+              'tufa16': 'asus-tuf-a16-entry',
+              'tufa15': 'asus-tuf-a15-rtx5060',
+              'tuff16': 'asus-tuf-gaming-f16-rtx5070',
+              'pro7i': 'lenovo-legion-pro-7i-gen10',
+              'legion5i': 'lenovo-legion-5i-gen10',
+              'legion5amd': 'lenovo-legion-5-gen10-amd',
+              'loq15': 'lenovo-loq-15-gen10',
+              'loq16': 'lenovo-loq-16-gen10',
+              'titan18': 'msi-titan-18-hx-ai',
+              'raider18': 'msi-raider-18-hx-ai',
+              'vector16': 'msi-vector-16-hx-ai',
+              'katana15': 'msi-katana-15-hx',
+              'blade18': 'razer-blade-18-2026',
+              'blade16': 'razer-blade-16-oled-2026',
+              'blade14': 'asus-rog-zephyrus-g14-2026',
+              'area51-18': 'alienware-18-area-51',
+              'area51-16': 'dell-alienware-16x-aurora',
+              'aurora16x': 'dell-alienware-16x-aurora',
+              'omenmax5090': 'hp-omen-max-16-2026',
+              'omenmax5080': 'hp-omen-max-16-2026',
+              'omenmax': 'hp-omen-max-16-2026',
+              'omen16': 'hp-omen-16-rtx5070-2026',
+              'helios18': 'msi-raider-18-hx-ai',
+              'heliosneo16': 'acer-predator-helios-neo-16-2025',
+              'nitro16': 'acer-nitro-16-2025',
+              'nitrov16': 'acer-nitro-v-16',
+          }
+
+          for article_id, laptop_id in MAPPING.items():
+              html = re.sub(
+                  r'(<article[^>]*id="' + article_id + r'"[^>]*)(>)',
+                  r'\1 data-laptop-id="' + laptop_id + r'"\2',
+                  html
+              )
+
+          if 'reviews-sync.js' not in html:
+              html = html.replace('</body>', '<script src="laptops.js"></script>\n<script src="reviews-sync.js"></script>\n</body>')
+
+          patched = len(re.findall(r'data-laptop-id=', html))
+          print(f'Patched {patched} review cards')
+
+          with open('reviews.html', 'w', encoding='utf-8') as f:
+              f.write(html)
+          EOF
+
+      - name: Commit patched reviews.html
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git add reviews.html
+          git commit -m "auto-patch: wire laptops.js into reviews.html" || echo "nothing to commit"
+          git push
