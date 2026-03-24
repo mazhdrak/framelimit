@@ -228,7 +228,7 @@ function flToggleTable(tid) {
   if (!table || !btn) return;
   const hidden = table.querySelectorAll('.fl-table-hidden');
   if (!hidden.length) return;
-  const isCollapsed = hidden[0].style.display === 'none' || hidden[0].style.display === '';
+  const isCollapsed = hidden[0].style.display !== 'table-row';
   hidden.forEach(row => { row.style.display = isCollapsed ? 'table-row' : 'none'; });
   const total = table.querySelectorAll('tbody tr').length;
   btn.textContent = isCollapsed ? 'Show fewer ▲' : `Show all ${total} laptops ▼`;
@@ -362,7 +362,7 @@ function flInjectStyles() {
 .fl-table tr:hover td{background:rgba(0,212,255,.02)}
 .fl-table-top td{background:rgba(0,212,255,.03)}
 .fl-table-top td:first-child{border-left:2px solid var(--cyan,#00D4FF)}
-.fl-table-hidden{display:none!important}
+.fl-table-hidden{display:none}
 .fl-td-brand{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted,#7A94A8);letter-spacing:1px;display:block;margin-bottom:2px}
 .fl-td-model{font-family:'Bebas Neue',sans-serif;font-size:17px;color:var(--white,#F2F8FF);display:block;line-height:1.2}
 .fl-table-buy{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan,#00D4FF);font-weight:700;text-decoration:none;white-space:nowrap}
