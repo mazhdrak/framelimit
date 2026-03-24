@@ -113,7 +113,26 @@
         ${ramNote}`;
     }
 
-    /* ── 7. Replace ALL buy buttons / price links in this card ── */
+    /* ── 7. Inject local image from laptops.js ── */
+    if (l.imgUrl) {
+      const imgWrap = article.querySelector('.rc-img-wrap');
+      if (imgWrap) {
+        let img = imgWrap.querySelector('img');
+        if (!img) {
+          img = document.createElement('img');
+          img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;padding:20px;display:block';
+          imgWrap.style.position = 'relative';
+          imgWrap.insertBefore(img, imgWrap.firstChild);
+        }
+        img.src = l.imgUrl;
+        img.alt = l.name;
+        img.loading = 'lazy';
+        img.removeAttribute('onerror');
+        imgWrap.style.background = l.imgBg || '#0d1117';
+      }
+    }
+
+    /* ── 8. Replace ALL buy buttons / price links in this card ── */
     article.querySelectorAll('a[href*="amazon.com"]').forEach(a => {
       a.href = l.amazonUrl;
       /* keep existing label text but update the link */

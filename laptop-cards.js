@@ -312,7 +312,7 @@ function flInjectStyles() {
 .fl-img-placeholder{height:120px;display:flex;align-items:center;justify-content:center;margin:-24px -24px 20px -24px;border-bottom:1px solid #1E2A36;background:#0d1117}
 
 /* ── HERO PICK IMAGE ── */
-.hp-img{height:90px;overflow:hidden;margin:-16px -18px 12px -18px;background:#0d1117;border-bottom:1px solid #1E2A36}
+.hp-img{height:160px;overflow:hidden;margin:-16px -18px 12px -18px;background:#0d1117;border-bottom:1px solid #1E2A36}
 .hp-img img{width:100%;height:100%;object-fit:contain;object-position:center;padding:10px;display:block;transition:transform .4s}
 .hp-card:hover .hp-img img{transform:scale(1.05)}
 
