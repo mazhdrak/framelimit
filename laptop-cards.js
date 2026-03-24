@@ -245,15 +245,16 @@ function flRenderHeroPicks(ids) {
     const href = reviewUrl || l.amazonUrl;
     const rel  = reviewUrl ? '' : 'rel="nofollow sponsored" target="_blank"';
     const imgEl = l.imgUrl
-      ? `<div class="hp-img" style="background:${l.imgBg||'#0d1117'};border-bottom:1px solid #1E2A36"><img src="${l.imgUrl}" alt="${l.shortName}" referrerpolicy="no-referrer" crossorigin="anonymous" onerror="this.style.display='none'" loading="lazy" style="width:100%;height:100%;object-fit:contain;padding:10px;display:block"></div>`
-      : `<div class="hp-img" style="background:#0d1117;border-bottom:1px solid #1E2A36;display:flex;align-items:center;justify-content:center"><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#3a4a5a;letter-spacing:2px">${l.brand.toUpperCase()}</span></div>`;
-    return `
-<a href="${href}" class="hp-card" ${rel} style="text-decoration:none">
+      ? `<div class="hp-img-col" style="background:${l.imgBg||'#0d1117'}"><img src="${l.imgUrl}" alt="${l.shortName}" loading="lazy" onerror="this.style.opacity=0"></div>`
+      : `<div class="hp-img-col" style="background:#0d1117"><span style="font-family:'JetBrains Mono',monospace;font-size:8px;color:#3a4a5a">${l.brand.slice(0,5).toUpperCase()}</span></div>`;
+    return `<a href="${href}" class="hp-card" ${rel}>
   ${imgEl}
-  <div class="hp-rank">0${i+1} — ${l.badge}</div>
-  <div class="hp-name">${l.shortName}</div>
-  <div class="hp-spec">${l.gpu} · ${l.display.panel} ${l.display.hz}Hz · Score ${l.score}</div>
-  <div class="hp-price" style="color:var(--cyan)">${reviewUrl ? 'Read Review →' : 'Check on Amazon →'}</div>
+  <div class="hp-text-col">
+    <div class="hp-rank">0${i+1} — ${l.badge}</div>
+    <div class="hp-name">${l.shortName}</div>
+    <div class="hp-spec">${l.gpu} · ${l.display.panel} · Score ${l.score}</div>
+    <div class="hp-price">${reviewUrl ? 'Read Review →' : 'Amazon →'}</div>
+  </div>
 </a>`;
   }).join('');
 }
@@ -305,20 +306,20 @@ function flInjectStyles() {
   style.textContent = `
 /* ── FL CARD IMAGE ── */
 .fl-img-wrap{position:relative;height:220px;overflow:hidden;margin:-24px -24px 20px -24px;background:#0d1117}
-.fl-img-wrap img{width:100%;height:100%;object-fit:contain;object-position:center;padding:20px;transition:transform .5s ease;display:block}
+.fl-img-wrap img{width:100%;height:100%;object-fit:contain;object-position:center;padding:20px;mix-blend-mode:lighten;transition:transform .5s ease;display:block}
 .fl-card:hover .fl-img-wrap img{transform:scale(1.04)}
 .fl-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,#111820 100%);pointer-events:none}
 .fl-img-badge{position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:1.5px;padding:4px 10px;text-transform:uppercase;z-index:2}
 .fl-img-placeholder{height:120px;display:flex;align-items:center;justify-content:center;margin:-24px -24px 20px -24px;border-bottom:1px solid #1E2A36;background:#0d1117}
 
-/* ── HERO PICK IMAGE ── */
-.hp-img{height:160px;overflow:hidden;margin:-16px -18px 12px -18px;background:#0d1117;border-bottom:1px solid #1E2A36}
-.hp-img img{width:100%;height:100%;object-fit:contain;object-position:center;padding:10px;display:block;transition:transform .4s}
-.hp-card:hover .hp-img img{transform:scale(1.05)}
+/* ── HERO PICK IMAGE COL ── */
+.hp-img-col{width:110px;min-width:110px;height:72px;background:var(--deep,#0D1117);display:flex;align-items:center;justify-content:center;overflow:hidden;border-right:1px solid var(--border,#1E2A36);flex-shrink:0}
+.hp-img-col img{width:100%;height:100%;object-fit:contain;padding:8px;display:block;mix-blend-mode:lighten;transition:transform .3s}
+.hp-card:hover .hp-img-col img{transform:scale(1.06)}
 
 /* ── DEAL CARD IMAGE ── */
-.deal-img{height:140px;overflow:hidden;margin:-20px -20px 16px -20px;border-bottom:1px solid #1E2A36;background:#0d1117}
-.deal-img img{width:100%;height:100%;object-fit:contain;object-position:center;padding:14px;display:block;transition:transform .4s}
+.deal-img{height:160px;overflow:hidden;margin:-20px -20px 16px -20px;border-bottom:1px solid #1E2A36;background:#0d1117;display:flex;align-items:center;justify-content:center}
+.deal-img img{width:100%;height:100%;object-fit:contain;object-position:center;padding:16px;display:block;mix-blend-mode:lighten;transition:transform .4s}
 .deal-card:hover .deal-img img{transform:scale(1.04)}
 
 /* ── FL CARD ── */

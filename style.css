@@ -44,7 +44,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(8,10,12,.97)
 /* ── HERO ── */
 .hero{min-height:100vh;display:flex;align-items:center;padding:100px 32px 60px;position:relative;overflow:hidden;background:linear-gradient(135deg,#050709 0%,#0a0f15 50%,#060b10 100%)}
 .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,212,255,.015) 2px,rgba(0,212,255,.015) 4px);pointer-events:none}
-.hero-inner{max-width:1400px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 480px;gap:60px;align-items:center}
+.hero-inner{max-width:1400px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 360px;gap:60px;align-items:start}
 .hero-cat{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px}
 .hero-cat::before{content:'';width:40px;height:1px;background:var(--cyan)}
 .hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,8vw,100px);color:var(--white);line-height:.95;letter-spacing:1px;margin-bottom:24px}
@@ -59,14 +59,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(8,10,12,.97)
 .hs-num span{color:var(--cyan)}
 .hs-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}
 /* Top picks stack */
-.hero-picks{display:flex;flex-direction:column;gap:8px}
-.hp-card{background:var(--panel);border:1px solid var(--border);padding:16px 18px;cursor:pointer;transition:border-color .2s;position:relative;overflow:hidden}
-.hp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background .2s}
-.hp-card:hover{border-color:var(--cyan)}.hp-card:hover::before{background:var(--cyan)}
-.hp-rank{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:6px}
-.hp-name{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--white);margin-bottom:4px}
-.hp-spec{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted)}
-.hp-price{font-size:14px;font-weight:700;color:var(--green);margin-top:6px}
+.hero-picks{display:flex;flex-direction:column;gap:5px}
+.hp-card{background:var(--panel);border:1px solid var(--border);display:flex;align-items:stretch;cursor:pointer;transition:border-color .2s;position:relative;overflow:hidden;text-decoration:none}
+.hp-card:hover{border-color:var(--cyan)}
+.hp-card::after{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:transparent;transition:background .2s}
+.hp-card:hover::after{background:var(--cyan)}
+.hp-img-col{width:110px;min-width:110px;height:72px;background:var(--deep);display:flex;align-items:center;justify-content:center;overflow:hidden;border-right:1px solid var(--border);flex-shrink:0}
+.hp-img-col img{width:100%;height:100%;object-fit:contain;padding:8px;display:block;mix-blend-mode:lighten}
+.hp-text-col{padding:9px 12px;flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.hp-rank{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;margin-bottom:2px}
+.hp-name{font-family:'Bebas Neue',sans-serif;font-size:15px;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}
+.hp-spec{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hp-price{font-size:10px;font-weight:700;color:var(--cyan);margin-top:3px}
 
 /* ── SECTIONS ── */
 section{padding:80px 32px}
@@ -275,7 +279,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,10,12,.97)
 .review-card.visible{display:block}
 .rc-hero{display:grid;grid-template-columns:420px 1fr;min-height:300px}
 .rc-img-wrap{position:relative;overflow:hidden;background:#0a0f15;min-height:260px}
-.rc-img-wrap img{width:100%;height:100%;object-fit:contain;object-position:center;padding:20px;transition:transform .6s ease;display:block;background:#0d1117}
+.rc-img-wrap img{width:100%;height:100%;object-fit:contain;object-position:center;padding:20px;transition:transform .6s ease;display:block;mix-blend-mode:lighten}
 .review-card:hover .rc-img-wrap img{transform:scale(1.04)}
 .rc-img-overlay{position:absolute;inset:0;background:linear-gradient(90deg,transparent 50%,var(--panel) 100%);pointer-events:none}
 .rc-img-badges{position:absolute;top:16px;left:16px;display:flex;flex-direction:column;gap:6px}

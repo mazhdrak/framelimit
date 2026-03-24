@@ -113,21 +113,28 @@
         ${ramNote}`;
     }
 
-    /* ── 7. Inject local image from laptops.js ── */
+    /* ── 7. Inject local image ── */
     if (l.imgUrl) {
       const imgWrap = article.querySelector('.rc-img-wrap');
       if (imgWrap) {
+        // Update existing img if present, otherwise create one
         let img = imgWrap.querySelector('img');
-        if (!img) {
+        if (img) {
+          img.src = l.imgUrl;
+          img.alt = l.name;
+          img.loading = 'lazy';
+          img.removeAttribute('onerror');
+          img.removeAttribute('referrerpolicy');
+          img.removeAttribute('crossorigin');
+          img.style.mixBlendMode = 'lighten';
+        } else {
           img = document.createElement('img');
-          img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;padding:20px;display:block';
-          imgWrap.style.position = 'relative';
+          img.src = l.imgUrl;
+          img.alt = l.name;
+          img.loading = 'lazy';
+          img.style.cssText = 'width:100%;height:100%;object-fit:contain;padding:20px;display:block;mix-blend-mode:lighten';
           imgWrap.insertBefore(img, imgWrap.firstChild);
         }
-        img.src = l.imgUrl;
-        img.alt = l.name;
-        img.loading = 'lazy';
-        img.removeAttribute('onerror');
         imgWrap.style.background = l.imgBg || '#0d1117';
       }
     }
