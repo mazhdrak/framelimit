@@ -26,8 +26,6 @@
     <li><a href="guide-gaming-laptop-buying-guide-2026.html">Buying Guide</a></li>
     <li><a href="reviews.html">Reviews</a></li>
     <li><a href="index.html#blog">Guides</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
 
@@ -94,7 +92,7 @@
 
     <!-- HERO PICKS — rendered from laptops.js -->
     <div class="hero-picks">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">Top 5 Right Now</div>
+      <div class="mono-cyan-cat">Top 5 Right Now</div>
       <div data-fl-picks="lenovo-legion-pro-7i-gen10,asus-rog-scar-16-2026,razer-blade-16-oled-2026,hp-omen-max-16-2026,lenovo-legion-5i-gen10"></div>
     </div>
   </div>
@@ -162,7 +160,7 @@
 
     <!-- ── SYNTHETIC BENCHMARKS ── -->
     <div style="margin-top:48px">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:12px"><span style="display:inline-block;width:32px;height:1px;background:var(--cyan)"></span>Synthetic Benchmarks</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:12px"><span class="u-cyan-line"></span>Synthetic Benchmarks</div>
       <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);margin-bottom:6px">3DMark · Cinebench R24 · Thermals</h3>
       <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Time Spy = overall GPU. Port Royal = ray tracing. CineBench R24 = CPU. Temps + noise at sustained full load.</p>
       <div style="overflow-x:auto">
@@ -170,12 +168,12 @@
           <thead>
             <tr>
               <th style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:left;white-space:nowrap">Laptop / GPU</th>
-              <th style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:right;white-space:nowrap">3DM Time Spy</th>
-              <th style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:right;white-space:nowrap">Port Royal</th>
-              <th style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:right;white-space:nowrap">CB R24 1T</th>
-              <th style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:right;white-space:nowrap">CB R24 nT</th>
-              <th style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:right;white-space:nowrap">GPU Temp</th>
-              <th style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:right;white-space:nowrap">Fan Noise</th>
+              <th class="u-tbl-hdr-r">3DM Time Spy</th>
+              <th class="u-tbl-hdr-r">Port Royal</th>
+              <th class="u-tbl-hdr-r">CB R24 1T</th>
+              <th class="u-tbl-hdr-r">CB R24 nT</th>
+              <th class="u-tbl-hdr-r">GPU Temp</th>
+              <th class="u-tbl-hdr-r">Fan Noise</th>
             </tr>
           </thead>
           <tbody id="synth-tbody"></tbody>
@@ -186,7 +184,7 @@
 
     <!-- ── 1% LOWS / STUTTER ── -->
     <div style="margin-top:40px">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:12px"><span style="display:inline-block;width:32px;height:1px;background:var(--cyan)"></span>Stutter Analysis</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:12px"><span class="u-cyan-line"></span>Stutter Analysis</div>
       <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);margin-bottom:6px">Avg FPS vs 1% Lows — 1440p Ultra</h3>
       <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Format: <span style="color:var(--white)">Avg</span> / <span style="color:var(--green)">1% Low</span>. Closer together = smoother experience. 1% lows below 65% of avg = noticeable stutter.</p>
       <div style="overflow-x:auto">
@@ -194,10 +192,10 @@
           <thead>
             <tr>
               <th style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:left">Laptop</th>
-              <th style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:right">Cyberpunk 2077</th>
-              <th style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:right">Black Myth</th>
-              <th style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:right">Alan Wake 2</th>
-              <th style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:right">Stutter Rating</th>
+              <th class="u-tbl-hdr">Cyberpunk 2077</th>
+              <th class="u-tbl-hdr">Black Myth</th>
+              <th class="u-tbl-hdr">Alan Wake 2</th>
+              <th class="u-tbl-hdr">Stutter Rating</th>
             </tr>
           </thead>
           <tbody id="lows-tbody"></tbody>
@@ -209,7 +207,7 @@
 
     <!-- ── FULL SPEC COMPARISON TABLE (from laptops.js) ── -->
     <div style="margin-top:48px">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:12px"><span style="display:inline-block;width:32px;height:1px;background:var(--cyan)"></span>Full Spec Comparison</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:12px"><span class="u-cyan-line"></span>Full Spec Comparison</div>
       <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);margin-bottom:16px">All 30 Laptops — Specs at a Glance</h3>
 
       <!-- Tier filter tabs -->
