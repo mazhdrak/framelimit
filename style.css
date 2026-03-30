@@ -64,8 +64,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(8,10,12,.97)
 .hp-card:hover{border-color:var(--cyan)}
 .hp-card::after{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:transparent;transition:background .2s}
 .hp-card:hover::after{background:var(--cyan)}
-.hp-img-col{width:110px;min-width:110px;height:72px;background:linear-gradient(135deg,#0d1520,#060c12);display:flex;align-items:center;justify-content:center;overflow:hidden;border-right:1px solid var(--border);flex-shrink:0}
-.hp-img-col img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.hp-img-col{width:110px;min-width:110px;height:72px;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden;border-right:1px solid var(--border);flex-shrink:0}
+.hp-img-col img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;mix-blend-mode:multiply}
 .hp-text-col{padding:9px 12px;flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
 .hp-rank{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;margin-bottom:2px}
 .hp-name{font-family:'Bebas Neue',sans-serif;font-size:15px;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}
@@ -278,8 +278,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,10,12,.97)
 .review-card{background:var(--panel);border:1px solid var(--border);display:none;overflow:hidden}
 .review-card.visible{display:block}
 .rc-hero{display:grid;grid-template-columns:420px 1fr;min-height:300px}
-.rc-img-wrap{position:relative;overflow:hidden;background:linear-gradient(135deg,#0d1520 0%,#0a1018 50%,#060c12 100%);min-height:280px}
-.rc-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s ease;display:block}
+.rc-img-wrap{position:relative;overflow:hidden;background:#000;min-height:280px}
+.rc-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s ease;display:block;mix-blend-mode:multiply}
 .review-card:hover .rc-img-wrap img{transform:scale(1.04)}
 .rc-img-overlay{position:absolute;inset:0;background:linear-gradient(90deg,transparent 50%,var(--panel) 100%);pointer-events:none}
 .rc-img-badges{position:absolute;top:16px;left:16px;display:flex;flex-direction:column;gap:6px}

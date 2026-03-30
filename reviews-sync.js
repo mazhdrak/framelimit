@@ -126,16 +126,16 @@
           img.removeAttribute('onerror');
           img.removeAttribute('referrerpolicy');
           img.removeAttribute('crossorigin');
-          img.style.mixBlendMode = 'lighten';
+          img.style.mixBlendMode = 'multiply';
         } else {
           img = document.createElement('img');
           img.src = l.imgUrl;
           img.alt = l.name;
           img.loading = 'lazy';
-          img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+          img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;mix-blend-mode:multiply';
           imgWrap.insertBefore(img, imgWrap.firstChild);
         }
-        imgWrap.style.background = 'linear-gradient(135deg,#0d1520,#060c12)';
+        imgWrap.style.background = '#000';
       }
     }
 
