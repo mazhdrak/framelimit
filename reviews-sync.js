@@ -132,10 +132,10 @@
           img.src = l.imgUrl;
           img.alt = l.name;
           img.loading = 'lazy';
-          img.style.cssText = 'width:100%;height:100%;object-fit:contain;padding:20px;display:block;mix-blend-mode:lighten';
+          img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
           imgWrap.insertBefore(img, imgWrap.firstChild);
         }
-        imgWrap.style.background = l.imgBg || '#0d1117';
+        imgWrap.style.background = 'linear-gradient(135deg,#0d1520,#060c12)';
       }
     }
 
