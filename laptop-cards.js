@@ -226,9 +226,9 @@ function flToggleTable(tid) {
   const table = document.getElementById(tid);
   const btn   = document.getElementById(tid + '-btn');
   if (!table || !btn) return;
-  const hidden = table.querySelectorAll('.fl-table-hidden');
+  const hidden = Array.from(table.querySelectorAll('tbody tr')).filter(function(_,i){return i>=4;});
   if (!hidden.length) return;
-  const isCollapsed = hidden[0].style.display !== 'table-row';
+  const isCollapsed = hidden[0].style.display === 'none' || hidden[0].style.display === '';
   hidden.forEach(row => { row.style.display = isCollapsed ? 'table-row' : 'none'; });
   const total = table.querySelectorAll('tbody tr').length;
   btn.textContent = isCollapsed ? 'Show fewer ▲' : `Show all ${total} laptops ▼`;
