@@ -1,0 +1,7 @@
+desktop.ini
+Thumbs.db
+*.py
+*.ps1
+__pycache__/
+.DS_Store
+node_modules/
