@@ -520,3 +520,109 @@ a.btn-ghost,a.btn-ghost:visited{color:var(--cyan);border-bottom:none}
 .mono-muted-xs{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted)}
 .mono-muted-tag{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}
 .vs-card{background:var(--panel);border:1px solid var(--border);padding:24px;margin:16px 0 28px}
+
+/* ══════════════════════════════════════════════════════
+   SHORT-CLASS ALIASES — guide pages using .aw/.atitle etc.
+   Maps compact class names to the same styles as the
+   full .article-wrap / .article-title system.
+   ══════════════════════════════════════════════════════ */
+
+.aw{max-width:780px;margin:0 auto;padding:100px 24px 80px;overflow-x:hidden;word-break:break-word}
+
+.bl2{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);text-decoration:none;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;transition:color .2s;border-bottom:none}
+.bl2:hover{color:var(--cyan)}
+
+.cat{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.cat::before{content:'';width:32px;height:1px;background:var(--cyan)}
+
+.atitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,7vw,68px);color:var(--white);letter-spacing:1px;line-height:1.05;margin-bottom:20px}
+
+.asub{font-size:18px;color:var(--muted);line-height:1.7;margin-bottom:28px}
+
+.ameta{display:flex;gap:20px;flex-wrap:wrap;align-items:center;padding-bottom:24px;border-bottom:1px solid var(--border);margin-bottom:40px}
+
+.aa{display:flex;align-items:center;gap:10px}
+
+.av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--green));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--black);flex-shrink:0}
+
+.an{font-weight:600;font-size:14px;color:var(--white)}
+
+.ar{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted)}
+
+.mi{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted)}
+
+.mu{background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.3);color:var(--cyan);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1px;padding:4px 10px}
+
+.qp{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--cyan);padding:24px;margin-bottom:40px}
+
+.qpt{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px}
+
+.qpl{list-style:none;display:flex;flex-direction:column;gap:12px}
+.qpl li{display:flex;gap:12px;align-items:baseline;font-size:15px;line-height:1.5;flex-wrap:wrap}
+
+.qpr{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);min-width:24px;flex-shrink:0}
+
+.qpn{color:var(--white);font-weight:600}
+
+.qpd{color:var(--muted)}
+
+.co{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--cyan);padding:20px 24px;margin-bottom:28px}
+
+.col{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:10px}
+
+.u-mono-cyan{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+
+.u-related-title-lg{font-size:15px;font-weight:600;color:var(--white);line-height:1.4}
+
+.u-related-grid{display:flex;gap:16px;flex-wrap:wrap}
+
+/* Benchmark table used on guide pages */
+.bench-table-wrap{overflow-x:auto;margin:24px 0}
+.bench-table{width:100%;border-collapse:collapse;font-size:13px}
+.bench-table th{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:9px 12px;background:var(--deep);border-bottom:2px solid var(--border);text-align:right;white-space:nowrap}
+.bench-table th:first-child{text-align:left}
+.bench-table td{padding:9px 12px;border-bottom:1px solid rgba(30,42,54,.5);text-align:right;font-family:'JetBrains Mono',monospace;font-size:11px}
+.bench-table td:first-child{text-align:left;font-family:'Barlow',sans-serif;font-size:13px;font-weight:600;color:var(--white)}
+.bench-table tr:hover{background:rgba(0,212,255,.02)}
+.bench-note{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:8px;line-height:1.6}
+.fps-good{color:var(--green);font-weight:700}
+.fps-ok{color:var(--yellow)}
+.fps-low{color:var(--orange)}
+
+/* Pick card system used on guide pages */
+.pick-card-header{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px}
+.pick-rank-badge{font-family:'JetBrains Mono',monospace;font-size:9px;padding:4px 10px;letter-spacing:2px;text-transform:uppercase;display:inline-block;margin-bottom:8px;background:var(--cyan);color:var(--black)}
+.pick-rank-badge.best-overall{background:var(--cyan);color:var(--black)}
+.pick-rank-badge.best-value{background:var(--green);color:var(--black)}
+.pick-rank-badge.premium{background:var(--purple);color:var(--white)}
+.pick-gpu{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.5px}
+.pick-score-wrap{text-align:right;flex-shrink:0}
+.pick-score-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:1px;text-align:right}
+.pick-spec-label{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.pick-spec-val{font-size:14px;font-weight:600;color:var(--text)}
+.pick-verdict{border-left:3px solid var(--cyan);padding:14px 18px;font-size:14px;line-height:1.8;margin-bottom:18px;background:rgba(0,212,255,.04)}
+.pick-verdict strong{color:var(--cyan)}
+.pick-cta-row{display:flex;gap:10px;flex-wrap:wrap}
+.pros-cons-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.pros-col .pros-cons-label{color:var(--green)}
+.cons-col .pros-cons-label{color:var(--orange)}
+.pros-cons-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.pros-cons-list li{font-size:13px;line-height:1.5;display:flex;gap:8px;align-items:flex-start}
+.pros-col .pros-cons-list li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:2px}
+.cons-col .pros-cons-list li::before{content:'✗';color:var(--orange);flex-shrink:0;margin-top:2px}
+
+/* Callout variants for guide pages */
+.callout-info{background:rgba(0,212,255,.04);border-color:var(--cyan)}
+.callout-info .callout-label{color:var(--cyan)}
+
+/* u-table utility classes */
+.u-tbl-hdr{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:right;white-space:nowrap}
+.u-tbl-hdr-r{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:right;white-space:nowrap}
+.u-cyan-line{display:inline-block;width:32px;height:1px;background:var(--cyan)}
+
+@media(max-width:768px){
+  .aw{padding:90px 16px 60px}
+  .pick-specs{grid-template-columns:1fr 1fr}
+  .pick-pros-cons{grid-template-columns:1fr}
+  .u-related-grid{flex-direction:column}
+}
