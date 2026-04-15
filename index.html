@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -30,41 +30,7 @@
 </head>
 <body>
 
-<div id="nav-root"></div><ul class="md-links">
-      <li><a href="index.html" onclick="window.__flToggleNav()">🏠 Home</a></li>
-      <li><a href="reviews.html" onclick="window.__flToggleNav()">⭐ Full Reviews</a></li>
-      <li><a href="#best-picks" onclick="window.__flToggleNav()">🏆 Best Picks 2026</a></li>
-      <li><a href="about.html" onclick="window.__flToggleNav()">👤 About</a></li>
-      <li><a href="contact.html" onclick="window.__flToggleNav()">✉️ Contact</a></li>
-      <li><a href="affiliate-disclosure.html" onclick="window.__flToggleNav()">⚠️ Affiliate Disclosure</a></li>
-    </ul>
-  </div>
-  <div class="md-section">
-    <div class="md-label">Buying Guides</div>
-    <ul class="md-links">
-      <li><a href="guide-gaming-laptop-buying-guide-2026.html" onclick="window.__flToggleNav()">Complete Buying Guide</a></li>
-      <li><a href="guide-best-gaming-laptops-2026.html" onclick="window.__flToggleNav()">Best Laptops 2026</a></li>
-      <li><a href="guide-best-gaming-laptop-under-1500.html" onclick="window.__flToggleNav()">Best Under $1,500</a></li>
-      <li><a href="guide-best-gaming-laptop-under-1000.html" onclick="window.__flToggleNav()">Best Under $1,000</a></li>
-      <li><a href="guide-best-gaming-laptop-college-2026.html" onclick="window.__flToggleNav()">Best for College</a></li>
-      <li><a href="guide-best-thin-light-gaming-laptop-2026.html" onclick="window.__flToggleNav()">Best Thin & Light</a></li>
-      <li><a href="guide-best-amd-gaming-laptop-2026.html" onclick="window.__flToggleNav()">Best AMD Laptops</a></li>
-      <li><a href="guide-rtx-vs-amd-2026.html" onclick="window.__flToggleNav()">RTX vs AMD</a></li>
-      <li><a href="guide-gaming-laptop-vs-desktop-2026.html" onclick="window.__flToggleNav()">Laptop vs Desktop</a></li>
-      <li><a href="guide-gaming-laptop-cooling-thermals-2026.html" onclick="window.__flToggleNav()">Cooling Guide</a></li>
-    </ul>
-  </div>
-  <div class="md-section">
-    <div class="md-label">Tools</div>
-    <ul class="md-links">
-      <li><a href="#compare-tool" onclick="window.__flToggleNav()">📊 GPU Benchmarks</a></li>
-      <li><a href="#finder" onclick="window.__flToggleNav()">🎯 Laptop Finder</a></li>
-      <li><a href="#price-alert" onclick="window.__flToggleNav()">🔔 Price Alerts</a></li>
-    </ul>
-  </div>
-  <a href="guide-best-gaming-laptops-2026.html" class="md-cta" onclick="window.__flToggleNav()">🏆 See Best Laptops</a>
-</div>
-<div class="drawer-overlay" id="drawer-overlay" onclick="window.__flToggleNav()"></div>
+<div id="nav-root"></div>
 
 <!-- ═══════════════════════════════════════════
      HERO
@@ -448,11 +414,7 @@
 <script src="laptop-cards.js"></script>
 
 <script>
-/* ── MOBILE NAV ── */
-function window.__flToggleNav() {
-  document.getElementById('mobile-drawer').classList.toggle('open');
-  document.getElementById('drawer-overlay').classList.toggle('open');
-}
+/* ── MOBILE NAV — handled by nav.js ── */
 
 /* ── TOOL MODALS (stub) ── */
 function openTool(type) {
