@@ -18,7 +18,7 @@
     <li><a href="guide-gaming-laptop-buying-guide-2026.html">Buying Guide</a></li>
     <li><a href="reviews.html">Reviews</a></li>
     <li><a href="compare.html">Compare</a></li>
-    <li><a href="index.html#guides">Guides</a></li>
+    <li><a href="guides.html">Guides</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="window.__flToggleNav()">
