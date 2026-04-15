@@ -1,0 +1,768 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaming Laptop Comparison Tool 2026 — Compare Specs Side by Side | FRAMELIMIT</title>
+<meta name="description" content="Compare gaming laptops side by side. Specs, benchmark scores, display, thermals and value — all 30 RTX 50 series laptops from our test suite.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://framelimit.com/compare.html">
+<meta property="og:title" content="Gaming Laptop Comparison Tool 2026 | FRAMELIMIT">
+<meta property="og:description" content="Compare any two gaming laptops side by side. Specs, scores, display, thermals — 30 RTX 50 series machines from our full test suite.">
+<meta property="og:image" content="https://framelimit.com/og-default.jpg">
+<meta property="og:site_name" content="FRAMELIMIT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://framelimit.com/compare.html">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── COMPARE PAGE STYLES ── */
+.compare-hero {
+  padding: 100px 24px 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.compare-hero-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--cyan);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.compare-hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(42px, 7vw, 72px);
+  color: var(--white);
+  letter-spacing: 2px;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.compare-hero h1 span { color: var(--cyan); }
+.compare-hero p {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ── SELECTOR BAR ── */
+.selector-bar {
+  max-width: 1100px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: center;
+}
+.selector-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.selector-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.laptop-select {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 16px;
+  width: 100%;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A94A8' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  transition: border-color .2s;
+}
+.laptop-select:focus { outline: none; border-color: var(--cyan); }
+.laptop-select:hover { border-color: var(--cyan); }
+.vs-divider {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: var(--border);
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+/* ── COMPARISON PANEL ── */
+.compare-panel {
+  max-width: 1100px;
+  margin: 0 auto 80px;
+  padding: 0 24px;
+  display: none;
+}
+.compare-panel.visible { display: block; }
+
+/* laptop name headers */
+.compare-header {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 2px;
+}
+.compare-header-cell {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 20px 24px;
+  text-align: center;
+}
+.compare-header-cell.label-cell {
+  background: var(--deep);
+  border-color: var(--border);
+  display: flex;
+  align-items: center;
+}
+.ch-brand {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.ch-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: var(--white);
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+.ch-score {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  line-height: 1;
+  margin-top: 8px;
+}
+.ch-score-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  color: var(--muted);
+  letter-spacing: 1.5px;
+  margin-top: 2px;
+}
+
+/* compare rows */
+.compare-section-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--cyan);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 20px 0 8px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2px;
+}
+.compare-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 2px;
+}
+.compare-row-label {
+  background: var(--deep);
+  border: 1px solid var(--border);
+  padding: 14px 18px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+}
+.compare-cell {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 14px 20px;
+  font-size: 14px;
+  color: var(--text);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  transition: background .15s;
+}
+.compare-cell.winner {
+  background: rgba(0, 212, 255, 0.06);
+  border-color: rgba(0, 212, 255, 0.25);
+  color: var(--white);
+}
+.compare-cell.winner::after {
+  content: ' ✓';
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+/* sub-score bars */
+.score-bar-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: stretch;
+}
+.score-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.score-bar-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  color: var(--muted);
+  width: 72px;
+  flex-shrink: 0;
+  text-align: left;
+}
+.score-bar-track {
+  flex: 1;
+  height: 6px;
+  background: var(--deep);
+  border: 1px solid var(--border);
+}
+.score-bar-fill {
+  height: 100%;
+  background: var(--cyan);
+  transition: width .6s ease;
+}
+.score-bar-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--cyan);
+  width: 24px;
+  text-align: right;
+}
+
+/* verdict bar */
+.compare-verdict {
+  margin-top: 32px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--cyan);
+  padding: 24px 28px;
+}
+.compare-verdict-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--cyan);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.compare-verdict-text {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+}
+.compare-verdict-winner {
+  font-weight: 700;
+  color: var(--white);
+}
+
+/* buy buttons */
+.compare-cta-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  gap: 2px;
+  margin-top: 2px;
+}
+.compare-cta-label {
+  background: var(--deep);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+}
+.compare-cta-cell {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 14px 20px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* empty state */
+.compare-empty {
+  max-width: 1100px;
+  margin: 0 auto 80px;
+  padding: 48px 24px;
+  text-align: center;
+  border: 1px dashed var(--border);
+}
+.compare-empty-icon {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 64px;
+  color: var(--border);
+  margin-bottom: 12px;
+  letter-spacing: 4px;
+}
+.compare-empty p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+/* popular comparisons */
+.popular-section {
+  max-width: 1100px;
+  margin: 0 auto 80px;
+  padding: 0 24px;
+}
+.popular-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.popular-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.popular-btn {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  padding: 12px 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color .2s, color .2s;
+  letter-spacing: .5px;
+}
+.popular-btn:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+.popular-btn .vs {
+  color: var(--orange);
+  margin: 0 4px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .selector-bar { grid-template-columns: 1fr; }
+  .vs-divider { display: none; }
+  .compare-header,
+  .compare-row,
+  .compare-cta-row { grid-template-columns: 1fr; }
+  .compare-row-label,
+  .compare-header-cell.label-cell,
+  .compare-cta-label { display: none; }
+  .popular-grid { grid-template-columns: 1fr; }
+  .compare-cell { flex-direction: column; gap: 4px; }
+}
+</style>
+</head>
+<body>
+
+<div id="nav-root"></div>
+
+<!-- HERO -->
+<div class="compare-hero">
+  <div class="compare-hero-label">Tool · Side by Side · All 30 Laptops</div>
+  <h1>LAPTOP <span>VS</span><br>LAPTOP</h1>
+  <p>Pick any two machines from our full test suite. Specs, scores, and a plain-English verdict.</p>
+</div>
+
+<!-- SELECTOR BAR -->
+<div class="selector-bar">
+  <div class="selector-wrap">
+    <div class="selector-label">Laptop A</div>
+    <select class="laptop-select" id="selectA" onchange="runCompare()">
+      <option value="">— Choose a laptop —</option>
+    </select>
+  </div>
+  <div class="vs-divider">VS</div>
+  <div class="selector-wrap">
+    <div class="selector-label">Laptop B</div>
+    <select class="laptop-select" id="selectB" onchange="runCompare()">
+      <option value="">— Choose a laptop —</option>
+    </select>
+  </div>
+</div>
+
+<!-- EMPTY STATE -->
+<div class="compare-empty" id="emptyState">
+  <div class="compare-empty-icon">VS</div>
+  <p>Select two laptops above to compare specs and scores</p>
+</div>
+
+<!-- COMPARE PANEL -->
+<div class="compare-panel" id="comparePanel"></div>
+
+<!-- POPULAR COMPARISONS -->
+<div class="popular-section" id="popularSection">
+  <div class="popular-title">Popular Comparisons</div>
+  <div class="popular-grid" id="popularGrid"></div>
+</div>
+
+<div class="article-footer">
+  <p>⚠ AFFILIATE DISCLOSURE: FRAMELIMIT earns commissions via Amazon Associates at no extra cost to you.</p>
+  <p style="margin-top:8px"><a href="index.html">← FRAMELIMIT Home</a> · <a href="reviews.html">All Reviews</a> · <a href="guide-best-gaming-laptops-2026.html">Best Laptops 2026</a></p>
+</div>
+
+<script src="laptops.js"></script>
+<script>
+/* ── UTILS ── */
+function scoreColor(v) {
+  if (v >= 9.0) return 'var(--green)';
+  if (v >= 8.0) return 'var(--cyan)';
+  if (v >= 7.0) return 'var(--yellow)';
+  return 'var(--orange)';
+}
+
+function tierLabel(tier) {
+  const map = { 'high-end': 'FLAGSHIP', 'mid-range': 'MID-RANGE', 'budget': 'BUDGET' };
+  return map[tier] || tier;
+}
+
+function fmtWeight(w) { return w + 'kg'; }
+function fmtBattery(b) { return b + 'Wh'; }
+function fmtPrice(p) { return '$' + p.toLocaleString(); }
+
+/* ── POPULATE SELECTS ── */
+function populateSelects() {
+  const laptops = window.LAPTOPS;
+  const tiers = ['high-end', 'mid-range', 'budget'];
+  const tierNames = { 'high-end': '🔥 Flagship', 'mid-range': '⚖️ Mid-Range', 'budget': '💰 Budget' };
+
+  ['selectA', 'selectB'].forEach(id => {
+    const sel = document.getElementById(id);
+    tiers.forEach(tier => {
+      const group = document.createElement('optgroup');
+      group.label = tierNames[tier];
+      laptops.filter(l => l.tier === tier).forEach(l => {
+        const opt = document.createElement('option');
+        opt.value = l.id;
+        opt.textContent = l.name + ' · ' + l.gpu;
+        group.appendChild(opt);
+      });
+      sel.appendChild(group);
+    });
+  });
+}
+
+/* ── SCORE BAR HTML ── */
+function scoreBar(name, val) {
+  const pct = (val / 10) * 100;
+  return `<div class="score-bar-row">
+    <span class="score-bar-name">${name}</span>
+    <div class="score-bar-track"><div class="score-bar-fill" style="width:${pct}%"></div></div>
+    <span class="score-bar-val">${val.toFixed(1)}</span>
+  </div>`;
+}
+
+/* ── WINNER CELL ── */
+function cells(valA, valB, fmtA, fmtB, higherIsBetter = true) {
+  const aWins = higherIsBetter ? valA > valB : valA < valB;
+  const bWins = higherIsBetter ? valB > valA : valB < valA;
+  const tie = valA === valB;
+  return [
+    `<div class="compare-cell${aWins && !tie ? ' winner' : ''}">${fmtA}</div>`,
+    `<div class="compare-cell${bWins && !tie ? ' winner' : ''}">${fmtB}</div>`
+  ];
+}
+
+/* ── VERDICT GENERATOR ── */
+function generateVerdict(a, b) {
+  const aScore = a.score;
+  const bScore = b.score;
+  const diff = Math.abs(aScore - bScore);
+  const winner = aScore > bScore ? a : b;
+  const loser = aScore > bScore ? b : a;
+
+  let text = '';
+
+  if (diff < 0.2) {
+    text = `These two are extremely close — within ${diff.toFixed(1)} points overall. `;
+    if (a.price !== b.price) {
+      const cheaper = a.price < b.price ? a : b;
+      const priceDiff = Math.abs(a.price - b.price);
+      text += `The <span class="compare-verdict-winner">${cheaper.name}</span> is $${priceDiff.toLocaleString()} cheaper for nearly identical performance, making it the stronger value pick. `;
+    }
+  } else {
+    text = `The <span class="compare-verdict-winner">${winner.name}</span> leads overall with a ${winner.score.toFixed(1)} vs ${loser.score.toFixed(1)} score. `;
+  }
+
+  // Display
+  if (a.display.panel === 'OLED' && b.display.panel !== 'OLED') {
+    text += `The ${a.name} has an OLED display — noticeably better contrast and colour accuracy. `;
+  } else if (b.display.panel === 'OLED' && a.display.panel !== 'OLED') {
+    text += `The ${b.name} has an OLED display — noticeably better contrast and colour accuracy. `;
+  }
+
+  // Weight
+  const weightDiff = Math.abs(a.weight - b.weight);
+  if (weightDiff >= 0.4) {
+    const lighter = a.weight < b.weight ? a : b;
+    text += `If portability matters, the <span class="compare-verdict-winner">${lighter.name}</span> is ${weightDiff.toFixed(1)}kg lighter. `;
+  }
+
+  // TGP
+  if (a.gpu === b.gpu && a.tgp !== b.tgp) {
+    const higherTGP = a.tgp > b.tgp ? a : b;
+    const tgpDiff = Math.abs(a.tgp - b.tgp);
+    text += `Both run the same GPU, but the <span class="compare-verdict-winner">${higherTGP.name}</span> has ${tgpDiff}W more TGP — expect 10–15% better sustained performance. `;
+  }
+
+  // Price
+  const priceDiff = Math.abs(a.price - b.price);
+  if (priceDiff > 300) {
+    const cheaper = a.price < b.price ? a : b;
+    const pricier = a.price < b.price ? b : a;
+    text += `At $${priceDiff.toLocaleString()} less, the ${cheaper.name} offers strong value — only worth paying more for the ${pricier.name} if the specific advantages above matter to your use case.`;
+  }
+
+  return text;
+}
+
+/* ── MAIN COMPARE FUNCTION ── */
+function runCompare() {
+  const idA = document.getElementById('selectA').value;
+  const idB = document.getElementById('selectB').value;
+  const panel = document.getElementById('comparePanel');
+  const empty = document.getElementById('emptyState');
+
+  if (!idA || !idB || idA === idB) {
+    panel.classList.remove('visible');
+    empty.style.display = 'block';
+    return;
+  }
+
+  const a = window.getLaptop(idA);
+  const b = window.getLaptop(idB);
+  if (!a || !b) return;
+
+  empty.style.display = 'none';
+  panel.classList.add('visible');
+
+  // Score colors
+  const aColor = scoreColor(a.score);
+  const bColor = scoreColor(b.score);
+
+  // Sub-score bars
+  const subKeys = ['perf', 'display', 'thermals', 'battery', 'build', 'value'];
+  const subLabels = { perf: 'Performance', display: 'Display', thermals: 'Thermals', battery: 'Battery', build: 'Build', value: 'Value' };
+
+  const aBars = subKeys.map(k => scoreBar(subLabels[k], a.scores[k])).join('');
+  const bBars = subKeys.map(k => scoreBar(subLabels[k], b.scores[k])).join('');
+
+  // Spec comparisons
+  const [gpuA, gpuB] = cells(a.tgp, b.tgp, `${a.gpu}<br><small style="color:var(--muted);font-size:11px;font-weight:400">${a.gpuVram} · ${a.tgp}W TGP</small>`, `${b.gpu}<br><small style="color:var(--muted);font-size:11px;font-weight:400">${b.gpuVram} · ${b.tgp}W TGP</small>`);
+  const [cpuA, cpuB] = [`<div class="compare-cell" style="font-size:12px">${a.cpu}</div>`, `<div class="compare-cell" style="font-size:12px">${b.cpu}</div>`];
+  const [ramA, ramB] = cells(
+    parseInt(a.ram), parseInt(b.ram),
+    a.ram + (a.ramUpgradeable ? ' <small style="color:var(--green);font-size:10px">upgradeable</small>' : ' <small style="color:var(--muted);font-size:10px">soldered</small>'),
+    b.ram + (b.ramUpgradeable ? ' <small style="color:var(--green);font-size:10px">upgradeable</small>' : ' <small style="color:var(--muted);font-size:10px">soldered</small>')
+  );
+  const [storeA, storeB] = [`<div class="compare-cell" style="font-size:12px">${a.storage}</div>`, `<div class="compare-cell" style="font-size:12px">${b.storage}</div>`];
+
+  // Display
+  const dispValA = (a.display.panel === 'OLED' ? 2 : 1) * a.display.hz;
+  const dispValB = (b.display.panel === 'OLED' ? 2 : 1) * b.display.hz;
+  const [dispA, dispB] = cells(dispValA, dispValB,
+    `${a.display.size}" ${a.display.res}<br><small style="color:var(--muted);font-size:11px;font-weight:400">${a.display.panel} · ${a.display.hz}Hz · ${a.display.nits}nits</small>`,
+    `${b.display.size}" ${b.display.res}<br><small style="color:var(--muted);font-size:11px;font-weight:400">${b.display.panel} · ${b.display.hz}Hz · ${b.display.nits}nits</small>`
+  );
+
+  const [weightA, weightB] = cells(a.weight, b.weight, fmtWeight(a.weight), fmtWeight(b.weight), false);
+  const [battA, battB] = cells(a.battery, b.battery, fmtBattery(a.battery), fmtBattery(b.battery));
+  const [priceA, priceB] = cells(a.price, b.price, fmtPrice(a.price), fmtPrice(b.price), false);
+
+  const verdict = generateVerdict(a, b);
+
+  panel.innerHTML = `
+    <!-- HEADER -->
+    <div class="compare-header">
+      <div class="compare-header-cell label-cell">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px">FRAMELIMIT<br>COMPARISON</span>
+      </div>
+      <div class="compare-header-cell">
+        <div class="ch-brand">${a.brand.toUpperCase()} · ${tierLabel(a.tier)}</div>
+        <div class="ch-name">${a.name}</div>
+        <div class="ch-score" style="color:${aColor}">${a.score.toFixed(1)}</div>
+        <div class="ch-score-label">FRAMELIMIT SCORE</div>
+      </div>
+      <div class="compare-header-cell">
+        <div class="ch-brand">${b.brand.toUpperCase()} · ${tierLabel(b.tier)}</div>
+        <div class="ch-name">${b.name}</div>
+        <div class="ch-score" style="color:${bColor}">${b.score.toFixed(1)}</div>
+        <div class="ch-score-label">FRAMELIMIT SCORE</div>
+      </div>
+    </div>
+
+    <!-- SCORE BREAKDOWN -->
+    <div class="compare-section-title">Score Breakdown</div>
+    <div class="compare-row">
+      <div class="compare-row-label">Sub-Scores</div>
+      <div class="compare-cell" style="flex-direction:column;align-items:stretch;gap:6px;padding:16px 20px">
+        <div class="score-bar-wrap">${aBars}</div>
+      </div>
+      <div class="compare-cell" style="flex-direction:column;align-items:stretch;gap:6px;padding:16px 20px">
+        <div class="score-bar-wrap">${bBars}</div>
+      </div>
+    </div>
+
+    <!-- SPECS -->
+    <div class="compare-section-title">Core Specifications</div>
+    <div class="compare-row">
+      <div class="compare-row-label">GPU</div>
+      ${gpuA}${gpuB}
+    </div>
+    <div class="compare-row">
+      <div class="compare-row-label">CPU</div>
+      ${cpuA}${cpuB}
+    </div>
+    <div class="compare-row">
+      <div class="compare-row-label">RAM</div>
+      ${ramA}${ramB}
+    </div>
+    <div class="compare-row">
+      <div class="compare-row-label">Storage</div>
+      ${storeA}${storeB}
+    </div>
+
+    <!-- DISPLAY & PORTABILITY -->
+    <div class="compare-section-title">Display & Portability</div>
+    <div class="compare-row">
+      <div class="compare-row-label">Display</div>
+      ${dispA}${dispB}
+    </div>
+    <div class="compare-row">
+      <div class="compare-row-label">Weight</div>
+      ${weightA}${weightB}
+    </div>
+    <div class="compare-row">
+      <div class="compare-row-label">Battery</div>
+      ${battA}${battB}
+    </div>
+
+    <!-- PRICE & VALUE -->
+    <div class="compare-section-title">Price & Value</div>
+    <div class="compare-row">
+      <div class="compare-row-label">MSRP</div>
+      ${priceA}${priceB}
+    </div>
+    <div class="compare-row">
+      <div class="compare-row-label">Best For</div>
+      <div class="compare-cell" style="font-size:12px;font-weight:400;color:var(--muted)">${a.bestFor}</div>
+      <div class="compare-cell" style="font-size:12px;font-weight:400;color:var(--muted)">${b.bestFor}</div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-row-label">Avoid If</div>
+      <div class="compare-cell" style="font-size:12px;font-weight:400;color:var(--muted)">${a.avoidIf}</div>
+      <div class="compare-cell" style="font-size:12px;font-weight:400;color:var(--muted)">${b.avoidIf}</div>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="compare-verdict">
+      <div class="compare-verdict-title">FRAMELIMIT Verdict</div>
+      <div class="compare-verdict-text">${verdict}</div>
+    </div>
+
+    <!-- BUY BUTTONS -->
+    <div class="compare-section-title" style="margin-top:24px">Where to Buy</div>
+    <div class="compare-cta-row">
+      <div class="compare-cta-label">Amazon</div>
+      <div class="compare-cta-cell">
+        <a href="${a.amazonUrl}" class="btn-buy am" rel="nofollow sponsored" style="font-size:12px">Check Price →</a>
+      </div>
+      <div class="compare-cta-cell">
+        <a href="${b.amazonUrl}" class="btn-buy am" rel="nofollow sponsored" style="font-size:12px">Check Price →</a>
+      </div>
+    </div>
+  `;
+}
+
+/* ── POPULAR COMPARISONS ── */
+const POPULAR = [
+  ['lenovo-legion-pro-7i-gen10', 'hp-omen-max-16-2026'],
+  ['asus-rog-zephyrus-g14-2026', 'razer-blade-16-oled-2026'],
+  ['asus-rog-scar-16-2026', 'lenovo-legion-pro-7i-gen10'],
+  ['asus-rog-zephyrus-g14-2026', 'asus-rog-zephyrus-g16-mid'],
+  ['lenovo-loq-15-gen10', 'asus-tuf-a16-entry'],
+  ['lenovo-legion-5i-gen10', 'asus-rog-zephyrus-g14-2026'],
+];
+
+function buildPopular() {
+  const grid = document.getElementById('popularGrid');
+  POPULAR.forEach(([idA, idB]) => {
+    const a = window.getLaptop(idA);
+    const b = window.getLaptop(idB);
+    if (!a || !b) return;
+    const btn = document.createElement('button');
+    btn.className = 'popular-btn';
+    btn.innerHTML = `${a.shortName} <span class="vs">vs</span> ${b.shortName}`;
+    btn.onclick = () => {
+      document.getElementById('selectA').value = idA;
+      document.getElementById('selectB').value = idB;
+      runCompare();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    grid.appendChild(btn);
+  });
+}
+
+/* ── URL PARAMS — share a comparison via ?a=id&b=id ── */
+function loadFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const a = params.get('a');
+  const b = params.get('b');
+  if (a && b) {
+    document.getElementById('selectA').value = a;
+    document.getElementById('selectB').value = b;
+    runCompare();
+  }
+}
+
+/* ── UPDATE URL when compare runs ── */
+const _origRunCompare = runCompare;
+function runCompare() {
+  const idA = document.getElementById('selectA').value;
+  const idB = document.getElementById('selectB').value;
+  if (idA && idB && idA !== idB) {
+    const url = new URL(window.location);
+    url.searchParams.set('a', idA);
+    url.searchParams.set('b', idB);
+    window.history.replaceState({}, '', url);
+  }
+  _origRunCompare();
+}
+
+/* ── INIT ── */
+document.addEventListener('DOMContentLoaded', () => {
+  populateSelects();
+  buildPopular();
+  loadFromURL();
+});
+</script>
+<script src="nav.js"></script>
+</body>
+</html>
