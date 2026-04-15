@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -556,6 +556,12 @@ function runCompare() {
     return;
   }
 
+  // Update URL for shareability
+  const url = new URL(window.location);
+  url.searchParams.set('a', idA);
+  url.searchParams.set('b', idB);
+  window.history.replaceState({}, '', url);
+
   const a = window.getLaptop(idA);
   const b = window.getLaptop(idB);
   if (!a || !b) return;
@@ -740,20 +746,6 @@ function loadFromURL() {
     document.getElementById('selectB').value = b;
     runCompare();
   }
-}
-
-/* ── UPDATE URL when compare runs ── */
-const _origRunCompare = runCompare;
-function runCompare() {
-  const idA = document.getElementById('selectA').value;
-  const idB = document.getElementById('selectB').value;
-  if (idA && idB && idA !== idB) {
-    const url = new URL(window.location);
-    url.searchParams.set('a', idA);
-    url.searchParams.set('b', idB);
-    window.history.replaceState({}, '', url);
-  }
-  _origRunCompare();
 }
 
 /* ── INIT ── */
