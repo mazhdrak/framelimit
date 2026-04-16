@@ -367,6 +367,8 @@ table.comp{width:100%;border-collapse:collapse}
 .cs{font-family:'Bebas Neue',sans-serif;font-size:22px}
 .cs.top{color:var(--cyan)}.cs.great{color:var(--green)}.cs.good{color:var(--yellow)}
 .c-price{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--white)}
+a.c-price{color:var(--cyan);text-decoration:none;cursor:pointer;transition:color .2s}
+a.c-price:hover{color:var(--white)}
 footer{background:var(--deep);border-top:1px solid var(--border);padding:40px 32px 32px}
 .footer-inner{max-width:1400px;margin:0 auto}
 .footer-disc{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);line-height:1.9;padding:16px;background:rgba(255,214,0,.04);border:1px solid rgba(255,214,0,.1);margin-bottom:20px}
