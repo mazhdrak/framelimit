@@ -48,10 +48,8 @@
   <url><loc>https://framelimit.com/review-lenovo-legion-pro-7i-gen10.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://framelimit.com/review-asus-rog-zephyrus-g14-2026.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://framelimit.com/review-hp-omen-max-16-2026.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://framelimit.com/review-asus-rog-scar-18-2026.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://framelimit.com/review-lenovo-loq-15-gen10.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://framelimit.com/review-razer-blade-16-2026.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://framelimit.com/review-asus-rog-scar-16-2026.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://framelimit.com/review-lenovo-legion-5i-gen10.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://framelimit.com/review-msi-raider-18-hx-ai.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://framelimit.com/review-alienware-18-area-51.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
@@ -85,4 +83,10 @@
     <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url></urlset>
+  </url>  <url>
+    <loc>https://framelimit.com/review-asus-rog-strix-scar-16-2026.html</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+</urlset>
