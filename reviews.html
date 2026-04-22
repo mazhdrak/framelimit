@@ -126,6 +126,8 @@
   <button class="brand-btn" onclick="jumpBrand('alienware',this)">Alienware</button>
   <button class="brand-btn" onclick="jumpBrand('hp',this)">HP Omen</button>
   <button class="brand-btn" onclick="jumpBrand('acer',this)">Acer Predator</button>
+  <button class="brand-btn" onclick="jumpBrand('dell',this)">Dell</button>
+  <button class="brand-btn" onclick="jumpBrand('gigabyte',this)">Gigabyte</button>
 </div>
 
 <div class="reviews-wrap" id="reviews-wrap">
@@ -3203,73 +3205,308 @@ setTimeout(()=>{
 </body>
 </html>
   <!-- DELL -->
-  <div class="brand-section" id="dell">
-    <div class="brand-header">
-      <span class="brand-name">DELL</span>
-      <span class="brand-count">1 MODEL REVIEWED</span>
+<div class="brand-section-header" id="brand-dell">
+  <div class="bsh-line"></div>
+  <h2>DELL</h2>
+  <div class="bsh-tag">1 MODEL REVIEWED</div>
+  <div class="bsh-line"></div>
+</div>
+
+<article class="review-card visible" id="dellg16" data-cats="budget dell" data-laptop-id="dell-g16-rtx4070">
+  <div class="rc-hero">
+    <div class="rc-img-wrap">
+      <img src="images/laptops/dell-g15.webp"
+           alt="Dell G16 7630 Gaming Laptop"
+           onerror="this.style.display='none'">
+      <div class="rc-img-overlay"></div>
+      <div class="rc-img-badges">
+        <span class="badge badge-silver">Best Keyboard Under $1,600</span>
+      </div>
     </div>
-
-    <article class="review-card visible" id="dellg16" data-cats="budget dell" data-laptop-id="dell-g16-rtx4070">
-      <div class="rc-img-wrap">
-        <img src="images/laptops/dell-g15.webp"
-             alt="Dell G16 7630 Gaming Laptop"
-             width="320" height="180" loading="lazy">
-      </div>
-      <div class="rc-body">
-        <div class="rc-meta">
-          <span class="rc-brand">Dell</span>
-          <span class="rc-tier">Mid-Range</span>
-        </div>
-        <h3 class="rc-name">G16 7630</h3>
-        <div class="rc-specs">RTX 4070 · 16&quot; QHD+ 240Hz · Core i9-13900HX · 16GB DDR5 · 1TB</div>
-        <p class="rc-summary">The best keyboard in budget gaming laptops. The Dell G16 7630 pairs a QHD+ 240Hz display with an optional Cherry MX mechanical keyboard — no other laptop at $1,599 offers this. RTX 4070 handles 1440p well with DLSS. The previous-gen GPU is the main drawback vs RTX 5060 rivals, but for buyers who type as much as they game, the G16 is the obvious choice.</p>
-        <div class="rc-scores">
-          <div class="rc-score-item"><span class="rc-score-val" style="color:var(--green)">8.4</span><span class="rc-score-label">Overall</span></div>
-          <div class="rc-score-item"><span class="rc-score-val">7.8</span><span class="rc-score-label">Performance</span></div>
-          <div class="rc-score-item"><span class="rc-score-val">8.8</span><span class="rc-score-label">Display</span></div>
-          <div class="rc-score-item"><span class="rc-score-val">9.0</span><span class="rc-score-label">Value</span></div>
-        </div>
-        <div class="rc-actions">
-          <a href="https://www.amazon.com/dp/B0D1KRP6SF?tag=framelimit20-20" class="btn-primary" rel="nofollow sponsored">Check Price on Amazon →</a>
-          <a href="review-dell-g16-7630.html" class="btn-ghost">Full Review &rarr;</a>
+    <div class="rc-info">
+      <div>
+        <div class="rc-brand">Dell</div>
+        <div class="rc-name">G16 7630</div>
+        <div class="rc-sub"><span class="tier-label tier-mid">MID-RANGE</span>RTX 4070 100W · Core i9-13900HX · 16" QHD+ 240Hz</div>
+        <div class="rc-score-row">
+          <div><div class="rc-score-label">Overall Score</div><div class="rc-score-big">8<span>.4</span></div></div>
+          <div class="rc-subscores">
+            <div class="ss"><div class="ss-label">Perf</div><div class="ss-val m">7.8</div></div>
+            <div class="ss"><div class="ss-label">Display</div><div class="ss-val g">8.8</div></div>
+            <div class="ss"><div class="ss-label">Thermals</div><div class="ss-val g">8.2</div></div>
+            <div class="ss"><div class="ss-label">Battery</div><div class="ss-val m">7.4</div></div>
+            <div class="ss"><div class="ss-label">Build</div><div class="ss-val g">8.4</div></div>
+            <div class="ss"><div class="ss-label">Value</div><div class="ss-val g">9.0</div></div>
+          </div>
         </div>
       </div>
-    </article>
-  </div>
-
-  <!-- GIGABYTE -->
-  <div class="brand-section" id="gigabyte">
-    <div class="brand-header">
-      <span class="brand-name">GIGABYTE</span>
-      <span class="brand-count">1 MODEL REVIEWED</span>
+      <a href="https://www.amazon.com/dp/B0D1KRP6SF?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">See price on Amazon ↓</a>
     </div>
-
-    <article class="review-card visible" id="gigabytea16" data-cats="budget gigabyte" data-laptop-id="gigabyte-g6-rtx5060">
-      <div class="rc-img-wrap">
-        <img src="images/laptops/gigabyte-g5.webp"
-             alt="Gigabyte Gaming A16 Gaming Laptop"
-             width="320" height="180" loading="lazy">
-      </div>
-      <div class="rc-body">
-        <div class="rc-meta">
-          <span class="rc-brand">Gigabyte</span>
-          <span class="rc-tier">Budget</span>
-        </div>
-        <h3 class="rc-name">Gaming A16</h3>
-        <div class="rc-specs">RTX 5060 · 16&quot; 1920×1200 165Hz · Core i7-13620H · 16GB DDR5 · 1TB</div>
-        <p class="rc-summary">The cheapest RTX 5060 laptop worth buying. At $1,337 the Gigabyte Gaming A16 offers a 16:10 165Hz display and DLSS 4 support at the lowest price in the category. The i7-13620H is previous-gen, the battery is 54Wh (short), and Amazon flags a higher-than-average return rate. For strictly desk-bound 1080p gaming on a tight budget, nothing is cheaper for the performance.</p>
-        <div class="rc-scores">
-          <div class="rc-score-item"><span class="rc-score-val" style="color:var(--green)">8.1</span><span class="rc-score-label">Overall</span></div>
-          <div class="rc-score-item"><span class="rc-score-val">7.8</span><span class="rc-score-label">Performance</span></div>
-          <div class="rc-score-item"><span class="rc-score-val">7.9</span><span class="rc-score-label">Display</span></div>
-          <div class="rc-score-item"><span class="rc-score-val">9.2</span><span class="rc-score-label">Value</span></div>
-        </div>
-        <div class="rc-actions">
-          <a href="https://www.amazon.com/dp/B0FDMN25CZ?tag=framelimit20-20" class="btn-primary" rel="nofollow sponsored">Check Price on Amazon →</a>
-          <a href="review-gigabyte-gaming-a16.html" class="btn-ghost">Full Review &rarr;</a>
-        </div>
-      </div>
-    </article>
   </div>
+  <div class="rc-body">
+    <div class="rc-specs">
+      <span class="spec nv">RTX 4070 8GB GDDR6</span><span class="spec">Core i9-13900HX</span>
+      <span class="spec">16GB DDR5-5600</span><span class="spec">16" QHD+ 240Hz</span>
+      <span class="spec">1TB NVMe</span><span class="spec">2.6kg</span><span class="spec">86Wh</span>
+    </div>
+    <p class="rc-summary">The best keyboard in budget gaming laptops. The Dell G16 7630 pairs a QHD+ 240Hz display with an optional Cherry MX mechanical keyboard — no other laptop at $1,599 offers this. RTX 4070 handles 1440p well with DLSS. The previous-gen GPU is the main trade-off vs RTX 5060 rivals.</p>
+    <div class="hbench">
+  <div class="hbench-title">BENCHMARK RESULTS</div>
+  <div class="hbench-resolution">1440p (2560×1600) — High Settings</div>
+  <div class="hbench-legend">
+  <div class="hbench-legend-item"><div class="hbench-legend-dot" style="background:#3060e0"></div><span><strong>Dell G16 7630</strong> &nbsp; RTX 4070 100W &nbsp; Core i9-13900HX</span></div>
+  <div class="hbench-legend-item"><div class="hbench-legend-dot" style="background:#c82020"></div><span><strong>ASUS TUF A16</strong> &nbsp; RTX 5060 100W &nbsp; Ryzen AI 7 260</span></div>
+  <div class="hbench-legend-item"><div class="hbench-legend-dot" style="background:#6a6a7a"></div><span><strong>Gigabyte Gaming A16</strong> &nbsp; RTX 5060 100W &nbsp; Core i7-13620H</span></div>
+</div>
+  <div class="hbench-rows">
+<div class="hbench-row">
+  <div class="hbench-game">Cyberpunk 2077</div>
+  <div class="hbench-settings">
+    <span class="hbench-setting-tag">High</span>
+    <span class="hbench-setting-tag dlss">DLSS Quality</span>
+  </div>
+  <div class="hbench-bars">
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#5580ff">84</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc0" style="width:0;background:#3060e0" data-w="38"></div></div>
+      <span class="hbench-bar-name">Dell G16 7630</span>
+    </div>
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#ff6060">91</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc1" style="width:0;background:#c82020" data-w="41"></div></div>
+      <span class="hbench-bar-name">ASUS TUF A16</span>
+    </div>
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#909aac">88</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc2" style="width:0;background:#6a6a7a" data-w="40"></div></div>
+      <span class="hbench-bar-name">Gigabyte Gaming A16</span>
+    </div>
+  </div>
+</div>
+<div class="hbench-row">
+  <div class="hbench-game">Black Myth: Wukong</div>
+  <div class="hbench-settings">
+    <span class="hbench-setting-tag">Medium</span>
+    <span class="hbench-setting-tag dlss">DLSS 4</span>
+  </div>
+  <div class="hbench-bars">
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#5580ff">68</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc0" style="width:0;background:#3060e0" data-w="31"></div></div>
+      <span class="hbench-bar-name">Dell G16 7630</span>
+    </div>
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#ff6060">74</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc1" style="width:0;background:#c82020" data-w="34"></div></div>
+      <span class="hbench-bar-name">ASUS TUF A16</span>
+    </div>
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#909aac">72</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc2" style="width:0;background:#6a6a7a" data-w="33"></div></div>
+      <span class="hbench-bar-name">Gigabyte Gaming A16</span>
+    </div>
+  </div>
+</div>
+<div class="hbench-row">
+  <div class="hbench-game">CS2</div>
+  <div class="hbench-settings">
+    <span class="hbench-setting-tag">High 1080p</span>
+  </div>
+  <div class="hbench-bars">
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#5580ff">240+</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc0" style="width:0;background:#3060e0" data-w="90"></div></div>
+      <span class="hbench-bar-name">Dell G16 7630</span>
+    </div>
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#ff6060">220</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc1" style="width:0;background:#c82020" data-w="82"></div></div>
+      <span class="hbench-bar-name">ASUS TUF A16</span>
+    </div>
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#909aac">210</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc2" style="width:0;background:#6a6a7a" data-w="78"></div></div>
+      <span class="hbench-bar-name">Gigabyte Gaming A16</span>
+    </div>
+  </div>
+</div>
+</div>
+  <div class="hbench-scale"><span>0</span><span>60</span><span>120</span><span>180</span><span>240</span><span class="u-muted-italic"> fps</span></div>
+</div>
+    <div class="pros-cons">
+      <div class="pc-box pro"><div class="pc-title p">Pros</div><ul class="pc-list">
+        <li>Cherry MX keyboard — best typing in this bracket</li>
+        <li>QHD+ 240Hz — exceptional display for $1,599</li>
+        <li>86Wh battery — best in class for the tier</li>
+        <li>SD card reader included</li>
+      </ul></div>
+      <div class="pc-box con"><div class="pc-title c">Cons</div><ul class="pc-list">
+        <li>RTX 4070 — previous-gen, no DLSS 4</li>
+        <li>Only 16GB RAM at $1,599</li>
+        <li>2.6kg — heaviest in the tier</li>
+      </ul></div>
+    </div>
+    <div class="verdict"><div class="v-label">Our Verdict</div>
+      <div class="v-text">The right choice for buyers who type as much as they game. Cherry MX keyboard, QHD+ 240Hz, and solid thermals at $1,599. The RTX 4070 lags RTX 5060 rivals in DLSS 4 — but if keyboard quality is a priority, nothing at this price comes close.</div>
+    </div>
+    <div class="cta-row">
+      <a href="https://www.amazon.com/dp/B0D1KRP6SF?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored">Check Price on Amazon</a>
+      <a href="review-dell-g16-7630.html" class="btn-ghost">Full Review →</a>
+    </div>
+  </div>
+</article>
+
+<!-- GIGABYTE -->
+<div class="brand-section-header" id="brand-gigabyte">
+  <div class="bsh-line"></div>
+  <h2>GIGABYTE</h2>
+  <div class="bsh-tag">1 MODEL REVIEWED</div>
+  <div class="bsh-line"></div>
+</div>
+
+<article class="review-card visible" id="gigabytea16" data-cats="budget gigabyte" data-laptop-id="gigabyte-g6-rtx5060">
+  <div class="rc-hero">
+    <div class="rc-img-wrap">
+      <img src="images/laptops/gigabyte-g5.webp"
+           alt="Gigabyte Gaming A16"
+           onerror="this.style.display='none'">
+      <div class="rc-img-overlay"></div>
+      <div class="rc-img-badges">
+        <span class="badge badge-silver">Cheapest RTX 5060</span>
+      </div>
+    </div>
+    <div class="rc-info">
+      <div>
+        <div class="rc-brand">Gigabyte</div>
+        <div class="rc-name">Gaming A16</div>
+        <div class="rc-sub"><span class="tier-label tier-budget">BUDGET</span>RTX 5060 100W · Core i7-13620H · 16" 1920×1200 165Hz</div>
+        <div class="rc-score-row">
+          <div><div class="rc-score-label">Overall Score</div><div class="rc-score-big">8<span>.1</span></div></div>
+          <div class="rc-subscores">
+            <div class="ss"><div class="ss-label">Perf</div><div class="ss-val m">7.8</div></div>
+            <div class="ss"><div class="ss-label">Display</div><div class="ss-val m">7.9</div></div>
+            <div class="ss"><div class="ss-label">Thermals</div><div class="ss-val g">8.0</div></div>
+            <div class="ss"><div class="ss-label">Battery</div><div class="ss-val m">6.5</div></div>
+            <div class="ss"><div class="ss-label">Build</div><div class="ss-val m">7.8</div></div>
+            <div class="ss"><div class="ss-label">Value</div><div class="ss-val g">9.2</div></div>
+          </div>
+        </div>
+      </div>
+      <a href="https://www.amazon.com/dp/B0FDMN25CZ?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">See price on Amazon ↓</a>
+    </div>
+  </div>
+  <div class="rc-body">
+    <div class="rc-specs">
+      <span class="spec nv">RTX 5060 8GB GDDR7</span><span class="spec">Core i7-13620H</span>
+      <span class="spec">16GB DDR5</span><span class="spec">16" 1920×1200 165Hz</span>
+      <span class="spec">1TB NVMe</span><span class="spec">2.3kg</span><span class="spec">54Wh</span>
+    </div>
+    <p class="rc-summary">The cheapest RTX 5060 laptop worth buying at $1,337. The 16:10 165Hz display is rare at this price and DLSS 4 support gives a meaningful free fps boost. Trade-offs: previous-gen i7-13620H, short 54Wh battery, and a higher-than-average Amazon return rate. Best for desk-bound 1080p gaming on a strict budget.</p>
+    <div class="hbench">
+  <div class="hbench-title">BENCHMARK RESULTS</div>
+  <div class="hbench-resolution">1080p — High/Ultra Settings</div>
+  <div class="hbench-legend">
+  <div class="hbench-legend-item"><div class="hbench-legend-dot" style="background:#3060e0"></div><span><strong>Gigabyte Gaming A16</strong> &nbsp; RTX 5060 100W &nbsp; Core i7-13620H</span></div>
+  <div class="hbench-legend-item"><div class="hbench-legend-dot" style="background:#c82020"></div><span><strong>ASUS TUF A16</strong> &nbsp; RTX 5060 100W &nbsp; Ryzen AI 7 260</span></div>
+  <div class="hbench-legend-item"><div class="hbench-legend-dot" style="background:#6a6a7a"></div><span><strong>Lenovo LOQ 15</strong> &nbsp; RTX 5060 100W &nbsp; Core Ultra 5 245H</span></div>
+</div>
+  <div class="hbench-rows">
+<div class="hbench-row">
+  <div class="hbench-game">Cyberpunk 2077</div>
+  <div class="hbench-settings">
+    <span class="hbench-setting-tag">High</span>
+    <span class="hbench-setting-tag dlss">DLSS 4 Balanced</span>
+  </div>
+  <div class="hbench-bars">
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#5580ff">94</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc0" style="width:0;background:#3060e0" data-w="43"></div></div>
+      <span class="hbench-bar-name">Gigabyte Gaming A16</span>
+    </div>
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#ff6060">98</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc1" style="width:0;background:#c82020" data-w="45"></div></div>
+      <span class="hbench-bar-name">ASUS TUF A16</span>
+    </div>
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#909aac">96</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc2" style="width:0;background:#6a6a7a" data-w="44"></div></div>
+      <span class="hbench-bar-name">Lenovo LOQ 15</span>
+    </div>
+  </div>
+</div>
+<div class="hbench-row">
+  <div class="hbench-game">Black Myth: Wukong</div>
+  <div class="hbench-settings">
+    <span class="hbench-setting-tag">Medium</span>
+    <span class="hbench-setting-tag dlss">DLSS 4 Balanced</span>
+  </div>
+  <div class="hbench-bars">
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#5580ff">72</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc0" style="width:0;background:#3060e0" data-w="33"></div></div>
+      <span class="hbench-bar-name">Gigabyte Gaming A16</span>
+    </div>
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#ff6060">76</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc1" style="width:0;background:#c82020" data-w="35"></div></div>
+      <span class="hbench-bar-name">ASUS TUF A16</span>
+    </div>
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#909aac">74</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc2" style="width:0;background:#6a6a7a" data-w="34"></div></div>
+      <span class="hbench-bar-name">Lenovo LOQ 15</span>
+    </div>
+  </div>
+</div>
+<div class="hbench-row">
+  <div class="hbench-game">CS2</div>
+  <div class="hbench-settings">
+    <span class="hbench-setting-tag">High 1080p</span>
+  </div>
+  <div class="hbench-bars">
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#5580ff">165+</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc0" style="width:0;background:#3060e0" data-w="75"></div></div>
+      <span class="hbench-bar-name">Gigabyte Gaming A16</span>
+    </div>
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#ff6060">165+</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc1" style="width:0;background:#c82020" data-w="75"></div></div>
+      <span class="hbench-bar-name">ASUS TUF A16</span>
+    </div>
+    <div class="hbench-bar-row">
+      <span class="hbench-bar-fps" style="color:#909aac">144+</span>
+      <div class="hbench-bar-track"><div class="hbench-bar-fill hbc2" style="width:0;background:#6a6a7a" data-w="66"></div></div>
+      <span class="hbench-bar-name">Lenovo LOQ 15</span>
+    </div>
+  </div>
+</div>
+</div>
+  <div class="hbench-scale"><span>0</span><span>55</span><span>110</span><span>165</span><span>220</span><span class="u-muted-italic"> fps</span></div>
+</div>
+    <div class="pros-cons">
+      <div class="pc-box pro"><div class="pc-title p">Pros</div><ul class="pc-list">
+        <li>Cheapest RTX 5060 laptop tested</li>
+        <li>16:10 1920×1200 165Hz — rare at this price</li>
+        <li>DLSS 4 support</li>
+        <li>2.3kg — lighter than most budget rivals</li>
+      </ul></div>
+      <div class="pc-box con"><div class="pc-title c">Cons</div><ul class="pc-list">
+        <li>54Wh battery — shortest runtime in category</li>
+        <li>Previous-gen i7-13620H CPU</li>
+        <li>Higher-than-average Amazon return rate</li>
+        <li>No Ethernet port on chassis</li>
+      </ul></div>
+    </div>
+    <div class="verdict"><div class="v-label">Our Verdict</div>
+      <div class="v-text">The lowest-price RTX 5060 laptop worth recommending. At $1,337 with a 16:10 display it's genuinely competitive — but the short battery and QC concerns mean it's best suited to desk use with Amazon's easy return policy as a safety net.</div>
+    </div>
+    <div class="cta-row">
+      <a href="https://www.amazon.com/dp/B0FDMN25CZ?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored">Check Price on Amazon</a>
+      <a href="review-gigabyte-gaming-a16.html" class="btn-ghost">Full Review →</a>
+    </div>
+  </div>
+</article>
 
 
