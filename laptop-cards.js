@@ -56,7 +56,7 @@ function flReviewLink(id) {
     'msi-raider-18-hx-ai':              'raider18',
     'msi-vector-16-hx-ai':              'vector16',
     'msi-katana-15-hx':                 'katana15',
-    'razer-blade-18-2026':              'blade18',
+    'msi-stealth-a16-ai-plus':          'stealth-a16',
     'razer-blade-16-oled-2026':         'blade16',
     'alienware-18-area-51':             'area51-18',
     'dell-alienware-16x-aurora':        'aurora16x',

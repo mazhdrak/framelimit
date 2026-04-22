@@ -165,7 +165,7 @@
           'lenovo-loq-15-gen10':'loq15','lenovo-loq-16-gen10':'loq16',
           'msi-titan-18-hx-ai':'titan18','msi-raider-18-hx-ai':'raider18',
           'msi-vector-16-hx-ai':'vector16','msi-katana-15-hx':'katana15',
-          'razer-blade-18-2026':'blade18','razer-blade-16-oled-2026':'blade16',
+          'msi-stealth-a16-ai-plus':'stealth-a16','razer-blade-16-oled-2026':'blade16',
           'alienware-18-area-51':'area51-18','dell-alienware-16x-aurora':'aurora16x',
           'hp-omen-max-16-2026':'omenmax5080','hp-omen-16-rtx5070-2026':'omen16',
           'acer-predator-helios-neo-16-2025':'heliosneo16',
