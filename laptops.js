@@ -298,7 +298,7 @@ const LAPTOPS = [
     imgUrl: 'images/laptops/msi-stealth-a16-ai-plus.webp',
     imgBg: '#0a0a0a',
     tags: ['16-inch', 'nvidia', 'amd-cpu', 'oled', 'thin', 'high-end'],
-  }
+  },
   {
     id: 'hp-omen-max-16-2026',
     brand: 'HP',
