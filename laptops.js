@@ -4,7 +4,9 @@
  * tag: framelimit20-20
  *
  * TIERS:   high-end | mid-range | budget
- * UPDATED: April 2026
+ * UPDATED: June 2026
+ * Prices are editorial reference/MSRP or last-observed values, not live prices.
+ * Always use Amazon/retailer pages for the current checkout price.
  *
  * HOW TO USE ON ANY PAGE:
  *   <script src="laptops.js"></script>
@@ -82,7 +84,7 @@ const LAPTOPS = [
     bestFor: 'High-refresh 1440p/4K, upgradeable powerhouse',
     avoidIf: 'You want OLED or portability',
     amazonUrl: 'https://www.amazon.com/dp/B0F4PHGLW3?tag=framelimit20-20',
-    amazonAsin: null,
+    amazonAsin: 'B0F4PHGLW3',
     imgUrl: 'images/laptops/msi-raider-18-hx-ai.webp',
     imgBg: '#0a0a0a',
     tags: ['desktop-replacement', 'nvidia', 'high-refresh', 'flagship'],
@@ -297,7 +299,7 @@ const LAPTOPS = [
     scores: { perf: 9.7, display: 9.0, thermals: 8.4, battery: 6.2, build: 9.9, value: 7.5 },
     bestFor: 'Razer loyalists, premium large-screen experience',
     avoidIf: 'Better value exists at same price elsewhere',
-    amazonUrl: 'https://www.amazon.com/dp/B0DYLTKRNR/?tag=framelimit20-20',
+    amazonUrl: 'https://www.amazon.com/s?k=Razer+Blade+18+2026+RTX+5090&tag=framelimit20-20',
     amazonAsin: null,
     imgUrl: 'images/laptops/razer-blade-18.webp',
     imgBg: '#060606',
@@ -334,7 +336,7 @@ const LAPTOPS = [
     bestFor: 'Full 175W flagship performance at mid-range money',
     avoidIf: 'Brand prestige or OLED matters to you',
     amazonUrl: 'https://www.amazon.com/dp/B0GW7F1B7Z?tag=framelimit20-20',
-    amazonAsin: null,
+    amazonAsin: 'B0GW7F1B7Z',
     imgUrl: 'images/laptops/hp-omen-max-16.webp',
     imgBg: '#0a0a0a',
     tags: ['16-inch', 'nvidia', 'flagship', 'best-value-flagship'],
@@ -481,7 +483,7 @@ const LAPTOPS = [
     bestFor: 'Ultraportable + OLED, travel-friendly gamer',
     avoidIf: 'You need max FPS or upgradeable RAM',
     amazonUrl: 'https://www.amazon.com/dp/B0FHY9D1M2?tag=framelimit20-20',
-    amazonAsin: null,
+    amazonAsin: 'B0FHY9D1M2',
     imgUrl: 'images/laptops/asus-rog-zephyrus-g14.webp',
     imgBg: '#0d0d14',
     tags: ['14-inch', 'nvidia', 'amd-cpu', 'oled', 'thin', 'mid-range'],
@@ -490,7 +492,7 @@ const LAPTOPS = [
   {
     id: 'asus-rog-zephyrus-g16-mid',
     brand: 'ASUS ROG',
-    name: 'Zephyrus G16 (RTX 5070)',
+    name: 'Zephyrus G16 (RTX 5070 Ti)',
     shortName: 'Zephyrus G16 Mid',
     tier: 'mid-range',
     badge: 'Best OLED Under $2K',
@@ -769,7 +771,7 @@ const LAPTOPS = [
     price: 1329,
     score: 8.5,
     scores: { perf: 8.0, display: 7.8, thermals: 8.6, battery: 7.2, build: 8.4, value: 9.6 },
-    bestFor: 'Best RTX 5060 under $1,000, 1080p gaming',
+    bestFor: 'Best-value RTX 5060 pick for 1080p gaming',
     avoidIf: '1440p or OLED is something you care about',
     amazonUrl: 'https://www.amazon.com/dp/B0FXWRG3YX?tag=framelimit20-20',
     amazonAsin: 'B0FXWRG3YX',
@@ -891,8 +893,8 @@ const LAPTOPS = [
     brand: 'HP',
     name: 'Victus 16 (RTX 5060)',
     shortName: 'HP Victus 16',
-    tier: 'budget',
-    badge: 'Best HP Budget Laptop',
+    tier: 'mid-range',
+    badge: 'Unverified Price',
     gpu: 'RTX 5060',
     gpuVram: '8GB GDDR7',
     tgp: 95,
@@ -910,12 +912,12 @@ const LAPTOPS = [
     },
     weight: 2.3,
     battery: 70,
-    price: 2099,
+    price: null,
     score: 8.2,
     scores: { perf: 7.9, display: 7.7, thermals: 8.2, battery: 7.8, build: 8.3, value: 9.3 },
-    bestFor: 'HP fans, clean design, solid budget option',
+    bestFor: 'HP fans who find a confirmed RTX 5060 Victus deal',
     avoidIf: '1440p display matters, or you want more TGP',
-    amazonUrl: 'https://www.amazon.com/s?k=HP+Victus+16+RTX+5060+2025&tag=framelimit20-20',
+    amazonUrl: 'https://www.amazon.com/s?k=HP+Victus+RTX+5060+gaming+laptop&tag=framelimit20-20',
     amazonAsin: null,
     imgUrl: 'images/laptops/hp-victus-16.webp',
     imgBg: '#0a0a0a',
@@ -988,7 +990,7 @@ const LAPTOPS = [
     bestFor: 'Best budget build quality, great thermals',
     avoidIf: 'You want RTX 5070+ performance',
     amazonUrl: 'https://www.amazon.com/dp/B0GVK97DK5?tag=framelimit20-20',
-    amazonAsin: 'B0G3QSC6H4',
+    amazonAsin: 'B0GVK97DK5',
     imgUrl: 'images/laptops/asus-tuf-gaming-a16-amd-advantage.webp',
     imgBg: '#0a0d0a',
     tags: ['16-inch', 'nvidia', 'amd-cpu', 'budget'],
@@ -997,21 +999,21 @@ const LAPTOPS = [
   {
     id: 'msi-katana-15-hx',
     brand: 'MSI',
-    name: 'Katana 15 HX (RTX 5060)',
+    name: 'Katana 15 HX (RTX 5070)',
     shortName: 'MSI Katana 15 HX',
     tier: 'budget',
     badge: 'Best MSI Budget Pick',
     gpu: 'RTX 5070',
     gpuVram: '8GB GDDR7',
     tgp: 100,
-    cpu: 'Intel Core i7-14700HX',
-    ram: '16GB DDR5-5600',
+    cpu: 'Intel Core i9-14900HX',
+    ram: '32GB DDR5-5600',
     ramUpgradeable: true,
-    storage: '512GB PCIe Gen4 NVMe',
+    storage: '1TB PCIe Gen4 NVMe',
     display: {
       size: 15.6,
-      res: '1920×1080',
-      hz: 144,
+      res: '2560×1440',
+      hz: 165,
       panel: 'IPS',
       nits: 250,
       hdr: false,
@@ -1021,8 +1023,8 @@ const LAPTOPS = [
     price: 1744,
     score: 7.9,
     scores: { perf: 7.8, display: 7.4, thermals: 8.0, battery: 6.8, build: 8.2, value: 9.0 },
-    bestFor: 'Sub-$1,000 MSI, proven HX platform',
-    avoidIf: 'Battery life or display quality matters',
+    bestFor: 'RTX 5070 performance and QHD gaming in a 15-inch chassis',
+    avoidIf: 'Battery life or display brightness matters',
     amazonUrl: 'https://www.amazon.com/dp/B0DZFVBQLK/?tag=framelimit20-20',
     amazonAsin: 'B0DZFVBQLK',
     imgUrl: 'images/laptops/msi-katana-15-hx.webp',
@@ -1074,7 +1076,7 @@ const LAPTOPS = [
     tier: 'budget',
     badge: 'Best Dell Value Laptop',
     gpu: 'RTX 4070',
-    gpuVram: '8GB GDDR7',
+    gpuVram: '8GB GDDR6',
     tgp: 100,
     cpu: 'Intel Core i7-14650HX',
     ram: '16GB DDR5-5600',
@@ -1127,7 +1129,7 @@ function getLaptopsByTag(...tags) {
 
 /** Sort helpers */
 const sortByScore    = arr => [...arr].sort((a, b) => b.score - a.score);
-const sortByPrice    = arr => [...arr].sort((a, b) => a.price - b.price);
+const sortByPrice    = arr => [...arr].sort((a, b) => (a.price || Infinity) - (b.price || Infinity));
 const sortByTGP      = arr => [...arr].sort((a, b) => b.tgp - a.tgp);
 
 /* Expose everything globally for plain HTML pages */

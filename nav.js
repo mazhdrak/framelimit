@@ -9,7 +9,7 @@
   if (!root) return;
 
   root.innerHTML = `
-<div class="aff-ribbon">⚠ This site contains affiliate links. We earn commissions on purchases at no extra cost to you. <a href="affiliate-disclosure.html" style="color:var(--yellow)">Disclosure</a> — Never influences our scores or recommendations.</div>
+<div class="aff-ribbon">⚠ This site contains affiliate links. Prices and availability can change; always check the retailer page before buying. <a href="affiliate-disclosure.html" style="color:var(--yellow)">Disclosure</a> — Commissions never influence our scores.</div>
 
 <nav>
   <a href="index.html" class="nav-logo">FRAME<span>LIMIT</span></a>

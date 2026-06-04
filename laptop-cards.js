@@ -152,7 +152,7 @@ function flRenderCard(laptop) {
   </div>
 
   <div class="fl-cta-row">
-    <a href="${laptop.amazonUrl}" class="fl-btn-buy" rel="nofollow sponsored" target="_blank">
+    <a href="${laptop.amazonUrl}" class="fl-btn-buy" rel="nofollow sponsored noopener" target="_blank">
       Check Price on Amazon →
     </a>
     ${reviewBtn}
@@ -189,7 +189,7 @@ function flRenderTable(laptops) {
       <td style="font-family:'JetBrains Mono',monospace;font-size:12px">${l.weight}kg</td>
       <td style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:${sc}">${l.score}</td>
       <td>
-        <a href="${l.amazonUrl}" class="fl-table-buy" rel="nofollow sponsored" target="_blank">Amazon →</a>
+        <a href="${l.amazonUrl}" class="fl-table-buy" rel="nofollow sponsored noopener" target="_blank">Amazon →</a>
       </td>
     </tr>`;
   }).join('');
@@ -243,7 +243,7 @@ function flRenderHeroPicks(ids) {
     if (!l) return `<!-- laptop not found: ${id} -->`;
     const reviewUrl = flReviewLink(l.id);
     const href = reviewUrl || l.amazonUrl;
-    const rel  = reviewUrl ? '' : 'rel="nofollow sponsored" target="_blank"';
+    const rel  = reviewUrl ? '' : 'rel="nofollow sponsored noopener" target="_blank"';
     const imgEl = l.imgUrl
       ? `<div class="hp-img-col"><img src="${l.imgUrl}" alt="${l.shortName}" loading="lazy" onerror="this.style.opacity=0"></div>`
       : `<div class="hp-img-col"><span style="font-family:'JetBrains Mono',monospace;font-size:8px;color:#3a4a5a">${l.brand.slice(0,5).toUpperCase()}</span></div>`;
@@ -290,7 +290,7 @@ function flRenderDeals(ids) {
     <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">Score: </span>
     <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:${flScoreColor(l.score)}">${l.score}</span>
   </div>
-  <a href="${l.amazonUrl}" class="deal-btn" rel="nofollow sponsored" target="_blank">Check Price on Amazon →</a>
+  <a href="${l.amazonUrl}" class="deal-btn" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon →</a>
   ${reviewBtn}
 </div>`;
   }).join('');
