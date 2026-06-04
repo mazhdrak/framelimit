@@ -41,6 +41,14 @@ function flAmazonCta(url, shortLabel) {
   return isDirect ? 'Check Price on Amazon →' : 'Search on Amazon →';
 }
 
+function flRetailerNote(laptop) {
+  const status = window.flRetailerStatus
+    ? window.flRetailerStatus(laptop)
+    : (/amazon\.com\/dp\//.test(laptop.amazonUrl || '') ? 'Verified Amazon product page' : 'Amazon search fallback');
+  const checked = window.FL_DATA_LAST_CHECKED_LABEL || 'Price/spec checked recently';
+  return `${status} · ${checked}`;
+}
+
 /* ── Review anchor link ── */
 function flReviewLink(id) {
   // Map laptops.js id → reviews.html anchor
@@ -163,7 +171,7 @@ function flRenderCard(laptop) {
     </a>
     ${reviewBtn}
   </div>
-  <div class="fl-aff-note">⚠ Affiliate link · FRAMELIMIT earns a commission at no extra cost to you</div>
+  <div class="fl-aff-note">Affiliate link · ${flRetailerNote(laptop)} · FRAMELIMIT may earn a commission</div>
 </article>`;
 }
 
@@ -225,7 +233,7 @@ function flRenderTable(laptops) {
   </table>
 </div>
 ${expandBtn}
-<div class="fl-table-note">Sorted by score · Click Amazon → to check current price · Affiliate links</div>`;
+<div class="fl-table-note">Sorted by score · Direct links open verified product pages; search links require model check · ${window.FL_DATA_LAST_CHECKED_LABEL || 'Prices checked recently'} · Affiliate links</div>`;
 }
 
 function flToggleTable(tid) {
@@ -297,6 +305,7 @@ function flRenderDeals(ids) {
     <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:${flScoreColor(l.score)}">${l.score}</span>
   </div>
   <a href="${l.amazonUrl}" class="deal-btn" rel="nofollow sponsored noopener" target="_blank">${flAmazonCta(l.amazonUrl)}</a>
+  <div class="fl-aff-note">${flRetailerNote(l)}</div>
   ${reviewBtn}
 </div>`;
   }).join('');

@@ -13,6 +13,9 @@
  *   Then access window.LAPTOPS, window.LAPTOPS_BY_TIER, window.getLaptop(id)
  */
 
+const FL_DATA_LAST_CHECKED = '2026-06-04';
+const FL_DATA_LAST_CHECKED_LABEL = 'Last checked Jun 4, 2026';
+
 const LAPTOPS = [
 
   /* ============================================================
@@ -1132,11 +1135,26 @@ const sortByScore    = arr => [...arr].sort((a, b) => b.score - a.score);
 const sortByPrice    = arr => [...arr].sort((a, b) => (a.price || Infinity) - (b.price || Infinity));
 const sortByTGP      = arr => [...arr].sort((a, b) => b.tgp - a.tgp);
 
+function flIsDirectAmazonProduct(laptopOrUrl) {
+  const url = typeof laptopOrUrl === 'string' ? laptopOrUrl : laptopOrUrl && laptopOrUrl.amazonUrl;
+  return /amazon\.com\/dp\//.test(url || '');
+}
+
+function flRetailerStatus(laptop) {
+  return flIsDirectAmazonProduct(laptop)
+    ? 'Verified Amazon product page'
+    : 'Amazon search fallback - verify model before buying';
+}
+
 /* Expose everything globally for plain HTML pages */
 window.LAPTOPS         = LAPTOPS;
+window.FL_DATA_LAST_CHECKED = FL_DATA_LAST_CHECKED;
+window.FL_DATA_LAST_CHECKED_LABEL = FL_DATA_LAST_CHECKED_LABEL;
 window.LAPTOPS_BY_TIER = LAPTOPS_BY_TIER;
 window.getLaptop       = getLaptop;
 window.getLaptopsByTag = getLaptopsByTag;
 window.sortByScore     = sortByScore;
 window.sortByPrice     = sortByPrice;
 window.sortByTGP       = sortByTGP;
+window.flIsDirectAmazonProduct = flIsDirectAmazonProduct;
+window.flRetailerStatus = flRetailerStatus;

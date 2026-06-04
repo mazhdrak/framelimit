@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Best Gaming Laptops 2026 — RTX 50 Series Tested | FRAMELIMIT</title>
-<meta name="description" content="The best gaming laptops of 2026, ranked after testing 30 machines across 11 games. Real TGP numbers, honest benchmarks, zero sponsored rankings. Prices checked on retailer pages.">
+<meta name="description" content="Best gaming laptops 2026 ranked across RTX 5090 to RTX 5060 picks, with real TGP numbers, benchmark notes, buyer warnings, and retailer price checks.">
 <meta name="robots" content="index, follow">
 <meta property="og:image" content="https://framelimit.com/og-default.jpg">
 <link rel="canonical" href="https://framelimit.com/">
@@ -72,7 +72,7 @@
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-cat">March 2026 — Blackwell RTX 50 Series · 30 Laptops Tested</div>
+      <div class="hero-cat">June 2026 — Blackwell RTX 50 Series · 30 Laptops Tested</div>
       <h1 class="hero-title">THE BEST<br><span>GAMING</span><br>LAPTOPS<br>RIGHT NOW</h1>
       <p class="hero-sub">30 laptops tested across 11 games. Real TGP numbers, honest battery results, zero sponsored rankings. Current prices are checked on retailer pages.</p>
       <div class="hero-ctas">
@@ -540,6 +540,7 @@
           <li><a href="contact.html">Contact</a></li>
           <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
           <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="methodology.html">How We Test</a></li>
           <li><a href="sitemap.xml">Sitemap</a></li>
         </ul>
       </div>
@@ -612,6 +613,7 @@ function renderPicksGrids() {
       const sc = window.flScoreColor ? window.flScoreColor(l.score) : 'var(--cyan)';
       const tierColors = { 'high-end': 'var(--orange)', 'mid-range': 'var(--cyan)', 'budget': 'var(--green)' };
       const tc = tierColors[l.tier] || 'var(--muted)';
+      const retailerNote = window.flRetailerStatus ? window.flRetailerStatus(l) : (/amazon\.com\/dp\//.test(l.amazonUrl || '') ? 'Verified Amazon product page' : 'Amazon search fallback');
       return `<div class="pick-card">
         <div class="pick-badge" style="background:${tc};color:var(--black)">${l.badge}</div>
         <div class="pick-name">${l.shortName}</div>
@@ -619,6 +621,7 @@ function renderPicksGrids() {
         
         <div class="pick-score">${l.score}<div class="pick-score-sub">SCORE</div></div>
         <a href="${l.amazonUrl}" class="pick-btn" rel="nofollow sponsored" target="_blank">${/amazon\.com\/dp\//.test(l.amazonUrl || '') ? 'Check Price →' : 'Search Amazon →'}</a>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:10px">${retailerNote} · ${window.FL_DATA_LAST_CHECKED_LABEL || 'Price/spec checked recently'}</div>
       </div>`;
     }).join('');
   });
@@ -646,7 +649,8 @@ function updateFinder() {
     <div class="fr-title">${l.shortName}</div>
     <div class="fr-sub">${l.gpu} ${l.tgp}W · ${l.display.size}" ${l.display.panel} ${l.display.hz}Hz · ${l.ram} · ${l.bestFor}</div>
     <a href="${l.amazonUrl}" class="fr-link" rel="nofollow sponsored" target="_blank">${/amazon\.com\/dp\//.test(l.amazonUrl || '') ? 'Check Price on Amazon →' : 'Search on Amazon →'}</a>
-    <a href="${row.link}" class="fr-link" style="margin-left:10px;background:var(--deep);color:var(--cyan);border:1px solid var(--cyan)">${row.linkText}</a>`;
+    <a href="${row.link}" class="fr-link" style="margin-left:10px;background:var(--deep);color:var(--cyan);border:1px solid var(--cyan)">${row.linkText}</a>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:10px">${window.flRetailerStatus ? window.flRetailerStatus(l) : 'Retailer link'} · ${window.FL_DATA_LAST_CHECKED_LABEL || 'Price/spec checked recently'}</div>`;
 }
 
 function setPlatform(p, btn) {

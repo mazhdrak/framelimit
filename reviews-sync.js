@@ -177,7 +177,9 @@
       const note = document.createElement('div');
       note.className = 'fl-review-injected';
       note.style.cssText = 'font-family:"JetBrains Mono",monospace;font-size:9px;color:#7A94A8;margin-top:10px';
-      note.textContent = '⚠ Affiliate link · framelimit20-20 · Price shown on Amazon';
+      const status = window.flRetailerStatus ? window.flRetailerStatus(l) : 'Retailer link';
+      const checked = window.FL_DATA_LAST_CHECKED_LABEL || 'Price/spec checked recently';
+      note.textContent = `Affiliate link · framelimit20-20 · ${status} · ${checked}`;
       ctaRow.appendChild(note);
     }
   }
