@@ -58,31 +58,39 @@ function flReviewLink(id) {
     'asus-rog-zephyrus-g16-mid':        'review-asus-rog-zephyrus-g16-2026.html',
     'asus-rog-zephyrus-g14-2026':       'review-asus-rog-zephyrus-g14-2026.html',
     'asus-tuf-a16-entry':               'review-asus-tuf-gaming-a16-2026.html',
-    'asus-tuf-a15-rtx5060':             null,
-    'asus-tuf-gaming-f16-rtx5070':      null,
+    'asus-tuf-a15-rtx5060':             'review-notes-2026.html#asus-tuf-a15-rtx5060',
+    'asus-tuf-gaming-f16-rtx5070':      'review-notes-2026.html#asus-tuf-gaming-f16-rtx5070',
     'lenovo-legion-pro-7i-gen10':       'review-lenovo-legion-pro-7i-gen10.html',
     'lenovo-legion-5i-gen10':           'review-lenovo-legion-5i-gen10.html',
     'lenovo-legion-5-gen10-amd':        'review-lenovo-legion-5-gen10-amd.html',
     'lenovo-loq-15-gen10':              'review-lenovo-loq-15-gen10.html',
-    'lenovo-loq-16-gen10':              null,
-    'msi-titan-18-hx-ai':               null,
+    'lenovo-loq-16-gen10':              'review-notes-2026.html#lenovo-loq-16-gen10',
+    'msi-titan-18-hx-ai':               'review-notes-2026.html#msi-titan-18-hx-ai',
     'msi-raider-18-hx-ai':              'review-msi-raider-18-hx-ai.html',
     'msi-vector-16-hx-ai':              'review-msi-vector-16-hx-ai.html',
     'msi-katana-15-hx':                 'review-msi-katana-15-hx.html',
     'msi-stealth-a16-ai-plus':          'review-msi-stealth-a16-ai-plus.html',
     'razer-blade-16-oled-2026':         'review-razer-blade-16-2026.html',
+    'razer-blade-18-2026':              'review-notes-2026.html#razer-blade-18-2026',
     'alienware-18-area-51':             'review-alienware-18-area-51.html',
     'dell-alienware-16x-aurora':        'review-alienware-16x-aurora.html',
     'hp-omen-max-16-2026':              'review-hp-omen-max-16-2026.html',
-    'hp-omen-16-rtx5070-2026':          null,
+    'hp-omen-16-rtx5070-2026':          'review-notes-2026.html#hp-omen-16-rtx5070-2026',
     'acer-predator-helios-neo-16-2025': 'review-acer-predator-helios-neo-16.html',
-    'acer-nitro-16-2025':               null,
+    'acer-nitro-16-2025':               'review-notes-2026.html#acer-nitro-16-2025',
     'acer-nitro-v-16':                  'review-acer-nitro-v-16-2026.html',
-    'hp-victus-16-rtx5060':             null,
+    'hp-victus-16-rtx5060':             'review-notes-2026.html#hp-victus-16-rtx5060',
+    'asus-tuf-gaming-a16-amd':          'review-notes-2026.html#asus-tuf-gaming-a16-amd',
     'gigabyte-g6-rtx5060':              'review-gigabyte-gaming-a16.html',
     'dell-g16-rtx4070':                 'review-dell-g16-7630.html',
   };
   return map[id] || null;
+}
+
+function flReviewLabel(url, fullLabel) {
+  const isNotes = /review-notes-2026\.html/.test(url || '');
+  if (fullLabel) return isNotes ? 'Review Notes →' : 'Read Full Review →';
+  return isNotes ? 'Review Notes →' : 'Read Review →';
 }
 
 /* ══════════════════════════════════════════════════════
@@ -107,7 +115,7 @@ function flRenderCard(laptop) {
     : `<span class="fl-spec-tag fl-spec-warn">✗ Soldered RAM</span>`;
 
   const reviewBtn = reviewUrl
-    ? `<a href="${reviewUrl}" class="fl-btn-review">Read Full Review →</a>`
+    ? `<a href="${reviewUrl}" class="fl-btn-review">${flReviewLabel(reviewUrl, true)}</a>`
     : '';
 
   const imgHtml = laptop.imgUrl
@@ -265,7 +273,7 @@ function flRenderHeroPicks(ids) {
     <div class="hp-rank">0${i+1} — ${l.badge}</div>
     <div class="hp-name">${l.shortName}</div>
     <div class="hp-spec">${l.gpu} · ${l.display.panel} · Score ${l.score}</div>
-    <div class="hp-price">${reviewUrl ? 'Read Review →' : 'Amazon →'}</div>
+    <div class="hp-price">${reviewUrl ? flReviewLabel(reviewUrl, false) : 'Amazon →'}</div>
   </div>
 </a>`;
   }).join('');
@@ -286,7 +294,7 @@ function flRenderDeals(ids) {
     const [badgeText, badgeClass] = badgeMap[l.tier] || ['PICK', 'badge-new'];
     const reviewUrl = flReviewLink(l.id);
     const reviewBtn = reviewUrl
-      ? `<a href="${reviewUrl}" class="deal-review-btn">Read Review →</a>`
+      ? `<a href="${reviewUrl}" class="deal-review-btn">${flReviewLabel(reviewUrl, false)}</a>`
       : '';
     const imgEl = l.imgUrl
       ? `<div class="deal-img"><img src="${l.imgUrl}" alt="${l.name}" onerror="this.style.display='none'" loading="lazy"></div>`
