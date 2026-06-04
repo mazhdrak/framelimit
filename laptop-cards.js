@@ -35,6 +35,12 @@ function flGpuColor(gpu) {
   return 'var(--muted)';
 }
 
+function flAmazonCta(url, shortLabel) {
+  const isDirect = /amazon\.com\/dp\//.test(url || '');
+  if (shortLabel) return isDirect ? 'Check Price →' : 'Search Amazon →';
+  return isDirect ? 'Check Price on Amazon →' : 'Search on Amazon →';
+}
+
 /* ── Review anchor link ── */
 function flReviewLink(id) {
   // Map laptops.js id → reviews.html anchor
@@ -153,7 +159,7 @@ function flRenderCard(laptop) {
 
   <div class="fl-cta-row">
     <a href="${laptop.amazonUrl}" class="fl-btn-buy" rel="nofollow sponsored noopener" target="_blank">
-      Check Price on Amazon →
+      ${flAmazonCta(laptop.amazonUrl)}
     </a>
     ${reviewBtn}
   </div>
@@ -189,7 +195,7 @@ function flRenderTable(laptops) {
       <td style="font-family:'JetBrains Mono',monospace;font-size:12px">${l.weight}kg</td>
       <td style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:${sc}">${l.score}</td>
       <td>
-        <a href="${l.amazonUrl}" class="fl-table-buy" rel="nofollow sponsored noopener" target="_blank">Amazon →</a>
+        <a href="${l.amazonUrl}" class="fl-table-buy" rel="nofollow sponsored noopener" target="_blank">${/amazon\.com\/dp\//.test(l.amazonUrl || '') ? 'Amazon →' : 'Search →'}</a>
       </td>
     </tr>`;
   }).join('');
@@ -290,7 +296,7 @@ function flRenderDeals(ids) {
     <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">Score: </span>
     <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:${flScoreColor(l.score)}">${l.score}</span>
   </div>
-  <a href="${l.amazonUrl}" class="deal-btn" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon →</a>
+  <a href="${l.amazonUrl}" class="deal-btn" rel="nofollow sponsored noopener" target="_blank">${flAmazonCta(l.amazonUrl)}</a>
   ${reviewBtn}
 </div>`;
   }).join('');

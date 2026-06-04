@@ -149,7 +149,7 @@
     const priceLive = article.querySelector('.rc-price-live, .rc-price');
     if (priceLive) {
       priceLive.href = l.amazonUrl;
-      priceLive.textContent = 'Check Price on Amazon ↓';
+      priceLive.textContent = /amazon\.com\/dp\//.test(l.amazonUrl || '') ? 'Check Price on Amazon ↓' : 'Search on Amazon ↓';
     }
 
     /* ── 9. Add review link if not already present ── */

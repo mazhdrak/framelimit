@@ -618,7 +618,7 @@ function renderPicksGrids() {
         <div class="pick-spec">${l.gpu} ${l.tgp}W · ${l.display.size}" ${l.display.panel} ${l.display.hz}Hz · ${l.ram}</div>
         
         <div class="pick-score">${l.score}<div class="pick-score-sub">SCORE</div></div>
-        <a href="${l.amazonUrl}" class="pick-btn" rel="nofollow sponsored" target="_blank">Check Price →</a>
+        <a href="${l.amazonUrl}" class="pick-btn" rel="nofollow sponsored" target="_blank">${/amazon\.com\/dp\//.test(l.amazonUrl || '') ? 'Check Price →' : 'Search Amazon →'}</a>
       </div>`;
     }).join('');
   });
@@ -645,7 +645,7 @@ function updateFinder() {
   document.getElementById('finder-result').innerHTML = `
     <div class="fr-title">${l.shortName}</div>
     <div class="fr-sub">${l.gpu} ${l.tgp}W · ${l.display.size}" ${l.display.panel} ${l.display.hz}Hz · ${l.ram} · ${l.bestFor}</div>
-    <a href="${l.amazonUrl}" class="fr-link" rel="nofollow sponsored" target="_blank">Check Price on Amazon →</a>
+    <a href="${l.amazonUrl}" class="fr-link" rel="nofollow sponsored" target="_blank">${/amazon\.com\/dp\//.test(l.amazonUrl || '') ? 'Check Price on Amazon →' : 'Search on Amazon →'}</a>
     <a href="${row.link}" class="fr-link" style="margin-left:10px;background:var(--deep);color:var(--cyan);border:1px solid var(--cyan)">${row.linkText}</a>`;
 }
 
