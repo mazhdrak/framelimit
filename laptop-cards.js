@@ -52,7 +52,7 @@ function flRetailerNote(laptop) {
 /* ── Review anchor link ── */
 function flReviewLink(id) {
   const map = {
-    'asus-rog-scar-18-2026':            'review-asus-rog-scar-18-2026.html',
+    'asus-rog-scar-18-2026':            'review-asus-rog-strix-scar-18-2026.html',
     'asus-rog-scar-16-2026':            'review-asus-rog-strix-scar-16-2026.html',
     'asus-rog-zephyrus-g16-high':       'review-asus-rog-zephyrus-g16-2026.html',
     'asus-rog-zephyrus-g16-mid':        'review-asus-rog-zephyrus-g16-2026.html',
@@ -81,7 +81,7 @@ function flReviewLink(id) {
     'acer-nitro-v-16':                  'review-acer-nitro-v-16-2026.html',
     'hp-victus-16-rtx5060':             'review-notes-2026.html#hp-victus-16-rtx5060',
     'asus-tuf-gaming-a16-amd':          'review-notes-2026.html#asus-tuf-gaming-a16-amd',
-    'gigabyte-g6-rtx5060':              'review-gigabyte-gaming-a16.html',
+    'gigabyte-gaming-a16-rtx5060':      'review-gigabyte-gaming-a16.html',
     'dell-g16-rtx4070':                 'review-dell-g16-7630.html',
   };
   return map[id] || null;

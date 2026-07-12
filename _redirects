@@ -10,3 +10,9 @@ https://www.framelimit.com/* https://framelimit.com/:splat 301
 # Redirect trailing slash to clean URL
 /index.html / 301
 /reviews.html/  /reviews.html 301
+
+# Consolidate duplicate SCAR review URLs
+/review-asus-rog-scar-16-2026 /review-asus-rog-strix-scar-16-2026.html 301
+/review-asus-rog-scar-16-2026.html /review-asus-rog-strix-scar-16-2026.html 301
+/review-asus-rog-scar-18-2026 /review-asus-rog-strix-scar-18-2026.html 301
+/review-asus-rog-scar-18-2026.html /review-asus-rog-strix-scar-18-2026.html 301

@@ -2,20 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Homepage -->
-  <url><loc>https://framelimit.com/</loc><lastmod>2026-04-23</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://framelimit.com/</loc><lastmod>2026-07-12</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
 
   <!-- Core pages -->
-  <url><loc>https://framelimit.com/reviews.html</loc><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://framelimit.com/guides.html</loc><lastmod>2026-04-21</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://framelimit.com/reviews.html</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://framelimit.com/guides.html</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://framelimit.com/compare.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://framelimit.com/about.html</loc><lastmod>2026-03-11</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://framelimit.com/contact.html</loc><lastmod>2026-03-11</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://framelimit.com/affiliate-disclosure.html</loc><lastmod>2026-03-11</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
   <url><loc>https://framelimit.com/privacy-policy.html</loc><lastmod>2026-06-04</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://framelimit.com/methodology.html</loc><lastmod>2026-06-04</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://framelimit.com/methodology.html</loc><lastmod>2026-07-12</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
   <!-- Top buying guides -->
-  <url><loc>https://framelimit.com/guide-best-gaming-laptops-2026.html</loc><lastmod>2026-06-04</lastmod><changefreq>weekly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://framelimit.com/guide-best-gaming-laptops-2026.html</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://framelimit.com/guide-best-rtx-5080-gaming-laptop-2026.html</loc><lastmod>2026-07-12</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://framelimit.com/guide-best-rtx-5090-gaming-laptop-2026.html</loc><lastmod>2026-07-12</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://framelimit.com/guide-gaming-laptop-buying-guide-2026.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
 
   <!-- Budget guides -->
@@ -58,11 +60,11 @@
   <url><loc>https://framelimit.com/review-lenovo-legion-5i-gen10.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://framelimit.com/review-msi-raider-18-hx-ai.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://framelimit.com/review-alienware-18-area-51.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://framelimit.com/review-asus-rog-strix-scar-18-2026.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://framelimit.com/review-asus-rog-strix-scar-18-2026.html</loc><lastmod>2026-07-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://framelimit.com/review-msi-vector-16-hx-ai.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://framelimit.com/review-asus-tuf-gaming-a16-2026.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://framelimit.com/review-acer-predator-helios-neo-16.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://framelimit.com/review-asus-rog-strix-scar-16-2026.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://framelimit.com/review-asus-rog-strix-scar-16-2026.html</loc><lastmod>2026-07-12</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://framelimit.com/review-asus-rog-zephyrus-g16-2026.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://framelimit.com/review-lenovo-legion-5-gen10-amd.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://framelimit.com/review-alienware-16x-aurora.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
@@ -72,6 +74,9 @@
   <url><loc>https://framelimit.com/review-razer-blade-14-2026.html</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://framelimit.com/review-hp-omen-transcend-14.html</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://framelimit.com/review-acer-nitro-v-16-2026.html</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://framelimit.com/review-notes-2026.html</loc><lastmod>2026-06-04</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://framelimit.com/review-notes-2026.html</loc><lastmod>2026-07-12</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://framelimit.com/review-dell-g16-7630.html</loc><lastmod>2026-07-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://framelimit.com/review-gigabyte-gaming-a16.html</loc><lastmod>2026-07-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://framelimit.com/review-msi-katana-15-hx.html</loc><lastmod>2026-07-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
 
 </urlset>
