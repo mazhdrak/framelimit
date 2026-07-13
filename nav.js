@@ -19,7 +19,7 @@
     <li><a href="reviews.html">Reviews</a></li>
     <li><a href="compare.html">Compare</a></li>
     <li><a href="guides.html">Guides</a></li>
-    <li><a href="methodology.html">How We Test</a></li>
+    <li><a href="methodology.html">Methodology</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="window.__flToggleNav()">
@@ -34,7 +34,7 @@
       <li><a href="index.html" onclick="window.__flToggleNav()">🏠 Home</a></li>
       <li><a href="reviews.html" onclick="window.__flToggleNav()">⭐ Full Reviews</a></li>
       <li><a href="compare.html" onclick="window.__flToggleNav()">⚖️ Compare Laptops</a></li>
-      <li><a href="methodology.html" onclick="window.__flToggleNav()">How We Test</a></li>
+      <li><a href="methodology.html" onclick="window.__flToggleNav()">Methodology</a></li>
       <li><a href="about.html" onclick="window.__flToggleNav()">👤 About</a></li>
       <li><a href="contact.html" onclick="window.__flToggleNav()">✉️ Contact</a></li>
       <li><a href="affiliate-disclosure.html" onclick="window.__flToggleNav()">⚠️ Affiliate Disclosure</a></li>
@@ -69,7 +69,7 @@
     <div class="md-label">Tools &amp; Guides</div>
     <ul class="md-links">
       <li><a href="compare.html" onclick="window.__flToggleNav()">⚖️ Compare Laptops</a></li>
-      <li><a href="methodology.html" onclick="window.__flToggleNav()">How We Test</a></li>
+      <li><a href="methodology.html" onclick="window.__flToggleNav()">Methodology</a></li>
       <li><a href="guide-rtx-vs-amd-2026.html" onclick="window.__flToggleNav()">RTX vs AMD</a></li>
       <li><a href="guide-gaming-laptop-vs-desktop-2026.html" onclick="window.__flToggleNav()">Laptop vs Desktop</a></li>
       <li><a href="guide-gaming-laptop-cooling-thermals-2026.html" onclick="window.__flToggleNav()">Cooling Guide</a></li>
