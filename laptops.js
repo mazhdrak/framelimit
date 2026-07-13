@@ -1067,7 +1067,7 @@ const LAPTOPS = [
     avoidIf: 'Battery life is non-negotiable',
     amazonUrl: 'https://www.amazon.com/dp/B0FDMN25CZ/?tag=framelimit20-20',
     amazonAsin: 'B0FDMN25CZ',
-    imgUrl: 'images/laptops/gigabyte-g5.webp',
+    imgUrl: 'images/laptops/gigabyte-gaming-a16.webp',
     imgBg: '#0d1117',
     tags: ['16-inch', 'nvidia', 'intel-cpu', 'budget'],
   },

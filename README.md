@@ -120,6 +120,39 @@ All affiliate links use tag `framelimit20-20`.
 
 Never use `B0EXAMPLE` placeholders — these are dead links.
 
+## Amazon Price Updates
+
+Price guides load `price-snapshot.js` before `laptops.js` and `price-data.js`.
+Fresh Creators API offers (24 hours or newer) are labeled `Amazon $X`. Older or
+missing offers automatically fall back to the typical/reference price in
+`laptops.js`; models without either value show `Check current price`.
+
+Run the affiliate-link audit locally:
+
+```bash
+node scripts/update-amazon-prices.mjs --audit
+```
+
+Creators API prerequisites include an approved Amazon Associates account,
+10 qualifying sales in the previous 30 days, a registered Creators API app,
+and generated credentials. Never put credentials in HTML, JavaScript snapshots,
+or commits. For a local update, load the variables shown in `.env.example` into
+the shell and run:
+
+```bash
+node scripts/update-amazon-prices.mjs
+```
+
+The daily GitHub Action is `.github/workflows/update-amazon-prices.yml`. Add
+these encrypted repository secrets when the account becomes eligible:
+
+- `AMAZON_CREATORS_CLIENT_ID`
+- `AMAZON_CREATORS_CLIENT_SECRET`
+- `AMAZON_CREATORS_CREDENTIAL_VERSION` (`3.1` for current North America credentials)
+
+Without those secrets, the workflow still audits affiliate links and safely
+skips the API refresh.
+
 ## Images
 
 All laptop images are WebP format, max 800px wide, stored in `images/laptops/`.

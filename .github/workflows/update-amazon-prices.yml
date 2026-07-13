@@ -1,0 +1,49 @@
+name: Update Amazon prices
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 5 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Audit affiliate links
+        run: node scripts/update-amazon-prices.mjs --audit
+
+      - name: Update Creators API snapshot
+        env:
+          AMAZON_CREATORS_CLIENT_ID: ${{ secrets.AMAZON_CREATORS_CLIENT_ID }}
+          AMAZON_CREATORS_CLIENT_SECRET: ${{ secrets.AMAZON_CREATORS_CLIENT_SECRET }}
+          AMAZON_CREATORS_CREDENTIAL_VERSION: ${{ secrets.AMAZON_CREATORS_CREDENTIAL_VERSION }}
+          AMAZON_ASSOCIATE_TAG: framelimit20-20
+          AMAZON_CREATORS_MARKETPLACE: www.amazon.com
+          AMAZON_CREATORS_CURRENCY: USD
+        run: |
+          if [ -z "$AMAZON_CREATORS_CLIENT_ID" ] || [ -z "$AMAZON_CREATORS_CLIENT_SECRET" ] || [ -z "$AMAZON_CREATORS_CREDENTIAL_VERSION" ]; then
+            echo "Creators API secrets are not configured; keeping reference-price fallback."
+            exit 0
+          fi
+          node scripts/update-amazon-prices.mjs
+
+      - name: Commit refreshed snapshot
+        run: |
+          if git diff --quiet -- price-snapshot.js; then
+            echo "No price changes."
+            exit 0
+          fi
+          git config user.email "action@github.com"
+          git config user.name "FRAMELIMIT Price Bot"
+          git add price-snapshot.js
+          git commit -m "chore: refresh Amazon price snapshot"
+          git push

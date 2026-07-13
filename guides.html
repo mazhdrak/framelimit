@@ -16,7 +16,7 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20260713-4">
 <style>
 .guides-hero {
   padding: 100px 24px 48px;
@@ -136,6 +136,18 @@
   font-size: 14px;
   font-weight: 700;
 }
+.guide-item-icon {
+  color: var(--cyan);
+}
+.guide-tier {
+  display: inline-block;
+  margin-bottom: 7px;
+  color: var(--cyan);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
 
 @media (max-width: 600px) {
   .guide-item-meta { display: none; }
@@ -147,9 +159,9 @@
 <div id="nav-root"></div>
 
 <div class="guides-hero">
-  <div class="guides-hero-label">All Guides · Updated April 2026</div>
+  <div class="guides-hero-label">All Guides · Updated July 2026</div>
   <h1>BUYING GUIDES<br>& REVIEWS</h1>
-    <p>Every FRAMELIMIT guide in one place — from complete buying guides to specific use cases. Rankings use verified specifications, retailer checks, and benchmark data cross-checked across established hardware sources.</p>
+    <p>Every FRAMELIMIT guide in one place — from complete buying guides to specific use cases. Rankings use official specifications, retailer checks, and independent benchmark evidence cross-checked across established hardware sources.</p>
 </div>
 
 <div class="guides-wrap">
@@ -163,7 +175,7 @@
           <div class="guide-item-icon">🏆</div>
           <div>
             <div class="guide-item-title">Best Gaming Laptops 2026 — All Budgets</div>
-            <div class="guide-item-sub">Top picks after testing 30 machines across 11 games. Every tier covered.</div>
+            <div class="guide-item-sub">Top picks across every price tier, using official specifications and clearly attributed performance evidence.</div>
           </div>
         </div>
         <div class="guide-item-meta">
@@ -171,12 +183,27 @@
           <span class="guide-item-arrow">→</span>
         </div>
       </a>
+      <a href="guide-best-gaming-laptop-under-1000.html" class="guide-item">
+        <div class="guide-item-left">
+          <div class="guide-item-icon">$</div>
+          <div>
+            <span class="guide-tier">Entry · Under $1,000</span>
+            <div class="guide-item-title">Best Gaming Laptops Under $1,000</div>
+            <div class="guide-item-sub">A deal-focused guide to RTX 4060 clearance systems, current entry GPUs, and the specs worth prioritizing.</div>
+          </div>
+        </div>
+        <div class="guide-item-meta">
+          <span class="guide-item-tag">8 min read</span>
+          <span class="guide-item-arrow">→</span>
+        </div>
+      </a>
       <a href="guide-best-gaming-laptop-under-1500.html" class="guide-item">
         <div class="guide-item-left">
           <div class="guide-item-icon">💰</div>
           <div>
+            <span class="guide-tier">Budget · $1,000–$1,499</span>
             <div class="guide-item-title">Best Gaming Laptops Under $1,500</div>
-            <div class="guide-item-sub">Best value entry at $1,329 (LOQ 15) up to $1,453. Five RTX 5060 picks ranked.</div>
+            <div class="guide-item-sub">The strongest value band for RTX 5060-class gaming laptops, ranked by cooling, display and upgradeability.</div>
           </div>
         </div>
         <div class="guide-item-meta">
@@ -188,8 +215,9 @@
         <div class="guide-item-left">
           <div class="guide-item-icon">💰</div>
           <div>
+            <span class="guide-tier">Mid-range · $1,500–$1,999</span>
             <div class="guide-item-title">Best Gaming Laptops Under $2,000</div>
-            <div class="guide-item-sub">RTX 5070 tier, $1,539–$1,919. Legion 5i OLED + Helios Neo RTX 5070 Ti ranked.</div>
+            <div class="guide-item-sub">RTX 5070-class performance, OLED options and the first worthwhile RTX 5070 Ti deals.</div>
           </div>
         </div>
         <div class="guide-item-meta">
@@ -201,8 +229,9 @@
         <div class="guide-item-left">
           <div class="guide-item-icon">🔥</div>
           <div>
+            <span class="guide-tier">Premium sweet spot · $2,000–$2,499</span>
             <div class="guide-item-title">Best Gaming Laptops Under $2,500</div>
-            <div class="guide-item-sub">Premium RTX 5070 tier. G14 OLED, Blade 14, Aurora 16X, Legion 7i — $2,099 to $2,479.</div>
+            <div class="guide-item-sub">Premium chassis, OLED panels and portable RTX 5070/5070 Ti systems, with price checked at checkout.</div>
           </div>
         </div>
         <div class="guide-item-meta">
@@ -214,8 +243,9 @@
         <div class="guide-item-left">
           <div class="guide-item-icon">🔥</div>
           <div>
+            <span class="guide-tier">Premium · $2,500–$2,999</span>
             <div class="guide-item-title">Best Gaming Laptops Under $3,000</div>
-            <div class="guide-item-sub">RTX 5080 at full 175W. Vector 16 ($2,647), Omen Max ($2,889), Legion Pro 7i ($2,899).</div>
+            <div class="guide-item-sub">Full-power RTX 5080 systems compared by sustained performance, display quality and portability.</div>
           </div>
         </div>
         <div class="guide-item-meta">
@@ -240,8 +270,9 @@
         <div class="guide-item-left">
           <div class="guide-item-icon">👑</div>
           <div>
+            <span class="guide-tier">Flagship · $3,000+</span>
             <div class="guide-item-title">Best Flagship Gaming Laptops 2026</div>
-            <div class="guide-item-sub">SCAR 16 vs SCAR 18 vs Blade 16 vs Raider 18. Every flagship over $3,000 ranked.</div>
+            <div class="guide-item-sub">SCAR 16 vs SCAR 18 vs Blade 16 vs Raider 18, using reference prices and sourced performance evidence.</div>
           </div>
         </div>
         <div class="guide-item-meta">
