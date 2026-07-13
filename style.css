@@ -466,6 +466,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,10,12,.97)
 .bench-table td:first-child{text-align:left;font-family:'Barlow',sans-serif;font-size:13px;font-weight:600;color:var(--white)}
 .bench-table tr:hover{background:rgba(255,107,53,.02)}
 .amd-val{color:var(--amd)}.nv-val{color:var(--cyan)}.good{color:var(--green)}.mid{color:var(--yellow)}
+.spec-table-wrap{overflow-x:auto;margin:20px 0 30px;border:1px solid var(--border)}
+.spec-table{width:100%;border-collapse:collapse;font-size:13px}
+.spec-table th{padding:10px 14px;background:var(--deep);border-bottom:2px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:1.5px;text-align:left;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.spec-table td{padding:11px 14px;border-bottom:1px solid rgba(30,42,54,.55);vertical-align:top;color:var(--text)}
+.spec-table tbody tr:last-child td{border-bottom:0}
+.spec-table tbody tr:hover td{background:rgba(0,212,255,.02)}
+.spec-table .gv{color:var(--green);font-family:'JetBrains Mono',monospace;font-weight:700}.spec-table .yv{color:var(--yellow);font-family:'JetBrains Mono',monospace;font-weight:700}
 .article-body h2{font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--white);letter-spacing:.5px;margin:48px 0 16px;padding-top:8px;border-top:1px solid var(--border)}
 .article-body h3{font-size:18px;font-weight:700;color:var(--white);margin:28px 0 12px}
 .article-body p{margin-bottom:20px;color:var(--text);line-height:1.85;overflow-wrap:break-word}

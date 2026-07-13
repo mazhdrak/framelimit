@@ -12,6 +12,7 @@
 
 /* ── Score colour ── */
 function flScoreColor(v) {
+  if (v == null) return 'var(--muted)';
   if (v >= 9.0) return 'var(--green)';
   if (v >= 8.0) return 'var(--cyan)';
   if (v >= 7.0) return 'var(--yellow)';
@@ -71,6 +72,10 @@ function flReviewLink(id) {
     'msi-katana-15-hx':                 'review-msi-katana-15-hx.html',
     'msi-stealth-a16-ai-plus':          'review-msi-stealth-a16-ai-plus.html',
     'razer-blade-16-oled-2026':         'review-razer-blade-16-2026.html',
+    'asus-rog-zephyrus-g16-2026':       'review-asus-rog-zephyrus-g16-2026.html',
+    'lenovo-legion-7-gen11':            'review-lenovo-legion-7-gen11.html',
+    'msi-raider-16-max-hx':             'review-msi-raider-16-max-hx.html',
+    'asus-rog-strix-g16-2026':          'review-asus-rog-strix-g16-2026.html',
     'razer-blade-18-2026':              'review-notes-2026.html#razer-blade-18-2026',
     'alienware-18-area-51':             'review-alienware-18-area-51.html',
     'dell-alienware-16x-aurora':        'review-alienware-16x-aurora.html',
@@ -102,13 +107,14 @@ function flRenderCard(laptop) {
   const gpuC    = flGpuColor(laptop.gpu);
   const reviewUrl = flReviewLink(laptop.id);
 
-  const subScoreHtml = Object.entries(laptop.scores).map(([k, v]) => {
+  const scoreLabel = laptop.score == null ? 'NR' : laptop.score;
+  const subScoreHtml = laptop.scores ? Object.entries(laptop.scores).map(([k, v]) => {
     const c = flScoreColor(v);
     return `<div class="fl-ss">
       <div class="fl-ss-label">${k.charAt(0).toUpperCase() + k.slice(1)}</div>
       <div class="fl-ss-val" style="color:${c}">${v}</div>
     </div>`;
-  }).join('');
+  }).join('') : '<div class="fl-preview-note">SPEC PREVIEW · NOT YET RANKED</div>';
 
   const ramNote = laptop.ramUpgradeable
     ? `<span class="fl-spec-tag fl-spec-ok">✓ Upgradeable RAM</span>`
@@ -138,8 +144,8 @@ function flRenderCard(laptop) {
       <span class="fl-badge-text">${laptop.badge}</span>
     </div>
     <div class="fl-score-wrap">
-      <div class="fl-score" style="color:${scoreC}">${laptop.score}</div>
-      <div class="fl-score-label">FL SCORE</div>
+      <div class="fl-score" style="color:${scoreC}">${scoreLabel}</div>
+      <div class="fl-score-label">${laptop.score == null ? 'NOT RANKED' : 'FL SCORE'}</div>
     </div>
   </div>
 
@@ -207,7 +213,7 @@ function flRenderTable(laptops) {
       <td style="font-family:'JetBrains Mono',monospace;font-size:12px">${l.cpu.replace('Intel Core ', '').replace('AMD ', '')}</td>
       <td style="font-family:'JetBrains Mono',monospace;font-size:12px">${l.display.size}" ${l.display.hz}Hz ${l.display.panel}</td>
       <td style="font-family:'JetBrains Mono',monospace;font-size:12px">${l.weight}kg</td>
-      <td style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:${sc}">${l.score}</td>
+      <td style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:${sc}">${l.score == null ? 'NR' : l.score}</td>
       <td>
         <a href="${l.amazonUrl}" class="fl-table-buy" rel="nofollow sponsored noopener" target="_blank">${/amazon\.com\/dp\//.test(l.amazonUrl || '') ? 'Amazon →' : 'Search →'}</a>
       </td>
@@ -360,6 +366,7 @@ function flInjectStyles() {
 .fl-spec-ok{color:var(--green,#00FF88)!important;border-color:rgba(0,255,136,.3)!important}
 .fl-spec-warn{color:var(--yellow,#FFD600)!important;border-color:rgba(255,214,0,.3)!important}
 .fl-subscores{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;padding:14px;background:var(--deep,#0D1117);border:1px solid var(--border,#1E2A36)}
+.fl-preview-note{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted,#7A94A8);letter-spacing:1px}
 .fl-ss{text-align:center;min-width:52px}
 .fl-ss-label{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted,#7A94A8);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
 .fl-ss-val{font-family:'Bebas Neue',sans-serif;font-size:20px;line-height:1}

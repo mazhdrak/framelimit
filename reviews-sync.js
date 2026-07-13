@@ -21,6 +21,7 @@
 
   /* ── score colour ── */
   function sc(v) {
+    if (v == null) return 'var(--muted)';
     if (v >= 9.0) return 'var(--green)';
     if (v >= 8.0) return 'var(--cyan)';
     if (v >= 7.0) return 'var(--yellow)';
@@ -76,16 +77,26 @@
     /* ── 4. Overall score ── */
     const scoreBig = article.querySelector('.rc-score-big');
     if (scoreBig) {
-      const [whole, dec] = l.score.toFixed(1).split('.');
-      scoreBig.style.color = sc(l.score);
-      scoreBig.innerHTML = `${whole}<span>.${dec}</span>`;
+      if (l.score == null) {
+        scoreBig.style.color = 'var(--muted)';
+        scoreBig.textContent = 'NR';
+        const scoreLabel = article.querySelector('.rc-score-label');
+        if (scoreLabel) scoreLabel.textContent = 'EVIDENCE REVIEW';
+      } else {
+        const [whole, dec] = l.score.toFixed(1).split('.');
+        scoreBig.style.color = sc(l.score);
+        scoreBig.innerHTML = `${whole}<span>.${dec}</span>`;
+      }
     }
 
     /* ── 5. Sub-scores ── */
     const ssEls = article.querySelectorAll('.ss');
     const subKeys = ['perf', 'display', 'thermals', 'battery', 'build', 'value'];
     const subLabels = ['Perf', 'Display', 'Thermals', 'Battery', 'Build', 'Value'];
-    if (ssEls.length >= subKeys.length) {
+    if (!l.scores) {
+      const subScoreWrap = article.querySelector('.rc-subscores');
+      if (subScoreWrap) subScoreWrap.innerHTML = '<div style="font-family:JetBrains Mono,monospace;font-size:9px;color:var(--muted)">OFFICIAL SPECS + ATTRIBUTED INDEPENDENT EVIDENCE</div>';
+    } else if (ssEls.length >= subKeys.length) {
       subKeys.forEach((key, i) => {
         const val = l.scores[key];
         if (val === undefined) return;
@@ -111,6 +122,12 @@
         <span class="spec">${l.storage}</span>
         <span class="spec">${l.weight}kg · ${l.battery}Wh</span>
         ${ramNote}`;
+    }
+
+    if (l.status === 'evidence-review') {
+      const summary = article.querySelector('.rc-summary');
+      if (summary) summary.textContent = `${l.bestFor}. Main caveat: ${l.avoidIf}. Open the full review for sourced evidence and comparison tables.`;
+      article.querySelectorAll('.hbench, .pros-cons, .verdict').forEach(el => { el.style.display = 'none'; });
     }
 
     /* ── 7. Inject local image ── */

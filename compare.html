@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gaming Laptop Comparison Tool 2026 — Compare Specs Side by Side | FRAMELIMIT</title>
-<meta name="description" content="Compare gaming laptops side by side. Specs, benchmark scores, display, thermals and value — all 30 RTX 50 series laptops from our test suite.">
+<meta name="description" content="Compare 34 gaming laptops side by side by GPU power, display, weight, battery, scores, and evidence status.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://framelimit.com/compare.html">
 <meta property="og:title" content="Gaming Laptop Comparison Tool 2026 | FRAMELIMIT">
-<meta property="og:description" content="Compare any two gaming laptops side by side. Specs, scores, display, thermals — 30 RTX 50 series machines from our full test suite.">
+<meta property="og:description" content="Compare any two of 34 gaming laptops side by side by specifications, scores, and evidence status.">
 <meta property="og:image" content="https://framelimit.com/og-default.jpg">
 <meta property="og:site_name" content="FRAMELIMIT">
 <meta name="twitter:card" content="summary_large_image">
@@ -386,7 +386,7 @@
 
 <!-- HERO -->
 <div class="compare-hero">
-  <div class="compare-hero-label">Tool · Side by Side · All 30 Laptops</div>
+  <div class="compare-hero-label">Tool · Side by Side · All 34 Laptops</div>
   <h1>LAPTOP <span>VS</span><br>LAPTOP</h1>
   <p>Pick any two machines from our full test suite. Specs, scores, and a plain-English verdict.</p>
 </div>
@@ -432,6 +432,7 @@
 <script>
 /* ── UTILS ── */
 function scoreColor(v) {
+  if (v == null) return 'var(--muted)';
   if (v >= 9.0) return 'var(--green)';
   if (v >= 8.0) return 'var(--cyan)';
   if (v >= 7.0) return 'var(--yellow)';
@@ -445,7 +446,7 @@ function tierLabel(tier) {
 
 function fmtWeight(w) { return w + 'kg'; }
 function fmtBattery(b) { return b + 'Wh'; }
-function fmtPrice(p) { return '$' + p.toLocaleString(); }
+function fmtPrice(p) { return p == null ? 'Check retailer' : '$' + p.toLocaleString(); }
 
 /* ── POPULATE SELECTS ── */
 function populateSelects() {
@@ -492,6 +493,10 @@ function cells(valA, valB, fmtA, fmtB, higherIsBetter = true) {
 
 /* ── VERDICT GENERATOR ── */
 function generateVerdict(a, b) {
+  if (a.score == null || b.score == null) {
+    const unranked = [a, b].filter(l => l.score == null).map(l => l.name).join(' and ');
+    return `${unranked} ${a.score == null && b.score == null ? 'are' : 'is'} currently unranked. Compare the confirmed specifications below; FRAMELIMIT will add a score only when sufficient controlled evidence is available.`;
+  }
   const aScore = a.score;
   const bScore = b.score;
   const diff = Math.abs(aScore - bScore);
@@ -577,8 +582,9 @@ function runCompare() {
   const subKeys = ['perf', 'display', 'thermals', 'battery', 'build', 'value'];
   const subLabels = { perf: 'Performance', display: 'Display', thermals: 'Thermals', battery: 'Battery', build: 'Build', value: 'Value' };
 
-  const aBars = subKeys.map(k => scoreBar(subLabels[k], a.scores[k])).join('');
-  const bBars = subKeys.map(k => scoreBar(subLabels[k], b.scores[k])).join('');
+  const pendingBars = '<div style="font-family:JetBrains Mono,monospace;font-size:10px;color:var(--muted);padding:12px">NOT YET RANKED · EVIDENCE REVIEW</div>';
+  const aBars = a.scores ? subKeys.map(k => scoreBar(subLabels[k], a.scores[k])).join('') : pendingBars;
+  const bBars = b.scores ? subKeys.map(k => scoreBar(subLabels[k], b.scores[k])).join('') : pendingBars;
 
   // Spec comparisons
   const [gpuA, gpuB] = cells(a.tgp, b.tgp, `${a.gpu}<br><small style="color:var(--muted);font-size:11px;font-weight:400">${a.gpuVram} · ${a.tgp}W TGP</small>`, `${b.gpu}<br><small style="color:var(--muted);font-size:11px;font-weight:400">${b.gpuVram} · ${b.tgp}W TGP</small>`);
@@ -600,7 +606,9 @@ function runCompare() {
 
   const [weightA, weightB] = cells(a.weight, b.weight, fmtWeight(a.weight), fmtWeight(b.weight), false);
   const [battA, battB] = cells(a.battery, b.battery, fmtBattery(a.battery), fmtBattery(b.battery));
-  const [priceA, priceB] = cells(a.price, b.price, fmtPrice(a.price), fmtPrice(b.price), false);
+  const [priceA, priceB] = a.price == null || b.price == null
+    ? [`<div class="compare-cell">${fmtPrice(a.price)}</div>`, `<div class="compare-cell">${fmtPrice(b.price)}</div>`]
+    : cells(a.price, b.price, fmtPrice(a.price), fmtPrice(b.price), false);
 
   const verdict = generateVerdict(a, b);
 
@@ -613,14 +621,14 @@ function runCompare() {
       <div class="compare-header-cell">
         <div class="ch-brand">${a.brand.toUpperCase()} · ${tierLabel(a.tier)}</div>
         <div class="ch-name">${a.name}</div>
-        <div class="ch-score" style="color:${aColor}">${a.score.toFixed(1)}</div>
-        <div class="ch-score-label">FRAMELIMIT SCORE</div>
+        <div class="ch-score" style="color:${aColor}">${a.score == null ? 'NR' : a.score.toFixed(1)}</div>
+        <div class="ch-score-label">${a.score == null ? 'EVIDENCE REVIEW' : 'FRAMELIMIT SCORE'}</div>
       </div>
       <div class="compare-header-cell">
         <div class="ch-brand">${b.brand.toUpperCase()} · ${tierLabel(b.tier)}</div>
         <div class="ch-name">${b.name}</div>
-        <div class="ch-score" style="color:${bColor}">${b.score.toFixed(1)}</div>
-        <div class="ch-score-label">FRAMELIMIT SCORE</div>
+        <div class="ch-score" style="color:${bColor}">${b.score == null ? 'NR' : b.score.toFixed(1)}</div>
+        <div class="ch-score-label">${b.score == null ? 'EVIDENCE REVIEW' : 'FRAMELIMIT SCORE'}</div>
       </div>
     </div>
 

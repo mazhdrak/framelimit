@@ -56,7 +56,7 @@
 <meta property="og:site_name" content="FRAMELIMIT">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Best Gaming Laptops 2026 | FRAMELIMIT">
-<meta name="twitter:description" content="30 gaming laptops tested across 11 games. Real TGP numbers, honest scores. No sponsored rankings.">
+<meta name="twitter:description" content="29 ranked gaming laptops plus 5 new 2026 evidence-labeled reviews. Real TGP data, transparent scores, and no sponsored rankings.">
 <meta name="theme-color" content="#00D4FF">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -72,7 +72,7 @@
 <section class="hero">
   <div class="hero-inner">
     <div>
-  <div class="hero-cat">July 2026 — Blackwell RTX 50 Series · 30 Laptops Analyzed</div>
+  <div class="hero-cat">July 2026 — Blackwell RTX 50 Series · 29 Ranked + 5 New Reviews</div>
       <h1 class="hero-title">THE BEST<br><span>GAMING</span><br>LAPTOPS<br>RIGHT NOW</h1>
   <p class="hero-sub">30 laptops independently analyzed using verified specifications and cross-checked benchmark data. Real TGP numbers, transparent sources, and zero sponsored rankings.</p>
       <div class="hero-ctas">
@@ -205,7 +205,7 @@
     <!-- ── FULL SPEC COMPARISON TABLE (from laptops.js) ── -->
     <div style="margin-top:48px">
       <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:12px"><span class="u-cyan-line"></span>Full Spec Comparison</div>
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);margin-bottom:16px">All 30 Laptops — Specs at a Glance</h3>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);margin-bottom:16px">All 34 Laptops — Specs at a Glance</h3>
 
       <!-- Tier filter tabs -->
       <div style="display:flex;gap:0;margin-bottom:20px;border:1px solid var(--border)">
@@ -490,7 +490,7 @@
         <div class="bc-body">
           <div class="bc-cat">Tool</div>
           <div class="bc-title">Laptop vs Laptop Comparison Tool</div>
-          <div class="bc-sub">Pick any two laptops from our 30-machine test suite. Side-by-side specs, scores, and a plain-English verdict.</div>
+          <div class="bc-sub">Pick any two laptops from our 34-model data set. Side-by-side specs, scores, and a plain-English verdict.</div>
         </div>
         <div class="bc-meta"><span>FRAMELIMIT Tool</span><span>Interactive</span></div>
       </a>
@@ -619,7 +619,7 @@ function renderPicksGrids() {
         <div class="pick-name">${l.shortName}</div>
         <div class="pick-spec">${l.gpu} ${l.tgp}W · ${l.display.size}" ${l.display.panel} ${l.display.hz}Hz · ${l.ram}</div>
         
-        <div class="pick-score">${l.score}<div class="pick-score-sub">SCORE</div></div>
+        <div class="pick-score">${l.score == null ? 'NR' : l.score}<div class="pick-score-sub">${l.score == null ? 'PREVIEW' : 'SCORE'}</div></div>
         <a href="${l.amazonUrl}" class="pick-btn" rel="nofollow sponsored" target="_blank">${/amazon\.com\/dp\//.test(l.amazonUrl || '') ? 'Check Price →' : 'Search Amazon →'}</a>
         <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:10px">${retailerNote} · ${window.FL_DATA_LAST_CHECKED_LABEL || 'Price/spec checked recently'}</div>
       </div>`;
