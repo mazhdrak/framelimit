@@ -75,6 +75,61 @@
       <li>Noise and temperature are judged under sustained load, not short synthetic bursts only.</li>
     </ul>
 
+    <h2 id="benchmark-standard">Benchmark Reporting Standard</h2>
+    <p>Every new or migrated game result must identify the source, exact laptop configuration, GPU power, resolution, preset, ray-tracing mode, upscaler, quality mode, frame-generation state, driver when available, and test date. A missing value is shown as unavailable rather than estimated.</p>
+    <table>
+      <thead><tr><th>Result</th><th>Required fields</th><th>Comparison rule</th></tr></thead>
+      <tbody>
+        <tr><td>Native FPS</td><td>Average FPS, 1% low, resolution, preset, RT mode</td><td>Primary rendered-performance result.</td></tr>
+        <tr><td>Upscaled FPS</td><td>DLSS, FSR, or XeSS version and quality mode</td><td>Never presented as native FPS.</td></tr>
+        <tr><td>Frame Generation</td><td>Rendered FPS, displayed FPS, FG or MFG mode, latency when sourced</td><td>Generated FPS remains separate from rendered FPS.</td></tr>
+        <tr><td>Thermals and noise</td><td>Power profile, ambient temperature, duration, CPU/GPU load</td><td>Only matching conditions are directly compared.</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Average FPS</strong> is the primary throughput metric. <strong>1% low</strong> describes the slowest one percent of frames and is more useful for judging stutter. <strong>Minimum FPS</strong> is a single worst sample and is kept separate from 1% low. <strong>Maximum FPS</strong> is shown only when a source publishes it, but it is not used to rank laptops because a brief peak is not representative of sustained play.</p>
+
+    <h2>Target Game Suite</h2>
+    <p>The target suite below is used when matching source data is available. It balances heavy raster, ray tracing, CPU-limited play, and esports. A laptop is not assigned a missing result and different presets are never averaged together.</p>
+    <table>
+      <thead><tr><th>Workload</th><th>Primary run</th><th>Technology run</th><th>Report</th></tr></thead>
+      <tbody>
+        <tr><td>Cyberpunk 2077</td><td>2560×1600 Ultra, native, RT off</td><td>RT Overdrive with DLSS/FSR Quality; FG separate</td><td>Average FPS and 1% low</td></tr>
+        <tr><td>Alan Wake 2</td><td>2560×1600 High, native</td><td>Path tracing with Quality upscaling; FG separate</td><td>Average FPS and 1% low</td></tr>
+        <tr><td>Black Myth: Wukong</td><td>2560×1600 High, native</td><td>Quality upscaling; RT and FG states identified</td><td>Average FPS and 1% low</td></tr>
+        <tr><td>Forza Horizon 5</td><td>2560×1600 Extreme, native</td><td>Upscaling off unless the source provides a paired run</td><td>Average FPS and 1% low</td></tr>
+        <tr><td>Baldur's Gate 3</td><td>2560×1600 Ultra, native</td><td>CPU-heavy scene identified by source</td><td>Average FPS and 1% low</td></tr>
+        <tr><td>Fortnite</td><td>1920×1080 DX12 High/Epic</td><td>Performance Mode reported as a separate test</td><td>Average FPS and 1% low</td></tr>
+        <tr><td>Counter-Strike 2</td><td>1920×1080 competitive settings</td><td>No Frame Generation</td><td>Average FPS and 1% low</td></tr>
+        <tr><td>One current strategy title</td><td>Built-in benchmark at named preset</td><td>No upscaling unless explicitly paired</td><td>Average FPS, 1% low, and CPU configuration</td></tr>
+      </tbody>
+    </table>
+    <p>For Radeon laptops, native FPS, FSR Upscaling, FSR Frame Generation, and driver-level AFMF are four different result types. AFMF is never presented as a native in-game FSR result. For GeForce laptops, DLSS Super Resolution, single Frame Generation, and Multi Frame Generation are also reported independently.</p>
+
+    <h2>Synthetic Benchmarks</h2>
+    <p>Steel Nomad is the preferred modern raster graphics test for high-end laptops. Speed Way or Port Royal provides a separate ray-tracing view. Time Spy Graphics remains useful when it is the only common result across older sources, but the Graphics, CPU, and overall scores must not be mixed. Cinebench 2024 single-core and multi-core results are reported separately from GPU scores.</p>
+    <ul>
+      <li><a href="https://support.benchmarks.ul.com/support/solutions/articles/44002528058-overview-of-3dmark-steel-nomad" rel="noopener" target="_blank">UL Steel Nomad overview</a></li>
+      <li><a href="https://support.benchmarks.ul.com/support/solutions/articles/44002135553-overview-of-3dmark-port-royal-benchmark" rel="noopener" target="_blank">UL Port Royal overview</a></li>
+      <li><a href="https://support.benchmarks.ul.com/support/solutions/articles/44002136075" rel="noopener" target="_blank">UL Time Spy overview</a></li>
+    </ul>
+
+    <h2>Upscaling and Frame Generation</h2>
+    <p>DLSS Super Resolution, DLSS Frame Generation, DLSS Multi Frame Generation, FSR Upscaling, FSR Frame Generation, AFMF, and XeSS are separate technologies. The site never uses the generic label "DLSS 4" or "FSR on" as a complete benchmark setting. RTX 40 supports DLSS Frame Generation and current DLSS model upgrades, while Multi Frame Generation is an RTX 50 feature. AMD FSR support depends on hardware, driver, and game integration.</p>
+    <table>
+      <thead><tr><th>DLSS SR mode</th><th>Typical input ratio</th><th>Reporting rule</th></tr></thead>
+      <tbody>
+        <tr><td>DLAA</td><td>100%</td><td>Native-resolution anti-aliasing; not an upscaled result.</td></tr>
+        <tr><td>Quality</td><td>About 67%</td><td>Highest standard upscaling quality; preferred for 1440p comparisons.</td></tr>
+        <tr><td>Balanced</td><td>About 58%</td><td>Middle ground between image quality and throughput.</td></tr>
+        <tr><td>Performance</td><td>50%</td><td>Lower input resolution; never compared directly with Quality.</td></tr>
+        <tr><td>Ultra Performance</td><td>33%</td><td>Intended for very high output resolutions. There is no standard Ultra Quality preset.</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><a href="https://www.nvidia.com/en-us/geforce/news/dlss-4-multi-frame-generation-out-now/" rel="noopener" target="_blank">NVIDIA DLSS feature support</a></li>
+      <li><a href="https://www.amd.com/en/products/graphics/technologies/fidelityfx/super-resolution.html" rel="noopener" target="_blank">AMD FSR features and requirements</a></li>
+    </ul>
+
     <h2>Price And Availability</h2>
     <p>Prices on FRAMELIMIT are editorial reference prices or last-observed retailer prices. They are not live checkout prices. Retailer pricing, stock, seller, warranty, and exact configuration can change quickly, so every buyer should verify the final retailer page before purchasing.</p>
     <p>When we have verified an exact Amazon product page, the button says “Check Price.” When we only have a search fallback, the button says “Search on Amazon.”</p>
