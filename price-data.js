@@ -140,12 +140,32 @@
   function hydrateCard(card) {
     const value = card.dataset.flLaptop;
     const scope = card.closest('.pick-card') || card;
+    const record = getRecord(value);
+    if (record) {
+      const headline = scope.querySelector('.pick-gpu');
+      if (headline && record.display) {
+        headline.textContent = [
+          record.gpu,
+          `${record.display.size}\" ${record.display.res} ${record.display.hz}Hz ${record.display.panel}`,
+          record.cpu,
+          record.ram
+        ].join(' \u00b7 ');
+      }
+    }
     scope.querySelectorAll('.pick-spec').forEach(function (spec) {
       const label = spec.querySelector('.pick-spec-label');
-      const price = spec.querySelector('.pick-spec-val');
-      if (label && price && label.textContent.trim().toLowerCase() === 'price') {
-        hydratePriceNode(price, value);
+      const output = spec.querySelector('.pick-spec-val');
+      if (!label || !output) return;
+      const field = label.textContent.trim().toLowerCase();
+      if (field === 'price') hydratePriceNode(output, value);
+      if (!record) return;
+      if (field === 'gpu' && record.gpu) output.textContent = record.gpu;
+      if (field === 'gpu tgp' && Number.isFinite(record.tgp)) output.textContent = `${record.tgp}W`;
+      if (field === 'display' && record.display) {
+        output.textContent = `${record.display.res} ${record.display.hz}Hz ${record.display.panel}`;
       }
+      if (field === 'weight' && Number.isFinite(record.weight)) output.textContent = `${record.weight}kg`;
+      if (field === 'battery' && Number.isFinite(record.battery)) output.textContent = `${record.battery}Wh`;
     });
     const amazon = scope.querySelector('a.btn-buy[href*="amazon.com"]');
     if (amazon) hydrateAmazonLink(amazon, value);
@@ -161,14 +181,25 @@
   function hydrateComparisonTables() {
     document.querySelectorAll('.comparison-table').forEach(function (table) {
       const headers = Array.from(table.querySelectorAll('thead th'));
-      const priceIndex = headers.findIndex(function (header) {
-        return header.textContent.trim().toLowerCase() === 'price';
+      const fields = headers.map(function (header) {
+        return header.textContent.trim().toLowerCase();
       });
-      if (priceIndex < 0) return;
       table.querySelectorAll('tbody tr').forEach(function (row) {
         const cells = row.querySelectorAll('td');
         const record = cells.length ? getRecord(cells[0].textContent) : null;
-        if (record && cells[priceIndex]) hydratePriceNode(cells[priceIndex], record.id);
+        if (!record) return;
+        fields.forEach(function (field, index) {
+          const cell = cells[index];
+          if (!cell) return;
+          if (field === 'price') hydratePriceNode(cell, record.id);
+          if (field === 'gpu') cell.textContent = record.gpu;
+          if (field === 'gpu tgp') cell.textContent = `${record.gpu} ${record.tgp}W`;
+          if (field === 'display' && record.display) {
+            cell.textContent = `${record.display.size}\" ${record.display.res} ${record.display.hz}Hz ${record.display.panel}`;
+          }
+          if (field === 'battery' && Number.isFinite(record.battery)) cell.textContent = `${record.battery}Wh`;
+          if (field === 'weight' && Number.isFinite(record.weight)) cell.textContent = `${record.weight}kg`;
+        });
       });
     });
   }

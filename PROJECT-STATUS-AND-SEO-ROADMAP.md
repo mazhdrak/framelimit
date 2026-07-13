@@ -125,20 +125,20 @@ FRAMELIMIT няма бюджет за собствено тестване на �
 
 ### Приоритет 1: Guide consistency audit
 
-- [ ] Преглед на всеки `guide-*.html` файл.
+- [x] Преглед на всеки `guide-*.html` файл чрез повторяемия `scripts/audit-guides.mjs` audit.
 - [ ] Съпоставяне на всеки лаптоп с правилния benchmark dataset.
 - [ ] Корекция на CPU, GPU, VRAM, TGP, RAM, display, weight и battery.
-- [ ] Премахване на неподкрепени `we tested`, `fully tested` и подобни твърдения.
+- [x] Премахване на неподкрепени `we tested`, `fully tested` и подобни твърдения.
 - [ ] Премахване или ясно обозначаване на прогнозни FPS стойности.
 - [ ] Обновяване на стари цени и добавяне на дата на проверката.
-- [ ] Разграничаване на direct ASIN и Amazon search fallback.
-- [ ] Проверка на всички връзки от guides към individual reviews.
+- [x] Разграничаване на direct ASIN и Amazon search fallback.
+- [x] Проверка на всички връзки от guides към individual reviews.
 - [ ] Проверка дали класациите отговарят на публикуваните доказателства.
 
 ### Приоритет 2: Sitemap и индексиране
 
-- [ ] Обновяване на `<lastmod>` за всички съществено променени URL-и.
-- [ ] XML validation на `sitemap.xml`.
+- [x] Обновяване на `<lastmod>` за всички съществено променени URL-и.
+- [x] XML validation на `sitemap.xml` чрез XML parser и `scripts/audit-sitemap.mjs`.
 - [ ] Deploy на обновения sitemap на същия URL.
 - [ ] Проверка за `Success` в Google Search Console.
 - [ ] URL Inspection на най-важните 5-10 страници.
@@ -268,4 +268,3 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 3. Обновяване и validation на `sitemap.xml`.
 4. Commit и push.
 5. Search Console URL Inspection и `Validate Fix`.
-

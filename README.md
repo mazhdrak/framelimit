@@ -133,6 +133,14 @@ Run the affiliate-link audit locally:
 node scripts/update-amazon-prices.mjs --audit
 ```
 
+Run the full guide consistency audit (SEO metadata, JSON-LD, internal links,
+central laptop IDs, and Amazon link labeling):
+
+```bash
+node scripts/audit-guides.mjs
+node scripts/audit-sitemap.mjs
+```
+
 Creators API prerequisites include an approved Amazon Associates account,
 10 qualifying sales in the previous 30 days, a registered Creators API app,
 and generated credentials. Never put credentials in HTML, JavaScript snapshots,
