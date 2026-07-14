@@ -176,10 +176,10 @@
         const map = {
           'asus-rog-scar-18-2026':'scar18','asus-rog-scar-16-2026':'scar16',
           'asus-rog-zephyrus-g16-high':'g16','asus-rog-zephyrus-g14-2026':'g14',
-          'asus-tuf-a16-entry':'tufa16','asus-tuf-a15-rtx5060':'tufa15',
+          'asus-tuf-a16-entry':'tufa16',
           'asus-tuf-gaming-f16-rtx5070':'tuff16','lenovo-legion-pro-7i-gen10':'pro7i',
           'lenovo-legion-5i-gen10':'legion5i','lenovo-legion-5-gen10-amd':'legion5amd',
-          'lenovo-loq-15-gen10':'loq15','lenovo-loq-16-gen10':'loq16',
+          'lenovo-loq-15-gen10':'loq15',
           'msi-titan-18-hx-ai':'titan18','msi-raider-18-hx-ai':'raider18',
           'msi-vector-16-hx-ai':'vector16','msi-katana-15-hx':'katana15',
           'msi-stealth-a16-ai-plus':'stealth-a16','razer-blade-16-oled-2026':'blade16',

@@ -44,7 +44,6 @@
     'legion 5i gen 10': 'lenovo-legion-5i-gen10',
     'acer predator helios neo 16': 'acer-predator-helios-neo-16-2025',
     'helios neo 16': 'acer-predator-helios-neo-16-2025',
-    'asus tuf a18': 'asus-tuf-a15-rtx5060',
     'hp omen 16 slim': 'hp-omen-16-rtx5070-2026',
     'msi katana 15 hx': 'msi-katana-15-hx',
     'asus tuf f16': 'asus-tuf-gaming-f16-rtx5070',
