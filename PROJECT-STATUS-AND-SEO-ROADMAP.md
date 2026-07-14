@@ -170,9 +170,10 @@ FRAMELIMIT няма бюджет за собствено тестване на �
   - [x] Двадесет и осми ranking-consistency batch: under-$2,000 guide вече показва ranked Helios PHN16S-71-98RF и Katana B14WGK cards преди unranked Legion 83N20003BO, описва conditional live-price/editorial-score метода и синхронизира Katana overall score до canonical 7.9 между laptops.js, standalone review, Product review markup, central reviews card, comparison table и price guide; статичният Best-under-$1,800 етикет е премахнат.
   - [x] Двадесет и девети ranking-consistency batch: under-$1,500 guide вече класира условно само exact-evidence LOQ 15AHP10 и Nitro ANV16S-41-R2AJ; TUF FA608UM и Gigabyte CVHI3US894SH са понижени до unranked related-configuration алтернативи заради несъответстващи memory/storage test конфигурации, cards/order/comparison таблицата са синхронизирани, а точните retail спецификации и evidence ограниченията са коригирани и в централния reviews каталог.
   - [x] Тридесети ranking-consistency batch: централната reviews comparison таблица е синхронизирана с всичките 22 текущи review cards и реалните им published scores; stale Helios 18, Omen Max RTX 5090 и Alienware 16 Area-51 редовете са премахнати, липсващите SCAR 16, Legion 7i/5 AMD, Stealth A16, Dell G16 и Gigabyte записи са добавени, а Blade 16 и Blade 14 са преместени като N/R след числово класираните модели.
+  - [x] Тридесет и първи ranking-consistency batch: новият `scripts/audit-ranking-consistency.mjs` сравнява central review cards с `laptops.js`, изисква 22/22 comparison rows в низходящ score ред с N/R накрая и валидира numeric Quick Picks срещу ranked price-guide cards; SCAR 18 и Vector са синхронизирани с публикуваните standalone scores 9.6/9.0, а stale Raider 9.5, Alienware 18 9.4 и Omen Max 9.3 central оценки са коригирани до 9.3/9.2/9.1.
 - [x] Разграничаване на direct ASIN и Amazon search fallback.
 - [x] Проверка на всички връзки от guides към individual reviews.
-- [ ] Проверка дали класациите отговарят на публикуваните доказателства.
+- [x] Проверка дали класациите отговарят на публикуваните доказателства чрез ръчните ranking batches и `scripts/audit-ranking-consistency.mjs`.
 
 ### Приоритет 2: Sitemap и индексиране
 
