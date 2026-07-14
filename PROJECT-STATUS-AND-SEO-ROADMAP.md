@@ -1,6 +1,6 @@
 # FRAMELIMIT: Project Status and SEO Roadmap
 
-Последна актуализация: 13 юли 2026 г.
+Последна актуализация: 14 юли 2026 г.
 
 ## Цел на проекта
 
@@ -126,10 +126,10 @@ FRAMELIMIT няма бюджет за собствено тестване на �
 ### Приоритет 1: Guide consistency audit
 
 - [x] Преглед на всеки `guide-*.html` файл чрез повторяемия `scripts/audit-guides.mjs` audit.
-- [ ] Съпоставяне на всеки лаптоп с правилния benchmark dataset.
+- [x] Съпоставяне на guide лаптопите с точните review benchmark anchors; липсващите exact datasets са обозначени като `Specifications only` или `Not published`.
 - [ ] Корекция на CPU, GPU, VRAM, TGP, RAM, display, weight и battery.
 - [x] Премахване на неподкрепени `we tested`, `fully tested` и подобни твърдения.
-- [ ] Премахване или ясно обозначаване на прогнозни FPS стойности.
+- [x] Премахване или ясно обозначаване на прогнозни FPS стойности; несъпоставимите cross-source averages са заменени с връзки към точните datasets.
 - [ ] Обновяване на стари цени и добавяне на дата на проверката.
 - [x] Разграничаване на direct ASIN и Amazon search fallback.
 - [x] Проверка на всички връзки от guides към individual reviews.

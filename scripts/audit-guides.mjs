@@ -47,6 +47,19 @@ async function auditGuide(file, laptopIds, results) {
     try { await fs.access(path.join(ROOT, target)); } catch { add(results, file, 'error', `broken internal link: ${target}`); }
   }
 
+  for (const match of matches(source, /<a\b[^>]*class=["'][^"']*benchmark-evidence[^"']*["'][^>]*href=["']([^"'#]+\.html)#([^"']+)["'][^>]*>/gi)) {
+    const [, target, fragment] = match;
+    try {
+      const targetSource = await fs.readFile(path.join(ROOT, target), 'utf8');
+      const escaped = fragment.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      if (!new RegExp(`\\bid=["']${escaped}["']`, 'i').test(targetSource)) {
+        add(results, file, 'error', `benchmark evidence target is missing #${fragment}: ${target}`);
+      }
+    } catch {
+      add(results, file, 'error', `benchmark evidence target is missing: ${target}`);
+    }
+  }
+
   for (const match of matches(source, /<a\b([^>]*href=["'][^"']*amazon\.com[^"']*["'][^>]*)>([\s\S]*?)<\/a>/gi)) {
     const attributes = match[1];
     const label = textContent(match[2]).toLowerCase();
@@ -76,6 +89,12 @@ async function auditGuide(file, laptopIds, results) {
 
   if (/\b(?:fully tested|we tested|our tests|our testing)\b/i.test(textContent(source))) {
     add(results, file, 'warning', 'contains a first-party testing claim that needs editorial evidence');
+  }
+  for (const table of matches(source, /<table\b[\s\S]*?<\/table>/gi)) {
+    const tableText = textContent(table[0]);
+    if (/\b(?:Avg(?:erage)?\s+(?:\d{3,4}p\s+)?FPS|Game FPS|FPS Drop|Minecraft FPS|Fortnite FPS)\b/i.test(tableText) || /\b\d+\s*fps\b/i.test(tableText)) {
+      add(results, file, 'warning', 'contains a table with summary FPS that must identify exact settings and evidence');
+    }
   }
 }
 

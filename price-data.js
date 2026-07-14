@@ -160,7 +160,7 @@
       if (field === 'price') hydratePriceNode(output, value);
       if (!record) return;
       if (field === 'gpu' && record.gpu) output.textContent = record.gpu;
-      if (field === 'gpu tgp' && Number.isFinite(record.tgp)) output.textContent = `${record.tgp}W`;
+      if (field === 'gpu tgp') output.textContent = Number.isFinite(record.tgp) ? `${record.tgp}W` : 'Not stated';
       if (field === 'display' && record.display) {
         output.textContent = `${record.display.res} ${record.display.hz}Hz ${record.display.panel}`;
       }
@@ -193,7 +193,8 @@
           if (!cell) return;
           if (field === 'price') hydratePriceNode(cell, record.id);
           if (field === 'gpu') cell.textContent = record.gpu;
-          if (field === 'gpu tgp') cell.textContent = `${record.gpu} ${record.tgp}W`;
+          if (field === 'tgp') cell.textContent = Number.isFinite(record.tgp) ? `${record.tgp}W` : 'Not stated';
+          if (field === 'gpu tgp') cell.textContent = Number.isFinite(record.tgp) ? `${record.gpu} ${record.tgp}W` : `${record.gpu} · TGP not stated`;
           if (field === 'display' && record.display) {
             cell.textContent = `${record.display.size}\" ${record.display.res} ${record.display.hz}Hz ${record.display.panel}`;
           }
