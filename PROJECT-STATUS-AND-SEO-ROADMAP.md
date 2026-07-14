@@ -77,8 +77,8 @@ FRAMELIMIT трябва да се развие като надежден изт�
 
 ### 6. Последен публикуван commit
 
-- Commit: `4848bab05c21aa9a873bee529dbb57bcb7d588b8`
-- Message: `Standardize sourced laptop benchmarks`
+- Commit: `d6d9fb1`
+- Message: `Improve homepage recommendations and trust signals`
 - Branch: `main`
 - Remote: `https://github.com/mazhdrak/framelimit.git`
 - Статус: push-нат към `origin/main`.
@@ -206,6 +206,8 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 ### Приоритет 4: Content clusters и internal linking
 
 - [ ] Свързване на individual reviews с подходящия price guide.
+  - [x] Първи RTX 5060 cluster batch: under-$1,500 guide вече използва описателни model-specific anchors към LOQ 15AHP10, Nitro V 16S, TUF A16 FA608UM и Gigabyte Gaming A16; четирите review страници имат обратен линк към guide-а и поне една crawlable related-review връзка.
+  - [x] Добавен е `scripts/audit-internal-links.mjs`, който валидира двупосочната RTX 5060 cluster структура и блокира връщането към generic `Full Review` anchors в основния guide.
 - [ ] Свързване на reviews с GPU и technology guides.
 - [ ] Добавяне на директни model-vs-model comparison страници.
 - [ ] Добавяне на описателни anchor текстове вместо само `Read more`.
@@ -303,8 +305,8 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 
 Следващият работен пакет трябва да бъде:
 
-1. Пълен audit и корекция на всички `guide-*.html` страници.
-2. Синхронизиране на guide данните с `benchmark-data.js`.
-3. Обновяване и validation на `sitemap.xml`.
-4. Commit и push.
-5. Search Console URL Inspection и `Validate Fix`.
+1. Разширяване на review-to-price-guide audit-а към останалите приоритетни money pages: under $3,000, RTX 5080, 14-inch и thin-and-light.
+2. Добавяне на related reviews и alternatives към review страниците без тематичен изходящ cluster линк.
+3. Разширяване на `scripts/audit-internal-links.mjs` с crawlable-link и descriptive-anchor проверки за следващите clusters.
+4. Обновяване на sitemap `lastmod` само за съществено променените URL-и, validation, commit и push.
+5. Search Console URL Inspection и `Validate Fix` след deploy.
