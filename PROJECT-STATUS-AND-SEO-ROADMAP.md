@@ -140,6 +140,7 @@ FRAMELIMIT няма бюджет за собствено тестване на �
 - [x] Премахване или ясно обозначаване на прогнозни FPS стойности; несъпоставимите cross-source averages са заменени с връзки към точните datasets.
 - [ ] Обновяване на стари цени и добавяне на дата на проверката.
   - [x] Първи price/ranking batch: under-$3,000 guide вече използва checkout eligibility вместо фиксирани цени; Legion Pro 7i 83F50053US, Omen Max 16-ah0070ca и MSI Vector A2XWIG-058US са синхронизирани с exact SKU данни, battery capacity и live-price checks, а неподкрепените runtime и price-gap твърдения са премахнати.
+  - [x] Втори price/ranking batch: сравнението Razer Blade 16 RZ09-05819EN9-R3U1 срещу Legion Pro 7i 83F50053US е обновено с official-store snapshot от 14 юли; грешният $1,500 gap, синтетичният cross-source FPS average и неподкрепеният 60-minute throttling тест са премахнати, а изводът вече е условен според exact SKU, workload и live price.
 - [x] Разграничаване на direct ASIN и Amazon search fallback.
 - [x] Проверка на всички връзки от guides към individual reviews.
 - [ ] Проверка дали класациите отговарят на публикуваните доказателства.
