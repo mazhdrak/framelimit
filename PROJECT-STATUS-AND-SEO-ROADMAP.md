@@ -133,6 +133,7 @@ FRAMELIMIT няма бюджет за собствено тестване на �
   - [x] Трети high-risk batch: Lenovo LOQ 15AHP10, ASUS TUF Gaming A16 FA608UM и Gigabyte Gaming A16 CVH са синхронизирани между централния каталог, review страниците и приоритетните budget guides; неподкрепените runtime и статични price твърдения са заменени с battery capacity и live-price checks.
   - [x] Четвърти high-risk batch: неподкрепените ASUS TUF A15 RTX 5060 / Ryzen 7 8745H и Lenovo LOQ 16 Gen 10 / Core Ultra 5 245H записи са премахнати от каталога, cards, review notes и guides; student, Minecraft и Fortnite данните са синхронизирани с проверените LOQ 15AHP10 и TUF A16 FA608UM конфигурации.
   - [x] Пети high-risk batch: ASUS TUF Gaming A16 Advantage Edition е коригиран към официалния FA617XT от 2023 г. с Ryzen 9 7940HS, RX 7700S 120W, DDR5-4800, 1TB SSD и QHD+ 240Hz панел; моделът вече е search-only legacy option и не се използва като фиксирана препоръка до $1,150.
+  - [x] Шести high-risk batch: Acer Nitro 16S AI AN16S-61-R7YL и Nitro V 16S AI ANV16S-41-R2AJ са сверени с официалните Acer конфигурации; коригирани са CPU, TGP, display, storage и weight, премахнати са статичните price/runtime твърдения, а неподкрепеният HP Victus 16 RTX 5060 запис е премахнат.
   - [x] `scripts/audit-guides.mjs` вече валидира задължителните централни spec полета и source metadata.
 - [x] Премахване на неподкрепени `we tested`, `fully tested` и подобни твърдения.
 - [x] Премахване или ясно обозначаване на прогнозни FPS стойности; несъпоставимите cross-source averages са заменени с връзки към точните datasets.

@@ -429,7 +429,7 @@
     },
     'verified-nitrov16-benchmark': {
       title: 'Acer Nitro V 16S AI (2025)',
-      configuration: 'ANV16S-41-R2AJ · Ryzen 7 260 · RTX 5060 Laptop · 32GB DDR5-5600 · 1920x1200 IPS 180Hz',
+      configuration: 'ANV16S-41-R2AJ · Ryzen 7 260 · RTX 5060 Laptop · 85W max graphics power · 32GB DDR5-5600 · 1920x1200 IPS 180Hz',
       games: [
         ['Shadow of the Tomb Raider', '1920x1080 · Highest', 'Native · upscaling/FG not stated', 'TGP not stated by source', 98, null, null],
         ['Shadow of the Tomb Raider', '1920x1200 · Highest', 'Native · upscaling/FG not stated', 'TGP not stated by source', 91, null, null],

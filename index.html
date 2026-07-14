@@ -241,7 +241,7 @@
     <!-- Flagship picks grid (shown by default, 70/20/10 ratio → show 2 flagship, 4 mid, 2 budget) -->
     <div id="picks-flagship" class="picks-grid" data-fl-picks-grid="asus-rog-scar-18-2026,lenovo-legion-pro-7i-gen10,razer-blade-16-oled-2026,hp-omen-max-16-2026,alienware-18-area-51,asus-rog-zephyrus-g16-high"></div>
     <div id="picks-mid"      class="picks-grid" style="display:none" data-fl-picks-grid="lenovo-legion-5i-gen10,asus-rog-zephyrus-g14-2026,asus-rog-zephyrus-g16-mid,msi-vector-16-hx-ai,hp-omen-16-rtx5070-2026,asus-tuf-gaming-f16-rtx5070"></div>
-  <div id="picks-budget"   class="picks-grid" style="display:none" data-fl-picks-grid="lenovo-loq-15-gen10,acer-nitro-16-2025,asus-tuf-a16-entry,gigabyte-gaming-a16-rtx5060,acer-nitro-v-16,hp-victus-16-rtx5060"></div>
+  <div id="picks-budget"   class="picks-grid" style="display:none" data-fl-picks-grid="lenovo-loq-15-gen10,acer-nitro-16-2025,asus-tuf-a16-entry,gigabyte-gaming-a16-rtx5060,acer-nitro-v-16"></div>
   </div>
 </section>
 
@@ -630,7 +630,7 @@ function renderPicksGrids() {
 /* ── BUDGET FINDER (driven by laptops.js data) ── */
 let currentPlatform = 'any';
 const finderData = [
-  { max: 950,  any: 'lenovo-loq-15-gen10',          nvidia: 'lenovo-loq-15-gen10',        amd: 'acer-nitro-v-16',             link: 'guide-best-gaming-laptop-under-1000.html', linkText: 'Budget Guide →' },
+  { max: 950,  any: 'lenovo-loq-15-gen10',          nvidia: 'lenovo-loq-15-gen10',        amd: 'lenovo-loq-15-gen10',         link: 'guide-best-gaming-laptop-under-1000.html', linkText: 'Budget Guide →' },
   { max: 1150, any: 'lenovo-loq-15-gen10',           nvidia: 'lenovo-loq-15-gen10',          amd: 'lenovo-loq-15-gen10',          link: 'guide-best-gaming-laptop-under-1500.html', linkText: 'Under $1,500 Guide →' },
   { max: 1600, any: 'lenovo-legion-5i-gen10',        nvidia: 'lenovo-legion-5i-gen10',       amd: 'asus-rog-zephyrus-g14-2026',  link: 'guide-best-gaming-laptop-under-1500.html', linkText: 'Full Guide →' },
   { max: 2200, any: 'hp-omen-max-16-2026',           nvidia: 'hp-omen-max-16-2026',          amd: 'dell-alienware-16x-aurora',   link: 'guide-best-gaming-laptops-2026.html',      linkText: 'Best Overall →' },
