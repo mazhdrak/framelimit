@@ -130,6 +130,7 @@ FRAMELIMIT няма бюджет за собствено тестване на �
 - [ ] Корекция на CPU, GPU, VRAM, TGP, RAM, display, weight и battery.
   - [x] Първи high-risk batch: Lenovo Legion 5 Gen 10 AMD, HP Omen 16 Slim и ASUS TUF F16 са сверени с официални Lenovo/HP/ASUS спецификации; добавени са model code, source URL и дата на проверката.
   - [x] Втори high-risk batch: Lenovo Legion 5i 15IAX10, Acer Helios Neo 16S AI PHN16S-71-98RF и MSI Katana 15 HX B14WGK са сверени с официалните конфигурации; коригирани са TGP, refresh rate, panel, weight и battery.
+  - [x] Трети high-risk batch: Lenovo LOQ 15AHP10, ASUS TUF Gaming A16 FA608UM и Gigabyte Gaming A16 CVH са синхронизирани между централния каталог, review страниците и приоритетните budget guides; неподкрепените runtime и статични price твърдения са заменени с battery capacity и live-price checks.
   - [x] `scripts/audit-guides.mjs` вече валидира задължителните централни spec полета и source metadata.
 - [x] Премахване на неподкрепени `we tested`, `fully tested` и подобни твърдения.
 - [x] Премахване или ясно обозначаване на прогнозни FPS стойности; несъпоставимите cross-source averages са заменени с връзки към точните datasets.
