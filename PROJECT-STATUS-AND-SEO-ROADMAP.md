@@ -154,6 +154,7 @@ FRAMELIMIT няма бюджет за собствено тестване на �
   - [x] Дванадесети price/ranking batch: under-$2,500 guide вече прилага live checkout eligibility и exact-evidence ranking; Aurora е коригиран от RTX 5070 Ti/140W към exact RTX 5070/115W, G14 към GU405AR, Blade 14 и Omen към точните спецификации, а Legion 7i е unranked до корекция на stale review evidence.
   - [x] Тринадесети price/ranking batch: under-$2,000 guide вече класира само exact Helios PHN16S-71-98RF и Katana B14WGK evidence; Legion 83N20003BO е unranked заради related 15IRX10 dataset, TUF FX608LPG и Omen 16-an0000 са specifications-only, а статичните цени, runtime и универсалните value/performance изводи са премахнати.
   - [x] Четиринадесети price/ranking batch: under-$1,500 guide е уеднаквен до четири exact-evidence RTX 5060 конфигурации, класирани по публикувания editorial score; model codes, таблицата и card labels са синхронизирани, а статичните price gaps, thermal/value суперлативи и грешният lower-tier линк са коригирани.
+  - [x] Петнадесети price/ranking batch: under-$1,000 page вече е live-deal screening guide без измислен постоянен победител; ranking се допуска само при exact-SKU evidence и fresh checkout цена до прага, generic RTX/TGP minima и clearance твърденията са премахнати, а LOQ 15AHP10 е ясно неeligible reference до потвърдена оферта.
 - [x] Разграничаване на direct ASIN и Amazon search fallback.
 - [x] Проверка на всички връзки от guides към individual reviews.
 - [ ] Проверка дали класациите отговарят на публикуваните доказателства.
