@@ -261,9 +261,10 @@ function flToggleTable(tid) {
    3. HERO PICKS (compact sidebar cards)
    ══════════════════════════════════════════════════════ */
 function flRenderHeroPicks(ids) {
-  return ids.map((id, i) => {
-    const l = getLaptop(id);
-    if (!l) return `<!-- laptop not found: ${id} -->`;
+  return ids
+    .map(id => getLaptop(id))
+    .filter(laptop => laptop && Number.isFinite(laptop.score))
+    .map((l, i) => {
     const reviewUrl = flReviewLink(l.id);
     const href = reviewUrl || l.amazonUrl;
     const rel  = reviewUrl ? '' : 'rel="nofollow sponsored noopener" target="_blank"';
@@ -279,7 +280,7 @@ function flRenderHeroPicks(ids) {
     <div class="hp-price">${reviewUrl ? flReviewLabel(reviewUrl, false) : 'Amazon →'}</div>
   </div>
 </a>`;
-  }).join('');
+    }).join('');
 }
 
 /* ══════════════════════════════════════════════════════

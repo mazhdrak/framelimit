@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best Gaming Laptops 2026 — RTX 50 Series Tested | FRAMELIMIT</title>
+<title>Best Gaming Laptops 2026 — RTX 50 Series Ranked | FRAMELIMIT</title>
 <meta name="description" content="Best gaming laptops 2026 ranked across RTX 5090 to RTX 5060 picks, with real TGP numbers, benchmark notes, buyer warnings, and retailer price checks.">
 <meta name="robots" content="index, follow">
 <meta property="og:image" content="https://framelimit.com/og-default.jpg">
@@ -17,7 +17,7 @@
       "@id": "https://framelimit.com/#website",
       "name": "FRAMELIMIT",
       "url": "https://framelimit.com/",
-      "description": "Independent gaming laptop reviews and benchmarks. RTX 50 Series tested.",
+      "description": "Independent gaming laptop reviews, sourced benchmark analysis, and RTX 50 Series rankings.",
       "publisher": { "@id": "https://framelimit.com/#organization" },
       "inLanguage": "en"
     },
@@ -50,13 +50,13 @@
 <!-- Open Graph / Social -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://framelimit.com/">
-<meta property="og:title" content="Best Gaming Laptops 2026 - RTX 50 Series Tested | FRAMELIMIT">
-<meta property="og:description" content="30 gaming laptops analyzed. RTX 5090 to RTX 5060 compared using verified specifications, attributed benchmark evidence, TGP data, and retailer checks.">
+<meta property="og:title" content="Best Gaming Laptops 2026 - RTX 50 Series Ranked | FRAMELIMIT">
+<meta property="og:description" content="Gaming laptops compared using verified specifications, attributed benchmark evidence, TGP data, and retailer checks.">
 <meta property="og:image" content="https://framelimit.com/og-default.jpg">
 <meta property="og:site_name" content="FRAMELIMIT">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Best Gaming Laptops 2026 | FRAMELIMIT">
-<meta name="twitter:description" content="29 ranked gaming laptops plus 5 new 2026 evidence-labeled reviews. Real TGP data, transparent scores, and no sponsored rankings.">
+<meta name="twitter:description" content="Evidence-led gaming laptop rankings with real TGP data, transparent scores, and no sponsored placements.">
 <meta name="theme-color" content="#00D4FF">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -72,15 +72,15 @@
 <section class="hero">
   <div class="hero-inner">
     <div>
-  <div class="hero-cat">July 2026 — Blackwell RTX 50 Series · 29 Ranked + 5 New Reviews</div>
+  <div class="hero-cat"><span>July 2026 — Blackwell RTX 50 Series · <span id="hero-ranked-count">26</span> Ranked + <span id="hero-preview-count">5</span> New Reviews</span></div>
       <h1 class="hero-title">THE BEST<br><span>GAMING</span><br>LAPTOPS<br>RIGHT NOW</h1>
-  <p class="hero-sub">30 laptops independently analyzed using verified specifications and cross-checked benchmark data. Real TGP numbers, transparent sources, and zero sponsored rankings.</p>
+  <p class="hero-sub"><span id="hero-total-count">31</span> laptops independently analyzed using verified specifications and cross-checked benchmark data. Real TGP numbers, transparent sources, and zero sponsored rankings.</p>
       <div class="hero-ctas">
-        <a href="#best-picks" class="btn-primary">See Top Picks →</a>
+        <a href="#deals-section" class="btn-primary">See Top Picks →</a>
         <a href="guide-gaming-laptop-buying-guide-2026.html" class="btn-ghost">Buying Guide</a>
       </div>
       <div class="hero-stats">
-        <div class="hs"><div class="hs-num">30<span>+</span></div><div class="hs-label">Laptops Analyzed</div></div>
+        <div class="hs"><div class="hs-num" id="hero-stat-total">31</div><div class="hs-label">Laptops Analyzed</div></div>
         <div class="hs"><div class="hs-num">11</div><div class="hs-label">Games Compared</div></div>
         <div class="hs"><div class="hs-num">3<span>×</span></div><div class="hs-label">Resolutions</div></div>
         <div class="hs"><div class="hs-num">0</div><div class="hs-label">Sponsored Rankings</div></div>
@@ -90,7 +90,7 @@
     <!-- HERO PICKS — rendered from laptops.js -->
     <div class="hero-picks">
       <div class="mono-cyan-cat">Top 5 Right Now</div>
-      <div data-fl-picks="lenovo-legion-pro-7i-gen10,asus-rog-scar-16-2026,razer-blade-16-oled-2026,hp-omen-max-16-2026,lenovo-legion-5i-gen10"></div>
+      <div data-fl-picks="asus-rog-scar-18-2026,lenovo-legion-pro-7i-gen10,asus-rog-scar-16-2026,lenovo-legion-5i-gen10,hp-omen-max-16-2026"></div>
     </div>
   </div>
 </section>
@@ -99,11 +99,8 @@
 <div class="tools-bar">
   <div class="tools-inner">
     <span class="tool-label">Interactive Tools:</span>
-    <button class="tool-btn" onclick="openTool('display')">🖥 Display Comparison</button>
-    <button class="tool-btn" onclick="openTool('thermal')">🌡 Thermal & Battery</button>
     <a href="#compare-tool" class="tool-btn">📊 GPU Benchmarks</a>
     <a href="#finder" class="tool-btn">🎯 Laptop Finder</a>
-    <a href="#price-alert" class="tool-btn">🔔 Price Alerts</a>
   </div>
 </div>
 
@@ -130,7 +127,7 @@
     <div class="section-header">
       <div class="section-label">GPU Benchmark Tool</div>
       <h2 class="section-title">GPU Performance Comparison</h2>
-      <p class="section-sub">Per-game results across 6 laptops. Each bar = one laptop. Settings shown on axis. Toggle resolution to compare.</p>
+      <p class="section-sub">Sourced performance estimates across 6 laptop configurations. Each bar = one laptop. Settings shown on axis. Toggle resolution to compare.</p>
     </div>
 
     <!-- Resolution tabs -->
@@ -152,11 +149,11 @@
     </div>
 
     <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:8px">
-      Sources: Notebookcheck, LaptopMag, Tom's Hardware, Jarrod's Tech — Jan–Mar 2026 · All laptops at rated full TGP · DLSS / FSR / XeSS as noted per game
+      Compiled from Notebookcheck, LaptopMag, Tom's Hardware, and Jarrod's Tech — Jan–Mar 2026 · Not FRAMELIMIT hands-on test results · Exact SKU, power mode, and test conditions can change performance
     </div>
 
     <!-- ── SYNTHETIC BENCHMARKS ── -->
-    <div style="margin-top:48px">
+    <div hidden>
       <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:12px"><span class="u-cyan-line"></span>Synthetic Benchmarks</div>
       <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);margin-bottom:6px">3DMark · Cinebench R24 · Thermals</h3>
       <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Time Spy = overall GPU. Port Royal = ray tracing. CineBench R24 = CPU. Temps + noise at sustained full load.</p>
@@ -180,7 +177,7 @@
     </div>
 
     <!-- ── 1% LOWS / STUTTER ── -->
-    <div style="margin-top:40px">
+    <div hidden>
       <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:12px"><span class="u-cyan-line"></span>Stutter Analysis</div>
       <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);margin-bottom:6px">Avg FPS vs 1% Lows — 1440p Ultra</h3>
       <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Format: <span style="color:var(--white)">Avg</span> / <span style="color:var(--green)">1% Low</span>. Closer together = smoother experience. 1% lows below 65% of avg = noticeable stutter.</p>
@@ -205,14 +202,14 @@
     <!-- ── FULL SPEC COMPARISON TABLE (from laptops.js) ── -->
     <div style="margin-top:48px">
       <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:12px"><span class="u-cyan-line"></span>Full Spec Comparison</div>
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);margin-bottom:16px">All 34 Laptops — Specs at a Glance</h3>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);margin-bottom:16px">All <span id="spec-total-count">31</span> Laptops — Specs at a Glance</h3>
 
       <!-- Tier filter tabs -->
       <div style="display:flex;gap:0;margin-bottom:20px;border:1px solid var(--border)">
-        <button class="gpu-tab active" onclick="switchSpecTable('all',this)">All (30)</button>
-        <button class="gpu-tab" onclick="switchSpecTable('high-end',this)">🔥 Flagship (10)</button>
-        <button class="gpu-tab" onclick="switchSpecTable('mid-range',this)">⚖️ Mid-Range (10)</button>
-        <button class="gpu-tab" onclick="switchSpecTable('budget',this)">💰 Budget (10)</button>
+        <button class="gpu-tab active" onclick="switchSpecTable('all',this)">All (<span id="spec-all-count">31</span>)</button>
+        <button class="gpu-tab" onclick="switchSpecTable('high-end',this)">🔥 Flagship (<span id="spec-high-count">13</span>)</button>
+        <button class="gpu-tab" onclick="switchSpecTable('mid-range',this)">⚖️ Mid-Range (<span id="spec-mid-count">12</span>)</button>
+        <button class="gpu-tab" onclick="switchSpecTable('budget',this)">💰 Budget (<span id="spec-budget-count">6</span>)</button>
       </div>
 
       <div id="spec-table-container" data-fl-table="all"></div>
@@ -228,7 +225,7 @@
     <div class="section-header">
       <div class="section-label">Editor Recommendations</div>
       <h2 class="section-title">Best Picks by Category</h2>
-      <p class="section-sub">One winner per category after testing. No sponsored placements.</p>
+      <p class="section-sub">One evidence-led recommendation per category. No sponsored placements.</p>
     </div>
 
     <!-- Tier filter tabs for picks -->
@@ -253,57 +250,24 @@
       <h2 class="section-title">Find Your Laptop</h2>
     </div>
     <div class="finder-wrap">
-      <div class="finder-label">Your Budget</div>
+      <label class="finder-label" for="budget-range">Your Budget</label>
       <div class="range-row">
         <input type="range" id="budget-range" min="700" max="4500" value="1500" step="50" oninput="updateFinder()">
         <span class="range-val" id="budget-display">$1,500</span>
       </div>
       <div class="finder-label" style="margin-bottom:10px">Platform Preference</div>
       <div class="platform-chips">
-        <button class="chip active" onclick="setPlatform('any',this)">Any</button>
-        <button class="chip" onclick="setPlatform('nvidia',this)">NVIDIA RTX</button>
-        <button class="chip" onclick="setPlatform('amd',this)">AMD</button>
+        <button class="chip active" aria-pressed="true" onclick="setPlatform('any',this)">Any</button>
+        <button class="chip" aria-pressed="false" onclick="setPlatform('nvidia',this)">NVIDIA RTX</button>
+        <button class="chip" aria-pressed="false" onclick="setPlatform('amd',this)">AMD CPU / Radeon</button>
       </div>
-      <div class="finder-result" id="finder-result">
-        <div class="fr-title">Lenovo Legion 5i Gen 10</div>
-        <div class="fr-sub">The best laptop at your budget. RTX 5070 Ti with great display, 5+ hour gaming battery, and DLSS 4 support. Unmatched value at ~$2,447.</div>
-        <a href="guide-best-gaming-laptop-under-1500.html" class="fr-link">See Full Guide →</a>
-      </div>
+      <div class="finder-summary" id="finder-summary"></div>
+      <div class="finder-results" id="finder-result" aria-live="polite"></div>
     </div>
   </div>
 </section>
 
 <div class="ad-slot" style="margin:0 32px;max-width:1400px;margin-left:auto;margin-right:auto;width:calc(100% - 64px)">ADVERTISEMENT · 728×90 · AdSense / Ezoic Unit</div>
-
-<!-- PRICE ALERT -->
-<section id="price-alert">
-  <div class="section-inner">
-    <div class="pricedrop-bg">
-      <h2 class="pa-title">🔔 Price Drop Alerts</h2>
-      <p class="pa-sub">Get notified the moment your target laptop drops to your price.</p>
-      <div class="pa-form">
-        <div class="pa-field">
-          <label>Your Email</label>
-          <input type="email" placeholder="you@email.com" id="pa-email">
-        </div>
-        <div class="pa-field">
-          <label>Target Laptop</label>
-          <select id="pa-laptop">
-            <option>Lenovo Legion 5i Gen 10</option>
-            <option>ASUS ROG Strix SCAR 16</option>
-            <option>Razer Blade 16 (2026)</option>
-            <option>HP Omen Max 16</option>
-            <option>ASUS TUF Gaming A16</option>
-            <option>MSI Raider 18 HX AI</option>
-            <option>Lenovo LOQ 15 Gen 10</option>
-          </select>
-        </div>
-        <button onclick="submitAlert()" style="background:var(--cyan);color:var(--black);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:12px 24px;border:none;cursor:pointer">Set Alert →</button>
-      </div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:12px">We'll email you when the price drops.</div>
-    </div>
-  </div>
-</section>
 
 <!-- BLOG / GUIDES -->
 <div id="guides" style="position:relative;top:-90px;visibility:hidden;pointer-events:none"></div>
@@ -328,7 +292,7 @@
         <div class="bc-body">
           <div class="bc-cat">Best Picks</div>
           <div class="bc-title">Best Gaming Laptops 2026 — All Budgets</div>
-          <div class="bc-sub">Top picks after testing 30 machines across 11 games.</div>
+          <div class="bc-sub">Evidence-led picks across every budget, with exact configurations, sourced benchmarks, and buyer warnings.</div>
         </div>
         <div class="bc-meta"><span>Rumen Mazhdrakov</span><span>14 min read</span></div>
       </a>
@@ -346,7 +310,7 @@
         <div class="bc-body">
           <div class="bc-cat">Budget Guide</div>
           <div class="bc-title">Best Gaming Laptop Under $1,500</div>
-          <div class="bc-sub">Four verified RTX 5060 configurations — LOQ 15, TUF A16, Gigabyte A16, and Nitro V — with exact model codes and live-price checks.</div>
+          <div class="bc-sub">Two ranked exact configurations plus two related RTX 5060 options, with model-code and live-price checks.</div>
         </div>
         <div class="bc-meta"><span>Rumen Mazhdrakov</span><span>10 min read</span></div>
       </a>
@@ -364,7 +328,7 @@
         <div class="bc-body">
           <div class="bc-cat">Budget Guide</div>
           <div class="bc-title">Best Gaming Laptop Under $2,500</div>
-          <div class="bc-sub">Premium RTX 5070 tier — G14, Blade 14, Aurora 16X, Legion 7i from $2,099 to $2,479.</div>
+          <div class="bc-sub">Premium RTX 5070-class options compared by exact configuration, portability, display quality, and current eligibility.</div>
         </div>
         <div class="bc-meta"><span>Rumen Mazhdrakov</span><span>14 min read</span></div>
       </a>
@@ -373,7 +337,7 @@
         <div class="bc-body">
           <div class="bc-cat">Budget Guide</div>
           <div class="bc-title">Best Gaming Laptop Under $2,000</div>
-          <div class="bc-sub">RTX 5070 tier — Legion 5i OLED at $1,799 and Helios Neo RTX 5070 Ti at $1,919.</div>
+          <div class="bc-sub">RTX 5070-class options compared by exact SKU, display quality, power limits, and current under-$2,000 eligibility.</div>
         </div>
         <div class="bc-meta"><span>Rumen Mazhdrakov</span><span>12 min read</span></div>
       </a>
@@ -391,7 +355,7 @@
         <div class="bc-body">
           <div class="bc-cat">AMD Guide</div>
           <div class="bc-title">Best AMD Gaming Laptops 2026</div>
-          <div class="bc-sub">RDNA 3 laptops ranked. Battery life, FSR 3, and 3D V-Cache explained.</div>
+          <div class="bc-sub">RDNA 3 availability, battery-life evidence, FSR support, and 3D V-Cache explained.</div>
         </div>
         <div class="bc-meta"><span>Rumen Mazhdrakov</span><span>10 min read</span></div>
       </a>
@@ -400,7 +364,7 @@
         <div class="bc-body">
           <div class="bc-cat">Optimisation Guide</div>
           <div class="bc-title">Gaming Laptop Cooling & Thermals 2026</div>
-          <div class="bc-sub">Repasting, undervolting, fan curves.</div>
+          <div class="bc-sub">Safe cleaning, airflow, fan profiles, power limits, and when advanced cooling work is worth the risk.</div>
         </div>
         <div class="bc-meta"><span>Rumen Mazhdrakov</span><span>12 min read</span></div>
       </a>
@@ -409,7 +373,7 @@
         <div class="bc-body">
           <div class="bc-cat">Use Case Guide</div>
           <div class="bc-title">Best Gaming Laptops for Video Editing 2026</div>
-          <div class="bc-sub">4K export speed, OLED accuracy, and GPU VRAM tested. Best picks for creators who game.</div>
+          <div class="bc-sub">How CPU performance, GPU VRAM, display accuracy, and sourced export evidence affect creators who game.</div>
         </div>
         <div class="bc-meta"><span>Rumen Mazhdrakov</span><span>11 min read</span></div>
       </a>
@@ -418,7 +382,7 @@
         <div class="bc-body">
           <div class="bc-cat">Use Case Guide</div>
           <div class="bc-title">Best Gaming Laptops for Streaming 2026</div>
-          <div class="bc-sub">RTX 50 series NVENC tested. Stream and game at the same time with under 3% fps drop.</div>
+          <div class="bc-sub">NVENC features, CPU headroom, memory, and sourced streaming evidence for gaming and broadcasting together.</div>
         </div>
         <div class="bc-meta"><span>Rumen Mazhdrakov</span><span>10 min read</span></div>
       </a>
@@ -427,7 +391,7 @@
         <div class="bc-body">
           <div class="bc-cat">Use Case Guide</div>
           <div class="bc-title">Best Gaming Laptops for Fortnite 2026</div>
-          <div class="bc-sub">High FPS, low 1% lows, DLSS 4 tested. From budget to competitive-ready.</div>
+          <div class="bc-sub">High-refresh displays, sourced FPS and 1% low evidence, and DLSS support from budget to competitive-ready.</div>
         </div>
         <div class="bc-meta"><span>Rumen Mazhdrakov</span><span>9 min read</span></div>
       </a>
@@ -445,7 +409,7 @@
         <div class="bc-body">
           <div class="bc-cat">Form Factor Guide</div>
           <div class="bc-title">Best 14-Inch Gaming Laptops 2026</div>
-          <div class="bc-sub">G14, Blade 14, MSI Stealth 14 tested. The best compact powerhouses ranked.</div>
+          <div class="bc-sub">G14, Blade 14, and MSI Stealth 14 configurations compared for portability, display, power limits, and value.</div>
         </div>
         <div class="bc-meta"><span>Rumen Mazhdrakov</span><span>10 min read</span></div>
       </a>
@@ -454,7 +418,7 @@
         <div class="bc-body">
           <div class="bc-cat">Student Guide</div>
           <div class="bc-title">Best Budget Gaming Laptops for College 2026</div>
-          <div class="bc-sub">Under $1,200, long battery, MIL-SPEC options. Game in the evening, survive lectures.</div>
+          <div class="bc-sub">Budget-aware student options compared for portability, battery evidence, upgradeability, and gaming capability.</div>
         </div>
         <div class="bc-meta"><span>Rumen Mazhdrakov</span><span>10 min read</span></div>
       </a>
@@ -463,7 +427,7 @@
         <div class="bc-body">
           <div class="bc-cat">GPU Guide</div>
           <div class="bc-title">Best RTX 5090 Gaming Laptops 2026</div>
-          <div class="bc-sub">All 4 tested: SCAR 18, Titan 18, Raider 18, Omen Max Intel — ranked by sustained performance.</div>
+          <div class="bc-sub">SCAR 18, Titan 18, Raider 18, and Omen Max compared using exact specifications and sourced performance evidence.</div>
         </div>
         <div class="bc-meta"><span>Rumen Mazhdrakov</span><span>12 min read</span></div>
       </a>
@@ -472,7 +436,7 @@
         <div class="bc-body">
           <div class="bc-cat">Flagship Guide</div>
           <div class="bc-title">Best Flagship Gaming Laptops 2026</div>
-          <div class="bc-sub">SCAR 16 vs SCAR 18 vs Blade 16 vs Raider 18. Every machine over $3,000 ranked.</div>
+          <div class="bc-sub">SCAR 16, SCAR 18, Blade 16, and Raider 18 compared by configuration, sourced performance, thermals, and value.</div>
         </div>
         <div class="bc-meta"><span>Rumen Mazhdrakov</span><span>14 min read</span></div>
       </a>
@@ -490,7 +454,7 @@
         <div class="bc-body">
           <div class="bc-cat">Tool</div>
           <div class="bc-title">Laptop vs Laptop Comparison Tool</div>
-          <div class="bc-sub">Pick any two laptops from our 34-model data set. Side-by-side specs, scores, and a plain-English verdict.</div>
+          <div class="bc-sub">Pick any two laptops from our 31-model data set. Side-by-side specs, scores, and a plain-English verdict.</div>
         </div>
         <div class="bc-meta"><span>FRAMELIMIT Tool</span><span>Interactive</span></div>
       </a>
@@ -565,16 +529,31 @@
 <script>
 /* ── MOBILE NAV — handled by nav.js ── */
 
-/* ── TOOL MODALS (stub) ── */
-function openTool(type) {
-  alert('Tool: ' + type + ' — coming soon');
-}
-
-/* ── PRICE ALERT (stub) ── */
-function submitAlert() {
-  const email = document.getElementById('pa-email').value;
-  if (!email) return;
-  alert('Alert set! We\'ll email ' + email + ' when the price drops.');
+/* ── HOMEPAGE COUNTS — derived from laptops.js ── */
+function syncHomepageCounts() {
+  const all = window.LAPTOPS || [];
+  const ranked = all.filter(laptop => Number.isFinite(laptop.score));
+  const preview = all.length - ranked.length;
+  const tierCounts = {
+    high: (window.LAPTOPS_BY_TIER?.['high-end'] || []).length,
+    mid: (window.LAPTOPS_BY_TIER?.['mid-range'] || []).length,
+    budget: (window.LAPTOPS_BY_TIER?.budget || []).length,
+  };
+  const values = {
+    'hero-ranked-count': ranked.length,
+    'hero-preview-count': preview,
+    'hero-total-count': all.length,
+    'hero-stat-total': all.length,
+    'spec-total-count': all.length,
+    'spec-all-count': all.length,
+    'spec-high-count': tierCounts.high,
+    'spec-mid-count': tierCounts.mid,
+    'spec-budget-count': tierCounts.budget,
+  };
+  Object.entries(values).forEach(([id, value]) => {
+    const element = document.getElementById(id);
+    if (element) element.textContent = value;
+  });
 }
 
 /* ── PICKS TIER SWITCHER ── */
@@ -629,33 +608,75 @@ function renderPicksGrids() {
 
 /* ── BUDGET FINDER (driven by laptops.js data) ── */
 let currentPlatform = 'any';
-const finderData = [
-  { max: 950,  any: 'lenovo-loq-15-gen10',          nvidia: 'lenovo-loq-15-gen10',        amd: 'lenovo-loq-15-gen10',         link: 'guide-best-gaming-laptop-under-1000.html', linkText: 'Budget Guide →' },
-  { max: 1150, any: 'lenovo-loq-15-gen10',           nvidia: 'lenovo-loq-15-gen10',          amd: 'lenovo-loq-15-gen10',          link: 'guide-best-gaming-laptop-under-1500.html', linkText: 'Under $1,500 Guide →' },
-  { max: 1600, any: 'lenovo-legion-5i-gen10',        nvidia: 'lenovo-legion-5i-gen10',       amd: 'asus-rog-zephyrus-g14-2026',  link: 'guide-best-gaming-laptop-under-1500.html', linkText: 'Full Guide →' },
-  { max: 2200, any: 'hp-omen-max-16-2026',           nvidia: 'hp-omen-max-16-2026',          amd: 'dell-alienware-16x-aurora',   link: 'guide-best-gaming-laptops-2026.html',      linkText: 'Best Overall →' },
-  { max: 3200, any: 'msi-raider-18-hx-ai',           nvidia: 'msi-raider-18-hx-ai',          amd: 'asus-rog-scar-16-2026',       link: 'guide-best-gaming-laptops-2026.html',      linkText: 'Flagship Guide →' },
-  { max: 9999, any: 'msi-titan-18-hx-ai',            nvidia: 'alienware-18-area-51',         amd: 'asus-rog-scar-18-2026',       link: 'guide-best-gaming-laptops-2026.html',      linkText: 'Flagship Guide →' },
+const finderGuides = [
+  { max: 1000, link: 'guide-best-gaming-laptop-under-1000.html', label: 'Under $1,000 Guide →' },
+  { max: 1500, link: 'guide-best-gaming-laptop-under-1500.html', label: 'Under $1,500 Guide →' },
+  { max: 2000, link: 'guide-best-gaming-laptop-under-2000.html', label: 'Under $2,000 Guide →' },
+  { max: 2500, link: 'guide-best-gaming-laptop-under-2500.html', label: 'Under $2,500 Guide →' },
+  { max: 3000, link: 'guide-best-gaming-laptop-under-3000.html', label: 'Under $3,000 Guide →' },
+  { max: 9999, link: 'guide-best-gaming-laptops-2026.html', label: 'Best Overall Guide →' },
 ];
+
+function finderSort(a, b) {
+  return (b.score - a.score) || (b.price - a.price);
+}
+
+function matchesFinderPlatform(laptop) {
+  if (currentPlatform === 'any') return true;
+  if (currentPlatform === 'nvidia') return laptop.tags?.includes('nvidia');
+  return laptop.tags?.some(tag => tag === 'amd-cpu' || tag === 'amd-gpu');
+}
 
 function updateFinder() {
   const budget = parseInt(document.getElementById('budget-range').value);
   document.getElementById('budget-display').textContent = '$' + budget.toLocaleString();
-  const row = finderData.find(r => budget <= r.max) || finderData[finderData.length - 1];
-  const id  = row[currentPlatform] || row.any;
-  const l   = window.getLaptop(id);
-  if (!l) return;
-  document.getElementById('finder-result').innerHTML = `
-    <div class="fr-title">${l.shortName}</div>
-    <div class="fr-sub">${l.gpu} ${l.tgp}W · ${l.display.size}" ${l.display.panel} ${l.display.hz}Hz · ${l.ram} · ${l.bestFor}</div>
-    <a href="${l.amazonUrl}" class="fr-link" rel="nofollow sponsored" target="_blank">${/amazon\.com\/dp\//.test(l.amazonUrl || '') ? 'Check Price on Amazon →' : 'Search on Amazon →'}</a>
-    <a href="${row.link}" class="fr-link" style="margin-left:10px;background:var(--deep);color:var(--cyan);border:1px solid var(--cyan)">${row.linkText}</a>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:10px">${window.flRetailerStatus ? window.flRetailerStatus(l) : 'Retailer link'} · ${window.FL_DATA_LAST_CHECKED_LABEL || 'Price/spec checked recently'}</div>`;
+  const guide = finderGuides.find(item => budget <= item.max) || finderGuides[finderGuides.length - 1];
+  const priced = (window.LAPTOPS || []).filter(laptop =>
+    Number.isFinite(laptop.price) &&
+    Number.isFinite(laptop.score) &&
+    matchesFinderPlatform(laptop)
+  );
+  const withinBudget = priced.filter(laptop => laptop.price <= budget).sort(finderSort);
+  const closestAbove = priced
+    .filter(laptop => laptop.price > budget)
+    .sort((a, b) => (a.price - b.price) || (b.score - a.score));
+  const matches = withinBudget.slice(0, 3);
+  if (matches.length < 3) {
+    matches.push(...closestAbove.slice(0, 3 - matches.length));
+  }
+
+  const exactCount = matches.filter(laptop => laptop.price <= budget).length;
+  const platformLabel = currentPlatform === 'any' ? 'all platforms' : currentPlatform === 'nvidia' ? 'NVIDIA RTX' : 'AMD CPU / Radeon';
+  document.getElementById('finder-summary').textContent = exactCount
+    ? `${exactCount} match${exactCount === 1 ? '' : 'es'} at or below $${budget.toLocaleString()} · ${platformLabel}`
+    : `No verified prices at or below $${budget.toLocaleString()} · showing the closest options for ${platformLabel}`;
+
+  document.getElementById('finder-result').innerHTML = matches.map((laptop, index) => {
+    const isOverBudget = laptop.price > budget;
+    const reviewUrl = window.flReviewLink ? window.flReviewLink(laptop.id) : null;
+    const secondaryUrl = reviewUrl || guide.link;
+    const secondaryLabel = reviewUrl ? 'Read Review →' : guide.label;
+    return `<article class="finder-result${isOverBudget ? ' is-over-budget' : ''}">
+      <div class="fr-match">${isOverBudget ? 'Closest Option' : index === 0 ? 'Best Match' : `Alternative ${index}`}</div>
+      <div class="fr-title">${laptop.shortName}</div>
+      <div class="fr-price">Reference price $${laptop.price.toLocaleString()}${isOverBudget ? ' · Above selected budget' : ''}</div>
+      <div class="fr-sub">${laptop.gpu} ${laptop.tgp}W · ${laptop.display.size}" ${laptop.display.panel} ${laptop.display.hz}Hz · ${laptop.ram} · ${laptop.bestFor}</div>
+      <div class="fr-actions">
+        <a href="${laptop.amazonUrl}" class="fr-link" rel="nofollow sponsored" target="_blank">${/amazon\.com\/dp\//.test(laptop.amazonUrl || '') ? 'Check Price →' : 'Search Amazon →'}</a>
+        <a href="${secondaryUrl}" class="fr-link fr-link-secondary">${secondaryLabel}</a>
+      </div>
+      <div class="fr-note">${window.flRetailerStatus ? window.flRetailerStatus(laptop) : 'Retailer link'} · Reference price is not live · ${window.FL_DATA_LAST_CHECKED_LABEL || 'Price/spec checked recently'}</div>
+    </article>`;
+  }).join('');
 }
 
 function setPlatform(p, btn) {
-  document.querySelectorAll('.platform-chips .chip').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.platform-chips .chip').forEach(c => {
+    c.classList.remove('active');
+    c.setAttribute('aria-pressed', 'false');
+  });
   btn.classList.add('active');
+  btn.setAttribute('aria-pressed', 'true');
   currentPlatform = p;
   updateFinder();
 }
@@ -871,8 +892,7 @@ function toggleInlineTable(tableId, btnId, label) {
 
 /* ── INIT ── */
 document.addEventListener('DOMContentLoaded', function () {
-  renderSynthTable();
-  renderLowsTable();
+  syncHomepageCounts();
   renderPicksGrids();
   updateFinder();
 });
