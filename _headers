@@ -1,2 +1,5 @@
 /price-snapshot.js
   Cache-Control: public, max-age=300, must-revalidate
+
+/style.css
+  Cache-Control: public, max-age=0, must-revalidate
