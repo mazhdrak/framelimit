@@ -139,6 +139,7 @@ FRAMELIMIT няма бюджет за собствено тестване на �
 - [x] Премахване на неподкрепени `we tested`, `fully tested` и подобни твърдения.
 - [x] Премахване или ясно обозначаване на прогнозни FPS стойности; несъпоставимите cross-source averages са заменени с връзки към точните datasets.
 - [ ] Обновяване на стари цени и добавяне на дата на проверката.
+  - [x] Първи price/ranking batch: under-$3,000 guide вече използва checkout eligibility вместо фиксирани цени; Legion Pro 7i 83F50053US, Omen Max 16-ah0070ca и MSI Vector A2XWIG-058US са синхронизирани с exact SKU данни, battery capacity и live-price checks, а неподкрепените runtime и price-gap твърдения са премахнати.
 - [x] Разграничаване на direct ASIN и Amazon search fallback.
 - [x] Проверка на всички връзки от guides към individual reviews.
 - [ ] Проверка дали класациите отговарят на публикуваните доказателства.
