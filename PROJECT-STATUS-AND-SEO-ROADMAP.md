@@ -148,6 +148,7 @@ FRAMELIMIT няма бюджет за собствено тестване на �
   - [x] Седми price/ranking batch: общият flagship guide е синхронизиран с RTX 5080/5090 evidence статусите; Blade 16 EN9, Zephyrus GU606 и Titan 18 са unranked, точните GPU/CPU/RAM/storage/weight данни са обновени, а статичните цени, runtime оценки и неподкрепените cross-model performance/value изводи са премахнати.
   - [x] Осми price/ranking batch: 14-inch guide е ограничен до реални 14-inch конфигурации; погрешно включеният MSI Stealth A16 е премахнат, Razer Blade 14 е коригиран към Ryzen AI 9 365 / RTX 5070 115W / 2880×1800 OLED 120Hz / 1.63kg и обозначен като unranked, а статичните price/runtime и performance-gap твърдения са премахнати.
   - [x] Девети price/ranking batch: thin-and-light guide е синхронизиран с точните G14, Blade 14, Legion 7 Gen 11 и Zephyrus G16 конфигурации; несъществуващият MSI Stealth 14 запис е заменен с реалния Legion, трите review страници без editorial score са unranked, а runtime, price-gap и универсалните weight/TGP performance твърдения са премахнати.
+  - [x] Десети price/ranking batch: college guide е синхронизиран с exact Legion 5i 83N20003BO, TUF A16 FA608UM, G14 GU405AR, Katana B14WGK и LOQ 15AHP10 конфигурации; старите Radeon TUF и RTX 5060 Katana описания са заменени, а статичните цени, runtime, student-discount и warranty-cost твърдения са премахнати.
 - [x] Разграничаване на direct ASIN и Amazon search fallback.
 - [x] Проверка на всички връзки от guides към individual reviews.
 - [ ] Проверка дали класациите отговарят на публикуваните доказателства.
