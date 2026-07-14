@@ -26,6 +26,34 @@ function add(results, file, severity, message) {
   results.push({ file, severity, message });
 }
 
+function auditLaptopData(laptops, results) {
+  const ids = new Set();
+  const requiredText = ['id', 'name', 'cpu', 'gpu', 'gpuVram', 'ram', 'storage'];
+  for (const laptop of laptops) {
+    for (const field of requiredText) {
+      if (typeof laptop[field] !== 'string' || !laptop[field].trim()) {
+        add(results, 'laptops.js', 'error', `${laptop.id || 'unknown record'} is missing ${field}`);
+      }
+    }
+    if (ids.has(laptop.id)) add(results, 'laptops.js', 'error', `duplicate laptop id: ${laptop.id}`);
+    ids.add(laptop.id);
+    if (laptop.tgp !== null && (!Number.isFinite(laptop.tgp) || laptop.tgp <= 0)) {
+      add(results, 'laptops.js', 'error', `${laptop.id} has an invalid TGP`);
+    }
+    if (!laptop.display || !Number.isFinite(laptop.display.size) || !laptop.display.res || !Number.isFinite(laptop.display.hz) || !laptop.display.panel) {
+      add(results, 'laptops.js', 'error', `${laptop.id} has an incomplete display specification`);
+    }
+    if (!Number.isFinite(laptop.weight) || laptop.weight <= 0) add(results, 'laptops.js', 'error', `${laptop.id} has an invalid weight`);
+    if (!Number.isFinite(laptop.battery) || laptop.battery <= 0) add(results, 'laptops.js', 'error', `${laptop.id} has an invalid battery capacity`);
+    const hasSourceMetadata = laptop.modelCode || laptop.specSource || laptop.specCheckedAt;
+    if (hasSourceMetadata) {
+      if (!laptop.modelCode || !/^https:\/\//.test(laptop.specSource || '') || !/^\d{4}-\d{2}-\d{2}$/.test(laptop.specCheckedAt || '')) {
+        add(results, 'laptops.js', 'error', `${laptop.id} has incomplete spec-source metadata`);
+      }
+    }
+  }
+}
+
 async function auditGuide(file, laptopIds, results) {
   const source = await fs.readFile(path.join(ROOT, file), 'utf8');
   const canonical = source.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i)?.[1];
@@ -104,6 +132,7 @@ async function main() {
   const laptops = await loadLaptops();
   const laptopIds = new Set(laptops.map((laptop) => laptop.id));
   const results = [];
+  auditLaptopData(laptops, results);
   for (const guide of guides) await auditGuide(guide, laptopIds, results);
 
   results.forEach(({ file, severity, message }) => console.log(`${severity.toUpperCase()} ${file}: ${message}`));
