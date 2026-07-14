@@ -151,6 +151,7 @@ FRAMELIMIT няма бюджет за собствено тестване на �
   - [x] Девети price/ranking batch: thin-and-light guide е синхронизиран с точните G14, Blade 14, Legion 7 Gen 11 и Zephyrus G16 конфигурации; несъществуващият MSI Stealth 14 запис е заменен с реалния Legion, трите review страници без editorial score са unranked, а runtime, price-gap и универсалните weight/TGP performance твърдения са премахнати.
   - [x] Десети price/ranking batch: college guide е синхронизиран с exact Legion 5i 83N20003BO, TUF A16 FA608UM, G14 GU405AR, Katana B14WGK и LOQ 15AHP10 конфигурации; старите Radeon TUF и RTX 5060 Katana описания са заменени, а статичните цени, runtime, student-discount и warranty-cost твърдения са премахнати.
   - [x] Единадесети price/ranking batch: laptop-vs-desktop guide вече изисква matched workload данни и live complete-system цени; несъществуващият 11-game suite, универсалните performance gaps, фиксираните system prices и неподкрепените lifespan/value изводи са премахнати.
+  - [x] Дванадесети price/ranking batch: under-$2,500 guide вече прилага live checkout eligibility и exact-evidence ranking; Aurora е коригиран от RTX 5070 Ti/140W към exact RTX 5070/115W, G14 към GU405AR, Blade 14 и Omen към точните спецификации, а Legion 7i е unranked до корекция на stale review evidence.
 - [x] Разграничаване на direct ASIN и Amazon search fallback.
 - [x] Проверка на всички връзки от guides към individual reviews.
 - [ ] Проверка дали класациите отговарят на публикуваните доказателства.
