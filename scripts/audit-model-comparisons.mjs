@@ -17,6 +17,13 @@ const COMPARISONS = [
     requireDisplayDetails: true,
     required: ['No Defensible Universal Winner', 'not a live checkout price', 'GU405AR', 'configuration error'],
     backlinks: ['guides.html', 'compare.html', 'guide-best-amd-gaming-laptop-2026.html', 'guide-best-14-inch-gaming-laptop-2026.html', 'review-asus-rog-flow-z13-radeon-8060s.html', 'review-asus-rog-zephyrus-g14-2026.html']
+  },
+  {
+    page: 'guide-msi-raider-a18-hx-vs-raider-18-hx-ai.html',
+    ids: ['msi-raider-a18-hx-amd', 'msi-raider-16-max-hx'],
+    requireDisplayDetails: true,
+    required: ['No Defensible Universal Winner', 'not a live checkout price', 'same BIOS, power mode, memory, game and settings'],
+    backlinks: ['guides.html', 'compare.html', 'guide-best-amd-gaming-laptop-2026.html', 'guide-best-rtx-5090-gaming-laptop-2026.html', 'review-msi-raider-a18-hx-amd.html', 'review-msi-raider-18-hx-ai.html']
   }
 ];
 
