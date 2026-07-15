@@ -17,7 +17,6 @@
     'gigabyte-gaming-a16-rtx5060': 'review-gigabyte-gaming-a16',
     'dell-g16-rtx4070': 'review-alienware-16-aurora',
     'asus-rog-zephyrus-g16-2026': 'review-asus-rog-zephyrus-g16-2026',
-    'lenovo-legion-7-gen11': 'review-lenovo-legion-5-gen10-amd',
     'msi-raider-16-max-hx': 'review-msi-raider-18-hx-ai',
     'asus-rog-strix-g16-2026': 'review-asus-rog-strix-g16-2026',
     'msi-raider-a18-hx-amd': 'review-msi-raider-a18-hx-amd'
