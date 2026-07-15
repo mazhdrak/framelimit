@@ -41,6 +41,7 @@
       <li><a href="/" onclick="window.__flToggleNav()">🏠 Home</a></li>
       <li><a href="reviews" onclick="window.__flToggleNav()">⭐ Full Reviews</a></li>
       <li><a href="compare" onclick="window.__flToggleNav()">⚖️ Compare Laptops</a></li>
+      <li><a href="guide-rtx-50-laptop-tgp-database" onclick="window.__flToggleNav()">RTX 50 TGP Database</a></li>
       <li><a href="methodology" onclick="window.__flToggleNav()">Methodology</a></li>
       <li><a href="about" onclick="window.__flToggleNav()">👤 About</a></li>
       <li><a href="contact" onclick="window.__flToggleNav()">✉️ Contact</a></li>
