@@ -179,6 +179,8 @@ FRAMELIMIT няма бюджет за собствено тестване на �
 
 - [x] Обновяване на `<lastmod>` за всички съществено променени URL-и.
 - [x] XML validation на `sitemap.xml` чрез XML parser и `scripts/audit-sitemap.mjs`.
+- [x] Уеднаквяване на canonical, Open Graph, JSON-LD, sitemap и internal links с extensionless URL-ите, които Cloudflare Pages обслужва като крайни HTTP 200 адреси.
+- [x] Добавяне на `scripts/audit-public-urls.mjs` за проверка на canonical URL-и, redirect-free internal links и счупени локални цели.
 - [ ] Deploy на обновения sitemap на същия URL.
 - [ ] Проверка за `Success` в Google Search Console.
 - [ ] URL Inspection на най-важните 5-10 страници.
@@ -310,7 +312,7 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 
 Следващият работен пакет трябва да бъде:
 
-1. Активиране на Amazon Creators API credentials локално и генериране на първия реален `price-snapshot.js` чрез `scripts/update-amazon-prices.mjs`.
-2. Ежедневна/седмична API проверка на 31-те direct ASIN записа за active new offer, seller и checkout availability; автоматично скриване от finder/compare при липса на оферта.
-3. Обновяване на sitemap `lastmod` само за съществено променените URL-и, validation, commit и push.
-4. Search Console URL Inspection и `Validate Fix` след deploy.
+1. Изчакване Amazon Associates профилът да покрие Creators API eligibility; workflow-ът запазва reference-price fallback и предупреждава без да се проваля дотогава.
+2. Потвърждение след deploy, че extensionless canonical URL-ите и `sitemap.xml` връщат HTTP 200 и нямат canonical/redirect несъответствие.
+3. Search Console URL Inspection на приоритетните страници и еднократен `Request indexing` след deploy.
+4. `Validate Fix` за стария Product snippets проблем след като Google обходи новите страници.

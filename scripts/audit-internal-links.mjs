@@ -59,9 +59,15 @@ function textContent(value) {
 
 function linksFrom(source) {
   return Array.from(source.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi), (match) => ({
-    target: match[1].split(/[?#]/, 1)[0],
+    target: localFile(match[1]),
     label: textContent(match[2]),
   }));
+}
+
+function localFile(target) {
+  const clean = target.split(/[?#]/, 1)[0].replace(/^\//, '');
+  if (!clean) return 'index.html';
+  return path.extname(clean) ? clean : `${clean}.html`;
 }
 
 async function read(file) {

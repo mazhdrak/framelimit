@@ -7,6 +7,16 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PARTNER_TAG = 'framelimit20-20';
 const expectedOrigin = 'https://framelimit.com/';
 
+function publicUrl(file) {
+  return expectedOrigin + file.replace(/\.html$/i, '');
+}
+
+function localFile(target) {
+  const clean = target.split(/[?#]/, 1)[0].replace(/^\//, '');
+  if (!clean) return 'index.html';
+  return path.extname(clean) ? clean : `${clean}.html`;
+}
+
 async function loadLaptops() {
   const source = await fs.readFile(path.join(ROOT, 'laptops.js'), 'utf8');
   const sandbox = { window: {} };
@@ -57,7 +67,7 @@ function auditLaptopData(laptops, results) {
 async function auditGuide(file, laptopIds, results) {
   const source = await fs.readFile(path.join(ROOT, file), 'utf8');
   const canonical = source.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i)?.[1];
-  const expectedCanonical = expectedOrigin + file;
+  const expectedCanonical = publicUrl(file);
   if (canonical !== expectedCanonical) add(results, file, 'error', `canonical must be ${expectedCanonical}`);
   if (!/<title>[^<]{20,}<\/title>/i.test(source)) add(results, file, 'error', 'missing or unusually short title');
   if (!/<meta\s+name=["']description["']\s+content=["'][^"']{70,}["']/i.test(source)) {
@@ -69,16 +79,16 @@ async function auditGuide(file, laptopIds, results) {
   }
   if (!/<script\s+type=["']application\/ld\+json["']/i.test(source)) add(results, file, 'error', 'missing JSON-LD');
 
-  for (const match of matches(source, /href=["']([^"'#?]+\.html)(?:[?#][^"']*)?["']/gi)) {
+  for (const match of matches(source, /href=["']([^"'#?]+)(?:[?#][^"']*)?["']/gi)) {
     const target = match[1];
     if (/^[a-z][a-z0-9+.-]*:/i.test(target)) continue;
-    try { await fs.access(path.join(ROOT, target)); } catch { add(results, file, 'error', `broken internal link: ${target}`); }
+    try { await fs.access(path.join(ROOT, localFile(target))); } catch { add(results, file, 'error', `broken internal link: ${target}`); }
   }
 
-  for (const match of matches(source, /<a\b[^>]*class=["'][^"']*benchmark-evidence[^"']*["'][^>]*href=["']([^"'#]+\.html)#([^"']+)["'][^>]*>/gi)) {
+  for (const match of matches(source, /<a\b[^>]*class=["'][^"']*benchmark-evidence[^"']*["'][^>]*href=["']([^"'#]+)#([^"']+)["'][^>]*>/gi)) {
     const [, target, fragment] = match;
     try {
-      const targetSource = await fs.readFile(path.join(ROOT, target), 'utf8');
+      const targetSource = await fs.readFile(path.join(ROOT, localFile(target)), 'utf8');
       const escaped = fragment.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       if (!new RegExp(`\\bid=["']${escaped}["']`, 'i').test(targetSource)) {
         add(results, file, 'error', `benchmark evidence target is missing #${fragment}: ${target}`);

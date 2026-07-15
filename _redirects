@@ -7,12 +7,11 @@ https://www.framelimit.com/* https://framelimit.com/:splat 301
 # Redirect any old /guides/ path variants to root
 /guides/* /:splat 301
 
-# Redirect trailing slash to clean URL
+# Redirect the legacy index URL to the homepage
 /index.html / 301
-/reviews.html/  /reviews.html 301
 
 # Consolidate duplicate SCAR review URLs
-/review-asus-rog-scar-16-2026 /review-asus-rog-strix-scar-16-2026.html 301
-/review-asus-rog-scar-16-2026.html /review-asus-rog-strix-scar-16-2026.html 301
-/review-asus-rog-scar-18-2026 /review-asus-rog-strix-scar-18-2026.html 301
-/review-asus-rog-scar-18-2026.html /review-asus-rog-strix-scar-18-2026.html 301
+/review-asus-rog-scar-16-2026 /review-asus-rog-strix-scar-16-2026 301
+/review-asus-rog-scar-16-2026.html /review-asus-rog-strix-scar-16-2026 301
+/review-asus-rog-scar-18-2026 /review-asus-rog-strix-scar-18-2026 301
+/review-asus-rog-scar-18-2026.html /review-asus-rog-strix-scar-18-2026 301

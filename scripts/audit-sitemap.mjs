@@ -5,6 +5,15 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://framelimit.com/';
 
+function publicUrl(file) {
+  return ORIGIN + file.replace(/\.html$/i, '');
+}
+
+function localFile(loc) {
+  const relative = loc.slice(ORIGIN.length);
+  return relative ? `${relative}.html` : 'index.html';
+}
+
 async function main() {
   const source = await fs.readFile(path.join(ROOT, 'sitemap.xml'), 'utf8');
   if (!/^<\?xml version="1\.0" encoding="UTF-8"\?>/.test(source) || !/<urlset\b[^>]*>[\s\S]*<\/urlset>\s*$/.test(source)) {
@@ -26,8 +35,8 @@ async function main() {
       errors.push(`Invalid lastmod for ${loc}: ${lastmod || '(missing)'}`);
     }
     urls.set(loc, lastmod);
-    const relative = loc.slice(ORIGIN.length) || 'index.html';
-    try { await fs.access(path.join(ROOT, relative)); } catch { errors.push(`loc has no local file: ${loc}`); }
+    if (loc !== ORIGIN && /\.html(?:$|[?#])/.test(loc)) errors.push(`Sitemap URL must be extensionless: ${loc}`);
+    try { await fs.access(path.join(ROOT, localFile(loc))); } catch { errors.push(`loc has no local file: ${loc}`); }
   }
 
   const files = await fs.readdir(ROOT);
@@ -35,8 +44,9 @@ async function main() {
     const html = await fs.readFile(path.join(ROOT, file), 'utf8');
     const noindex = /<meta\s+name=["']robots["']\s+content=["'][^"']*noindex/i.test(html);
     const canonical = html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i)?.[1];
-    if (!noindex && canonical === ORIGIN + file && !urls.has(canonical)) errors.push(`Indexable page missing from sitemap: ${file}`);
-    if (noindex && urls.has(ORIGIN + file)) errors.push(`Noindex page must not be in sitemap: ${file}`);
+    const expectedCanonical = publicUrl(file);
+    if (!noindex && canonical === expectedCanonical && !urls.has(canonical)) errors.push(`Indexable page missing from sitemap: ${file}`);
+    if (noindex && urls.has(expectedCanonical)) errors.push(`Noindex page must not be in sitemap: ${file}`);
   }
 
   errors.forEach((error) => console.error(`ERROR ${error}`));

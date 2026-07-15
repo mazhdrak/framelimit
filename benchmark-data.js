@@ -576,7 +576,7 @@
         <div><strong>DLSS / FSR / Frame Generation</strong><span>Will be separated by render mode and multiplier</span></div>
         <div><strong>GPU power</strong><span>Maximum TGP and observed gaming power will be labeled separately</span></div>
       </div>
-      <p class="bench-evidence-note">The previous comparison used values without sufficient exact-SKU attribution and has been suppressed. A verified table will appear here after resolution, preset, power mode, upscaling, Frame Generation, and source all match. <a href="methodology.html#benchmark-standard">Benchmark standard</a>.</p>`;
+      <p class="bench-evidence-note">The previous comparison used values without sufficient exact-SKU attribution and has been suppressed. A verified table will appear here after resolution, preset, power mode, upscaling, Frame Generation, and source all match. <a href="methodology#benchmark-standard">Benchmark standard</a>.</p>`;
   }
 
   function renderVerifiedFlagship(section) {
@@ -707,7 +707,7 @@
 
     const note = document.createElement('p');
     note.className = 'bench-evidence-note';
-    note.innerHTML = 'Legacy normalized comparison. Generated FPS is separated only when the source settings identify frame generation. Missing 1% lows, latency, driver, or source details are not estimated. <a href="methodology.html#benchmark-standard">Benchmark standard</a>.';
+    note.innerHTML = 'Legacy normalized comparison. Generated FPS is separated only when the source settings identify frame generation. Missing 1% lows, latency, driver, or source details are not estimated. <a href="methodology#benchmark-standard">Benchmark standard</a>.';
     section.appendChild(note);
   }
 
@@ -722,7 +722,7 @@
 
     const note = document.createElement('p');
     note.className = 'bench-evidence-note';
-    note.innerHTML = 'Legacy published comparison. Source configuration, preset, upscaling, frame generation, driver, and 1% lows are shown only when the original evidence identifies them; missing values are not estimated. <a href="methodology.html#benchmark-standard">Benchmark standard</a>.';
+    note.innerHTML = 'Legacy published comparison. Source configuration, preset, upscaling, frame generation, driver, and 1% lows are shown only when the original evidence identifies them; missing values are not estimated. <a href="methodology#benchmark-standard">Benchmark standard</a>.';
     wrapper.appendChild(note);
   }
 
@@ -735,7 +735,7 @@
           <div class="bench-standard-label">Benchmark Standard ${standard.version}</div>
           <h2>How to read the FPS charts</h2>
         </div>
-        <a href="methodology.html#benchmark-standard">Full methodology &rarr;</a>
+        <a href="methodology#benchmark-standard">Full methodology &rarr;</a>
       </div>
       <div class="bench-standard-grid">
         <div><strong>Rendered FPS</strong><span>Native or upscaled frames produced by the game engine.</span></div>

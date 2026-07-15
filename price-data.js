@@ -5,11 +5,11 @@
   'use strict';
 
   const PRICE_TIERS = [
-    { id: 'entry', label: 'Entry', min: 0, max: 999, guide: 'guide-best-gaming-laptop-under-1000.html' },
-    { id: 'budget', label: 'Budget', min: 1000, max: 1499, guide: 'guide-best-gaming-laptop-under-1500.html' },
-    { id: 'mid-range', label: 'Mid-range', min: 1500, max: 1999, guide: 'guide-best-gaming-laptop-under-2000.html' },
-    { id: 'premium', label: 'Premium', min: 2000, max: 2999, guide: 'guide-best-gaming-laptop-under-3000.html' },
-    { id: 'flagship', label: 'Flagship', min: 3000, max: Infinity, guide: 'guide-best-flagship-gaming-laptop-2026.html' }
+    { id: 'entry', label: 'Entry', min: 0, max: 999, guide: 'guide-best-gaming-laptop-under-1000' },
+    { id: 'budget', label: 'Budget', min: 1000, max: 1499, guide: 'guide-best-gaming-laptop-under-1500' },
+    { id: 'mid-range', label: 'Mid-range', min: 1500, max: 1999, guide: 'guide-best-gaming-laptop-under-2000' },
+    { id: 'premium', label: 'Premium', min: 2000, max: 2999, guide: 'guide-best-gaming-laptop-under-3000' },
+    { id: 'flagship', label: 'Flagship', min: 3000, max: Infinity, guide: 'guide-best-flagship-gaming-laptop-2026' }
   ];
   const MAX_LIVE_PRICE_AGE_MS = 24 * 60 * 60 * 1000;
   const snapshotOffers = (window.FL_PRICE_SNAPSHOT && window.FL_PRICE_SNAPSHOT.offers) || {};
