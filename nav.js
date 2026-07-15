@@ -42,6 +42,7 @@
       <li><a href="reviews" onclick="window.__flToggleNav()">⭐ Full Reviews</a></li>
       <li><a href="compare" onclick="window.__flToggleNav()">⚖️ Compare Laptops</a></li>
       <li><a href="guide-rtx-50-laptop-tgp-database" onclick="window.__flToggleNav()">RTX 50 TGP Database</a></li>
+      <li><a href="guide-gaming-laptop-display-database" onclick="window.__flToggleNav()">Laptop Display Database</a></li>
       <li><a href="guide-dlss-fsr-frame-generation-database" onclick="window.__flToggleNav()">DLSS / FSR Benchmark Database</a></li>
       <li><a href="guide-gaming-laptop-price-report-july-2026" onclick="window.__flToggleNav()">Monthly Price Report</a></li>
       <li><a href="methodology" onclick="window.__flToggleNav()">Methodology</a></li>
@@ -80,6 +81,7 @@
     <ul class="md-links">
       <li><a href="compare" onclick="window.__flToggleNav()">⚖️ Compare Laptops</a></li>
       <li><a href="methodology" onclick="window.__flToggleNav()">Methodology</a></li>
+      <li><a href="guide-gaming-laptop-display-database" onclick="window.__flToggleNav()">Laptop Display Database</a></li>
       <li><a href="guide-dlss-fsr-frame-generation-database" onclick="window.__flToggleNav()">DLSS / FSR Benchmark Database</a></li>
       <li><a href="guide-rtx-vs-amd-2026" onclick="window.__flToggleNav()">RTX vs AMD</a></li>
       <li><a href="guide-gaming-laptop-vs-desktop-2026" onclick="window.__flToggleNav()">Laptop vs Desktop</a></li>
