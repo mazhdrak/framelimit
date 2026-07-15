@@ -238,7 +238,7 @@
     <!-- Flagship picks grid (shown by default, 70/20/10 ratio → show 2 flagship, 4 mid, 2 budget) -->
     <div id="picks-flagship" class="picks-grid" data-fl-picks-grid="asus-rog-scar-18-2026,lenovo-legion-pro-7i-gen10,razer-blade-16-oled-2026,hp-omen-max-16-2026,alienware-18-area-51,asus-rog-zephyrus-g16-high"></div>
     <div id="picks-mid"      class="picks-grid" style="display:none" data-fl-picks-grid="lenovo-legion-5i-gen10,asus-rog-zephyrus-g14-2026,asus-rog-zephyrus-g16-mid,msi-vector-16-hx-ai,hp-omen-16-rtx5070-2026,asus-tuf-gaming-f16-rtx5070"></div>
-  <div id="picks-budget"   class="picks-grid" style="display:none" data-fl-picks-grid="lenovo-loq-15-gen10,acer-nitro-16-2025,asus-tuf-a16-entry,gigabyte-gaming-a16-rtx5060,acer-nitro-v-16"></div>
+  <div id="picks-budget"   class="picks-grid" style="display:none" data-fl-picks-grid="lenovo-loq-15-gen10,acer-nitro-16-2025,gigabyte-gaming-a16-rtx5060,acer-nitro-v-16"></div>
   </div>
 </section>
 
@@ -599,7 +599,7 @@ function renderPicksGrids() {
         <div class="pick-spec">${l.gpu} ${l.tgp}W · ${l.display.size}" ${l.display.panel} ${l.display.hz}Hz · ${l.ram}</div>
         
         <div class="pick-score">${l.score == null ? 'NR' : l.score}<div class="pick-score-sub">${l.score == null ? 'PREVIEW' : 'SCORE'}</div></div>
-        <a href="${l.amazonUrl}" class="pick-btn" rel="nofollow sponsored" target="_blank">${/amazon\.com\/dp\//.test(l.amazonUrl || '') ? 'Check Price →' : 'Search Amazon →'}</a>
+        <a href="${l.amazonUrl}" class="pick-btn" rel="nofollow sponsored" target="_blank">Check Price →</a>
         <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:10px">${retailerNote} · ${window.FL_DATA_LAST_CHECKED_LABEL || 'Price/spec checked recently'}</div>
       </div>`;
     }).join('');
@@ -662,7 +662,7 @@ function updateFinder() {
       <div class="fr-price">Reference price $${laptop.price.toLocaleString()}${isOverBudget ? ' · Above selected budget' : ''}</div>
       <div class="fr-sub">${laptop.gpu} ${laptop.tgp}W · ${laptop.display.size}" ${laptop.display.panel} ${laptop.display.hz}Hz · ${laptop.ram} · ${laptop.bestFor}</div>
       <div class="fr-actions">
-        <a href="${laptop.amazonUrl}" class="fr-link" rel="nofollow sponsored" target="_blank">${/amazon\.com\/dp\//.test(laptop.amazonUrl || '') ? 'Check Price →' : 'Search Amazon →'}</a>
+        <a href="${laptop.amazonUrl}" class="fr-link" rel="nofollow sponsored" target="_blank">Check Price →</a>
         <a href="${secondaryUrl}" class="fr-link fr-link-secondary">${secondaryLabel}</a>
       </div>
       <div class="fr-note">${window.flRetailerStatus ? window.flRetailerStatus(laptop) : 'Retailer link'} · Reference price is not live · ${window.FL_DATA_LAST_CHECKED_LABEL || 'Price/spec checked recently'}</div>

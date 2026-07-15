@@ -1,6 +1,6 @@
 # FRAMELIMIT: Project Status and SEO Roadmap
 
-Последна актуализация: 14 юли 2026 г.
+Последна актуализация: 15 юли 2026 г.
 
 ## Цел на проекта
 
@@ -77,8 +77,8 @@ FRAMELIMIT трябва да се развие като надежден изт�
 
 ### 6. Последен публикуван commit
 
-- Commit: `d6d9fb1`
-- Message: `Improve homepage recommendations and trust signals`
+- Commit: `3e77e5d`
+- Message: `Strengthen RTX 5060 internal links`
 - Branch: `main`
 - Remote: `https://github.com/mazhdrak/framelimit.git`
 - Статус: push-нат към `origin/main`.
@@ -207,7 +207,8 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 
 - [ ] Свързване на individual reviews с подходящия price guide.
   - [x] Първи RTX 5060 cluster batch: under-$1,500 guide вече използва описателни model-specific anchors към LOQ 15AHP10, Nitro V 16S, TUF A16 FA608UM и Gigabyte Gaming A16; четирите review страници имат обратен линк към guide-а и поне една crawlable related-review връзка.
-  - [x] Добавен е `scripts/audit-internal-links.mjs`, който валидира двупосочната RTX 5060 cluster структура и блокира връщането към generic `Full Review` anchors в основния guide.
+  - [x] Втори money-page cluster batch: under-$3,000, RTX 5080, 14-inch и thin-and-light guides вече използват описателни model-specific review anchors; 8 свързани review страници имат обратни guide линкове и тематични alternative-review връзки.
+  - [x] `scripts/audit-internal-links.mjs` вече валидира 5 двупосочни content clusters в 17 файла и блокира generic `Full Review`, `Read Review` и `Read more` anchors.
 - [ ] Свързване на reviews с GPU и technology guides.
 - [ ] Добавяне на директни model-vs-model comparison страници.
 - [ ] Добавяне на описателни anchor текстове вместо само `Read more`.
@@ -255,11 +256,15 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 - [ ] Проверка на Amazon Associates account и активния tracking ID.
 - [ ] Проверка на conversion и ordered items reports.
 - [ ] Запазване на disclosure близо до affiliate съдържанието.
-- [ ] Показване на `Check Price` само при точен ASIN.
-- [ ] Използване на `Search Amazon` при непотвърдена конкретна оферта.
-- [ ] Добавяне на `Last checked` дата към офертите.
+- [x] Показване на `Check Price` само при точен ASIN.
+- [x] Изключване на моделите без потвърден директен Amazon US продукт от активните finder/compare препоръки.
+- [x] Добавяне на `Last checked` дата към офертите.
 - [ ] Фокус върху money pages с ясна покупателна цел.
 - [ ] Избягване на ръчно публикувани цени без надежден процес за обновяване.
+  - [x] Direct-retail audit на 15 юли 2026 г.: активният каталог съдържа 31 модела, 31 уникални direct ASIN линка и 0 Amazon search fallback линка; всички използват tracking ID `framelimit20-20`.
+  - [x] Осемте стари или неподкрепени конфигурации са заменени с актуални директно купуеми Amazon US конфигурации с конкретни уникални ASIN-и. Всички отново участват във finder/compare; архивните ревюта отделят старите benchmark данни от точния текущ retail SKU.
+  - [x] Потвърдени и добавени директни продуктови страници за Blade 16/18, Legion 5 AMD, Zephyrus G14/G16, HP Omen 16, TUF A16, LOQ 15 и Acer Nitro 16S/Nitro V 16S.
+  - [ ] `price-snapshot.js` все още няма генериран live snapshot (`generatedAt: null`), затова текуща цена и наличност не могат да се гарантират за целия каталог.
 
 ## Препоръчани money pages
 
@@ -295,7 +300,7 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 - [ ] Average, 1% low и minimum са правилно означени;
 - [ ] липсващите стойности са `N/A`;
 - [ ] източниците са посочени;
-- [ ] affiliate линкът е direct ASIN или ясно означен search fallback;
+- [ ] активният affiliate линк е direct ASIN; ако точният модел не е купуем, страницата ясно означава директно купуемата алтернатива;
 - [ ] canonical, title, description и JSON-LD са валидни;
 - [ ] страницата има вътрешни линкове към guides и alternatives;
 - [ ] URL-ът присъства в sitemap-а с точен `lastmod`;
@@ -305,8 +310,7 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 
 Следващият работен пакет трябва да бъде:
 
-1. Разширяване на review-to-price-guide audit-а към останалите приоритетни money pages: under $3,000, RTX 5080, 14-inch и thin-and-light.
-2. Добавяне на related reviews и alternatives към review страниците без тематичен изходящ cluster линк.
-3. Разширяване на `scripts/audit-internal-links.mjs` с crawlable-link и descriptive-anchor проверки за следващите clusters.
-4. Обновяване на sitemap `lastmod` само за съществено променените URL-и, validation, commit и push.
-5. Search Console URL Inspection и `Validate Fix` след deploy.
+1. Активиране на Amazon Creators API credentials локално и генериране на първия реален `price-snapshot.js` чрез `scripts/update-amazon-prices.mjs`.
+2. Ежедневна/седмична API проверка на 31-те direct ASIN записа за active new offer, seller и checkout availability; автоматично скриване от finder/compare при липса на оферта.
+3. Обновяване на sitemap `lastmod` само за съществено променените URL-и, validation, commit и push.
+4. Search Console URL Inspection и `Validate Fix` след deploy.

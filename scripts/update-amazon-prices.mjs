@@ -43,6 +43,7 @@ function auditCatalog(laptops) {
   const errors = [];
   const direct = [];
   const search = [];
+  const ownersByAsin = new Map();
 
   laptops.forEach((laptop) => {
     const url = String(laptop.amazonUrl || '');
@@ -50,11 +51,50 @@ function auditCatalog(laptops) {
       errors.push(`${laptop.id}: missing affiliate tag ${PARTNER_TAG}`);
     }
     const asin = directAsin(laptop);
-    if (asin) direct.push({ laptop, asin });
+    if (asin) {
+      direct.push({ laptop, asin });
+      const owners = ownersByAsin.get(asin) || [];
+      owners.push(laptop.id);
+      ownersByAsin.set(asin, owners);
+    }
     else search.push(laptop);
   });
 
+  ownersByAsin.forEach((owners, asin) => {
+    if (owners.length > 1) {
+      errors.push(`${asin}: duplicate catalog ASIN used by ${owners.join(', ')}`);
+    }
+  });
+
   return { errors, direct, search };
+}
+
+async function auditSiteAmazonLinks() {
+  const entries = await fs.readdir(ROOT, { withFileTypes: true });
+  const files = entries
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
+    .map((entry) => entry.name)
+    .sort();
+  const errors = [];
+  let directCount = 0;
+
+  for (const file of files) {
+    const source = await fs.readFile(path.join(ROOT, file), 'utf8');
+    const urls = source.match(/https:\/\/www\.amazon\.com\/[^"'<>\s]+/gi) || [];
+    urls.forEach((rawUrl) => {
+      const url = rawUrl.replaceAll('&amp;', '&');
+      if (!/amazon\.com\/dp\/[A-Z0-9]{10}(?:[/?#]|$)/i.test(url)) {
+        errors.push(`${file}: non-direct Amazon product link: ${url}`);
+        return;
+      }
+      directCount += 1;
+      if (!url.includes(`tag=${PARTNER_TAG}`)) {
+        errors.push(`${file}: Amazon product link is missing affiliate tag ${PARTNER_TAG}: ${url}`);
+      }
+    });
+  }
+
+  return { errors, directCount, fileCount: files.length };
 }
 
 async function fetchToken() {
@@ -172,9 +212,14 @@ async function writeSnapshot(offers, generatedAt) {
 async function main() {
   const laptops = await loadLaptops();
   const audit = auditCatalog(laptops);
+  const siteAudit = await auditSiteAmazonLinks();
   console.log(`Amazon links: ${audit.direct.length} direct ASIN, ${audit.search.length} search fallback.`);
+  console.log(`Site HTML: ${siteAudit.directCount} direct Amazon links across ${siteAudit.fileCount} files.`);
   if (audit.errors.length) {
     throw new Error(`Affiliate audit failed:\n- ${audit.errors.join('\n- ')}`);
+  }
+  if (siteAudit.errors.length) {
+    throw new Error(`Site affiliate audit failed:\n- ${siteAudit.errors.join('\n- ')}`);
   }
 
   if (process.argv.includes('--audit')) return;

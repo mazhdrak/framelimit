@@ -3,12 +3,54 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const guide = 'guide-best-gaming-laptop-under-1500.html';
-const reviews = [
-  'review-lenovo-loq-15-gen10.html',
-  'review-acer-nitro-v-16-2026.html',
-  'review-asus-tuf-gaming-a16-2026.html',
-  'review-gigabyte-gaming-a16.html',
+const clusters = [
+  {
+    name: 'RTX 5060 under $1,500',
+    guide: 'guide-best-gaming-laptop-under-1500.html',
+    reviews: [
+      'review-lenovo-loq-15-gen10.html',
+      'review-acer-nitro-v-16-2026.html',
+      'review-gigabyte-gaming-a16.html',
+    ],
+  },
+  {
+    name: 'Gaming laptops under $3,000',
+    guide: 'guide-best-gaming-laptop-under-3000.html',
+    reviews: [
+      'review-lenovo-legion-pro-7i-gen10.html',
+      'review-hp-omen-max-16-2026.html',
+      'review-msi-vector-16-hx-ai.html',
+    ],
+  },
+  {
+    name: 'RTX 5080 laptops',
+    guide: 'guide-best-rtx-5080-gaming-laptop-2026.html',
+    reviews: [
+      'review-lenovo-legion-pro-7i-gen10.html',
+      'review-msi-vector-16-hx-ai.html',
+      'review-hp-omen-max-16-2026.html',
+      'review-asus-rog-zephyrus-g16-2026.html',
+      'review-asus-rog-strix-g16-2026.html',
+    ],
+  },
+  {
+    name: '14-inch gaming laptops',
+    guide: 'guide-best-14-inch-gaming-laptop-2026.html',
+    reviews: [
+      'review-asus-rog-zephyrus-g14-2026.html',
+      'review-razer-blade-14-2026.html',
+    ],
+  },
+  {
+    name: 'Thin-and-light gaming laptops',
+    guide: 'guide-best-thin-light-gaming-laptop-2026.html',
+    reviews: [
+      'review-asus-rog-zephyrus-g14-2026.html',
+      'review-razer-blade-14-2026.html',
+      'review-lenovo-legion-5-gen10-amd.html',
+      'review-asus-rog-zephyrus-g16-2026.html',
+    ],
+  },
 ];
 
 function textContent(value) {
@@ -29,29 +71,32 @@ async function read(file) {
 async function main() {
   const errors = [];
   const sources = new Map();
-  for (const file of [guide, ...reviews]) sources.set(file, await read(file));
+  const files = new Set(clusters.flatMap(({ guide, reviews }) => [guide, ...reviews]));
+  for (const file of files) sources.set(file, await read(file));
 
-  const guideLinks = linksFrom(sources.get(guide));
-  for (const review of reviews) {
-    const links = guideLinks.filter((link) => link.target === review);
-    if (!links.length) errors.push(`${guide} must link to ${review}`);
-    if (links.some((link) => /^(?:full review|read more)\s*(?:→|&rarr;)?$/i.test(link.label))) {
-      errors.push(`${guide} uses a generic anchor for ${review}`);
+  for (const { name, guide, reviews } of clusters) {
+    const guideLinks = linksFrom(sources.get(guide));
+    for (const review of reviews) {
+      const links = guideLinks.filter((link) => link.target === review);
+      if (!links.length) errors.push(`${name}: ${guide} must link to ${review}`);
+      if (links.some((link) => /^(?:full review|read more|read review)\s*(?:→|&rarr;)?$/i.test(link.label))) {
+        errors.push(`${name}: ${guide} uses a generic anchor for ${review}`);
+      }
     }
-  }
 
-  for (const review of reviews) {
-    const links = linksFrom(sources.get(review));
-    if (!links.some((link) => link.target === guide)) {
-      errors.push(`${review} must link back to ${guide}`);
-    }
-    if (!links.some((link) => reviews.includes(link.target) && link.target !== review)) {
-      errors.push(`${review} must link to at least one related RTX 5060 review`);
+    for (const review of reviews) {
+      const links = linksFrom(sources.get(review));
+      if (!links.some((link) => link.target === guide)) {
+        errors.push(`${name}: ${review} must link back to ${guide}`);
+      }
+      if (!links.some((link) => reviews.includes(link.target) && link.target !== review)) {
+        errors.push(`${name}: ${review} must link to at least one related cluster review`);
+      }
     }
   }
 
   for (const error of errors) console.error(`ERROR ${error}`);
-  console.log(`Audited RTX 5060 cluster: ${reviews.length} reviews, ${errors.length} errors.`);
+  console.log(`Audited ${clusters.length} internal-link clusters across ${files.size} files: ${errors.length} errors.`);
   if (errors.length) process.exitCode = 1;
 }
 
