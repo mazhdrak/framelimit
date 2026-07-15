@@ -9,6 +9,11 @@ const RELATIONS = [
   ['review-razer-blade-14-2026.html', 'guide-dlss-fsr-frame-generation-database.html'],
   ['review-asus-rog-zephyrus-g14-2026.html', 'guide-rtx-50-laptop-tgp-database.html'],
   ['review-asus-rog-zephyrus-g14-2026.html', 'guide-gaming-laptop-display-database.html'],
+  ['review-lenovo-legion-5i-gen10.html', 'guide-rtx-50-laptop-tgp-database.html'],
+  ['review-lenovo-legion-5i-gen10.html', 'guide-gaming-laptop-display-database.html'],
+  ['review-lenovo-legion-5i-gen10.html', 'guide-dlss-fsr-frame-generation-database.html'],
+  ['review-asus-tuf-gaming-f16-rtx5070.html', 'guide-rtx-50-laptop-tgp-database.html'],
+  ['review-asus-tuf-gaming-f16-rtx5070.html', 'guide-gaming-laptop-display-database.html'],
 ];
 
 const slug = (file) => file.replace(/\.html$/, '');
