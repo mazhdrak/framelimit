@@ -209,6 +209,12 @@ async function writeSnapshot(offers, generatedAt) {
   await fs.writeFile(SNAPSHOT_PATH, output, 'utf8');
 }
 
+function isAssociateNotEligible(error) {
+  const message = String(error && error.message ? error.message : error);
+  return message.includes('AssociateNotEligible') ||
+    message.includes('does not currently meet the eligibility requirements');
+}
+
 async function main() {
   const laptops = await loadLaptops();
   const audit = auditCatalog(laptops);
@@ -247,6 +253,10 @@ async function main() {
 }
 
 main().catch((error) => {
+  if (isAssociateNotEligible(error)) {
+    console.warn('::warning title=Amazon Creators API not yet eligible::Keeping the reference-price fallback. Run this workflow again after the Associates account meets Amazon eligibility requirements.');
+    return;
+  }
   console.error(error.message);
   process.exitCode = 1;
 });
