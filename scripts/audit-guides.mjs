@@ -53,8 +53,12 @@ function auditLaptopData(laptops, results) {
     if (!laptop.display || !Number.isFinite(laptop.display.size) || !laptop.display.res || !Number.isFinite(laptop.display.hz) || !laptop.display.panel) {
       add(results, 'laptops.js', 'error', `${laptop.id} has an incomplete display specification`);
     }
-    if (!Number.isFinite(laptop.weight) || laptop.weight <= 0) add(results, 'laptops.js', 'error', `${laptop.id} has an invalid weight`);
-    if (!Number.isFinite(laptop.battery) || laptop.battery <= 0) add(results, 'laptops.js', 'error', `${laptop.id} has an invalid battery capacity`);
+    if (laptop.weight !== null && (!Number.isFinite(laptop.weight) || laptop.weight <= 0)) {
+      add(results, 'laptops.js', 'error', `${laptop.id} has an invalid weight`);
+    }
+    if (laptop.battery !== null && (!Number.isFinite(laptop.battery) || laptop.battery <= 0)) {
+      add(results, 'laptops.js', 'error', `${laptop.id} has an invalid battery capacity`);
+    }
     const hasSourceMetadata = laptop.modelCode || laptop.specSource || laptop.specCheckedAt;
     if (hasSourceMetadata) {
       if (!laptop.modelCode || !/^https:\/\//.test(laptop.specSource || '') || !/^\d{4}-\d{2}-\d{2}$/.test(laptop.specCheckedAt || '')) {

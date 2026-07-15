@@ -444,8 +444,8 @@ function tierLabel(tier) {
   return map[tier] || tier;
 }
 
-function fmtWeight(w) { return w + 'kg'; }
-function fmtBattery(b) { return b + 'Wh'; }
+function fmtWeight(w) { return w == null ? 'Not verified' : w + 'kg'; }
+function fmtBattery(b) { return b == null ? 'Not verified' : b + 'Wh'; }
 function fmtPrice(p) { return p == null ? 'Check retailer' : '$' + p.toLocaleString(); }
 
 /* ── POPULATE SELECTS ── */
@@ -482,6 +482,9 @@ function scoreBar(name, val) {
 
 /* ── WINNER CELL ── */
 function cells(valA, valB, fmtA, fmtB, higherIsBetter = true) {
+  if (valA == null || valB == null) {
+    return [`<div class="compare-cell">${fmtA}</div>`, `<div class="compare-cell">${fmtB}</div>`];
+  }
   const aWins = higherIsBetter ? valA > valB : valA < valB;
   const bWins = higherIsBetter ? valB > valA : valB < valA;
   const tie = valA === valB;
@@ -587,7 +590,9 @@ function runCompare() {
   const bBars = b.scores ? subKeys.map(k => scoreBar(subLabels[k], b.scores[k])).join('') : pendingBars;
 
   // Spec comparisons
-  const [gpuA, gpuB] = cells(a.tgp, b.tgp, `${a.gpu}<br><small style="color:var(--muted);font-size:11px;font-weight:400">${a.gpuVram} · ${a.tgp}W TGP</small>`, `${b.gpu}<br><small style="color:var(--muted);font-size:11px;font-weight:400">${b.gpuVram} · ${b.tgp}W TGP</small>`);
+  const tgpA = a.tgp == null ? 'TGP not verified' : `${a.tgp}W TGP`;
+  const tgpB = b.tgp == null ? 'TGP not verified' : `${b.tgp}W TGP`;
+  const [gpuA, gpuB] = cells(a.tgp, b.tgp, `${a.gpu}<br><small style="color:var(--muted);font-size:11px;font-weight:400">${a.gpuVram} · ${tgpA}</small>`, `${b.gpu}<br><small style="color:var(--muted);font-size:11px;font-weight:400">${b.gpuVram} · ${tgpB}</small>`);
   const [cpuA, cpuB] = [`<div class="compare-cell" style="font-size:12px">${a.cpu}</div>`, `<div class="compare-cell" style="font-size:12px">${b.cpu}</div>`];
   const [ramA, ramB] = cells(
     parseInt(a.ram), parseInt(b.ram),
@@ -600,8 +605,8 @@ function runCompare() {
   const dispValA = (a.display.panel === 'OLED' ? 2 : 1) * a.display.hz;
   const dispValB = (b.display.panel === 'OLED' ? 2 : 1) * b.display.hz;
   const [dispA, dispB] = cells(dispValA, dispValB,
-    `${a.display.size}" ${a.display.res}<br><small style="color:var(--muted);font-size:11px;font-weight:400">${a.display.panel} · ${a.display.hz}Hz · ${a.display.nits}nits</small>`,
-    `${b.display.size}" ${b.display.res}<br><small style="color:var(--muted);font-size:11px;font-weight:400">${b.display.panel} · ${b.display.hz}Hz · ${b.display.nits}nits</small>`
+    `${a.display.size}" ${a.display.res}<br><small style="color:var(--muted);font-size:11px;font-weight:400">${a.display.panel} · ${a.display.hz}Hz · ${a.display.nits == null ? 'brightness not verified' : `${a.display.nits}nits`}</small>`,
+    `${b.display.size}" ${b.display.res}<br><small style="color:var(--muted);font-size:11px;font-weight:400">${b.display.panel} · ${b.display.hz}Hz · ${b.display.nits == null ? 'brightness not verified' : `${b.display.nits}nits`}</small>`
   );
 
   const [weightA, weightB] = cells(a.weight, b.weight, fmtWeight(a.weight), fmtWeight(b.weight), false);

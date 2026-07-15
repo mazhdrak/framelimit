@@ -36,6 +36,17 @@ function flGpuColor(gpu) {
   return 'var(--muted)';
 }
 
+function flTgpLabel(laptop) {
+  return laptop.tgp == null ? 'TGP not verified' : `${laptop.tgp}W`;
+}
+
+function flMobilityLabel(laptop) {
+  const details = [];
+  if (laptop.weight != null) details.push(`${laptop.weight}kg`);
+  if (laptop.battery != null) details.push(`${laptop.battery}Wh`);
+  return details.length ? details.join(' · ') : 'Weight / battery not verified';
+}
+
 function flAmazonCta(url, shortLabel) {
   const isDirect = /amazon\.com\/dp\//.test(url || '');
   if (shortLabel) return isDirect ? 'Check Price →' : 'Search Amazon →';
@@ -85,12 +96,15 @@ function flReviewLink(id) {
     'asus-tuf-gaming-a16-amd':          'review-notes-2026#asus-tuf-gaming-a16-amd',
     'gigabyte-gaming-a16-rtx5060':      'review-gigabyte-gaming-a16',
     'dell-g16-rtx4070':                 'review-alienware-16-aurora',
+    'msi-raider-a18-hx-amd':            'review-msi-raider-a18-hx-amd',
+    'asus-rog-flow-z13-radeon-8060s':   'review-asus-rog-flow-z13-radeon-8060s',
+    'asus-tuf-a16-radeon-rx7700s':      'review-asus-tuf-a16-radeon-rx7700s',
   };
   return map[id] || null;
 }
 
 function flReviewLabel(url, fullLabel) {
-  const isNotes = /review-notes-2026\.html/.test(url || '');
+  const isNotes = /review-notes-2026/.test(url || '');
   if (fullLabel) return isNotes ? 'Review Notes →' : 'Read Full Review →';
   return isNotes ? 'Review Notes →' : 'Read Review →';
 }
@@ -152,12 +166,12 @@ function flRenderCard(laptop) {
   </div>
 
   <div class="fl-specs">
-    <span class="fl-spec-tag" style="color:${gpuC};border-color:${gpuC}40">${laptop.gpu} ${laptop.gpuVram} · ${laptop.tgp}W</span>
+    <span class="fl-spec-tag" style="color:${gpuC};border-color:${gpuC}40">${laptop.gpu} ${laptop.gpuVram} · ${flTgpLabel(laptop)}</span>
     <span class="fl-spec-tag">${laptop.cpu}</span>
     <span class="fl-spec-tag">${laptop.ram}</span>
     <span class="fl-spec-tag">${laptop.display.size}" ${laptop.display.res} ${laptop.display.hz}Hz ${laptop.display.panel}</span>
     <span class="fl-spec-tag">${laptop.storage}</span>
-    <span class="fl-spec-tag">${laptop.weight}kg · ${laptop.battery}Wh</span>
+    <span class="fl-spec-tag">${flMobilityLabel(laptop)}</span>
     ${ramNote}
   </div>
 
@@ -206,10 +220,10 @@ function flRenderTable(laptops) {
         ${reviewLink}
       </td>
       <td><span style="color:${gc};font-family:'JetBrains Mono',monospace;font-size:12px">${l.gpu}</span></td>
-      <td style="font-family:'JetBrains Mono',monospace;font-size:12px">${l.tgp}W</td>
+      <td style="font-family:'JetBrains Mono',monospace;font-size:12px">${flTgpLabel(l)}</td>
       <td style="font-family:'JetBrains Mono',monospace;font-size:12px">${l.cpu.replace('Intel Core ', '').replace('AMD ', '')}</td>
       <td style="font-family:'JetBrains Mono',monospace;font-size:12px">${l.display.size}" ${l.display.hz}Hz ${l.display.panel}</td>
-      <td style="font-family:'JetBrains Mono',monospace;font-size:12px">${l.weight}kg</td>
+      <td style="font-family:'JetBrains Mono',monospace;font-size:12px">${l.weight == null ? 'Not verified' : `${l.weight}kg`}</td>
       <td style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:${sc}">${l.score == null ? 'NR' : l.score}</td>
       <td>
         <a href="${l.amazonUrl}" class="fl-table-buy" rel="nofollow sponsored noopener" target="_blank">${/amazon\.com\/dp\//.test(l.amazonUrl || '') ? 'Amazon →' : 'Search →'}</a>
@@ -309,7 +323,7 @@ function flRenderDeals(ids) {
   ${imgEl}
   <div class="deal-brand">${l.brand.toUpperCase()}</div>
   <div class="deal-name">${l.name}</div>
-  <div class="deal-spec">${l.gpu} ${l.tgp}W · ${l.display.size}" ${l.display.panel} ${l.display.hz}Hz · ${l.ram}</div>
+  <div class="deal-spec">${l.gpu} ${flTgpLabel(l)} · ${l.display.size}" ${l.display.panel} ${l.display.hz}Hz · ${l.ram}</div>
   <div class="deal-prices" style="margin-bottom:12px">
     <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">Score: </span>
     <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:${flScoreColor(l.score)}">${l.score}</span>

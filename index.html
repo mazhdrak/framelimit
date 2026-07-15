@@ -596,7 +596,7 @@ function renderPicksGrids() {
       return `<div class="pick-card">
         <div class="pick-badge" style="background:${tc};color:var(--black)">${l.badge}</div>
         <div class="pick-name">${l.shortName}</div>
-        <div class="pick-spec">${l.gpu} ${l.tgp}W · ${l.display.size}" ${l.display.panel} ${l.display.hz}Hz · ${l.ram}</div>
+        <div class="pick-spec">${l.gpu} ${l.tgp == null ? 'TGP n/a' : `${l.tgp}W`} · ${l.display.size}" ${l.display.panel} ${l.display.hz}Hz · ${l.ram}</div>
         
         <div class="pick-score">${l.score == null ? 'NR' : l.score}<div class="pick-score-sub">${l.score == null ? 'PREVIEW' : 'SCORE'}</div></div>
         <a href="${l.amazonUrl}" class="pick-btn" rel="nofollow sponsored" target="_blank">Check Price →</a>
@@ -660,7 +660,7 @@ function updateFinder() {
       <div class="fr-match">${isOverBudget ? 'Closest Option' : index === 0 ? 'Best Match' : `Alternative ${index}`}</div>
       <div class="fr-title">${laptop.shortName}</div>
       <div class="fr-price">Reference price $${laptop.price.toLocaleString()}${isOverBudget ? ' · Above selected budget' : ''}</div>
-      <div class="fr-sub">${laptop.gpu} ${laptop.tgp}W · ${laptop.display.size}" ${laptop.display.panel} ${laptop.display.hz}Hz · ${laptop.ram} · ${laptop.bestFor}</div>
+      <div class="fr-sub">${laptop.gpu} ${laptop.tgp == null ? 'TGP n/a' : `${laptop.tgp}W`} · ${laptop.display.size}" ${laptop.display.panel} ${laptop.display.hz}Hz · ${laptop.ram} · ${laptop.bestFor}</div>
       <div class="fr-actions">
         <a href="${laptop.amazonUrl}" class="fr-link" rel="nofollow sponsored" target="_blank">Check Price →</a>
         <a href="${secondaryUrl}" class="fr-link fr-link-secondary">${secondaryLabel}</a>
