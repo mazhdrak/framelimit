@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DLSS, FSR & Frame Generation Laptop Benchmark Database | FRAMELIMIT</title>
+<meta name="description" content="Filter 137 sourced gaming laptop benchmark rows by native rendering, DLSS or FSR upscaling, Frame Generation and MFG. Exact configurations, settings, FPS and sources.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Rumen Mazhdrakov">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://framelimit.com/guide-dlss-fsr-frame-generation-database">
+<meta property="og:title" content="DLSS, FSR & Frame Generation Laptop Benchmark Database">
+<meta property="og:description" content="137 sourced laptop game rows separated by rendered, upscaled, generated and unclear modes.">
+<meta property="og:site_name" content="FRAMELIMIT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#00D4FF">
+<link rel="canonical" href="https://framelimit.com/guide-dlss-fsr-frame-generation-database">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=20260715-1">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Dataset",
+      "name":"FRAMELIMIT DLSS, FSR and Frame Generation Laptop Benchmark Database",
+      "description":"Sourced gaming laptop benchmark rows with exact configurations, game settings, rendering mode, average FPS, published lows and original sources.",
+      "url":"https://framelimit.com/guide-dlss-fsr-frame-generation-database",
+      "creator":{"@type":"Organization","name":"FRAMELIMIT","url":"https://framelimit.com"},
+      "datePublished":"2026-07-15",
+      "dateModified":"2026-07-15",
+      "temporalCoverage":"2023/2026",
+      "keywords":["DLSS laptop benchmarks","FSR laptop benchmarks","Frame Generation laptop","DLSS 4 MFG","gaming laptop FPS database"],
+      "variableMeasured":["Exact laptop configuration","Game","Resolution and preset","Upscaling mode","Frame Generation mode","GPU power","Average FPS","1% low FPS","Minimum FPS","Published source"]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Can generated FPS be compared directly with native FPS?","acceptedAnswer":{"@type":"Answer","text":"No. Frame Generation and Multi Frame Generation insert generated frames. The database keeps generated rows separate from native and upscaled rendered performance."}},
+        {"@type":"Question","name":"Can results from different laptops be ranked by FPS?","acceptedAnswer":{"@type":"Answer","text":"Only when game, resolution, preset, ray tracing, upscaling, Frame Generation, power mode and test protocol match. The database preserves source conditions and does not create a cross-source ranking."}},
+        {"@type":"Question","name":"Why are some rows marked Unclear?","acceptedAnswer":{"@type":"Answer","text":"The source published an FPS result but did not state enough about upscaling or Frame Generation to classify the row safely. FRAMELIMIT labels it instead of guessing."}}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+.benchdb-hero{max-width:1240px;margin:0 auto;padding:92px 24px 36px}.benchdb-label{font:700 9px 'JetBrains Mono',monospace;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);display:flex;align-items:center;gap:12px;margin-bottom:16px}.benchdb-label:before{content:'';width:34px;height:1px;background:var(--cyan)}.benchdb-hero h1{font:clamp(44px,7vw,78px)/.94 'Bebas Neue',sans-serif;color:var(--white);max-width:1000px}.benchdb-lead{font-size:17px;line-height:1.7;color:var(--text);max-width:880px;margin-top:18px}.benchdb-meta{font:10px 'JetBrains Mono',monospace;color:var(--muted);display:flex;gap:18px;flex-wrap:wrap;margin-top:18px}.benchdb-wrap{max-width:1240px;margin:0 auto 90px;padding:0 24px}.benchdb-note{background:rgba(0,212,255,.06);border:1px solid var(--cyan);padding:18px 20px;margin-bottom:22px;font-size:14px;line-height:1.7}.benchdb-note strong{color:var(--cyan)}.benchdb-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);margin-bottom:24px}.benchdb-stat{background:var(--panel);padding:18px}.benchdb-stat b{display:block;font:34px 'Bebas Neue',sans-serif;color:var(--white)}.benchdb-stat span{font:8px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}.benchdb-controls{display:flex;gap:9px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--border);padding:14px;margin-bottom:12px}.benchdb-search{flex:1;min-width:250px;background:var(--deep);border:1px solid var(--border);color:var(--white);font:11px 'JetBrains Mono',monospace;padding:11px 12px}.benchdb-filter,.benchdb-select{background:var(--deep);border:1px solid var(--border);color:var(--muted);font:700 9px 'JetBrains Mono',monospace;padding:11px 12px}.benchdb-filter{cursor:pointer}.benchdb-filter.active,.benchdb-filter:hover{border-color:var(--cyan);color:var(--cyan)}.benchdb-count{font:9px 'JetBrains Mono',monospace;color:var(--cyan);letter-spacing:1.2px;text-transform:uppercase;margin:12px 0}.benchdb-table-wrap{overflow:auto;border:1px solid var(--border);max-height:760px}.benchdb-table{width:100%;border-collapse:collapse;min-width:1250px}.benchdb-table th{position:sticky;top:0;z-index:1;background:#111820;color:var(--muted);font:8px 'JetBrains Mono',monospace;letter-spacing:1.2px;text-transform:uppercase;text-align:left;padding:12px;border-bottom:1px solid var(--border)}.benchdb-table td{background:var(--panel);padding:13px 12px;border-bottom:1px solid var(--border);font-size:12px;vertical-align:top}.benchdb-table tr:hover td{background:rgba(0,212,255,.035)}.benchdb-model{font-weight:700;color:var(--white);font-size:14px}.benchdb-config{font:8px/1.55 'JetBrains Mono',monospace;color:var(--muted);margin-top:4px;max-width:270px}.benchdb-setting{font:9px/1.5 'JetBrains Mono',monospace;color:var(--text);margin-top:6px;max-width:180px}.benchdb-mode{display:inline-block;font:700 8px 'JetBrains Mono',monospace;letter-spacing:1px;text-transform:uppercase;padding:4px 7px;border:1px solid}.benchdb-mode.native{color:var(--green)}.benchdb-mode.upscaled{color:var(--cyan)}.benchdb-mode.generated{color:var(--orange)}.benchdb-mode.unclear{color:var(--yellow)}.benchdb-fps{font:25px 'Bebas Neue',sans-serif;color:var(--white)}.benchdb-link{font:700 9px/1.4 'JetBrains Mono',monospace;color:var(--cyan);text-decoration:none}.benchdb-muted{color:var(--muted)}.benchdb-empty{text-align:center;padding:32px!important;color:var(--muted)!important}.benchdb-copy{margin-top:46px}.benchdb-copy h2{font:36px 'Bebas Neue',sans-serif;color:var(--white);margin:28px 0 10px}.benchdb-copy p{font-size:15px;line-height:1.75;margin-bottom:14px}.benchdb-legend{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);margin:18px 0}.benchdb-legend div{background:var(--panel);padding:16px;font-size:13px}.benchdb-legend strong{display:block;margin-bottom:6px}.benchdb-faq{border-top:1px solid var(--border);padding:18px 0}.benchdb-faq h3{color:var(--white);font-size:16px;margin-bottom:8px}@media(max-width:800px){.benchdb-stats,.benchdb-legend{grid-template-columns:repeat(2,1fr)}.benchdb-hero{padding-top:72px}}@media(max-width:480px){.benchdb-stats,.benchdb-legend{grid-template-columns:1fr}.benchdb-filter{flex:1}}
+</style>
+</head>
+<body>
+<div id="nav-root"></div>
+<main>
+  <header class="benchdb-hero">
+    <div class="benchdb-label">Original Research Index · Sourced Rows</div>
+    <h1>DLSS, FSR & Frame Generation<br>Laptop Benchmark Database</h1>
+    <p class="benchdb-lead">Search 137 published gaming-laptop results without mixing native rendering, upscaling and generated frames. Every row retains the exact test configuration, game conditions, GPU-power label and original source.</p>
+    <div class="benchdb-meta"><span>Published Jul 15, 2026</span><span>26 benchmark datasets</span><span>137 game rows</span><span>29 games</span><span>No cross-source composite scores</span></div>
+  </header>
+
+  <div class="benchdb-wrap">
+    <div class="benchdb-note"><strong>Generated FPS is not rendered FPS.</strong> DLSS Frame Generation, DLSS Multi Frame Generation and FSR Frame Generation can increase displayed frame output by inserting generated frames. Use these rows to study scaling within the same exact test—not as proof of lower latency or a universal laptop ranking.</div>
+
+    <section class="benchdb-stats" aria-label="Database summary">
+      <div class="benchdb-stat"><b id="benchdb-row-count">137</b><span>Published game rows</span></div>
+      <div class="benchdb-stat"><b id="benchdb-dataset-count">26</b><span>Exact datasets</span></div>
+      <div class="benchdb-stat"><b id="benchdb-game-count">29</b><span>Games represented</span></div>
+      <div class="benchdb-stat"><b id="benchdb-generated-count">18</b><span>Generated-frame rows</span></div>
+    </section>
+
+    <section aria-labelledby="benchdb-heading">
+      <h2 id="benchdb-heading" style="position:absolute;left:-9999px">Laptop benchmark result database</h2>
+      <div class="benchdb-controls">
+        <input id="benchdb-search" class="benchdb-search" type="search" placeholder="Search laptop, GPU, game, resolution or setting" aria-label="Search benchmark database">
+        <button type="button" class="benchdb-filter active" data-mode="all">All</button>
+        <button type="button" class="benchdb-filter" data-mode="native">Native</button>
+        <button type="button" class="benchdb-filter" data-mode="upscaled">Upscaled</button>
+        <button type="button" class="benchdb-filter" data-mode="generated">FG / MFG</button>
+        <button type="button" class="benchdb-filter" data-mode="unclear">Unclear</button>
+        <select id="benchdb-game" class="benchdb-select" aria-label="Filter by game"><option value="all">All games</option></select>
+        <select id="benchdb-sort" class="benchdb-select" aria-label="Sort results"><option value="laptop">Laptop</option><option value="game">Game</option><option value="mode">Render mode</option><option value="fps-desc">Published FPS: high to low</option></select>
+      </div>
+      <div id="benchdb-result-count" class="benchdb-count" aria-live="polite">Loading published benchmark rows…</div>
+      <div class="benchdb-table-wrap">
+        <table class="benchdb-table">
+          <thead><tr><th>Exact laptop configuration</th><th>Game / conditions</th><th>Render mode</th><th>GPU power label</th><th>Average FPS</th><th>1% low</th><th>Minimum</th><th>Published source</th></tr></thead>
+          <tbody id="benchdb-table-body"><tr><td colspan="8" class="benchdb-empty">Loading source database…</td></tr></tbody>
+        </table>
+      </div>
+      <noscript><p class="benchdb-note">JavaScript is required to filter the database. The methodology and mode definitions remain available below.</p></noscript>
+    </section>
+
+    <section class="benchdb-copy">
+      <h2>Four Evidence Buckets</h2>
+      <div class="benchdb-legend">
+        <div><strong style="color:var(--green)">Native</strong>Native output with upscaling and Frame Generation reported off.</div>
+        <div><strong style="color:var(--cyan)">Upscaled</strong>DLSS, FSR, XeSS or TSR active while generated frames are off.</div>
+        <div><strong style="color:var(--orange)">Generated</strong>FG or MFG is explicitly active; displayed FPS includes inserted frames.</div>
+        <div><strong style="color:var(--yellow)">Unclear</strong>The publication did not identify enough settings for a safe classification.</div>
+      </div>
+
+      <h2>How to Compare Rows Correctly</h2>
+      <p>First match the game, output resolution, preset and ray-tracing state. Then match the upscaler, quality mode and Frame Generation multiplier. Finally check the exact laptop configuration, GPU power label and original publication. A high FPS value with MFG x4 does not replace a native or upscaled rendered-performance result.</p>
+      <p>The “FPS: high to low” control sorts only the currently visible published numbers. It is an exploration tool, not a ranking, because different rows can use different games, settings and protocols. FRAMELIMIT does not average those rows into a synthetic cross-source score.</p>
+
+      <div class="benchdb-faq"><h3>Can generated FPS be compared directly with native FPS?</h3><p>No. Generated frames affect displayed output but do not change the underlying rendered-frame rate in the same way. Input latency and image quality require their own measurements.</p></div>
+      <div class="benchdb-faq"><h3>Why are there only a few clean upscaled-only rows?</h3><p>Many reviews publish native results or pair upscaling with Frame Generation. Rows enter the upscaled bucket only when the source clearly states that an upscaler is active and generated frames are off.</p></div>
+      <div class="benchdb-faq"><h3>Why keep rows with unclear settings?</h3><p>They remain useful as attributed publication records, but excluding them would hide the evidence limitation. The visible Unclear label prevents them from silently entering a native, upscaled or generated comparison.</p></div>
+    </section>
+
+    <div style="margin-top:44px;padding:22px;background:var(--panel);border:1px solid var(--border)">
+      <div style="font:9px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px">Continue Research</div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap"><a class="benchdb-link" href="guide-rtx-50-laptop-tgp-database">RTX 50 Laptop TGP Database →</a><a class="benchdb-link" href="guide-rtx-vs-amd-2026">RTX vs AMD Technology Guide →</a><a class="benchdb-link" href="compare">Compare Exact Laptop Specs →</a><a class="benchdb-link" href="methodology#benchmark-standard">Benchmark Methodology →</a></div>
+    </div>
+  </div>
+</main>
+<footer><div class="footer-inner"><div class="footer-disc"><strong>Affiliate Disclosure:</strong> FRAMELIMIT may earn commissions from qualifying purchases. Source inclusion and evidence labels are independent of affiliate relationships.</div><div class="footer-bottom"><span>2026 FRAMELIMIT</span><a href="/">framelimit.com</a><a href="affiliate-disclosure">Affiliate Disclosure</a><a href="about">About</a></div></div></footer>
+<script src="benchmark-data.js?v=20260715j"></script>
+<script src="nav.js"></script>
+<script src="benchmark-database.js?v=20260715-1"></script>
+</body>
+</html>

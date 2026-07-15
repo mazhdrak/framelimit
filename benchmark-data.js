@@ -772,6 +772,7 @@
 
   window.FL_BENCHMARK_STANDARD = standard;
   window.FL_GPU_TECHNOLOGIES = technologies;
+  window.FL_MODEL_BENCHMARKS = modelBenchmarks;
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
