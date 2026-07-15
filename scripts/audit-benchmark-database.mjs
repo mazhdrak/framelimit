@@ -28,6 +28,17 @@ async function main() {
   const rows = Object.values(datasets).flatMap((dataset) => dataset.games || []);
   const games = new Set(rows.map((row) => row[0]));
   const generated = rows.filter((row) => classify(row[2]) === 'generated');
+  const matchedGroups = Object.values(datasets).flatMap((dataset) => {
+    const groups = new Map();
+    for (const row of dataset.games || []) {
+      const key = `${row[0]}||${row[1]}`;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(row);
+    }
+    return [...groups.values()].filter((group) => group.length > 1 && group.every((row) => classify(row[2]) !== 'unclear' && Number.isFinite(row[4])));
+  });
+  const lowRows = rows.filter((row) => Number.isFinite(row[5]));
+  const minimumRows = rows.filter((row) => Number.isFinite(row[6]));
   const [page, script, sitemap] = await Promise.all([
     fs.readFile(path.join(ROOT, PAGE), 'utf8'),
     fs.readFile(path.join(ROOT, 'benchmark-database.js'), 'utf8'),
@@ -40,6 +51,9 @@ async function main() {
     `${rows.length} game rows`,
     `${games.size} games`,
     `${generated.length}</b><span>Generated-frame rows`,
+    `${matchedGroups.length} exact-condition groups`,
+    `${lowRows.length} rows include a published 1% low`,
+    `${minimumRows.length} include a minimum FPS`,
     '"@type":"Dataset"',
     '"@type":"FAQPage"',
     'Generated FPS is not rendered FPS',
@@ -60,6 +74,8 @@ async function main() {
   });
   if (!script.includes('FL_MODEL_BENCHMARKS')) errors.push('client script does not use the central benchmark datasets');
   if (!script.includes("return 'generated'") || !script.includes("return 'upscaled'") || !script.includes("return 'native'")) errors.push('client classifier is incomplete');
+  if (!page.includes('id="matched-mode-charts"') || !script.includes('renderMatchedChart') || !script.includes('matchedGroups')) errors.push('matched-condition charts are incomplete');
+  if (!page.includes('Performance-per-dollar is intentionally omitted')) errors.push('chart section is missing the live-price limitation');
   if (!sitemap.includes(`https://framelimit.com/${SLUG}`)) errors.push('database is missing from sitemap.xml');
 
   const backlinks = ['guides.html', 'nav.js', 'methodology.html', 'guide-rtx-50-laptop-tgp-database.html', 'guide-rtx-vs-amd-2026.html'];
@@ -69,7 +85,7 @@ async function main() {
   }
 
   errors.forEach((message) => console.log(`ERROR ${PAGE}: ${message}`));
-  console.log(`Audited benchmark database: ${Object.keys(datasets).length} datasets, ${rows.length} game rows, ${games.size} games, ${generated.length} generated rows, ${errors.length} errors.`);
+  console.log(`Audited benchmark database: ${Object.keys(datasets).length} datasets, ${rows.length} game rows, ${games.size} games, ${matchedGroups.length} matched chart groups, ${lowRows.length} lows, ${errors.length} errors.`);
   if (errors.length) process.exitCode = 1;
 }
 

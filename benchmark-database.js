@@ -39,6 +39,22 @@
     sourceUrl: dataset.sources?.[0]?.[1] || ''
   })));
 
+  const matchedGroups = [...rows.reduce((groups, row) => {
+    const key = `${row.datasetId}||${row.game}||${row.conditions}`;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(row);
+    return groups;
+  }, new Map()).entries()].filter(([, group]) => group.length > 1 && group.every((row) => row.mode !== 'unclear' && Number.isFinite(row.averageFps))).map(([key, group]) => ({
+    key,
+    rows: group,
+    laptop: group[0].laptop,
+    configuration: group[0].configuration,
+    game: group[0].game,
+    conditions: group[0].conditions,
+    sourceName: group[0].sourceName,
+    sourceUrl: group[0].sourceUrl
+  })).sort((a, b) => a.laptop.localeCompare(b.laptop) || a.game.localeCompare(b.game) || a.conditions.localeCompare(b.conditions));
+
   const state = { mode: 'all', game: 'all', search: '', sort: 'laptop' };
   const gameSelect = document.getElementById('benchdb-game');
   [...new Set(rows.map((row) => row.game))].sort().forEach((game) => {
@@ -47,6 +63,31 @@
     option.textContent = game;
     gameSelect.appendChild(option);
   });
+
+  const chartSelect = document.getElementById('benchdb-chart-select');
+  matchedGroups.forEach((group, index) => {
+    const option = document.createElement('option');
+    option.value = String(index);
+    option.textContent = `${group.laptop} · ${group.game} · ${group.conditions}`;
+    chartSelect.appendChild(option);
+  });
+
+  function renderMatchedChart(index) {
+    const group = matchedGroups[index];
+    if (!group) return;
+    const maxFps = Math.max(...group.rows.map((row) => row.averageFps));
+    document.getElementById('benchdb-chart-title').textContent = `${group.laptop} · ${group.game}`;
+    document.getElementById('benchdb-chart-meta').innerHTML = `${escapeHtml(group.conditions)}<br>${escapeHtml(group.configuration)}`;
+    document.getElementById('benchdb-chart').innerHTML = group.rows.map((row) => {
+      const averageWidth = row.averageFps / maxFps * 100;
+      const lowWidth = Number.isFinite(row.low1Fps) ? row.low1Fps / maxFps * 100 : 0;
+      return `<div class="benchdb-chart-row ${row.mode}">
+        <div class="benchdb-chart-label">${escapeHtml(row.setting)}</div>
+        <div class="benchdb-chart-track"><div class="benchdb-chart-bar" style="width:${averageWidth}%"></div>${lowWidth ? `<div class="benchdb-chart-low" style="width:${lowWidth}%"></div>` : ''}</div>
+        <div class="benchdb-chart-value">${row.averageFps} FPS<small>${Number.isFinite(row.low1Fps) ? `${row.low1Fps} 1% low` : '1% low N/A'}</small></div>
+      </div>`;
+    }).join('') + `<p class="benchdb-chart-warning">Source: ${group.sourceUrl ? `<a class="benchdb-link" href="${escapeHtml(group.sourceUrl)}" target="_blank" rel="nofollow noopener">${escapeHtml(group.sourceName)} →</a>` : escapeHtml(group.sourceName)}. Compare only within this chart; no cross-source average is calculated.</p>`;
+  }
 
   function displayRows() {
     const query = state.search.toLowerCase();
@@ -83,6 +124,7 @@
 
   document.getElementById('benchdb-search').addEventListener('input', (event) => { state.search = event.target.value.trim(); displayRows(); });
   gameSelect.addEventListener('change', (event) => { state.game = event.target.value; displayRows(); });
+  chartSelect.addEventListener('change', (event) => renderMatchedChart(Number(event.target.value)));
   document.getElementById('benchdb-sort').addEventListener('change', (event) => { state.sort = event.target.value; displayRows(); });
   document.querySelectorAll('.benchdb-filter').forEach((button) => button.addEventListener('click', () => {
     state.mode = button.dataset.mode;
@@ -94,5 +136,7 @@
   document.getElementById('benchdb-dataset-count').textContent = Object.keys(datasets).length;
   document.getElementById('benchdb-game-count').textContent = new Set(rows.map((row) => row.game)).size;
   document.getElementById('benchdb-generated-count').textContent = rows.filter((row) => row.mode === 'generated').length;
+  document.getElementById('benchdb-matched-count').textContent = `${matchedGroups.length} exact-condition groups`;
+  renderMatchedChart(0);
   displayRows();
 })();
