@@ -24,6 +24,13 @@ const COMPARISONS = [
     requireDisplayDetails: true,
     required: ['No Defensible Universal Winner', 'not a live checkout price', 'same BIOS, power mode, memory, game and settings'],
     backlinks: ['guides.html', 'compare.html', 'guide-best-amd-gaming-laptop-2026.html', 'guide-best-rtx-5090-gaming-laptop-2026.html', 'review-msi-raider-a18-hx-amd.html', 'review-msi-raider-18-hx-ai.html']
+  },
+  {
+    page: 'guide-lenovo-loq-15-vs-acer-nitro-v-16s.html',
+    ids: ['lenovo-loq-15-gen10', 'acer-nitro-v-16'],
+    requireDisplayDetails: true,
+    required: ['No Defensible Universal Winner', 'not a live checkout price', '118 FPS', '98 FPS', 'This is not a matched head-to-head result'],
+    backlinks: ['guides.html', 'compare.html', 'guide-best-gaming-laptop-under-1500.html', 'review-lenovo-loq-15-gen10.html', 'review-acer-nitro-v-16-2026.html']
   }
 ];
 
