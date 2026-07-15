@@ -30,6 +30,7 @@ async function main() {
   const rows = laptops.filter((laptop) => /^RTX 50/.test(laptop.gpu) && laptop.modelCode && laptop.specSource && laptop.specCheckedAt);
   const knownPower = rows.filter((laptop) => laptop.tgp != null);
   const gpuTiers = new Set(rows.map((laptop) => laptop.gpu));
+  const powerSpreadGroups = [...gpuTiers].filter((gpu) => new Set(rows.filter((laptop) => laptop.gpu === gpu && laptop.tgp != null).map((laptop) => laptop.tgp)).size > 1);
   const modelCodes = new Set();
 
   for (const laptop of rows) {
@@ -48,6 +49,8 @@ async function main() {
   for (const value of expectedText) if (!page.includes(value)) add(results, `page summary is missing current value: ${value}`);
 
   if (!page.includes('tgp-database.js') || !page.includes('laptops.js')) add(results, 'database page is missing its data scripts');
+  if (!page.includes('id="same-gpu-tgp"') || !page.includes(`${powerSpreadGroups.length} same-GPU power groups`)) add(results, 'database page is missing the current same-GPU TGP comparison section');
+  if (!script.includes('renderPowerSpread') || !script.includes('tgp-spread-grid')) add(results, 'client script does not render same-GPU TGP spreads');
   if (!page.includes('"@type": "Dataset"')) add(results, 'database page is missing Dataset JSON-LD');
   if (!sitemap.includes('https://framelimit.com/guide-rtx-50-laptop-tgp-database')) add(results, 'database page is missing from sitemap.xml');
   if (!guides.includes('href="guide-rtx-50-laptop-tgp-database"')) add(results, 'database page is missing from guides.html');

@@ -78,6 +78,28 @@
     }).join('');
   }
 
+  function renderPowerSpread() {
+    const grid = document.getElementById('tgp-spread-grid');
+    if (!grid) return;
+    const groups = [...new Set(rows.map((laptop) => laptop.gpu))].map((gpu) => {
+      const models = rows.filter((laptop) => laptop.gpu === gpu && laptop.tgp != null).sort((a, b) => a.tgp - b.tgp || a.shortName.localeCompare(b.shortName));
+      const powers = [...new Set(models.map((laptop) => laptop.tgp))];
+      return { gpu, models, min: powers[0], max: powers[powers.length - 1], powerCount: powers.length };
+    }).filter((group) => group.powerCount > 1).sort((a, b) => (gpuRank[b.gpu] || 0) - (gpuRank[a.gpu] || 0));
+
+    document.getElementById('tgp-spread-count').textContent = `${groups.length} same-GPU power groups`;
+    grid.innerHTML = groups.map((group) => {
+      const lowModels = group.models.filter((laptop) => laptop.tgp === group.min).map((laptop) => laptop.shortName).join(', ');
+      const highModels = group.models.filter((laptop) => laptop.tgp === group.max).map((laptop) => laptop.shortName).join(', ');
+      const width = Math.max(10, (group.max - group.min) / 90 * 100);
+      return `<article class="tgp-spread-card">
+        <div class="tgp-spread-head"><div><div class="tgp-spread-gpu">${escapeHtml(group.gpu)}</div><div class="tgp-sku">${group.models.length} exact configurations · ${group.powerCount} power classes</div></div><div class="tgp-spread-range">${group.min}–${group.max}W</div></div>
+        <div class="tgp-spread-track"><span style="width:${Math.min(100, width)}%"></span></div>
+        <div class="tgp-spread-models"><strong>${group.min}W:</strong> ${escapeHtml(lowModels)}<br><strong>${group.max}W:</strong> ${escapeHtml(highModels)}</div>
+      </article>`;
+    }).join('');
+  }
+
   document.getElementById('tgp-search').addEventListener('input', (event) => { state.search = event.target.value.trim(); displayRows(); });
   document.getElementById('tgp-sort').addEventListener('change', (event) => { state.sort = event.target.value; displayRows(); });
   document.querySelectorAll('.tgp-filter').forEach((button) => button.addEventListener('click', () => {
@@ -89,5 +111,6 @@
   document.getElementById('tgp-model-count').textContent = rows.length;
   document.getElementById('tgp-power-count').textContent = rows.filter((laptop) => laptop.tgp != null).length;
   document.getElementById('tgp-gpu-count').textContent = new Set(rows.map((laptop) => laptop.gpu)).size;
+  renderPowerSpread();
   displayRows();
 })();
