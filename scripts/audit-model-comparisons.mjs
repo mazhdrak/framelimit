@@ -31,6 +31,13 @@ const COMPARISONS = [
     requireDisplayDetails: true,
     required: ['No Defensible Universal Winner', 'not a live checkout price', '118 FPS', '98 FPS', 'This is not a matched head-to-head result'],
     backlinks: ['guides.html', 'compare.html', 'guide-best-gaming-laptop-under-1500.html', 'review-lenovo-loq-15-gen10.html', 'review-acer-nitro-v-16-2026.html']
+  },
+  {
+    page: 'guide-hp-omen-max-16-vs-msi-vector-16-hx-ai.html',
+    ids: ['hp-omen-max-16-2026', 'msi-vector-16-hx-ai'],
+    requireDisplayDetails: true,
+    required: ['No Defensible Universal Winner', 'not a live checkout price', '16-ah0070ca', 'Specifications-only for this exact retail SKU'],
+    backlinks: ['guides.html', 'compare.html', 'guide-best-gaming-laptop-under-3000.html', 'guide-best-rtx-5080-gaming-laptop-2026.html', 'review-hp-omen-max-16-2026.html', 'review-msi-vector-16-hx-ai.html']
   }
 ];
 
