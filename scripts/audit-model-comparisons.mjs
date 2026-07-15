@@ -38,6 +38,13 @@ const COMPARISONS = [
     requireDisplayDetails: true,
     required: ['No Defensible Universal Winner', 'not a live checkout price', '16-ah0070ca', 'Specifications-only for this exact retail SKU'],
     backlinks: ['guides.html', 'compare.html', 'guide-best-gaming-laptop-under-3000.html', 'guide-best-rtx-5080-gaming-laptop-2026.html', 'review-hp-omen-max-16-2026.html', 'review-msi-vector-16-hx-ai.html']
+  },
+  {
+    page: 'guide-asus-tuf-a16-vs-tuf-f16-rtx-5070.html',
+    ids: ['asus-tuf-a16-entry', 'asus-tuf-gaming-f16-rtx5070'],
+    requireDisplayDetails: false,
+    required: ['No Defensible Universal Winner', 'not a live checkout price', 'FA608 / Ryzen 7 260 / RTX 5060', 'does not apply'],
+    backlinks: ['guides.html', 'compare.html', 'guide-best-gaming-laptop-under-2000.html', 'review-asus-tuf-gaming-a16-2026.html', 'review-asus-tuf-gaming-f16-rtx5070.html']
   }
 ];
 
