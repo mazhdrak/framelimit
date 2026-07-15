@@ -45,6 +45,13 @@ const COMPARISONS = [
     requireDisplayDetails: false,
     required: ['No Defensible Universal Winner', 'not a live checkout price', 'FA608 / Ryzen 7 260 / RTX 5060', 'does not apply'],
     backlinks: ['guides.html', 'compare.html', 'guide-best-gaming-laptop-under-2000.html', 'review-asus-tuf-gaming-a16-2026.html', 'review-asus-tuf-gaming-f16-rtx5070.html']
+  },
+  {
+    page: 'guide-razer-blade-14-vs-zephyrus-g14-2025.html',
+    ids: ['razer-blade-14-2025', 'asus-rog-zephyrus-g14-2026'],
+    requireDisplayDetails: true,
+    required: ['No Defensible Universal Winner', 'not a live checkout price', 'GU405AR', 'does not apply', 'not a matched head-to-head'],
+    backlinks: ['guides.html', 'compare.html', 'guide-best-14-inch-gaming-laptop-2026.html', 'guide-best-thin-light-gaming-laptop-2026.html', 'review-razer-blade-14-2026.html', 'review-asus-rog-zephyrus-g14-2026.html']
   }
 ];
 
