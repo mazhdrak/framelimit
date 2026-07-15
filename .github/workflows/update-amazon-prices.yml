@@ -36,14 +36,17 @@ jobs:
           fi
           node scripts/update-amazon-prices.mjs
 
+      - name: Archive monthly price history
+        run: node scripts/archive-price-snapshot.mjs
+
       - name: Commit refreshed snapshot
         run: |
-          if git diff --quiet -- price-snapshot.js; then
+          if git diff --quiet -- price-snapshot.js price-history.js; then
             echo "No price changes."
             exit 0
           fi
           git config user.email "action@github.com"
           git config user.name "FRAMELIMIT Price Bot"
-          git add price-snapshot.js
+          git add price-snapshot.js price-history.js
           git commit -m "chore: refresh Amazon price snapshot"
           git push

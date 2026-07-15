@@ -42,6 +42,7 @@
       <li><a href="reviews" onclick="window.__flToggleNav()">⭐ Full Reviews</a></li>
       <li><a href="compare" onclick="window.__flToggleNav()">⚖️ Compare Laptops</a></li>
       <li><a href="guide-rtx-50-laptop-tgp-database" onclick="window.__flToggleNav()">RTX 50 TGP Database</a></li>
+      <li><a href="guide-gaming-laptop-price-report-july-2026" onclick="window.__flToggleNav()">Monthly Price Report</a></li>
       <li><a href="methodology" onclick="window.__flToggleNav()">Methodology</a></li>
       <li><a href="about" onclick="window.__flToggleNav()">👤 About</a></li>
       <li><a href="contact" onclick="window.__flToggleNav()">✉️ Contact</a></li>
