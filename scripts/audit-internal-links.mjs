@@ -137,6 +137,19 @@ const clusters = [
     ],
   },
   {
+    name: 'Gaming laptops for Minecraft',
+    guide: 'guide-best-gaming-laptop-minecraft-2026.html',
+    technologyGuides: [
+      'guide-rtx-50-laptop-tgp-database.html',
+      'guide-dlss-fsr-frame-generation-database.html',
+    ],
+    reviews: [
+      'review-lenovo-loq-15-gen10.html',
+      'review-asus-tuf-gaming-a16-2026.html',
+      'review-lenovo-legion-5i-gen10.html',
+    ],
+  },
+  {
     name: 'RTX 5080 laptops',
     guide: 'guide-best-rtx-5080-gaming-laptop-2026.html',
     technologyGuides: [

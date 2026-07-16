@@ -219,7 +219,8 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
   - [x] Девети college money-page cluster batch: College Gaming Laptop guide-ът включва model-specific review anchors към всичките пет picks, включително липсващия MSI Katana CTA, и двупосочни backlinks от reviews.
   - [x] Десети video-editing money-page cluster batch: Video Editing guide-ът е свързан двупосочно с наличните Blade 16, Zephyrus G14 и Legion Pro 7i reviews; добавен е липсващият Blade creator CTA и тематични creator alternatives, а Titan остава specifications-only до standalone review.
   - [x] Единадесети Fortnite money-page cluster batch: Fortnite guide-ът е свързан двупосочно с SCAR 16, Legion 5i, LOQ 15 и Omen Max 16 reviews; добавени са липсващите SCAR/Legion CTAs и тематичните SCAR↔Omen и Legion↔LOQ alternatives.
-  - [x] `scripts/audit-internal-links.mjs` вече валидира 15 двупосочни content clusters в 41 уникални cluster файла и блокира generic `Full Review`, `Read Full Review`, `Read Review` и `Read more` anchors.
+  - [x] Дванадесети Minecraft money-page cluster batch: Minecraft guide-ът е свързан двупосочно с LOQ 15, TUF A16 и Legion 5i reviews; добавени са липсващите TUF/Legion review CTAs и backlinks от трите exact/current модели.
+  - [x] `scripts/audit-internal-links.mjs` вече валидира 16 двупосочни content clusters в 42 уникални cluster файла и блокира generic `Full Review`, `Read Full Review`, `Read Review` и `Read more` anchors.
 - [ ] Свързване на reviews с GPU и technology guides.
   - [x] Първи RTX 5060 technology-link batch: LOQ 15AHP10, Nitro V 16S и Gigabyte Gaming A16 reviews вече имат описателни backlinks към RTX 50 Laptop TGP Database и DLSS/FSR/Frame Generation database; `scripts/audit-internal-links.mjs` пази връзките.
   - [x] Втори RTX 5080 technology-link batch: Legion Pro 7i, MSI Vector 16, HP Omen Max 16, Zephyrus G16 и Strix G16 reviews вече водят към TGP и DLSS/Frame Generation техническите бази; същият audit guard валидира и петте страници.
@@ -229,6 +230,7 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
   - [x] Шести AMD/Radeon technology-link batch: Flow Z13 Radeon 8060S и TUF A16 RX 7700S reviews водят към RTX-vs-AMD explainer-а и DLSS/FSR/Frame Generation базата; internal-link audit-ът пази money-page backlinks, related review връзката и двата technology links.
   - [x] Седми streaming technology-link batch: четирите streaming picks водят към RTX 50 TGP и DLSS/Frame Generation базите; TUF A16 вече има липсващите technology backlinks, а audit mapping-ът пази целия cluster.
   - [x] Осми Fortnite technology-link batch: четирите Fortnite candidates водят към RTX 50 TGP и DLSS/Frame Generation базите; SCAR 16 получи липсващия benchmark-mode backlink и целият cluster вече се пази от audit mapping-а.
+  - [x] Девети Minecraft technology-link coverage batch: LOQ 15, TUF A16 и Legion 5i вече се валидират като цял Minecraft cluster спрямо съществуващите им RTX 50 TGP и DLSS/Frame Generation backlinks.
 - [x] Добавяне на директни model-vs-model comparison страници; публикувани са осем exact-SKU/evidence-boundary comparisons, включително LOQ 15AHP10 срещу Nitro V 16S и Gigabyte Gaming A16 в RTX 5060 cluster-а.
 - [x] Добавяне на отделна `Best RTX 5060 Gaming Laptops` money page с две exact-evidence ranked конфигурации, една директно купуема unranked алтернатива, backlinks от трите reviews и връзки към двете model-vs-model comparison страници.
 - [x] Добавяне на описателни anchor текстове вместо само `Read more`.
