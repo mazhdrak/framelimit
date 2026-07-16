@@ -38,6 +38,10 @@ const clusters = [
   {
     name: 'RTX 5080 laptops',
     guide: 'guide-best-rtx-5080-gaming-laptop-2026.html',
+    technologyGuides: [
+      'guide-rtx-50-laptop-tgp-database.html',
+      'guide-dlss-fsr-frame-generation-database.html',
+    ],
     reviews: [
       'review-lenovo-legion-pro-7i-gen10.html',
       'review-msi-vector-16-hx-ai.html',
