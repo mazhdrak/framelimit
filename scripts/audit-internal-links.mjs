@@ -89,6 +89,20 @@ const clusters = [
     ],
   },
   {
+    name: 'Gaming laptops for streaming',
+    guide: 'guide-best-gaming-laptop-streaming-2026.html',
+    technologyGuides: [
+      'guide-rtx-50-laptop-tgp-database.html',
+      'guide-dlss-fsr-frame-generation-database.html',
+    ],
+    reviews: [
+      'review-lenovo-legion-pro-7i-gen10.html',
+      'review-hp-omen-max-16-2026.html',
+      'review-lenovo-legion-5i-gen10.html',
+      'review-asus-tuf-gaming-a16-2026.html',
+    ],
+  },
+  {
     name: 'RTX 5080 laptops',
     guide: 'guide-best-rtx-5080-gaming-laptop-2026.html',
     technologyGuides: [
