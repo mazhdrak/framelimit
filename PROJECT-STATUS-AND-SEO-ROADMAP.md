@@ -210,10 +210,12 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 - [ ] Свързване на individual reviews с подходящия price guide.
   - [x] Първи RTX 5060 cluster batch: under-$1,500 guide вече използва описателни model-specific anchors към LOQ 15AHP10, Nitro V 16S, TUF A16 FA608UM и Gigabyte Gaming A16; четирите review страници имат обратен линк към guide-а и поне една crawlable related-review връзка.
   - [x] Втори money-page cluster batch: under-$3,000, RTX 5080, 14-inch и thin-and-light guides вече използват описателни model-specific review anchors; 8 свързани review страници имат обратни guide линкове и тематични alternative-review връзки.
+  - [x] Трети money-page cluster batch: RTX 5090 guide-ът е свързан двупосочно с canonical SCAR 18, Alienware 18 Area-51, Razer Blade 16 и MSI Raider 18 HX AI reviews; старият SCAR 18 alias CTA вече сочи към canonical review URL-а.
   - [x] `scripts/audit-internal-links.mjs` вече валидира 6 двупосочни content clusters в 17 файла и блокира generic `Full Review`, `Read Review` и `Read more` anchors.
 - [ ] Свързване на reviews с GPU и technology guides.
   - [x] Първи RTX 5060 technology-link batch: LOQ 15AHP10, Nitro V 16S и Gigabyte Gaming A16 reviews вече имат описателни backlinks към RTX 50 Laptop TGP Database и DLSS/FSR/Frame Generation database; `scripts/audit-internal-links.mjs` пази връзките.
   - [x] Втори RTX 5080 technology-link batch: Legion Pro 7i, MSI Vector 16, HP Omen Max 16, Zephyrus G16 и Strix G16 reviews вече водят към TGP и DLSS/Frame Generation техническите бази; същият audit guard валидира и петте страници.
+  - [x] Трети RTX 5090 technology-link batch: четири flagship reviews водят към RTX 50 TGP и DLSS/Frame Generation базите, а internal-link audit-ът пази guide backlinks, technology links и related-review покритието.
 - [x] Добавяне на директни model-vs-model comparison страници; публикувани са осем exact-SKU/evidence-boundary comparisons, включително LOQ 15AHP10 срещу Nitro V 16S и Gigabyte Gaming A16 в RTX 5060 cluster-а.
 - [x] Добавяне на отделна `Best RTX 5060 Gaming Laptops` money page с две exact-evidence ranked конфигурации, една директно купуема unranked алтернатива, backlinks от трите reviews и връзки към двете model-vs-model comparison страници.
 - [x] Добавяне на описателни anchor текстове вместо само `Read more`.
