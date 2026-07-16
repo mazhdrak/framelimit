@@ -7,6 +7,10 @@ const clusters = [
   {
     name: 'Best RTX 5060 gaming laptops',
     guide: 'guide-best-rtx-5060-gaming-laptop-2026.html',
+    technologyGuides: [
+      'guide-rtx-50-laptop-tgp-database.html',
+      'guide-dlss-fsr-frame-generation-database.html',
+    ],
     reviews: [
       'review-lenovo-loq-15-gen10.html',
       'review-acer-nitro-v-16-2026.html',
@@ -89,7 +93,7 @@ async function main() {
   const files = new Set(clusters.flatMap(({ guide, reviews }) => [guide, ...reviews]));
   for (const file of files) sources.set(file, await read(file));
 
-  for (const { name, guide, reviews } of clusters) {
+  for (const { name, guide, reviews, technologyGuides = [] } of clusters) {
     const guideLinks = linksFrom(sources.get(guide));
     for (const review of reviews) {
       const links = guideLinks.filter((link) => link.target === review);
@@ -106,6 +110,11 @@ async function main() {
       }
       if (!links.some((link) => reviews.includes(link.target) && link.target !== review)) {
         errors.push(`${name}: ${review} must link to at least one related cluster review`);
+      }
+      for (const technologyGuide of technologyGuides) {
+        if (!links.some((link) => link.target === technologyGuide)) {
+          errors.push(`${name}: ${review} must link to ${technologyGuide}`);
+        }
       }
     }
   }
