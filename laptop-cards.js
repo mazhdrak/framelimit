@@ -66,8 +66,6 @@ function flReviewLink(id) {
   const map = {
     'asus-rog-scar-18-2026':            'review-asus-rog-strix-scar-18-2026',
     'asus-rog-scar-16-2026':            'review-asus-rog-strix-scar-16-2026',
-    'asus-rog-zephyrus-g16-high':       'review-asus-rog-zephyrus-g16-2026',
-    'asus-rog-zephyrus-g16-mid':        'review-asus-rog-zephyrus-g16-2026',
     'asus-rog-zephyrus-g14-2026':       'review-asus-rog-zephyrus-g14-2026',
     'asus-tuf-a16-entry':               'review-asus-tuf-gaming-a16-2026',
     'asus-tuf-gaming-f16-rtx5070':      'review-asus-tuf-gaming-f16-rtx5070',
@@ -76,7 +74,6 @@ function flReviewLink(id) {
     'lenovo-legion-5-gen10-amd':        'review-lenovo-legion-5-gen10-amd',
     'lenovo-loq-15-gen10':              'review-lenovo-loq-15-gen10',
     'msi-titan-18-hx-ai':               'review-notes-2026#msi-titan-18-hx-ai',
-    'msi-raider-18-hx-ai':              'review-msi-raider-18-hx-ai',
     'msi-vector-16-hx-ai':              'review-msi-vector-16-hx-ai',
     'msi-katana-15-hx':                 'review-msi-katana-15-hx',
     'msi-stealth-a16-ai-plus':          'review-msi-stealth-a16-ai-plus',
