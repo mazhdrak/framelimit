@@ -45,6 +45,18 @@ const clusters = [
     ],
   },
   {
+    name: 'Legion Pro 7i vs ROG Strix G16 RTX 5080',
+    guide: 'guide-legion-pro-7i-vs-rog-strix-g16-rtx-5080.html',
+    technologyGuides: [
+      'guide-rtx-50-laptop-tgp-database.html',
+      'guide-dlss-fsr-frame-generation-database.html',
+    ],
+    reviews: [
+      'review-lenovo-legion-pro-7i-gen10.html',
+      'review-asus-rog-strix-g16-2026.html',
+    ],
+  },
+  {
     name: 'RTX 5060 under $1,500',
     guide: 'guide-best-gaming-laptop-under-1500.html',
     reviews: [
