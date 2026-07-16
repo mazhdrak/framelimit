@@ -69,7 +69,16 @@ function auditCatalog(laptops) {
   return { errors, direct, search };
 }
 
-async function auditSiteAmazonLinks() {
+async function loadManagedAsins(catalogAudit) {
+  const managed = new Set(catalogAudit.direct.map(({ asin }) => asin));
+  const priceData = await fs.readFile(path.join(ROOT, 'price-data.js'), 'utf8');
+  for (const match of priceData.matchAll(/amazon\.com\/dp\/([A-Z0-9]{10})/gi)) {
+    managed.add(match[1].toUpperCase());
+  }
+  return managed;
+}
+
+async function auditSiteAmazonLinks(managedAsins) {
   const entries = await fs.readdir(ROOT, { withFileTypes: true });
   const files = entries
     .filter((entry) => entry.isFile() && entry.name.endsWith('.html'))
@@ -80,16 +89,41 @@ async function auditSiteAmazonLinks() {
 
   for (const file of files) {
     const source = await fs.readFile(path.join(ROOT, file), 'utf8');
-    const urls = source.match(/https:\/\/www\.amazon\.com\/[^"'<>\s]+/gi) || [];
-    urls.forEach((rawUrl) => {
-      const url = rawUrl.replaceAll('&amp;', '&');
-      if (!/amazon\.com\/dp\/[A-Z0-9]{10}(?:[/?#]|$)/i.test(url)) {
+    const anchors = Array.from(source.matchAll(/<a\b([^>]*)>/gi));
+    anchors.forEach((match) => {
+      const attributes = match[1];
+      const href = /\bhref=["']([^"']+)["']/i.exec(attributes);
+      if (!href) return;
+      const url = href[1].replaceAll('&amp;', '&');
+      let parsed;
+      try {
+        parsed = new URL(url);
+      } catch {
+        return;
+      }
+      const isAmazonLink = /(^|\.)amazon\./i.test(parsed.hostname) || parsed.hostname === 'amzn.to';
+      if (!isAmazonLink) return;
+      if (parsed.hostname !== 'www.amazon.com') {
+        errors.push(`${file}: Amazon affiliate links must use https://www.amazon.com: ${url}`);
+        return;
+      }
+      const asinMatch = /^\/dp\/([A-Z0-9]{10})(?:[/?#]|$)/i.exec(parsed.pathname);
+      if (!asinMatch) {
         errors.push(`${file}: non-direct Amazon product link: ${url}`);
         return;
       }
       directCount += 1;
-      if (!url.includes(`tag=${PARTNER_TAG}`)) {
+      const asin = asinMatch[1].toUpperCase();
+      if (!managedAsins.has(asin)) {
+        errors.push(`${file}: unmanaged direct ASIN ${asin}`);
+      }
+      if (parsed.searchParams.get('tag') !== PARTNER_TAG) {
         errors.push(`${file}: Amazon product link is missing affiliate tag ${PARTNER_TAG}: ${url}`);
+      }
+      const rel = /\brel=["']([^"']+)["']/i.exec(attributes);
+      const relTokens = new Set((rel?.[1] || '').toLowerCase().split(/\s+/).filter(Boolean));
+      if (!relTokens.has('nofollow') || !relTokens.has('sponsored')) {
+        errors.push(`${file}: Amazon product link must use rel="nofollow sponsored": ${url}`);
       }
     });
   }
@@ -218,9 +252,10 @@ function isAssociateNotEligible(error) {
 async function main() {
   const laptops = await loadLaptops();
   const audit = auditCatalog(laptops);
-  const siteAudit = await auditSiteAmazonLinks();
+  const managedAsins = await loadManagedAsins(audit);
+  const siteAudit = await auditSiteAmazonLinks(managedAsins);
   console.log(`Amazon links: ${audit.direct.length} direct ASIN, ${audit.search.length} search fallback.`);
-  console.log(`Site HTML: ${siteAudit.directCount} direct Amazon links across ${siteAudit.fileCount} files.`);
+  console.log(`Site HTML: ${siteAudit.directCount} direct Amazon links across ${siteAudit.fileCount} files; ${managedAsins.size} managed ASINs.`);
   if (audit.errors.length) {
     throw new Error(`Affiliate audit failed:\n- ${audit.errors.join('\n- ')}`);
   }

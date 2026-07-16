@@ -1,6 +1,6 @@
 # FRAMELIMIT: Project Status and SEO Roadmap
 
-Последна актуализация: 15 юли 2026 г.
+Последна актуализация: 16 юли 2026 г.
 
 ## Цел на проекта
 
@@ -77,8 +77,8 @@ FRAMELIMIT трябва да се развие като надежден изт�
 
 ### 6. Последен публикуван commit
 
-- Commit: `3e77e5d`
-- Message: `Strengthen RTX 5060 internal links`
+- Commit: `f60df79`
+- Message: `Fix homepage best picks section`
 - Branch: `main`
 - Remote: `https://github.com/mazhdrak/framelimit.git`
 - Статус: push-нат към `origin/main`.
@@ -181,10 +181,10 @@ FRAMELIMIT няма бюджет за собствено тестване на �
 - [x] XML validation на `sitemap.xml` чрез XML parser и `scripts/audit-sitemap.mjs`.
 - [x] Уеднаквяване на canonical, Open Graph, JSON-LD, sitemap и internal links с extensionless URL-ите, които Cloudflare Pages обслужва като крайни HTTP 200 адреси.
 - [x] Добавяне на `scripts/audit-public-urls.mjs` за проверка на canonical URL-и, redirect-free internal links и счупени локални цели.
-- [ ] Deploy на обновения sitemap на същия URL.
-- [ ] Проверка за `Success` в Google Search Console.
-- [ ] URL Inspection на най-важните 5-10 страници.
-- [ ] `Request indexing` само веднъж за всяка приоритетна страница.
+- [x] Deploy на обновения sitemap на същия URL; production проверката на 16 юли 2026 г. потвърждава HTTP 200 за `sitemap.xml`, homepage и приоритетните extensionless guide/review URL-и.
+- [x] Проверка за `Success` в Google Search Console: sitemap-ът е прочетен успешно с 59 открити страници на 15 юли 2026 г.
+- [x] URL Inspection на най-важните 5-10 страници; live test-ът потвърждава, че приоритетният 2026 guide може да бъде индексиран.
+- [x] `Request indexing` само веднъж за всяка приоритетна страница; приоритетните URL-и са подадени на 15 юли 2026 г.
 - [ ] `Validate Fix` за стария Product snippets проблем след deploy.
 
 Sitemap-ът не трябва да бъде изтриван и добавян като нов файл. Google вече знае неговия постоянен URL.
@@ -263,9 +263,10 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 - [x] Добавяне на `Last checked` дата към офертите.
 - [ ] Фокус върху money pages с ясна покупателна цел.
 - [ ] Избягване на ръчно публикувани цени без надежден процес за обновяване.
-  - [x] Direct-retail audit на 15 юли 2026 г.: активният каталог съдържа 31 модела, 31 уникални direct ASIN линка и 0 Amazon search fallback линка; всички използват tracking ID `framelimit20-20`.
+  - [x] Обновен direct-retail audit на 16 юли 2026 г.: активният каталог съдържа 34 модела, 34 уникални direct ASIN линка и 0 Amazon search fallback линка; всички използват tracking ID `framelimit20-20`.
   - [x] Осемте стари или неподкрепени конфигурации са заменени с актуални директно купуеми Amazon US конфигурации с конкретни уникални ASIN-и. Всички отново участват във finder/compare; архивните ревюта отделят старите benchmark данни от точния текущ retail SKU.
   - [x] Потвърдени и добавени директни продуктови страници за Blade 16/18, Legion 5 AMD, Zephyrus G14/G16, HP Omen 16, TUF A16, LOQ 15 и Acer Nitro 16S/Nitro V 16S.
+  - [x] Site-wide affiliate guard на 16 юли 2026 г.: `scripts/update-amazon-prices.mjs --audit` проверява всеки директен Amazon anchor във всички HTML файлове за управляван ASIN, точен `framelimit20-20` tag и `rel="nofollow sponsored"`; 196 връзки в 78 файла и 37 управлявани ASIN-а преминават без грешка.
   - [ ] `price-snapshot.js` все още няма генериран live snapshot (`generatedAt: null`), затова текуща цена и наличност не могат да се гарантират за целия каталог.
 
 ## Препоръчани money pages
@@ -313,6 +314,6 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 Следващият работен пакет трябва да бъде:
 
 1. Изчакване Amazon Associates профилът да покрие Creators API eligibility; workflow-ът запазва reference-price fallback и предупреждава без да се проваля дотогава.
-2. Потвърждение след deploy, че extensionless canonical URL-ите и `sitemap.xml` връщат HTTP 200 и нямат canonical/redirect несъответствие.
-3. Search Console URL Inspection на приоритетните страници и еднократен `Request indexing` след deploy.
-4. `Validate Fix` за стария Product snippets проблем след като Google обходи новите страници.
+2. Изчакване на Search Console да обработи еднократните indexing заявки и наблюдение на Pages/Indexing отчета.
+3. `Validate Fix` за стария Product snippets проблем след като Google обходи новите страници.
+4. Следващият локален SEO пакет е директна model-vs-model comparison страница за приоритетния RTX 5060 cluster.
