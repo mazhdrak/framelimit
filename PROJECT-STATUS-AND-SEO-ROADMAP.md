@@ -217,7 +217,7 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 - [x] Добавяне на директни model-vs-model comparison страници; публикувани са осем exact-SKU/evidence-boundary comparisons, включително LOQ 15AHP10 срещу Nitro V 16S и Gigabyte Gaming A16 в RTX 5060 cluster-а.
 - [x] Добавяне на отделна `Best RTX 5060 Gaming Laptops` money page с две exact-evidence ranked конфигурации, една директно купуема unranked алтернатива, backlinks от трите reviews и връзки към двете model-vs-model comparison страници.
 - [ ] Добавяне на описателни anchor текстове вместо само `Read more`.
-- [ ] Проверка всяка важна страница да има поне един crawlable вътрешен линк.
+- [x] Проверка всяка важна страница да има поне един crawlable вътрешен линк; `scripts/audit-crawlable-pages.mjs` валидира всички sitemap URL-и, а откритите orphan comparison и review-notes страници са свързани тематично от Compare и Methodology.
 - [ ] Добавяне на related reviews и alternatives в края на страниците.
 
 Примерен cluster:
