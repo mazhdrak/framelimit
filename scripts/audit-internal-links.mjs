@@ -221,6 +221,8 @@ const clusters = [
       'review-hp-omen-max-16-2026.html',
       'review-lenovo-legion-5i-gen10.html',
       'review-asus-tuf-gaming-a16-2026.html',
+      'review-alienware-16-aurora.html',
+      'review-msi-stealth-a16-ai-plus.html',
     ],
   },
   {
@@ -434,8 +436,24 @@ async function main() {
     }
   }
 
+  const indexableProductReviews = [];
+  for (const review of allReviewFiles) {
+    const source = await read(review);
+    if (review === 'review-notes-2026.html' || /<meta\b[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(source)) continue;
+    indexableProductReviews.push(review);
+  }
+
+  const moneyGuideClusters = clusters.filter(({ guide }) =>
+    /^guide-best-.*\.html$/i.test(guide) || guide === 'guide-gaming-laptop-buying-guide-2026.html'
+  );
+  for (const review of indexableProductReviews) {
+    if (!moneyGuideClusters.some(({ reviews }) => reviews.includes(review))) {
+      errors.push(`${review} must belong to at least one buying or money-guide cluster`);
+    }
+  }
+
   for (const error of errors) console.error(`ERROR ${error}`);
-  console.log(`Audited ${clusters.length} internal-link clusters, ${allGuideFiles.length} guides, ${files.size} cluster files, and ${allReviewFiles.length} related-review pages: ${errors.length} errors.`);
+  console.log(`Audited ${clusters.length} internal-link clusters, ${allGuideFiles.length} guides, ${files.size} cluster files, ${allReviewFiles.length} related-review pages, and ${indexableProductReviews.length} indexable product reviews with money-guide coverage: ${errors.length} errors.`);
   if (errors.length) process.exitCode = 1;
 }
 

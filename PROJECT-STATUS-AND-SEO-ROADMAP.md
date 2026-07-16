@@ -207,7 +207,7 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 
 ### Приоритет 4: Content clusters и internal linking
 
-- [ ] Свързване на individual reviews с подходящия price guide.
+- [x] Свързване на individual reviews с подходящия price guide.
   - [x] Първи RTX 5060 cluster batch: under-$1,500 guide вече използва описателни model-specific anchors към LOQ 15AHP10, Nitro V 16S, TUF A16 FA608UM и Gigabyte Gaming A16; четирите review страници имат обратен линк към guide-а и поне една crawlable related-review връзка.
   - [x] Втори money-page cluster batch: under-$3,000, RTX 5080, 14-inch и thin-and-light guides вече използват описателни model-specific review anchors; 8 свързани review страници имат обратни guide линкове и тематични alternative-review връзки.
   - [x] Трети money-page cluster batch: RTX 5090 guide-ът е свързан двупосочно с canonical SCAR 18, Alienware 18 Area-51, Razer Blade 16 и MSI Raider 18 HX AI reviews; старият SCAR 18 alias CTA вече сочи към canonical review URL-а.
@@ -234,6 +234,7 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
   - [x] Двадесет и четвърти compact RTX 5070 comparison cluster batch: Blade 14 RZ09-05306ES3-R3U1 срещу Zephyrus G14 GA403UP-CS96 е свързан двупосочно с двата canonical reviews, без exact Blade benchmark да се прехвърля към specifications-only G14 SKU-а; legacy URL-ът се запазва като моделно поколение.
   - [x] Двадесет и пети cross-platform comparison cluster batch: Flow Z13 GZ302EA-XS96 Radeon 8060S срещу Zephyrus G14 GA403UP-CS96 RTX 5070 е свързан двупосочно с двата canonical reviews и запазва архитектурните разлики отделени от несъществуващ matched FPS winner; legacy URL-ът се запазва като моделно поколение.
   - [x] `scripts/audit-internal-links.mjs` вече валидира 29 двупосочни content clusters в 56 уникални cluster файла и блокира generic `Full Review`, `Read Full Review`, `Read Review` и `Read more` anchors.
+  - [x] Двадесет и шести site-wide money-guide coverage batch: всичките 29 индексируеми product reviews вече участват в поне един подходящ buying или money-guide cluster; Alienware 16 Aurora и MSI Stealth A16 AI+ са добавени като ясно неранкирани, директно купуеми алтернативи в общия Best Gaming Laptops catalog, а audit guard-ът изключва `noindex` aliases и `review-notes`.
 - [x] Свързване на reviews с GPU и technology guides.
   - [x] Първи RTX 5060 technology-link batch: LOQ 15AHP10, Nitro V 16S и Gigabyte Gaming A16 reviews вече имат описателни backlinks към RTX 50 Laptop TGP Database и DLSS/FSR/Frame Generation database; `scripts/audit-internal-links.mjs` пази връзките.
   - [x] Втори RTX 5080 technology-link batch: Legion Pro 7i, MSI Vector 16, HP Omen Max 16, Zephyrus G16 и Strix G16 reviews вече водят към TGP и DLSS/Frame Generation техническите бази; същият audit guard валидира и петте страници.
