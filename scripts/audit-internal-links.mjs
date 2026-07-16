@@ -70,13 +70,6 @@ const clusters = [
   },
 ];
 
-const relatedReviewBatch = [
-  'review-asus-rog-flow-z13-radeon-8060s.html',
-  'review-hp-omen-transcend-14.html',
-  'review-lenovo-legion-7i-gen10.html',
-  'review-msi-stealth-a16-ai-plus.html',
-];
-
 function textContent(value) {
   return value.replace(/<[^>]*>/g, ' ').replace(/&[^;]+;/g, ' ').replace(/\s+/g, ' ').trim();
 }
@@ -140,7 +133,8 @@ async function main() {
     }
   }
 
-  for (const review of relatedReviewBatch) {
+  const allReviewFiles = (await fs.readdir(ROOT)).filter((file) => /^review-.*\.html$/i.test(file));
+  for (const review of allReviewFiles) {
     const links = linksFrom(await read(review));
     if (!links.some((link) => /^review-.*\.html$/i.test(link.target) && link.target !== review)) {
       errors.push(`${review} must link to at least one related review`);
@@ -148,7 +142,7 @@ async function main() {
   }
 
   for (const error of errors) console.error(`ERROR ${error}`);
-  console.log(`Audited ${clusters.length} internal-link clusters, ${allGuideFiles.length} guides, ${files.size} cluster files, and ${relatedReviewBatch.length} related-review pages: ${errors.length} errors.`);
+  console.log(`Audited ${clusters.length} internal-link clusters, ${allGuideFiles.length} guides, ${files.size} cluster files, and ${allReviewFiles.length} related-review pages: ${errors.length} errors.`);
   if (errors.length) process.exitCode = 1;
 }
 
