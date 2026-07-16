@@ -65,6 +65,18 @@ const clusters = [
     ],
   },
   {
+    name: 'AMD Radeon gaming laptops',
+    guide: 'guide-best-amd-gaming-laptop-2026.html',
+    technologyGuides: [
+      'guide-rtx-vs-amd-2026.html',
+      'guide-dlss-fsr-frame-generation-database.html',
+    ],
+    reviews: [
+      'review-asus-rog-flow-z13-radeon-8060s.html',
+      'review-asus-tuf-a16-radeon-rx7700s.html',
+    ],
+  },
+  {
     name: 'RTX 5080 laptops',
     guide: 'guide-best-rtx-5080-gaming-laptop-2026.html',
     technologyGuides: [
