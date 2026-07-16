@@ -103,6 +103,17 @@ const clusters = [
     ],
   },
   {
+    name: 'Gaming laptops for college',
+    guide: 'guide-best-gaming-laptop-college-2026.html',
+    reviews: [
+      'review-lenovo-legion-5i-gen10.html',
+      'review-asus-tuf-gaming-a16-2026.html',
+      'review-asus-rog-zephyrus-g14-2026.html',
+      'review-msi-katana-15-hx.html',
+      'review-lenovo-loq-15-gen10.html',
+    ],
+  },
+  {
     name: 'RTX 5080 laptops',
     guide: 'guide-best-rtx-5080-gaming-laptop-2026.html',
     technologyGuides: [
