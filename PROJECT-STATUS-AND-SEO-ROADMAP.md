@@ -236,13 +236,15 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 
 За получаване на естествени backlinks трябва да има информация, която други сайтове биха цитирали:
 
-- [ ] RTX 50 Laptop TGP Database.
-- [ ] Monthly Gaming Laptop Price Report.
-- [ ] DLSS/FSR/Frame Generation comparison database.
+- [x] RTX 50 Laptop TGP Database.
+- [x] Monthly Gaming Laptop Price Report.
+- [x] DLSS/FSR/Frame Generation comparison database.
 - [ ] История на Amazon цените по точен SKU.
 - [ ] Сравнение на еднакъв GPU при различен TGP.
 - [ ] Графики за average FPS, 1% low и performance-per-dollar.
-- [ ] Таблица с display brightness, gamut, refresh rate и response time.
+- [x] Таблица с display brightness, gamut, refresh rate и response time; текущият Display Database публикува само последователно sourced exact-model полета и ясно обозначава липсващите gamut/response-time измервания вместо да смесва несъпоставими протоколи.
+
+`scripts/audit-linkable-assets.mjs` валидира четирите публикувани оригинални assets за canonical, meta description, H1, основна таблица/данни, sitemap присъствие и поне два crawlable входящи линка.
 
 Да не се купуват SEO backlinks и да не се използват автоматизирани link-building услуги.
 
