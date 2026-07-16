@@ -209,6 +209,23 @@ const clusters = [
       'review-asus-rog-zephyrus-g16-2026.html',
     ],
   },
+  {
+    name: 'Flagship gaming laptops',
+    guide: 'guide-best-flagship-gaming-laptop-2026.html',
+    technologyGuides: [
+      'guide-rtx-50-laptop-tgp-database.html',
+      'guide-dlss-fsr-frame-generation-database.html',
+    ],
+    reviews: [
+      'review-asus-rog-strix-scar-18-2026.html',
+      'review-asus-rog-strix-scar-16-2026.html',
+      'review-msi-raider-18-hx-ai.html',
+      'review-msi-raider-a18-hx-amd.html',
+      'review-razer-blade-16-2026.html',
+      'review-asus-rog-zephyrus-g16-2026.html',
+      'review-asus-rog-strix-g16-2026.html',
+    ],
+  },
 ];
 
 function textContent(value) {
