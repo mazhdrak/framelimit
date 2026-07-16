@@ -6,7 +6,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const assets = [
   {
     file: 'guide-rtx-50-laptop-tgp-database.html',
-    required: ['<table', 'Exact Configurations', 'Published power'],
+    required: ['<table', 'Exact Configurations', 'Published power', 'id="same-gpu-tgp"', 'tgp-static-compare', 'power-envelope comparison'],
   },
   {
     file: 'guide-dlss-fsr-frame-generation-database.html',

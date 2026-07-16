@@ -240,7 +240,7 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 - [x] Monthly Gaming Laptop Price Report.
 - [x] DLSS/FSR/Frame Generation comparison database.
 - [ ] История на Amazon цените по точен SKU.
-- [ ] Сравнение на еднакъв GPU при различен TGP.
+- [x] Сравнение на еднакъв GPU при различен TGP; TGP Database вече има crawlable exact-model таблица за четири RTX 50 диапазона с review връзки и изрично отделя power envelope от измерен FPS резултат.
 - [ ] Графики за average FPS, 1% low и performance-per-dollar.
 - [x] Таблица с display brightness, gamut, refresh rate и response time; текущият Display Database публикува само последователно sourced exact-model полета и ясно обозначава липсващите gamut/response-time измервания вместо да смесва несъпоставими протоколи.
 
