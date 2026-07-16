@@ -33,6 +33,13 @@ const COMPARISONS = [
     backlinks: ['guides.html', 'compare.html', 'guide-best-gaming-laptop-under-1500.html', 'review-lenovo-loq-15-gen10.html', 'review-acer-nitro-v-16-2026.html']
   },
   {
+    page: 'guide-lenovo-loq-15-vs-gigabyte-gaming-a16-2026.html',
+    ids: ['lenovo-loq-15-gen10', 'gigabyte-gaming-a16-rtx5060'],
+    requireDisplayDetails: true,
+    required: ['No Defensible Universal Winner', 'not a live checkout price', 'related 32GB', 'not a matched head-to-head'],
+    backlinks: ['guides.html', 'compare.html', 'guide-best-gaming-laptop-under-1500.html', 'review-lenovo-loq-15-gen10.html', 'review-gigabyte-gaming-a16.html']
+  },
+  {
     page: 'guide-hp-omen-max-16-vs-msi-vector-16-hx-ai.html',
     ids: ['hp-omen-max-16-2026', 'msi-vector-16-hx-ai'],
     requireDisplayDetails: true,

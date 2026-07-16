@@ -212,7 +212,7 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
   - [x] Втори money-page cluster batch: under-$3,000, RTX 5080, 14-inch и thin-and-light guides вече използват описателни model-specific review anchors; 8 свързани review страници имат обратни guide линкове и тематични alternative-review връзки.
   - [x] `scripts/audit-internal-links.mjs` вече валидира 5 двупосочни content clusters в 17 файла и блокира generic `Full Review`, `Read Review` и `Read more` anchors.
 - [ ] Свързване на reviews с GPU и technology guides.
-- [ ] Добавяне на директни model-vs-model comparison страници.
+- [x] Добавяне на директни model-vs-model comparison страници; публикувани са осем exact-SKU/evidence-boundary comparisons, включително LOQ 15AHP10 срещу Nitro V 16S и Gigabyte Gaming A16 в RTX 5060 cluster-а.
 - [ ] Добавяне на описателни anchor текстове вместо само `Read more`.
 - [ ] Проверка всяка важна страница да има поне един crawlable вътрешен линк.
 - [ ] Добавяне на related reviews и alternatives в края на страниците.
@@ -316,4 +316,4 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 1. Изчакване Amazon Associates профилът да покрие Creators API eligibility; workflow-ът запазва reference-price fallback и предупреждава без да се проваля дотогава.
 2. Изчакване на Search Console да обработи еднократните indexing заявки и наблюдение на Pages/Indexing отчета.
 3. `Validate Fix` за стария Product snippets проблем след като Google обходи новите страници.
-4. Следващият локален SEO пакет е директна model-vs-model comparison страница за приоритетния RTX 5060 cluster.
+4. Следващият локален SEO пакет е отделна `Best RTX 5060 Gaming Laptops` money page, която обединява under-$1,500 guide-а, individual reviews и двете model-vs-model comparison страници.
