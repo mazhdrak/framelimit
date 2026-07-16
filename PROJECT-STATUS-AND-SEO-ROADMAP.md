@@ -240,6 +240,8 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 - [x] Monthly Gaming Laptop Price Report.
 - [x] DLSS/FSR/Frame Generation comparison database.
 - [ ] История на Amazon цените по точен SKU.
+  - [x] Exact-SKU history guard: месечният архив вече отхвърля невалидни ASIN/price/timestamp записи, а price report сравнява два месеца само когато ASIN-ът е еднакъв и още съвпада с текущата catalog конфигурация.
+  - [ ] Първи реален месечен snapshot след Amazon Creators API eligibility; до тогава `price-history.js` остава празен и страницата не показва измислена тенденция.
 - [x] Сравнение на еднакъв GPU при различен TGP; TGP Database вече има crawlable exact-model таблица за четири RTX 50 диапазона с review връзки и изрично отделя power envelope от измерен FPS резултат.
 - [x] Графики за Average FPS и 1% Low; Benchmark Database визуализира 14 exact-condition групи, отделя generated от rendered/upscaled FPS, има достъпни стойностни labels и не изчислява несъпоставим cross-source average.
 - [ ] Performance-per-dollar графики след налични надеждни live цени за същите exact SKU; reference цени не се представят като текущи оферти.

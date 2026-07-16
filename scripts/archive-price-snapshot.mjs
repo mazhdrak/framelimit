@@ -20,6 +20,11 @@ async function main() {
   const snapshot = snapshotWindow.FL_PRICE_SNAPSHOT || {};
   const history = historyWindow.FL_PRICE_HISTORY || { version: 1, marketplace: snapshot.marketplace, snapshots: [] };
   const offerEntries = Object.entries(snapshot.offers || {}).filter(([, offer]) => Number.isFinite(offer.price));
+  const invalidEntries = offerEntries.filter(([, offer]) => !/^[A-Z0-9]{10}$/.test(offer.asin || '') || offer.price <= 0 || !offer.checkedAt);
+
+  if (invalidEntries.length) {
+    throw new Error(`Refusing to archive ${invalidEntries.length} priced offer(s) without a valid ASIN, positive price, and checkedAt timestamp.`);
+  }
 
   if (!snapshot.generatedAt || !offerEntries.length) {
     console.log('No generated live-price snapshot; monthly history unchanged.');
@@ -31,6 +36,7 @@ async function main() {
     month,
     generatedAt: snapshot.generatedAt,
     offerCount: offerEntries.length,
+    identity: 'catalog-id-plus-asin',
     offers: Object.fromEntries(offerEntries.map(([id, offer]) => [id, {
       asin: offer.asin,
       price: offer.price,

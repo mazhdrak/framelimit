@@ -37,6 +37,7 @@ async function main() {
   if (!page.includes('"@type":"Dataset"')) errors.push('page is missing Dataset JSON-LD');
   if (!page.includes('price-history.js') || !page.includes('price-report.js') || !page.includes('laptops.js')) errors.push('page is missing a required data script');
   if (!script.includes('Insufficient history') || !script.includes('EDITORIAL REFERENCE')) errors.push('client script does not preserve price-status labels');
+  if (!script.includes('latestCandidate.asin === currentAsin') || !script.includes('oldCandidate.asin === live.asin')) errors.push('client script does not enforce same-ASIN monthly comparisons');
   if (!workflow.includes('node scripts/archive-price-snapshot.mjs')) errors.push('Amazon workflow does not archive monthly history');
   if (!workflow.includes('price-snapshot.js price-history.js')) errors.push('Amazon workflow does not commit both price files');
   if (!sitemap.includes('https://framelimit.com/guide-gaming-laptop-price-report-july-2026')) errors.push('page is missing from sitemap.xml');
@@ -53,6 +54,14 @@ async function main() {
   for (const snapshot of history.snapshots || []) {
     if (!/^\d{4}-\d{2}$/.test(snapshot.month || '')) errors.push(`invalid history month: ${snapshot.month}`);
     if (!snapshot.generatedAt || !snapshot.offers) errors.push(`incomplete history snapshot: ${snapshot.month}`);
+    const seenAsins = new Set();
+    for (const [id, offer] of Object.entries(snapshot.offers || {})) {
+      if (!/^[A-Z0-9]{10}$/.test(offer.asin || '')) errors.push(`${snapshot.month}/${id} has an invalid ASIN`);
+      if (!Number.isFinite(offer.price) || offer.price <= 0) errors.push(`${snapshot.month}/${id} has an invalid price`);
+      if (!offer.checkedAt) errors.push(`${snapshot.month}/${id} is missing checkedAt`);
+      if (seenAsins.has(offer.asin)) errors.push(`${snapshot.month} repeats ASIN ${offer.asin}`);
+      seenAsins.add(offer.asin);
+    }
   }
 
   errors.forEach((message) => console.log(`ERROR ${PAGE}: ${message}`));

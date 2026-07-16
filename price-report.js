@@ -11,6 +11,7 @@
   function escapeHtml(value) { return String(value ?? '').replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char]); }
   function money(value) { return Number.isFinite(value) ? value.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: value % 1 ? 2 : 0 }) : null; }
   function median(values) { const sorted = values.filter(Number.isFinite).sort((a, b) => a - b); if (!sorted.length) return null; const mid = Math.floor(sorted.length / 2); return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2; }
+  function asinFromUrl(value) { const match = String(value || '').match(/\/dp\/([A-Z0-9]{10})(?:[/?]|$)/i); return match ? match[1].toUpperCase() : null; }
 
   function renderGpuGrid() {
     const priority = ['RTX 5060', 'RTX 5070', 'RTX 5070 Ti', 'RTX 5080', 'RTX 5090'];
@@ -36,8 +37,11 @@
     });
     document.getElementById('pr-result-count').textContent = `${filtered.length} of ${laptops.length} configurations shown`;
     tableBody.innerHTML = filtered.map((item) => {
-      const live = latest && latest.offers ? latest.offers[item.id] : null;
-      const old = previous && previous.offers ? previous.offers[item.id] : null;
+      const currentAsin = asinFromUrl(item.amazonUrl);
+      const latestCandidate = latest && latest.offers ? latest.offers[item.id] : null;
+      const live = latestCandidate && latestCandidate.asin === currentAsin ? latestCandidate : null;
+      const oldCandidate = previous && previous.offers ? previous.offers[item.id] : null;
+      const old = live && oldCandidate && oldCandidate.asin === live.asin ? oldCandidate : null;
       const delta = live && old && Number.isFinite(live.price) && Number.isFinite(old.price) ? (live.price - old.price) / old.price * 100 : null;
       const deltaText = delta == null ? '<span class="pr-muted">Insufficient history</span>' : `<span style="color:${delta < 0 ? 'var(--green)' : delta > 0 ? 'var(--orange)' : 'var(--muted)'}">${delta > 0 ? '+' : ''}${delta.toFixed(1)}%</span>`;
       return `<tr><td><div class="pr-model">${escapeHtml(item.shortName)}</div><div class="pr-sub">${escapeHtml(item.modelCode || 'Retail configuration')}</div></td><td>${escapeHtml(item.gpu)}</td><td>${Number.isFinite(item.price) ? `<div class="pr-price">${money(item.price)}</div><div class="pr-ref">EDITORIAL REFERENCE</div>` : '<span class="pr-muted">Check retailer</span>'}</td><td>${live ? `<div class="pr-price">${money(live.price)}</div><div class="pr-sub">${escapeHtml(latest.month)}</div>` : '<span class="pr-muted">Awaiting eligible API snapshot</span>'}</td><td>${deltaText}</td><td><a class="pr-link" href="${escapeHtml(item.amazonUrl)}" target="_blank" rel="nofollow sponsored">Amazon →</a></td></tr>`;
@@ -49,7 +53,7 @@
   document.getElementById('pr-priced-count').textContent = priced.length;
   document.getElementById('pr-median-price').textContent = money(median(priced));
   document.getElementById('pr-live-months').textContent = history.length;
-  if (history.length) document.getElementById('pr-status').innerHTML = `<strong>Live history active:</strong> ${history.length} monthly Amazon snapshot${history.length === 1 ? '' : 's'} archived through ${escapeHtml(latest.month)}. Month-over-month values appear only where the same exact configuration exists in consecutive snapshots.`;
+  if (history.length) document.getElementById('pr-status').innerHTML = `<strong>Live history active:</strong> ${history.length} monthly Amazon snapshot${history.length === 1 ? '' : 's'} archived through ${escapeHtml(latest.month)}. Month-over-month values appear only when the same ASIN exists in consecutive snapshots and still matches the current catalog configuration.`;
 
   const gpuSelect = document.getElementById('pr-gpu');
   [...new Set(laptops.map((item) => item.gpu))].sort((a, b) => (gpuRank[b] || 0) - (gpuRank[a] || 0)).forEach((gpu) => gpuSelect.insertAdjacentHTML('beforeend', `<option value="${escapeHtml(gpu)}">${escapeHtml(gpu)}</option>`));
