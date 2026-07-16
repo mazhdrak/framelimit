@@ -5,6 +5,15 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const clusters = [
   {
+    name: 'Best RTX 5060 gaming laptops',
+    guide: 'guide-best-rtx-5060-gaming-laptop-2026.html',
+    reviews: [
+      'review-lenovo-loq-15-gen10.html',
+      'review-acer-nitro-v-16-2026.html',
+      'review-gigabyte-gaming-a16.html',
+    ],
+  },
+  {
     name: 'RTX 5060 under $1,500',
     guide: 'guide-best-gaming-laptop-under-1500.html',
     reviews: [
