@@ -214,7 +214,8 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
   - [x] Четвърти money-page cluster batch: under-$2,000 guide-ът е свързан двупосочно с Helios Neo 16S, MSI Katana 15 HX, Legion 5i и TUF F16 exact-configuration reviews, включително тематични alternatives между RTX 5070-class моделите.
   - [x] Пети money-page cluster batch: under-$2,500 guide-ът е свързан двупосочно с Zephyrus G14, Alienware 16X Aurora, Razer Blade 14, Legion 7i и Omen Transcend 14 reviews; compact и larger-screen alternatives са свързани тематично.
   - [x] Шести AMD/Radeon money-page cluster batch: AMD Radeon guide-ът е свързан двупосочно с директно купуемите Flow Z13 Radeon 8060S и TUF A16 RX 7700S reviews; двете exact-retail страници са свързани и помежду си, без legacy Radeon кандидатите да се представят като текущи препоръки.
-  - [x] `scripts/audit-internal-links.mjs` вече валидира 10 двупосочни content clusters в 34 уникални cluster файла и блокира generic `Full Review`, `Read Review` и `Read more` anchors.
+  - [x] Седми best-overall money-page cluster batch: основният Best Gaming Laptops 2026 guide е свързан двупосочно с шестте си основни picks; generic `Read Full Review` CTA текстовете са заменени с model-specific anchors.
+  - [x] `scripts/audit-internal-links.mjs` вече валидира 11 двупосочни content clusters в 36 уникални cluster файла и блокира generic `Full Review`, `Read Full Review`, `Read Review` и `Read more` anchors.
 - [ ] Свързване на reviews с GPU и technology guides.
   - [x] Първи RTX 5060 technology-link batch: LOQ 15AHP10, Nitro V 16S и Gigabyte Gaming A16 reviews вече имат описателни backlinks към RTX 50 Laptop TGP Database и DLSS/FSR/Frame Generation database; `scripts/audit-internal-links.mjs` пази връзките.
   - [x] Втори RTX 5080 technology-link batch: Legion Pro 7i, MSI Vector 16, HP Omen Max 16, Zephyrus G16 и Strix G16 reviews вече водят към TGP и DLSS/Frame Generation техническите бази; същият audit guard валидира и петте страници.

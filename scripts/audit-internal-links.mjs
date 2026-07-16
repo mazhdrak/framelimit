@@ -77,6 +77,18 @@ const clusters = [
     ],
   },
   {
+    name: 'Best gaming laptops overall',
+    guide: 'guide-best-gaming-laptops-2026.html',
+    reviews: [
+      'review-lenovo-legion-pro-7i-gen10.html',
+      'review-razer-blade-16-2026.html',
+      'review-msi-vector-16-hx-ai.html',
+      'review-hp-omen-max-16-2026.html',
+      'review-lenovo-legion-5i-gen10.html',
+      'review-asus-tuf-gaming-a16-2026.html',
+    ],
+  },
+  {
     name: 'RTX 5080 laptops',
     guide: 'guide-best-rtx-5080-gaming-laptop-2026.html',
     technologyGuides: [
@@ -156,7 +168,7 @@ async function main() {
   for (const guide of allGuideFiles) {
     const links = linksFrom(await read(guide));
     for (const link of links.filter(({ target }) => /^review-.*\.html$/i.test(target))) {
-      if (/^(?:full review|read more|read review|learn more)\s*(?:â†’|→)?$/i.test(link.label)) {
+      if (/^(?:full review|read full review|read more|read review|learn more)\s*(?:â†’|→)?$/i.test(link.label)) {
         errors.push(`${guide} uses generic review anchor "${link.label}" for ${link.target}`);
       }
     }
@@ -167,7 +179,7 @@ async function main() {
     for (const review of reviews) {
       const links = guideLinks.filter((link) => link.target === review);
       if (!links.length) errors.push(`${name}: ${guide} must link to ${review}`);
-      if (links.some((link) => /^(?:full review|read more|read review)\s*(?:→|&rarr;)?$/i.test(link.label))) {
+      if (links.some((link) => /^(?:full review|read full review|read more|read review)\s*(?:→|&rarr;)?$/i.test(link.label))) {
         errors.push(`${name}: ${guide} uses a generic anchor for ${review}`);
       }
     }
