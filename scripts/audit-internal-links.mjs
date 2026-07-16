@@ -93,6 +93,18 @@ const clusters = [
     ],
   },
   {
+    name: 'ASUS TUF A16 vs TUF F16 RTX 5070',
+    guide: 'guide-asus-tuf-a16-vs-tuf-f16-rtx-5070.html',
+    technologyGuides: [
+      'guide-rtx-50-laptop-tgp-database.html',
+      'guide-dlss-fsr-frame-generation-database.html',
+    ],
+    reviews: [
+      'review-asus-tuf-gaming-a16-2026.html',
+      'review-asus-tuf-gaming-f16-rtx5070.html',
+    ],
+  },
+  {
     name: 'RTX 5060 under $1,500',
     guide: 'guide-best-gaming-laptop-under-1500.html',
     reviews: [
