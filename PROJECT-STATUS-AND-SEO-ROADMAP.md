@@ -232,7 +232,8 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
   - [x] Двадесет и втори RTX 5060 exact-SKU comparison cluster batch: LOQ 15AHP10 срещу Nitro V 16S ANV16S-41-R2AJ е свързан двупосочно с двата canonical reviews, като 115W срещу 85W остава power context, а не автоматичен FPS winner.
   - [x] Двадесет и трети RTX 5060 evidence-boundary comparison cluster batch: LOQ 15AHP10 срещу Gigabyte Gaming A16 CVHI3US894SH е свързан двупосочно с двата canonical reviews, като related 32GB Gigabyte benchmark остава отделен от директно купуемия 16GB SKU.
   - [x] Двадесет и четвърти compact RTX 5070 comparison cluster batch: Blade 14 RZ09-05306ES3-R3U1 срещу Zephyrus G14 GA403UP-CS96 е свързан двупосочно с двата canonical reviews, без exact Blade benchmark да се прехвърля към specifications-only G14 SKU-а; legacy URL-ът се запазва като моделно поколение.
-  - [x] `scripts/audit-internal-links.mjs` вече валидира 28 двупосочни content clusters в 55 уникални cluster файла и блокира generic `Full Review`, `Read Full Review`, `Read Review` и `Read more` anchors.
+  - [x] Двадесет и пети cross-platform comparison cluster batch: Flow Z13 GZ302EA-XS96 Radeon 8060S срещу Zephyrus G14 GA403UP-CS96 RTX 5070 е свързан двупосочно с двата canonical reviews и запазва архитектурните разлики отделени от несъществуващ matched FPS winner; legacy URL-ът се запазва като моделно поколение.
+  - [x] `scripts/audit-internal-links.mjs` вече валидира 29 двупосочни content clusters в 56 уникални cluster файла и блокира generic `Full Review`, `Read Full Review`, `Read Review` и `Read more` anchors.
 - [ ] Свързване на reviews с GPU и technology guides.
   - [x] Първи RTX 5060 technology-link batch: LOQ 15AHP10, Nitro V 16S и Gigabyte Gaming A16 reviews вече имат описателни backlinks към RTX 50 Laptop TGP Database и DLSS/FSR/Frame Generation database; `scripts/audit-internal-links.mjs` пази връзките.
   - [x] Втори RTX 5080 technology-link batch: Legion Pro 7i, MSI Vector 16, HP Omen Max 16, Zephyrus G16 и Strix G16 reviews вече водят към TGP и DLSS/Frame Generation техническите бази; същият audit guard валидира и петте страници.
@@ -255,6 +256,7 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
   - [x] Деветнадесети RTX 5060 comparison technology-link batch: LOQ 15AHP10 и Nitro V 16S reviews се валидират спрямо TGP и DLSS/Frame Generation базите заедно с exact-SKU comparison backlinks.
   - [x] Двадесети RTX 5060 evidence-boundary technology-link batch: LOQ 15AHP10 и Gigabyte Gaming A16 reviews се валидират спрямо TGP и DLSS/Frame Generation базите заедно с comparison backlinks и exact-vs-related evidence разграничението.
   - [x] Двадесет и първи compact RTX 5070 technology-link batch: Blade 14 и G14 reviews се валидират спрямо TGP и DLSS/Frame Generation базите заедно с exact-SKU comparison backlinks и matched-evidence границата.
+  - [x] Двадесет и втори Radeon-vs-RTX technology-link batch: Flow Z13 и G14 reviews се валидират спрямо RTX-vs-AMD explainer-а и DLSS/FSR/Frame Generation базата заедно с exact-SKU comparison backlinks.
 - [x] Добавяне на директни model-vs-model comparison страници; публикувани са осем exact-SKU/evidence-boundary comparisons, включително LOQ 15AHP10 срещу Nitro V 16S и Gigabyte Gaming A16 в RTX 5060 cluster-а.
 - [x] Добавяне на отделна `Best RTX 5060 Gaming Laptops` money page с две exact-evidence ranked конфигурации, една директно купуема unranked алтернатива, backlinks от трите reviews и връзки към двете model-vs-model comparison страници.
 - [x] Добавяне на описателни anchor текстове вместо само `Read more`.

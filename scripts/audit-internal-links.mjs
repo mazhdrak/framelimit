@@ -141,6 +141,18 @@ const clusters = [
     ],
   },
   {
+    name: 'ROG Flow Z13 Radeon 8060S vs Zephyrus G14 RTX 5070',
+    guide: 'guide-rog-flow-z13-vs-zephyrus-g14-2025.html',
+    technologyGuides: [
+      'guide-rtx-vs-amd-2026.html',
+      'guide-dlss-fsr-frame-generation-database.html',
+    ],
+    reviews: [
+      'review-asus-rog-flow-z13-radeon-8060s.html',
+      'review-asus-rog-zephyrus-g14-2026.html',
+    ],
+  },
+  {
     name: 'RTX 5060 under $1,500',
     guide: 'guide-best-gaming-laptop-under-1500.html',
     reviews: [
