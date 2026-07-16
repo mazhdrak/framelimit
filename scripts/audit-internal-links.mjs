@@ -114,6 +114,15 @@ const clusters = [
     ],
   },
   {
+    name: 'Gaming laptops for video editing',
+    guide: 'guide-best-gaming-laptop-video-editing-2026.html',
+    reviews: [
+      'review-razer-blade-16-2026.html',
+      'review-asus-rog-zephyrus-g14-2026.html',
+      'review-lenovo-legion-pro-7i-gen10.html',
+    ],
+  },
+  {
     name: 'RTX 5080 laptops',
     guide: 'guide-best-rtx-5080-gaming-laptop-2026.html',
     technologyGuides: [
