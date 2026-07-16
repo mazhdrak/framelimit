@@ -6,6 +6,9 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PARTNER_TAG = 'framelimit20-20';
 const expectedOrigin = 'https://framelimit.com/';
+const retiredGuideAsins = new Map([
+  ['B0FMFZHNYP', 'retired TUF A16 RTX 5060 offer'],
+]);
 
 function publicUrl(file) {
   return expectedOrigin + file.replace(/\.html$/i, '');
@@ -114,6 +117,9 @@ async function auditGuide(file, laptopIds, results) {
     }
     if (/amazon\.com\/dp\//i.test(url) && label.includes('search amazon')) {
       add(results, file, 'error', 'direct ASIN link is labeled as a search fallback');
+    }
+    for (const [asin, reason] of retiredGuideAsins) {
+      if (url.includes(`/dp/${asin}`)) add(results, file, 'error', `uses ${reason}: ${asin}`);
     }
   }
 
