@@ -62,11 +62,8 @@ function auditLaptopData(laptops, results) {
     if (laptop.battery !== null && (!Number.isFinite(laptop.battery) || laptop.battery <= 0)) {
       add(results, 'laptops.js', 'error', `${laptop.id} has an invalid battery capacity`);
     }
-    const hasSourceMetadata = laptop.modelCode || laptop.specSource || laptop.specCheckedAt;
-    if (hasSourceMetadata) {
-      if (!laptop.modelCode || !/^https:\/\//.test(laptop.specSource || '') || !/^\d{4}-\d{2}-\d{2}$/.test(laptop.specCheckedAt || '')) {
-        add(results, 'laptops.js', 'error', `${laptop.id} has incomplete spec-source metadata`);
-      }
+    if (!laptop.modelCode || !/^https:\/\//.test(laptop.specSource || '') || !/^\d{4}-\d{2}-\d{2}$/.test(laptop.specCheckedAt || '')) {
+      add(results, 'laptops.js', 'error', `${laptop.id} has incomplete spec-source metadata`);
     }
   }
 }
