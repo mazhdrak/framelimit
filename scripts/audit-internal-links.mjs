@@ -81,6 +81,18 @@ const clusters = [
     ],
   },
   {
+    name: 'HP Omen Max 16 vs MSI Vector 16 HX AI',
+    guide: 'guide-hp-omen-max-16-vs-msi-vector-16-hx-ai.html',
+    technologyGuides: [
+      'guide-rtx-50-laptop-tgp-database.html',
+      'guide-dlss-fsr-frame-generation-database.html',
+    ],
+    reviews: [
+      'review-hp-omen-max-16-2026.html',
+      'review-msi-vector-16-hx-ai.html',
+    ],
+  },
+  {
     name: 'RTX 5060 under $1,500',
     guide: 'guide-best-gaming-laptop-under-1500.html',
     reviews: [
