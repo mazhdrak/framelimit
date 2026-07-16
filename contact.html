@@ -19,8 +19,10 @@
 .cb-icon{font-size:28px;margin-bottom:12px}
 .cb-title{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
 .cb-text{font-size:14px;color:var(--text);line-height:1.8;margin-bottom:14px}
-.cb-link{display:inline-block;background:var(--cyan);color:var(--black);font-family:'Barlow',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:10px 20px;text-decoration:none;transition:filter .2s}
-.cb-link:hover{filter:brightness(1.1)}
+.cb-link{display:inline-block;background:var(--cyan);color:var(--black);font-family:'Barlow',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:10px 20px;text-decoration:none;transition:background-color .2s,filter .2s}
+.article-body a.cb-link:not(.ghost),.article-body a.cb-link:not(.ghost):visited,.article-body a.cb-link:not(.ghost):hover,.article-body a.cb-link:not(.ghost):active{color:var(--black);border-bottom:0}
+.article-body a.cb-link:not(.ghost):hover{background:var(--white);filter:none}
+.article-body a.cb-link:focus-visible{outline:2px solid var(--white);outline-offset:3px}
 .cb-link.ghost{background:transparent;color:var(--cyan);border:1px solid rgba(0,212,255,.4)}
 .cb-link.ghost:hover{background:rgba(0,212,255,.07)}
 .faq-item{border-bottom:1px solid var(--border);padding:20px 0}
