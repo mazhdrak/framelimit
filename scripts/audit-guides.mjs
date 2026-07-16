@@ -71,7 +71,7 @@ function auditLaptopData(laptops, results) {
   }
 }
 
-async function auditGuide(file, laptopIds, results) {
+async function auditGuide(file, laptopIds, allowedRetailAsins, results) {
   const source = await fs.readFile(path.join(ROOT, file), 'utf8');
   const canonical = source.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i)?.[1];
   const expectedCanonical = publicUrl(file);
@@ -118,6 +118,10 @@ async function auditGuide(file, laptopIds, results) {
     if (/amazon\.com\/dp\//i.test(url) && label.includes('search amazon')) {
       add(results, file, 'error', 'direct ASIN link is labeled as a search fallback');
     }
+    const directAsin = url.match(/amazon\.com\/dp\/([A-Z0-9]{10})/i)?.[1]?.toUpperCase();
+    if (directAsin && !allowedRetailAsins.has(directAsin)) {
+      add(results, file, 'error', `direct ASIN is not in laptops.js or price-data.js: ${directAsin}`);
+    }
     for (const [asin, reason] of retiredGuideAsins) {
       if (url.includes(`/dp/${asin}`)) add(results, file, 'error', `uses ${reason}: ${asin}`);
     }
@@ -151,9 +155,14 @@ async function main() {
   const guides = entries.filter((file) => /^guide-.*\.html$/i.test(file)).sort();
   const laptops = await loadLaptops();
   const laptopIds = new Set(laptops.map((laptop) => laptop.id));
+  const allowedRetailAsins = new Set(laptops.map((laptop) => laptop.amazonAsin));
+  const priceDataSource = await fs.readFile(path.join(ROOT, 'price-data.js'), 'utf8');
+  for (const match of priceDataSource.matchAll(/amazon\.com\/dp\/([A-Z0-9]{10})/gi)) {
+    allowedRetailAsins.add(match[1].toUpperCase());
+  }
   const results = [];
   auditLaptopData(laptops, results);
-  for (const guide of guides) await auditGuide(guide, laptopIds, results);
+  for (const guide of guides) await auditGuide(guide, laptopIds, allowedRetailAsins, results);
 
   results.forEach(({ file, severity, message }) => console.log(`${severity.toUpperCase()} ${file}: ${message}`));
   const errors = results.filter((result) => result.severity === 'error').length;
