@@ -220,6 +220,7 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
   - [x] Site-wide guide anchor batch: всички 36 `guide-*.html` страници са проверени, 25 generic review CTA текста са заменени с model-specific anchors, а `scripts/audit-internal-links.mjs` вече блокира повторната им поява във всеки guide.
 - [x] Проверка всяка важна страница да има поне един crawlable вътрешен линк; `scripts/audit-crawlable-pages.mjs` валидира всички sitemap URL-и, а откритите orphan comparison и review-notes страници са свързани тематично от Compare и Methodology.
 - [ ] Добавяне на related reviews и alternatives в края на страниците.
+  - [x] Първи related-review batch: Flow Z13 Radeon 8060S, HP Omen Transcend 14, Lenovo Legion 7i Gen 10 и MSI Stealth A16 AI+ вече водят към поне две тематично близки review алтернативи; audit guard-ът пази връзките.
 
 Примерен cluster:
 
