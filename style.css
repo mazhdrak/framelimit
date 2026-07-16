@@ -114,14 +114,17 @@ section{padding:80px 32px}
 
 /* ── BEST PICKS ── */
 #best-picks{background:var(--deep)}
-.picks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.pick-card{background:var(--panel);border:1px solid var(--border);padding:20px;transition:border-color .2s;position:relative}.pick-card:hover{border-color:var(--cyan)}
-.pick-badge{font-family:'JetBrains Mono',monospace;font-size:8px;padding:3px 8px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;display:inline-block}
-.pick-name{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--white);margin-bottom:4px}
-.pick-spec{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px}
-.pick-price{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--green);margin-bottom:12px}
-.pick-score{position:absolute;top:16px;right:16px;font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--white);line-height:1;text-align:right}
-.pick-score-sub{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);text-align:right;letter-spacing:1px}
+.picks-tabs{display:flex;gap:0;margin-bottom:28px;border:1px solid var(--border)}
+#best-picks .picks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+#best-picks .picks-grid[hidden]{display:none}
+#best-picks .pick-card{background:var(--panel);border:1px solid var(--border);padding:20px;transition:border-color .2s;position:relative;margin:0;overflow:visible}
+#best-picks .pick-card:hover{border-color:var(--cyan)}
+#best-picks .pick-badge{font-family:'JetBrains Mono',monospace;font-size:8px;padding:3px 8px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;display:inline-block}
+#best-picks .pick-name{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--white);margin-bottom:4px}
+#best-picks .pick-spec{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+#best-picks .pick-price{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--green);margin-bottom:12px}
+#best-picks .pick-score{position:absolute;top:16px;right:16px;font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--white);line-height:1;text-align:right}
+#best-picks .pick-score-sub{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);text-align:right;letter-spacing:1px}
 .pick-btn{display:block;background:transparent;border:1px solid var(--border);color:var(--text);text-align:center;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:8px;text-decoration:none;transition:all .2s}.pick-btn:hover{border-color:var(--cyan);color:var(--cyan)}
 
 /* ── BUDGET FINDER ── */
@@ -228,7 +231,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:48px 32
   .hero-inner{grid-template-columns:1fr}
   .hero-picks{display:grid;grid-template-columns:repeat(2,1fr)}
   .deals-grid{grid-template-columns:repeat(2,1fr)}
-  .picks-grid{grid-template-columns:repeat(2,1fr)}
+  #best-picks .picks-grid{grid-template-columns:repeat(2,1fr)}
   .finder-results{grid-template-columns:repeat(2,minmax(0,1fr))}
   .blog-grid{grid-template-columns:repeat(2,1fr)}
   .footer-top{grid-template-columns:1fr 1fr}
@@ -241,7 +244,7 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:48px 32
   .hero{padding:90px 20px 50px}
   section{padding:60px 20px}
   .deals-grid{grid-template-columns:1fr}
-  .picks-grid{grid-template-columns:1fr}
+  #best-picks .picks-grid{grid-template-columns:1fr}
   .finder-results{grid-template-columns:1fr}
   .blog-grid{grid-template-columns:1fr}
   .pa-form{grid-template-columns:1fr}
@@ -253,6 +256,8 @@ footer{background:var(--deep);border-top:1px solid var(--border);padding:48px 32
   .hero-picks{grid-template-columns:1fr}
   .hero-stats{gap:20px}
   .gpu-tabs{flex-wrap:wrap}
+  .picks-tabs{flex-wrap:wrap}
+  .picks-tabs .gpu-tab{flex:1 1 auto}
 }
 
 /* ══════════════════════════════════════════════════════

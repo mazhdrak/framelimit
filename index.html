@@ -224,21 +224,20 @@
   <div class="section-inner">
     <div class="section-header">
       <div class="section-label">Editor Recommendations</div>
-      <h2 class="section-title">Best Picks by Category</h2>
-      <p class="section-sub">One evidence-led recommendation per category. No sponsored placements.</p>
+      <h2 class="section-title">Best Picks by Performance Tier</h2>
+      <p class="section-sub">Three evidence-led recommendations per performance tier. No sponsored placements.</p>
     </div>
 
     <!-- Tier filter tabs for picks -->
-    <div style="display:flex;gap:0;margin-bottom:28px;border:1px solid var(--border)">
-      <button class="gpu-tab active" onclick="switchPicksTier('flagship',this)">🔥 Flagship</button>
-      <button class="gpu-tab" onclick="switchPicksTier('mid',this)">⚖️ Mid-Range</button>
-      <button class="gpu-tab" onclick="switchPicksTier('budget',this)">💰 Budget</button>
+    <div class="picks-tabs" role="tablist" aria-label="Laptop recommendation tier">
+      <button id="picks-tab-flagship" class="gpu-tab active" type="button" role="tab" aria-selected="true" aria-controls="picks-flagship" tabindex="0" onclick="switchPicksTier('flagship',this)" onkeydown="handlePicksTabKey(event)">Flagship</button>
+      <button id="picks-tab-mid" class="gpu-tab" type="button" role="tab" aria-selected="false" aria-controls="picks-mid" tabindex="-1" onclick="switchPicksTier('mid',this)" onkeydown="handlePicksTabKey(event)">Mid-Range</button>
+      <button id="picks-tab-budget" class="gpu-tab" type="button" role="tab" aria-selected="false" aria-controls="picks-budget" tabindex="-1" onclick="switchPicksTier('budget',this)" onkeydown="handlePicksTabKey(event)">Budget</button>
     </div>
 
-    <!-- Flagship picks grid (shown by default, 70/20/10 ratio → show 2 flagship, 4 mid, 2 budget) -->
-    <div id="picks-flagship" class="picks-grid" data-fl-picks-grid="asus-rog-scar-18-2026,lenovo-legion-pro-7i-gen10,razer-blade-16-oled-2026,hp-omen-max-16-2026,alienware-18-area-51,asus-rog-zephyrus-g16-high"></div>
-    <div id="picks-mid"      class="picks-grid" style="display:none" data-fl-picks-grid="lenovo-legion-5i-gen10,asus-rog-zephyrus-g14-2026,asus-rog-zephyrus-g16-mid,msi-vector-16-hx-ai,hp-omen-16-rtx5070-2026,asus-tuf-gaming-f16-rtx5070"></div>
-  <div id="picks-budget"   class="picks-grid" style="display:none" data-fl-picks-grid="lenovo-loq-15-gen10,acer-nitro-16-2025,gigabyte-gaming-a16-rtx5060,acer-nitro-v-16"></div>
+    <div id="picks-flagship" class="picks-grid" role="tabpanel" aria-labelledby="picks-tab-flagship" data-fl-picks-grid="asus-rog-scar-18-2026,lenovo-legion-pro-7i-gen10,asus-rog-zephyrus-g16-high"></div>
+    <div id="picks-mid" class="picks-grid" role="tabpanel" aria-labelledby="picks-tab-mid" data-fl-picks-grid="lenovo-legion-5i-gen10,asus-rog-zephyrus-g14-2026,msi-vector-16-hx-ai" hidden></div>
+    <div id="picks-budget" class="picks-grid" role="tabpanel" aria-labelledby="picks-tab-budget" data-fl-picks-grid="lenovo-loq-15-gen10,acer-nitro-16-2025,acer-nitro-v-16" hidden></div>
   </div>
 </section>
 
@@ -558,13 +557,30 @@ function syncHomepageCounts() {
 
 /* ── PICKS TIER SWITCHER ── */
 function switchPicksTier(tier, btn) {
-  document.querySelectorAll('.gpu-tab').forEach(t => {
-    if (t.closest('#best-picks')) t.classList.remove('active');
+  const section = document.getElementById('best-picks');
+  section.querySelectorAll('[role="tab"]').forEach(tab => {
+    const isActive = tab === btn;
+    tab.classList.toggle('active', isActive);
+    tab.setAttribute('aria-selected', String(isActive));
+    tab.tabIndex = isActive ? 0 : -1;
   });
-  btn.classList.add('active');
-  document.getElementById('picks-flagship').style.display = tier === 'flagship' ? '' : 'none';
-  document.getElementById('picks-mid').style.display      = tier === 'mid'      ? '' : 'none';
-  document.getElementById('picks-budget').style.display   = tier === 'budget'   ? '' : 'none';
+  ['flagship', 'mid', 'budget'].forEach(panelTier => {
+    document.getElementById(`picks-${panelTier}`).hidden = panelTier !== tier;
+  });
+}
+
+function handlePicksTabKey(event) {
+  const tabs = Array.from(event.currentTarget.closest('[role="tablist"]').querySelectorAll('[role="tab"]'));
+  const currentIndex = tabs.indexOf(event.currentTarget);
+  let nextIndex;
+  if (event.key === 'ArrowRight') nextIndex = (currentIndex + 1) % tabs.length;
+  else if (event.key === 'ArrowLeft') nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+  else if (event.key === 'Home') nextIndex = 0;
+  else if (event.key === 'End') nextIndex = tabs.length - 1;
+  else return;
+  event.preventDefault();
+  tabs[nextIndex].focus();
+  tabs[nextIndex].click();
 }
 
 /* ── SPEC TABLE TIER SWITCHER ── */
