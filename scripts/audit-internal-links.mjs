@@ -27,6 +27,20 @@ const clusters = [
     ],
   },
   {
+    name: 'RTX 5070 class under $2,000',
+    guide: 'guide-best-gaming-laptop-under-2000.html',
+    technologyGuides: [
+      'guide-rtx-50-laptop-tgp-database.html',
+      'guide-dlss-fsr-frame-generation-database.html',
+    ],
+    reviews: [
+      'review-acer-predator-helios-neo-16.html',
+      'review-msi-katana-15-hx.html',
+      'review-lenovo-legion-5i-gen10.html',
+      'review-asus-tuf-gaming-f16-rtx5070.html',
+    ],
+  },
+  {
     name: 'Gaming laptops under $3,000',
     guide: 'guide-best-gaming-laptop-under-3000.html',
     reviews: [
