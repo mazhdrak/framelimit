@@ -57,6 +57,18 @@ const clusters = [
     ],
   },
   {
+    name: 'Razer Blade 16 vs Legion Pro 7i',
+    guide: 'guide-razer-blade-16-vs-legion-pro-7i-2026.html',
+    technologyGuides: [
+      'guide-rtx-50-laptop-tgp-database.html',
+      'guide-dlss-fsr-frame-generation-database.html',
+    ],
+    reviews: [
+      'review-razer-blade-16-2026.html',
+      'review-lenovo-legion-pro-7i-gen10.html',
+    ],
+  },
+  {
     name: 'RTX 5060 under $1,500',
     guide: 'guide-best-gaming-laptop-under-1500.html',
     reviews: [
