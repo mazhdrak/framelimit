@@ -226,7 +226,8 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
   - [x] Шестнадесети buying-guide hub batch: основният Gaming Laptop Buying Guide вече прилага checklist-а към четири current exact-SKU примера за budget, balanced, performance и portable-flagship избор и е свързан двупосочно с LOQ 15, Legion 5i, Legion Pro 7i и Blade 16 reviews.
   - [x] Седемнадесети exact-SKU comparison cluster batch: Legion Pro 7i 83F50053US срещу ROG Strix G16 G615LW е свързан двупосочно с двата canonical reviews; model-to-model review връзките и comparison backlinks вече се пазят автоматично.
   - [x] Осемнадесети flagship comparison cluster batch: Blade 16 RZ09-05819EN9-R3U1 срещу Legion Pro 7i 83F50053US е свързан двупосочно с двата canonical reviews, като различните benchmark протоколи остават ясно отделени без синтетичен winner.
-  - [x] `scripts/audit-internal-links.mjs` вече валидира 22 двупосочни content clusters в 49 уникални cluster файла и блокира generic `Full Review`, `Read Full Review`, `Read Review` и `Read more` anchors.
+  - [x] Деветнадесети AMD-vs-Intel flagship comparison cluster batch: Raider A18 HX A9WJG-052US срещу Raider 18 HX AI A2XWJG е свързан двупосочно с двата canonical reviews и запазва CPU winner-а непубликуван без matched exact-SKU тестове.
+  - [x] `scripts/audit-internal-links.mjs` вече валидира 23 двупосочни content clusters в 50 уникални cluster файла и блокира generic `Full Review`, `Read Full Review`, `Read Review` и `Read more` anchors.
 - [ ] Свързване на reviews с GPU и technology guides.
   - [x] Първи RTX 5060 technology-link batch: LOQ 15AHP10, Nitro V 16S и Gigabyte Gaming A16 reviews вече имат описателни backlinks към RTX 50 Laptop TGP Database и DLSS/FSR/Frame Generation database; `scripts/audit-internal-links.mjs` пази връзките.
   - [x] Втори RTX 5080 technology-link batch: Legion Pro 7i, MSI Vector 16, HP Omen Max 16, Zephyrus G16 и Strix G16 reviews вече водят към TGP и DLSS/Frame Generation техническите бази; същият audit guard валидира и петте страници.
@@ -243,6 +244,7 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
   - [x] Тринадесети buying-guide technology-link coverage batch: четирите representative exact-SKU reviews се валидират спрямо RTX 50 TGP и DLSS/Frame Generation базите, а общият buying guide служи като crawlable hub между ценовите нива и моделните анализи.
   - [x] Четиринадесети RTX 5080 comparison technology-link batch: Legion Pro 7i и Strix G16 reviews се валидират спрямо TGP и DLSS/Frame Generation базите заедно с exact-SKU comparison връзките им.
   - [x] Петнадесети flagship comparison technology-link batch: Blade 16 и Legion Pro 7i reviews се валидират спрямо TGP и DLSS/Frame Generation базите заедно с exact-SKU comparison backlinks.
+  - [x] Шестнадесети AMD-vs-Intel comparison technology-link batch: двата Raider RTX 5090 reviews се валидират спрямо TGP и DLSS/Frame Generation базите заедно с exact-SKU comparison backlinks.
 - [x] Добавяне на директни model-vs-model comparison страници; публикувани са осем exact-SKU/evidence-boundary comparisons, включително LOQ 15AHP10 срещу Nitro V 16S и Gigabyte Gaming A16 в RTX 5060 cluster-а.
 - [x] Добавяне на отделна `Best RTX 5060 Gaming Laptops` money page с две exact-evidence ranked конфигурации, една директно купуема unranked алтернатива, backlinks от трите reviews и връзки към двете model-vs-model comparison страници.
 - [x] Добавяне на описателни anchor текстове вместо само `Read more`.

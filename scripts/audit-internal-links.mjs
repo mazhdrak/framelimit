@@ -69,6 +69,18 @@ const clusters = [
     ],
   },
   {
+    name: 'MSI Raider A18 HX AMD vs Raider 18 HX AI',
+    guide: 'guide-msi-raider-a18-hx-vs-raider-18-hx-ai.html',
+    technologyGuides: [
+      'guide-rtx-50-laptop-tgp-database.html',
+      'guide-dlss-fsr-frame-generation-database.html',
+    ],
+    reviews: [
+      'review-msi-raider-a18-hx-amd.html',
+      'review-msi-raider-18-hx-ai.html',
+    ],
+  },
+  {
     name: 'RTX 5060 under $1,500',
     guide: 'guide-best-gaming-laptop-under-1500.html',
     reviews: [
