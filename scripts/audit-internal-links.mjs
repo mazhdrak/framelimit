@@ -97,6 +97,16 @@ async function main() {
   const files = new Set(clusters.flatMap(({ guide, reviews }) => [guide, ...reviews]));
   for (const file of files) sources.set(file, await read(file));
 
+  const allGuideFiles = (await fs.readdir(ROOT)).filter((file) => /^guide-.*\.html$/i.test(file));
+  for (const guide of allGuideFiles) {
+    const links = linksFrom(await read(guide));
+    for (const link of links.filter(({ target }) => /^review-.*\.html$/i.test(target))) {
+      if (/^(?:full review|read more|read review|learn more)\s*(?:â†’|→)?$/i.test(link.label)) {
+        errors.push(`${guide} uses generic review anchor "${link.label}" for ${link.target}`);
+      }
+    }
+  }
+
   for (const { name, guide, reviews, technologyGuides = [] } of clusters) {
     const guideLinks = linksFrom(sources.get(guide));
     for (const review of reviews) {
@@ -124,7 +134,7 @@ async function main() {
   }
 
   for (const error of errors) console.error(`ERROR ${error}`);
-  console.log(`Audited ${clusters.length} internal-link clusters across ${files.size} files: ${errors.length} errors.`);
+  console.log(`Audited ${clusters.length} internal-link clusters, ${allGuideFiles.length} guides, and ${files.size} cluster files: ${errors.length} errors.`);
   if (errors.length) process.exitCode = 1;
 }
 
