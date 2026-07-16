@@ -50,6 +50,21 @@ const clusters = [
     ],
   },
   {
+    name: 'Premium RTX 5070 class under $2,500',
+    guide: 'guide-best-gaming-laptop-under-2500.html',
+    technologyGuides: [
+      'guide-rtx-50-laptop-tgp-database.html',
+      'guide-dlss-fsr-frame-generation-database.html',
+    ],
+    reviews: [
+      'review-asus-rog-zephyrus-g14-2026.html',
+      'review-alienware-16x-aurora.html',
+      'review-razer-blade-14-2026.html',
+      'review-lenovo-legion-7i-gen10.html',
+      'review-hp-omen-transcend-14.html',
+    ],
+  },
+  {
     name: 'RTX 5080 laptops',
     guide: 'guide-best-rtx-5080-gaming-laptop-2026.html',
     technologyGuides: [
