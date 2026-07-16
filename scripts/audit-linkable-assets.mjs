@@ -10,7 +10,7 @@ const assets = [
   },
   {
     file: 'guide-dlss-fsr-frame-generation-database.html',
-    required: ['<table', '137', 'benchmark-data.js'],
+    required: ['<table', '137', 'benchmark-data.js', 'id="matched-mode-charts"', 'Average FPS', 'Published 1% low'],
   },
   {
     file: 'guide-gaming-laptop-display-database.html',

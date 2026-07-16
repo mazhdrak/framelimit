@@ -241,7 +241,8 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 - [x] DLSS/FSR/Frame Generation comparison database.
 - [ ] История на Amazon цените по точен SKU.
 - [x] Сравнение на еднакъв GPU при различен TGP; TGP Database вече има crawlable exact-model таблица за четири RTX 50 диапазона с review връзки и изрично отделя power envelope от измерен FPS резултат.
-- [ ] Графики за average FPS, 1% low и performance-per-dollar.
+- [x] Графики за Average FPS и 1% Low; Benchmark Database визуализира 14 exact-condition групи, отделя generated от rendered/upscaled FPS, има достъпни стойностни labels и не изчислява несъпоставим cross-source average.
+- [ ] Performance-per-dollar графики след налични надеждни live цени за същите exact SKU; reference цени не се представят като текущи оферти.
 - [x] Таблица с display brightness, gamut, refresh rate и response time; текущият Display Database публикува само последователно sourced exact-model полета и ясно обозначава липсващите gamut/response-time измервания вместо да смесва несъпоставими протоколи.
 
 `scripts/audit-linkable-assets.mjs` валидира четирите публикувани оригинални assets за canonical, meta description, H1, основна таблица/данни, sitemap присъствие и поне два crawlable входящи линка.

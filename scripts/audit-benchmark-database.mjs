@@ -75,6 +75,7 @@ async function main() {
   if (!script.includes('FL_MODEL_BENCHMARKS')) errors.push('client script does not use the central benchmark datasets');
   if (!script.includes("return 'generated'") || !script.includes("return 'upscaled'") || !script.includes("return 'native'")) errors.push('client classifier is incomplete');
   if (!page.includes('id="matched-mode-charts"') || !script.includes('renderMatchedChart') || !script.includes('matchedGroups')) errors.push('matched-condition charts are incomplete');
+  if (!script.includes('role="img"') || !script.includes('aria-label=') || !script.includes('aria-hidden="true"')) errors.push('matched-condition charts are missing accessible value labels');
   if (!page.includes('Performance-per-dollar is intentionally omitted')) errors.push('chart section is missing the live-price limitation');
   if (!sitemap.includes(`https://framelimit.com/${SLUG}`)) errors.push('database is missing from sitemap.xml');
 

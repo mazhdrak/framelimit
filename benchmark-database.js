@@ -81,9 +81,10 @@
     document.getElementById('benchdb-chart').innerHTML = group.rows.map((row) => {
       const averageWidth = row.averageFps / maxFps * 100;
       const lowWidth = Number.isFinite(row.low1Fps) ? row.low1Fps / maxFps * 100 : 0;
-      return `<div class="benchdb-chart-row ${row.mode}">
+      const accessibleValue = `${row.setting}: ${row.averageFps} average FPS; ${Number.isFinite(row.low1Fps) ? `${row.low1Fps} FPS 1% low` : '1% low not published'}`;
+      return `<div class="benchdb-chart-row ${row.mode}" role="img" aria-label="${escapeHtml(accessibleValue)}">
         <div class="benchdb-chart-label">${escapeHtml(row.setting)}</div>
-        <div class="benchdb-chart-track"><div class="benchdb-chart-bar" style="width:${averageWidth}%"></div>${lowWidth ? `<div class="benchdb-chart-low" style="width:${lowWidth}%"></div>` : ''}</div>
+        <div class="benchdb-chart-track" aria-hidden="true"><div class="benchdb-chart-bar" style="width:${averageWidth}%"></div>${lowWidth ? `<div class="benchdb-chart-low" style="width:${lowWidth}%"></div>` : ''}</div>
         <div class="benchdb-chart-value">${row.averageFps} FPS<small>${Number.isFinite(row.low1Fps) ? `${row.low1Fps} 1% low` : '1% low N/A'}</small></div>
       </div>`;
     }).join('') + `<p class="benchdb-chart-warning">Source: ${group.sourceUrl ? `<a class="benchdb-link" href="${escapeHtml(group.sourceUrl)}" target="_blank" rel="nofollow noopener">${escapeHtml(group.sourceName)} →</a>` : escapeHtml(group.sourceName)}. Compare only within this chart; no cross-source average is calculated.</p>`;
