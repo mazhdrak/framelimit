@@ -31,6 +31,20 @@ const clusters = [
     ],
   },
   {
+    name: 'Gaming laptop buying guide hub',
+    guide: 'guide-gaming-laptop-buying-guide-2026.html',
+    technologyGuides: [
+      'guide-rtx-50-laptop-tgp-database.html',
+      'guide-dlss-fsr-frame-generation-database.html',
+    ],
+    reviews: [
+      'review-lenovo-loq-15-gen10.html',
+      'review-lenovo-legion-5i-gen10.html',
+      'review-lenovo-legion-pro-7i-gen10.html',
+      'review-razer-blade-16-2026.html',
+    ],
+  },
+  {
     name: 'RTX 5060 under $1,500',
     guide: 'guide-best-gaming-laptop-under-1500.html',
     reviews: [
