@@ -17,11 +17,19 @@ async function loadReviewMap() {
   return new Map(Array.from(source.matchAll(/'([^']+)':\s*'([^']+)'/g), ([, id, target]) => [id, target]));
 }
 
+async function loadAllowedRetailAsins(catalog) {
+  const allowed = new Set(catalog.map((laptop) => laptop.amazonAsin));
+  const priceData = await fs.readFile(path.join(ROOT, 'price-data.js'), 'utf8');
+  for (const match of priceData.matchAll(/amazon\.com\/dp\/([A-Z0-9]{10})/gi)) allowed.add(match[1].toUpperCase());
+  return allowed;
+}
+
 async function main() {
   const [catalog, reviewMap] = await Promise.all([loadCatalog(), loadReviewMap()]);
   const errors = [];
   const checked = [];
   const checkedAnchors = [];
+  const checkedReviewLinks = [];
   const ids = new Set();
   const asins = new Set();
 
@@ -65,8 +73,20 @@ async function main() {
     }
   }
 
+  const allowedRetailAsins = await loadAllowedRetailAsins(catalog);
+  const entries = await fs.readdir(ROOT);
+  const reviewFiles = entries.filter((file) => /^(?:review-.*|reviews)\.html$/i.test(file));
+  for (const file of reviewFiles) {
+    const html = await fs.readFile(path.join(ROOT, file), 'utf8');
+    for (const match of html.matchAll(/<a\b[^>]*href=["']https:\/\/www\.amazon\.com\/dp\/([A-Z0-9]{10})[^"']*["'][^>]*>/gi)) {
+      const asin = match[1].toUpperCase();
+      checkedReviewLinks.push([file, asin]);
+      if (!allowedRetailAsins.has(asin)) errors.push(`${file} links to unmanaged direct ASIN ${asin}`);
+    }
+  }
+
   for (const error of errors) console.error(`ERROR ${error}`);
-  console.log(`Audited ${catalog.length} unique catalog offers, ${checked.length} direct review mappings and ${checkedAnchors.length} anchored review-note mappings: ${errors.length} errors.`);
+  console.log(`Audited ${catalog.length} unique catalog offers, ${checked.length} direct review mappings, ${checkedAnchors.length} anchored review-note mappings and ${checkedReviewLinks.length} review affiliate links: ${errors.length} errors.`);
   if (errors.length) process.exitCode = 1;
 }
 

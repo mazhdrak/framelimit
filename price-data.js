@@ -20,6 +20,18 @@
       name: 'Lenovo Legion 7i Gen 10',
       price: 2199,
       amazonUrl: 'https://www.amazon.com/dp/B0FWVFBB81?tag=framelimit20-20'
+    },
+    'msi-stealth-a16-ai-plus': {
+      id: 'msi-stealth-a16-ai-plus',
+      name: 'MSI Stealth A16 AI+',
+      price: 2699,
+      amazonUrl: 'https://www.amazon.com/dp/B0DYSHDBPN?tag=framelimit20-20'
+    },
+    'hp-omen-transcend-14': {
+      id: 'hp-omen-transcend-14',
+      name: 'HP Omen Transcend 14',
+      price: 1669,
+      amazonUrl: 'https://www.amazon.com/dp/B0GCQCMGDC?tag=framelimit20-20'
     }
   };
 
