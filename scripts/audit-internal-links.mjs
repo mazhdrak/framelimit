@@ -129,6 +129,18 @@ const clusters = [
     ],
   },
   {
+    name: 'Razer Blade 14 vs Zephyrus G14 RTX 5070',
+    guide: 'guide-razer-blade-14-vs-zephyrus-g14-2025.html',
+    technologyGuides: [
+      'guide-rtx-50-laptop-tgp-database.html',
+      'guide-dlss-fsr-frame-generation-database.html',
+    ],
+    reviews: [
+      'review-razer-blade-14-2026.html',
+      'review-asus-rog-zephyrus-g14-2026.html',
+    ],
+  },
+  {
     name: 'RTX 5060 under $1,500',
     guide: 'guide-best-gaming-laptop-under-1500.html',
     reviews: [
