@@ -89,7 +89,6 @@ function flReviewLink(id) {
     'acer-predator-helios-neo-16-2025': 'review-acer-predator-helios-neo-16',
     'acer-nitro-16-2025':               'review-notes-2026#acer-nitro-16-2025',
     'acer-nitro-v-16':                  'review-acer-nitro-v-16-2026',
-    'asus-tuf-gaming-a16-amd':          'review-notes-2026#asus-tuf-gaming-a16-amd',
     'gigabyte-gaming-a16-rtx5060':      'review-gigabyte-gaming-a16',
     'dell-g16-rtx4070':                 'review-alienware-16-aurora',
     'msi-raider-a18-hx-amd':            'review-msi-raider-a18-hx-amd',

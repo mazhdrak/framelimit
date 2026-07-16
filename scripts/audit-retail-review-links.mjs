@@ -21,6 +21,7 @@ async function main() {
   const [catalog, reviewMap] = await Promise.all([loadCatalog(), loadReviewMap()]);
   const errors = [];
   const checked = [];
+  const checkedAnchors = [];
   const ids = new Set();
   const asins = new Set();
 
@@ -35,15 +36,37 @@ async function main() {
     if (normalizedUrl !== exactUrl) errors.push(`${laptop.id} direct URL does not match amazonAsin`);
 
     const target = reviewMap.get(laptop.id);
-    if (!target || target.includes('#')) continue;
-    const file = `${target}.html`;
+    if (!target) continue;
+    const [page, fragment] = target.split('#');
+    const file = `${page}.html`;
     const html = await fs.readFile(path.join(ROOT, file), 'utf8');
-    checked.push([laptop.id, file]);
-    if (!html.includes(laptop.amazonAsin)) errors.push(`${file} does not contain mapped ${laptop.id} ASIN ${laptop.amazonAsin}`);
+
+    if (!fragment) {
+      checked.push([laptop.id, file]);
+      if (!html.includes(laptop.amazonAsin)) errors.push(`${file} does not contain mapped ${laptop.id} ASIN ${laptop.amazonAsin}`);
+      continue;
+    }
+
+    const headingPattern = new RegExp(`<h2\\s+id=["']${fragment}["'][^>]*>`, 'i');
+    const heading = headingPattern.exec(html);
+    checkedAnchors.push([laptop.id, `${file}#${fragment}`]);
+    if (!heading) {
+      errors.push(`${file} does not contain mapped anchor #${fragment} for ${laptop.id}`);
+      continue;
+    }
+    const sectionStart = heading.index;
+    const nextHeadingOffset = html.slice(sectionStart + heading[0].length).search(/<h2\\s+id=["']/i);
+    const sectionEnd = nextHeadingOffset === -1
+      ? html.length
+      : sectionStart + heading[0].length + nextHeadingOffset;
+    const section = html.slice(sectionStart, sectionEnd);
+    if (!section.includes(laptop.amazonAsin)) {
+      errors.push(`${file}#${fragment} does not contain mapped ${laptop.id} ASIN ${laptop.amazonAsin}`);
+    }
   }
 
   for (const error of errors) console.error(`ERROR ${error}`);
-  console.log(`Audited ${catalog.length} unique catalog offers and ${checked.length} direct review mappings: ${errors.length} errors.`);
+  console.log(`Audited ${catalog.length} unique catalog offers, ${checked.length} direct review mappings and ${checkedAnchors.length} anchored review-note mappings: ${errors.length} errors.`);
   if (errors.length) process.exitCode = 1;
 }
 
