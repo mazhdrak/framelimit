@@ -3,6 +3,8 @@ import path from 'node:path';
 import {
   CSV_COLUMNS,
   CSV_EXPORT,
+  CITATION_EXPORT,
+  DATA_PACKAGE_EXPORT,
   DATASET_LICENSE_URL,
   DATASET_PAGE_URL,
   DATASET_RELEASE_DATE,
@@ -10,6 +12,8 @@ import {
   JSON_EXPORT,
   ROOT,
   createCsv,
+  createCitationCff,
+  createDataPackage,
   createDatasetRows,
   createJsonDataset,
   loadLaptops
@@ -24,7 +28,7 @@ function add(results, message) {
 async function main() {
   const laptops = await loadLaptops();
   const rows = createDatasetRows(laptops);
-  const [page, script, sitemap, guides, nav, methodology, jsonExport, csvExport] = await Promise.all([
+  const [page, script, sitemap, guides, nav, methodology, jsonExport, csvExport, dataPackageExport, citationExport] = await Promise.all([
     fs.readFile(path.join(ROOT, PAGE), 'utf8'),
     fs.readFile(path.join(ROOT, 'tgp-database.js'), 'utf8'),
     fs.readFile(path.join(ROOT, 'sitemap.xml'), 'utf8'),
@@ -32,7 +36,9 @@ async function main() {
     fs.readFile(path.join(ROOT, 'nav.js'), 'utf8'),
     fs.readFile(path.join(ROOT, 'methodology.html'), 'utf8'),
     fs.readFile(path.join(ROOT, JSON_EXPORT), 'utf8'),
-    fs.readFile(path.join(ROOT, CSV_EXPORT), 'utf8')
+    fs.readFile(path.join(ROOT, CSV_EXPORT), 'utf8'),
+    fs.readFile(path.join(ROOT, DATA_PACKAGE_EXPORT), 'utf8'),
+    fs.readFile(path.join(ROOT, CITATION_EXPORT), 'utf8')
   ]);
   const results = [];
   const knownPower = rows.filter((row) => row.oemMaximumGpuPowerWatts != null);
@@ -53,6 +59,8 @@ async function main() {
   const expectedCsv = createCsv(rows);
   if (jsonExport !== expectedJson) add(results, `${JSON_EXPORT} is stale; run node scripts/generate-tgp-dataset.mjs`);
   if (csvExport !== expectedCsv) add(results, `${CSV_EXPORT} is stale; run node scripts/generate-tgp-dataset.mjs`);
+  if (dataPackageExport !== `${JSON.stringify(createDataPackage(), null, 2)}\n`) add(results, `${DATA_PACKAGE_EXPORT} is stale; run node scripts/generate-tgp-dataset.mjs`);
+  if (citationExport !== createCitationCff()) add(results, `${CITATION_EXPORT} is stale; run node scripts/generate-tgp-dataset.mjs`);
 
   try {
     const parsed = JSON.parse(jsonExport);
@@ -63,6 +71,15 @@ async function main() {
     add(results, 'JSON export is invalid JSON');
   }
   if (csvExport.split(/\r?\n/, 1)[0] !== CSV_COLUMNS.join(',')) add(results, 'CSV export columns are out of contract');
+  try {
+    const descriptor = JSON.parse(dataPackageExport);
+    const csvResource = descriptor.resources?.find((resource) => resource.path === CSV_EXPORT);
+    if (descriptor.version !== DATASET_VERSION || descriptor.profile !== 'tabular-data-package') add(results, 'Data Package version or profile is incorrect');
+    if (csvResource?.schema?.fields?.map((field) => field.name).join(',') !== CSV_COLUMNS.join(',')) add(results, 'Data Package table schema does not match the CSV contract');
+  } catch {
+    add(results, 'datapackage.json is invalid JSON');
+  }
+  if (!citationExport.includes('type: dataset') || !citationExport.includes(`version: ${DATASET_VERSION}`)) add(results, 'CITATION.cff is missing dataset type or version');
 
   const expectedText = [
     `${rows.length} sourced configurations`,
@@ -74,6 +91,7 @@ async function main() {
 
   if (!page.includes('tgp-database.js') || !page.includes('laptops.js')) add(results, 'database page is missing its data scripts');
   if (!page.includes(`href="${CSV_EXPORT}" download`) || !page.includes(`href="${JSON_EXPORT}" download`)) add(results, 'database page is missing downloadable CSV or JSON links');
+  if (!page.includes(`href="${DATA_PACKAGE_EXPORT}"`)) add(results, 'database page is missing its Data Package descriptor link');
   if (!page.includes('id="how-to-cite"') || !page.includes(DATASET_PAGE_URL) || !page.includes(DATASET_LICENSE_URL)) add(results, 'database page is missing complete citation guidance');
   if (!page.includes('id="dataset-changelog"') || !page.includes(`Version ${DATASET_VERSION}`) || !page.includes(DATASET_RELEASE_DATE)) add(results, 'database page is missing the current version changelog');
   if (!page.includes('"distribution"') || !page.includes(`"version": "${DATASET_VERSION}"`)) add(results, 'Dataset JSON-LD is missing export distribution or version metadata');

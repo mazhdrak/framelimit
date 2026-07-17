@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this dataset, cite FRAMELIMIT and the linked OEM source for each specification."
+type: dataset
+title: "FRAMELIMIT RTX 50 Laptop TGP Database"
+authors:
+  - family-names: "Mazhdrakov"
+    given-names: "Rumen"
+version: 1.0.0
+date-released: 2026-07-17
+url: "https://framelimit.com/guide-rtx-50-laptop-tgp-database"
+repository-code: "https://github.com/mazhdrak/framelimit"
+abstract: "Exact-model RTX 50 laptop configurations with sourced OEM maximum GPU power, evidence status, source URLs, and verification dates."
+keywords:
+  - RTX 50 laptop
+  - laptop TGP
+  - gaming laptop
+  - GPU power

@@ -91,9 +91,10 @@ node scripts/generate-tgp-dataset.mjs
 node scripts/audit-tgp-database.mjs
 ```
 
-The audit fails when the exports no longer match the catalog or when the public
-database page is missing required fields, download links, citation guidance,
-version metadata, or changelog details.
+The generator also refreshes `datapackage.json` and `CITATION.cff`. The audit
+fails when any generated artifact no longer matches the catalog/version or when
+the public database page is missing required fields, download links, citation
+guidance, version metadata, or changelog details.
 
 ## CSS Class System
 

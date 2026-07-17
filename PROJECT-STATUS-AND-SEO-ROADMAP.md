@@ -445,3 +445,5 @@ FRAMELIMIT вече е технически и редакционно по-пр�
 - [x] Sitemap, metadata, license и internal-link проверките са включени в audit-а; всички съществуващи audit scripts минават.
 
 Следващ приоритет: distribution/backlink sprint с полезни, персонализирани представяния на dataset-а; без купени линкове и без generic guide expansion.
+
+Distribution readiness update: добавени са generated `CITATION.cff`, Frictionless `datapackage.json`, dataset README и персонализируем outreach backlog. Външното публикуване остава pending до проверка на конкретните account, moderator и license изисквания.

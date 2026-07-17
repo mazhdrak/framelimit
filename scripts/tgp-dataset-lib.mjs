@@ -10,6 +10,8 @@ export const DATASET_PAGE_URL = 'https://framelimit.com/guide-rtx-50-laptop-tgp-
 export const DATASET_LICENSE_URL = 'https://framelimit.com/methodology#data-license-v1-0';
 export const JSON_EXPORT = 'data/rtx-50-laptop-tgp-database.json';
 export const CSV_EXPORT = 'data/rtx-50-laptop-tgp-database.csv';
+export const DATA_PACKAGE_EXPORT = 'datapackage.json';
+export const CITATION_EXPORT = 'CITATION.cff';
 
 const NVIDIA_POWER_RANGES = {
   'RTX 5090': '95-150',
@@ -85,6 +87,79 @@ export function createJsonDataset(rows) {
     },
     records: rows
   };
+}
+
+export function createDataPackage() {
+  return {
+    profile: 'tabular-data-package',
+    name: 'framelimit-rtx-50-laptop-tgp-database',
+    title: 'FRAMELIMIT RTX 50 Laptop TGP Database',
+    description: 'Exact-model RTX 50 laptop configurations with OEM maximum GPU power, NVIDIA subsystem-power reference ranges, evidence status, source URLs, and verification dates.',
+    version: DATASET_VERSION,
+    created: DATASET_RELEASE_DATE,
+    homepage: DATASET_PAGE_URL,
+    licenses: [{ path: DATASET_LICENSE_URL, title: 'FRAMELIMIT Data License 1.0' }],
+    contributors: [{ title: 'Rumen Mazhdrakov', role: 'author' }],
+    sources: [
+      { title: 'FRAMELIMIT canonical laptop catalog', path: 'laptops.js' },
+      { title: 'NVIDIA RTX 50 Series laptop specifications', path: 'https://www.nvidia.com/en-us/geforce/laptops/50-series/' }
+    ],
+    resources: [
+      {
+        name: 'rtx-50-laptop-tgp-csv',
+        title: 'RTX 50 laptop TGP records (CSV)',
+        path: CSV_EXPORT,
+        format: 'csv',
+        mediatype: 'text/csv',
+        schema: {
+          fields: [
+            { name: 'datasetVersion', type: 'string' },
+            { name: 'releaseDate', type: 'date' },
+            { name: 'id', type: 'string' },
+            { name: 'manufacturer', type: 'string' },
+            { name: 'model', type: 'string' },
+            { name: 'exactModelSku', type: 'string' },
+            { name: 'gpu', type: 'string' },
+            { name: 'gpuVram', type: 'string' },
+            { name: 'oemMaximumGpuPowerWatts', type: 'integer' },
+            { name: 'nvidiaGpuSubsystemPowerRangeWatts', type: 'string' },
+            { name: 'evidenceStatus', type: 'string' },
+            { name: 'sourceUrl', type: 'string', format: 'uri' },
+            { name: 'lastVerified', type: 'date' }
+          ],
+          missingValues: ['']
+        }
+      },
+      {
+        name: 'rtx-50-laptop-tgp-json',
+        title: 'RTX 50 laptop TGP records and metadata (JSON)',
+        path: JSON_EXPORT,
+        format: 'json',
+        mediatype: 'application/json'
+      }
+    ]
+  };
+}
+
+export function createCitationCff() {
+  return `cff-version: 1.2.0
+message: "If you use this dataset, cite FRAMELIMIT and the linked OEM source for each specification."
+type: dataset
+title: "FRAMELIMIT RTX 50 Laptop TGP Database"
+authors:
+  - family-names: "Mazhdrakov"
+    given-names: "Rumen"
+version: ${DATASET_VERSION}
+date-released: ${DATASET_RELEASE_DATE}
+url: "${DATASET_PAGE_URL}"
+repository-code: "https://github.com/mazhdrak/framelimit"
+abstract: "Exact-model RTX 50 laptop configurations with sourced OEM maximum GPU power, evidence status, source URLs, and verification dates."
+keywords:
+  - RTX 50 laptop
+  - laptop TGP
+  - gaming laptop
+  - GPU power
+`;
 }
 
 function csvCell(value) {

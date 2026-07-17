@@ -1,0 +1,107 @@
+{
+  "profile": "tabular-data-package",
+  "name": "framelimit-rtx-50-laptop-tgp-database",
+  "title": "FRAMELIMIT RTX 50 Laptop TGP Database",
+  "description": "Exact-model RTX 50 laptop configurations with OEM maximum GPU power, NVIDIA subsystem-power reference ranges, evidence status, source URLs, and verification dates.",
+  "version": "1.0.0",
+  "created": "2026-07-17",
+  "homepage": "https://framelimit.com/guide-rtx-50-laptop-tgp-database",
+  "licenses": [
+    {
+      "path": "https://framelimit.com/methodology#data-license-v1-0",
+      "title": "FRAMELIMIT Data License 1.0"
+    }
+  ],
+  "contributors": [
+    {
+      "title": "Rumen Mazhdrakov",
+      "role": "author"
+    }
+  ],
+  "sources": [
+    {
+      "title": "FRAMELIMIT canonical laptop catalog",
+      "path": "laptops.js"
+    },
+    {
+      "title": "NVIDIA RTX 50 Series laptop specifications",
+      "path": "https://www.nvidia.com/en-us/geforce/laptops/50-series/"
+    }
+  ],
+  "resources": [
+    {
+      "name": "rtx-50-laptop-tgp-csv",
+      "title": "RTX 50 laptop TGP records (CSV)",
+      "path": "data/rtx-50-laptop-tgp-database.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "datasetVersion",
+            "type": "string"
+          },
+          {
+            "name": "releaseDate",
+            "type": "date"
+          },
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "manufacturer",
+            "type": "string"
+          },
+          {
+            "name": "model",
+            "type": "string"
+          },
+          {
+            "name": "exactModelSku",
+            "type": "string"
+          },
+          {
+            "name": "gpu",
+            "type": "string"
+          },
+          {
+            "name": "gpuVram",
+            "type": "string"
+          },
+          {
+            "name": "oemMaximumGpuPowerWatts",
+            "type": "integer"
+          },
+          {
+            "name": "nvidiaGpuSubsystemPowerRangeWatts",
+            "type": "string"
+          },
+          {
+            "name": "evidenceStatus",
+            "type": "string"
+          },
+          {
+            "name": "sourceUrl",
+            "type": "string",
+            "format": "uri"
+          },
+          {
+            "name": "lastVerified",
+            "type": "date"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "rtx-50-laptop-tgp-json",
+      "title": "RTX 50 laptop TGP records and metadata (JSON)",
+      "path": "data/rtx-50-laptop-tgp-database.json",
+      "format": "json",
+      "mediatype": "application/json"
+    }
+  ]
+}
