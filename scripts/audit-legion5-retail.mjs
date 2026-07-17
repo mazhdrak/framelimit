@@ -33,8 +33,11 @@ async function main() {
     if (html.includes('B0FVKMHCLS') || html.includes('B0FKHBQD31')) errors.push(`${file} retains an unsupported Legion 5 ASIN`);
   }
   const review = await fs.readFile(path.join(ROOT, FILES[0]), 'utf8');
-  for (const value of ['15AHP10', 'RTX 5060', '16GB DDR5', '1.9kg', 'Specifications and the retail mapping were checked July 15, 2026']) {
+  for (const value of ['15AHP10', 'RTX 5060', '16GB DDR5', '1.9kg']) {
     if (!review.includes(value)) errors.push(`review missing ${value}`);
+  }
+  if (!/Specifications and the retail mapping were checked [A-Z][a-z]+ \d{1,2}, 20\d{2}/.test(review)) {
+    errors.push('review missing a dated retail-mapping verification note');
   }
   const reviews = await fs.readFile(path.join(ROOT, 'reviews.html'), 'utf8');
   if (!reviews.includes('id="verified-legion5amd-benchmark" hidden data-nosnippet')) errors.push('legacy related benchmark block is not suppressed');

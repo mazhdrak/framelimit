@@ -1,6 +1,6 @@
 # FRAMELIMIT: Project Status and SEO Roadmap
 
-Последна актуализация: 16 юли 2026 г.
+Последна актуализация: 17 юли 2026 г.
 
 ## Цел на проекта
 
@@ -360,6 +360,7 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 
 - [x] Автоматизируемата част от checklist-а се следи от `scripts/audit-review-readiness.mjs`: metadata/JSON-LD, exact canonical, sitemap `lastmod`, direct-ASIN CTA, affiliate атрибути и вътрешни guide/review връзки са blocking проверки; спецификационните полета, evidence boundary и Sources се извеждат като editorial update backlog, без страниците да се скриват.
   - [x] Първи review-readiness cleanup batch: audit-ът разпознава динамичната source attribution от общия benchmark component; Flow Z13 и TUF A16 Radeon описват приложимостта или липсата на проверим TGP, а Strix G16, Zephyrus G16, Legion 5 AMD и Raider 18 ясно остават unranked без matched exact-SKU evidence. Editorial backlog-ът е намален от 28 на 5 сигнала.
+  - [x] Втори review-readiness cleanup batch: Alienware 16 Aurora, TUF A16 RTX 5070, TUF F16 RTX 5070 и Omen Max 16 вече показват sourced battery/weight данни; TUF F16 има видима official-spec source секция, `dateModified` и sitemap `lastmod` са синхронизирани, а всичките 29 индексируеми product reviews минават с 0 blocking errors и 0 editorial flags.
 
 - [ ] моделът и точният SKU са ясни;
 - [ ] CPU, GPU, VRAM и TGP са проверени;
@@ -376,11 +377,61 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 - [ ] URL-ът присъства в sitemap-а с точен `lastmod`;
 - [ ] страницата връща HTTP 200.
 
-## Следваща препоръчана задача
+## Конкурентна позиция и стратегически фокус — 17 юли 2026 г.
 
-Следващият работен пакет трябва да бъде:
+FRAMELIMIT вече е технически и редакционно по-прозрачен от типичен малък affiliate сайт, но все още е далеч зад Notebookcheck, RTINGS, Tom's Hardware и Jarrod's Tech по domain authority, собствено hands-on тестване, аудитория и ценова история. Затова сайтът не трябва да се позиционира като по-малка обща review медия.
 
-1. Изчакване Amazon Associates профилът да покрие Creators API eligibility; workflow-ът запазва reference-price fallback и предупреждава без да се проваля дотогава.
-2. Изчакване на Search Console да обработи еднократните indexing заявки и наблюдение на Pages/Indexing отчета.
-3. `Validate Fix` за стария Product snippets проблем след като Google обходи новите страници.
-4. [x] Отделната `Best RTX 5060 Gaming Laptops` money page обединява under-$1,500 guide-а, individual reviews и двете model-vs-model comparison страници.
+Основното отличимо обещание трябва да бъде:
+
+> Exact SKU + verified TGP + comparable evidence + current retail configuration + honest verdict.
+
+Предимствата, които вече са изградени, са:
+
+- точен model code, retail SKU и direct ASIN вместо смесване на продуктови семейства;
+- ясно разграничение между exact benchmark, related-model evidence, official specifications и редакторски анализ;
+- TGP, benchmark, display, comparison, finder и money-guide ecosystem;
+- видими `N/A` и unranked състояния вместо измислени резултати;
+- автоматични guards за canonical, sitemap, structured data, internal links, evidence boundaries, affiliate disclosure и price freshness.
+
+Основните конкурентни слабости остават:
+
+- липса на достатъчно собствени hands-on измервания и оригинални снимки;
+- млад домейн и почти липсващ backlink/brand authority;
+- липса на live price history и availability, докато Creators API профилът е неeligible;
+- липса на установена аудитория, newsletter, видео канал и редовна външна дистрибуция;
+- опасност от размиване на фокуса чрез още общи `Best laptops for X` страници без нови данни.
+
+## Handoff към следващ чат
+
+### До къде е стигнал проектът
+
+- Sitemap-ът съдържа 75 canonical URL-а.
+- Всичките 29 индексируеми product reviews минават с 0 blocking errors и 0 editorial readiness flags.
+- Активният каталог съдържа 34 директно купуеми конфигурации с уникални Amazon US ASIN-и; audit-ът следи всички управлявани affiliate връзки.
+- Всички indexable reviews участват в money-guide cluster, related-review cluster и подходящ technology cluster.
+- Публикувани са exact-SKU comparisons, RTX 50 TGP Database, benchmark database, display database, monthly price report и основните commercial-intent guides.
+- Search Console е получил sitemap-а и приоритетните indexing заявки; реалният query/click baseline още трябва да бъде измерен след достатъчно данни.
+- Amazon Creators API credentials са конфигурирани, но Amazon връща `AssociateNotEligible`; reference-price fallback остава активен и не се представя като live цена.
+- Старият Product snippets проблем е коригиран в публикувания HTML; остава Google да обходи засегнатите URL-и и да завърши validation-а.
+
+### Приоритети оттук нататък
+
+1. **Search Console baseline, не нов масов content.** След събиране на поне 28 дни данни да се export-нат Queries и Pages CSV файловете и да се анализират чрез `scripts/analyze-search-console.mjs`. Първо се подобряват URL-и с impressions и позиции 8–20 или висок impression/нисък CTR.
+2. **Направи TGP Database основния linkable asset.** Добави downloadable CSV/JSON export, ясна citation секция, dataset version/changelog и автоматичен audit, че export-ът съвпада с видимата exact-model таблица и съдържа source/evidence metadata.
+3. **Backlink и distribution sprint.** След готов export да се публикуват полезни, неspam представяния на базата в подходящи gaming-laptop общности, GitHub/data директории и към автори, които пишат за laptop TGP. Да не се купуват линкове.
+4. **High-intent exact-SKU content.** Нови страници само когато покриват реална model-code, ASIN, TGP или model-vs-model заявка и добавят нови проверими данни. Да не се разширява generic guide inventory без Search Console сигнал.
+5. **Собствено тестване.** Започни с един реално закупен или предоставен лаптоп и повторяема методология за снимки, sustained power, thermals, noise, display, battery и gaming FPS. Един истински cornerstone review има по-висок приоритет от множество sourced-only reviews.
+6. **Price/availability automation.** След Amazon eligibility активирай реален snapshot, availability, price history и впоследствие price alerts; дотогава запази честните reference-price и last-checked ограничения.
+
+### Следваща препоръчана задача
+
+Следващият локално изпълним пакет е **TGP Dataset Distribution Pack**:
+
+1. генериране на downloadable CSV и JSON от единствения canonical dataset source;
+2. включване на exact model/SKU, GPU, TGP range, evidence status, source URL и last verified дата;
+3. видими `Download data` и `How to cite` секции в RTX 50 TGP Database;
+4. dataset version и кратък changelog;
+5. audit script, който блокира разминаване между export-а, каталога и HTML таблицата;
+6. sitemap/metadata/internal-link проверка и тест на всички съществуващи audit scripts.
+
+След този пакет следва distribution/backlink sprint, а не създаване на още общи guide страници.
