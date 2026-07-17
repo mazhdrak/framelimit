@@ -35,6 +35,9 @@ pending.
    Do not cross-post identical copy and do not frame OEM specifications as
    hands-on measurements.
 
+The researched shortlist and unsent personalized drafts are maintained in
+[`TGP-DATASET-OUTREACH-TARGETS.md`](TGP-DATASET-OUTREACH-TARGETS.md).
+
 ## Ready-to-adapt copy
 
 ### Repository/release summary

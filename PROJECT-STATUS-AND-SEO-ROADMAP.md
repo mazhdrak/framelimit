@@ -448,6 +448,12 @@ Kaggle distribution milestone (17 юли 2026 г.): dataset-ът е публик
 description)`, FRAMELIMIT Data License URL и terms, citation, provenance,
 author, coverage, quarterly update cadence и discovery tags.
 
+Outreach preparation milestone (17 юли 2026 г.): проучени са Jarrod'sTech и
+Notebookcheck като тематично точни editorial цели и е подготвен moderator-first
+hold за r/GamingLaptops. Персонализираните чернови са в
+`TGP-DATASET-OUTREACH-TARGETS.md`; нищо не е изпращано или публикувано от името
+на FRAMELIMIT.
+
 - [x] CSV и JSON export-и се генерират детерминирано от canonical `laptops.js` каталога.
 - [x] Всеки ред съдържа exact model/SKU, GPU, OEM maximum GPU power, NVIDIA power range reference, evidence status, source URL и last-verified дата.
 - [x] RTX 50 TGP Database има видими Download data, How to cite, dataset version и changelog секции.
