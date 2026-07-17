@@ -318,7 +318,7 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 
 - [ ] Проверка на Amazon Associates account и активния tracking ID.
 - [ ] Проверка на conversion и ordered items reports.
-- [ ] Запазване на disclosure близо до affiliate съдържанието.
+- [x] Запазване на disclosure близо до affiliate съдържанието; `scripts/audit-affiliate-disclosure.mjs` валидира shared ribbon-а, официалната Amazon Associates disclosure страница и позиционирането преди първия Amazon CTA във всяка от 61 affiliate HTML страници.
 - [x] Показване на `Check Price` само при точен ASIN.
 - [x] Изключване на моделите без потвърден директен Amazon US продукт от активните finder/compare препоръки.
 - [x] Добавяне на `Last checked` дата към офертите.
