@@ -115,7 +115,7 @@
       };
     }
     const record = getRecord(value);
-    if (record && Number.isFinite(record.price)) {
+    if (record && Number.isFinite(record.price) && (!window.flIsReferencePriceFresh || window.flIsReferencePriceFresh(record))) {
       return { kind: 'reference', text: 'Typical $' + record.price.toLocaleString('en-US'), offer: null, record };
     }
     return { kind: 'unavailable', text: 'Check current price', offer: null };

@@ -649,6 +649,7 @@ function updateFinder() {
   const guide = finderGuides.find(item => budget <= item.max) || finderGuides[finderGuides.length - 1];
   const priced = (window.LAPTOPS || []).filter(laptop =>
     Number.isFinite(laptop.price) &&
+    (!window.flIsReferencePriceFresh || window.flIsReferencePriceFresh(laptop)) &&
     Number.isFinite(laptop.score) &&
     matchesFinderPlatform(laptop)
   );

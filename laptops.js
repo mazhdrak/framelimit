@@ -15,6 +15,7 @@
 
 const FL_DATA_LAST_CHECKED = '2026-07-15';
 const FL_DATA_LAST_CHECKED_LABEL = 'Direct retail links audited Jul 15, 2026';
+const FL_REFERENCE_PRICE_MAX_AGE_DAYS = 30;
 
 const LAPTOP_CATALOG = [
 
@@ -1422,10 +1423,18 @@ function flReferencePriceStatus(laptop) {
   return `Reference price checked ${checked}`;
 }
 
+function flIsReferencePriceFresh(laptop, now = Date.now()) {
+  if (!laptop || !Number.isFinite(laptop.price) || !/^\d{4}-\d{2}-\d{2}$/.test(laptop.priceCheckedAt || '')) return false;
+  const checkedAt = Date.parse(`${laptop.priceCheckedAt}T23:59:59Z`);
+  const age = now - checkedAt;
+  return age >= 0 && age <= FL_REFERENCE_PRICE_MAX_AGE_DAYS * 24 * 60 * 60 * 1000;
+}
+
 /* Expose everything globally for plain HTML pages */
 window.LAPTOPS         = LAPTOPS;
 window.FL_DATA_LAST_CHECKED = FL_DATA_LAST_CHECKED;
 window.FL_DATA_LAST_CHECKED_LABEL = FL_DATA_LAST_CHECKED_LABEL;
+window.FL_REFERENCE_PRICE_MAX_AGE_DAYS = FL_REFERENCE_PRICE_MAX_AGE_DAYS;
 window.LAPTOPS_BY_TIER = LAPTOPS_BY_TIER;
 window.getLaptop       = getLaptop;
 window.getLaptopsByTag = getLaptopsByTag;
@@ -1435,3 +1444,4 @@ window.sortByTGP       = sortByTGP;
 window.flIsDirectAmazonProduct = flIsDirectAmazonProduct;
 window.flRetailerStatus = flRetailerStatus;
 window.flReferencePriceStatus = flReferencePriceStatus;
+window.flIsReferencePriceFresh = flIsReferencePriceFresh;
