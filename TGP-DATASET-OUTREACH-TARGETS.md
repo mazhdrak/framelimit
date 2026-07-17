@@ -2,7 +2,7 @@
 
 Research date: 2026-07-17
 
-Status: drafts ready; no messages or community posts sent.
+Status: editorial outreach sent; community post remains on moderator-first hold.
 
 ## 1. Jarrod'sTech
 
@@ -70,9 +70,9 @@ Draft:
 
 | Target | Channel | Status | Sent | Follow-up |
 | --- | --- | --- | --- | --- |
-| Jarrod'sTech | Relevant comment or social message | Draft ready | No | None |
-| Notebookcheck | Official editorial contact form | Draft ready | No | None |
-| r/GamingLaptops | Moderator message first | Rules approval required | No | None |
+| Jarrod'sTech | Relevant article comment | Awaiting moderation (comment 50430) | 2026-07-17 | One follow-up only if invited |
+| Notebookcheck | Official editorial contact form | Submitted successfully | 2026-07-17 | Monitor `hello@framelimit.com` |
+| r/GamingLaptops | Moderator message first | Rules approval required | No | Ask permission before any post |
 
 One personalized message per target. Stop after one follow-up unless invited to
 continue. Do not request reciprocal links, copy the same pitch across channels,

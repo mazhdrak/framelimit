@@ -448,11 +448,13 @@ Kaggle distribution milestone (17 юли 2026 г.): dataset-ът е публик
 description)`, FRAMELIMIT Data License URL и terms, citation, provenance,
 author, coverage, quarterly update cadence и discovery tags.
 
-Outreach preparation milestone (17 юли 2026 г.): проучени са Jarrod'sTech и
-Notebookcheck като тематично точни editorial цели и е подготвен moderator-first
-hold за r/GamingLaptops. Персонализираните чернови са в
-`TGP-DATASET-OUTREACH-TARGETS.md`; нищо не е изпращано или публикувано от името
-на FRAMELIMIT.
+Outreach milestone (17 юли 2026 г.): изпратени са две персонализирани
+представяния от името на FRAMELIMIT с contact address `hello@framelimit.com`.
+Notebookcheck прие съобщението през официалната editorial contact форма, а
+Jarrod'sTech прие релевантен коментар и го постави за moderation. Подготвен е
+moderator-first hold за r/GamingLaptops; dataset пост няма да се публикува без
+предварително разрешение от модераторите. Tracking-ът и текстовете са в
+`TGP-DATASET-OUTREACH-TARGETS.md`.
 
 - [x] CSV и JSON export-и се генерират детерминирано от canonical `laptops.js` каталога.
 - [x] Всеки ред съдържа exact model/SKU, GPU, OEM maximum GPU power, NVIDIA power range reference, evidence status, source URL и last-verified дата.
@@ -460,6 +462,13 @@ hold за r/GamingLaptops. Персонализираните чернови с�
 - [x] `scripts/audit-tgp-database.mjs` блокира stale export-и и разминаване между каталога, export contract-а и HTML renderer-а.
 - [x] Sitemap, metadata, license и internal-link проверките са включени в audit-а; всички съществуващи audit scripts минават.
 
-Следващ приоритет: distribution/backlink sprint с полезни, персонализирани представяния на dataset-а; без купени линкове и без generic guide expansion.
+Следващ приоритет: завършване на distribution/backlink sprint-а чрез
+moderator-first запитване към r/GamingLaptops, проследяване на editorial
+отговорите и след това Search Console baseline при поне 28 дни данни; без
+купени линкове и без generic guide expansion.
 
-Distribution readiness update: добавени са generated `CITATION.cff`, Frictionless `datapackage.json`, dataset README и персонализируем outreach backlog. Външното публикуване остава pending до проверка на конкретните account, moderator и license изисквания.
+Distribution readiness update: добавени са generated `CITATION.cff`,
+Frictionless `datapackage.json`, dataset README и персонализируем outreach
+backlog. GitHub и Kaggle публикациите са live; editorial outreach-ът е изпратен.
+Единствената community публикация остава pending до изрично moderator
+разрешение.
