@@ -1,0 +1,9 @@
+[
+  { "target": "guide-best-gaming-laptop-under-1500", "minDirectOffers": 4, "minReviewLinks": 4 },
+  { "target": "guide-best-gaming-laptop-under-3000", "minDirectOffers": 3, "minReviewLinks": 3 },
+  { "target": "guide-best-rtx-5060-gaming-laptop-2026", "minDirectOffers": 3, "minReviewLinks": 3 },
+  { "target": "guide-best-rtx-5080-gaming-laptop-2026", "minDirectOffers": 5, "minReviewLinks": 5 },
+  { "target": "guide-best-14-inch-gaming-laptop-2026", "minDirectOffers": 2, "minReviewLinks": 2 },
+  { "target": "guide-best-thin-light-gaming-laptop-2026", "minDirectOffers": 4, "minReviewLinks": 4 },
+  { "target": "guide-gaming-laptop-buying-guide-2026", "minDirectOffers": 4, "minReviewLinks": 4 }
+]

@@ -322,7 +322,7 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 - [x] Показване на `Check Price` само при точен ASIN.
 - [x] Изключване на моделите без потвърден директен Amazon US продукт от активните finder/compare препоръки.
 - [x] Добавяне на `Last checked` дата към офертите.
-- [ ] Фокус върху money pages с ясна покупателна цел.
+- [x] Фокус върху money pages с ясна покупателна цел; `money-pages.json` фиксира седемте приоритетни commercial-intent страници, а `scripts/audit-money-pages.mjs` пази canonical, sitemap, direct-ASIN CTA, affiliate атрибути, price disclaimer и model-specific review покритие.
 - [ ] Избягване на ръчно публикувани цени без надежден процес за обновяване.
   - [x] Обновен direct-retail audit на 16 юли 2026 г.: активният каталог съдържа 34 модела, 34 уникални direct ASIN линка и 0 Amazon search fallback линка; всички използват tracking ID `framelimit20-20`.
   - [x] Осемте стари или неподкрепени конфигурации са заменени с актуални директно купуеми Amazon US конфигурации с конкретни уникални ASIN-и. Всички отново участват във finder/compare; архивните ревюта отделят старите benchmark данни от точния текущ retail SKU.
