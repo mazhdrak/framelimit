@@ -1,0 +1,42 @@
+[
+  {
+    "query": "Lenovo Legion 5 15AHP10 RTX 5060 review",
+    "target": "review-lenovo-legion-5-gen10-amd",
+    "requiredTerms": ["15AHP10", "RTX 5060"]
+  },
+  {
+    "query": "ASUS TUF A16 FA608 RTX 5070 64GB review",
+    "target": "review-asus-tuf-gaming-a16-2026",
+    "requiredTerms": ["FA608", "RTX 5070", "64GB"]
+  },
+  {
+    "query": "RTX 5060 laptop 115W benchmarks",
+    "target": "guide-best-rtx-5060-gaming-laptop-2026",
+    "requiredTerms": ["RTX 5060", "115W", "benchmark"]
+  },
+  {
+    "query": "Alienware 16X Aurora AC16251 review",
+    "target": "review-alienware-16x-aurora",
+    "requiredTerms": ["Alienware 16X Aurora", "AC16251"]
+  },
+  {
+    "query": "DLSS quality vs balanced laptop",
+    "target": "guide-dlss-fsr-frame-generation-database",
+    "requiredTerms": ["DLSS", "Quality", "Balanced"]
+  },
+  {
+    "query": "best RTX 5060 laptop under 1500",
+    "target": "guide-best-rtx-5060-gaming-laptop-2026",
+    "requiredTerms": ["RTX 5060", "$1,500"]
+  },
+  {
+    "query": "Lenovo LOQ 15AHP10 vs Acer Nitro V 16S",
+    "target": "guide-lenovo-loq-15-vs-acer-nitro-v-16s",
+    "requiredTerms": ["LOQ 15AHP10", "ANV16S-41-R2AJ"]
+  },
+  {
+    "query": "RTX 50 laptop TGP comparison",
+    "target": "guide-rtx-50-laptop-tgp-database",
+    "requiredTerms": ["RTX 50", "TGP", "32 sourced configurations"]
+  }
+]

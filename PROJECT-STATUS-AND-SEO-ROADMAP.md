@@ -127,7 +127,7 @@ FRAMELIMIT няма бюджет за собствено тестване на �
 
 - [x] Преглед на всеки `guide-*.html` файл чрез повторяемия `scripts/audit-guides.mjs` audit.
 - [x] Съпоставяне на guide лаптопите с точните review benchmark anchors; липсващите exact datasets са обозначени като `Specifications only` или `Not published`.
-- [ ] Корекция на CPU, GPU, VRAM, TGP, RAM, display, weight и battery.
+- [x] Корекция на CPU, GPU, VRAM, TGP, RAM, display, weight и battery.
   - [x] Първи high-risk batch: Lenovo Legion 5 Gen 10 AMD, HP Omen 16 Slim и ASUS TUF F16 са сверени с официални Lenovo/HP/ASUS спецификации; добавени са model code, source URL и дата на проверката.
   - [x] Втори high-risk batch: Lenovo Legion 5i 15IAX10, Acer Helios Neo 16S AI PHN16S-71-98RF и MSI Katana 15 HX B14WGK са сверени с официалните конфигурации; коригирани са TGP, refresh rate, panel, weight и battery.
   - [x] Трети high-risk batch: Lenovo LOQ 15AHP10, ASUS TUF Gaming A16 FA608UM и Gigabyte Gaming A16 CVH са синхронизирани между централния каталог, review страниците и приоритетните budget guides; неподкрепените runtime и статични price твърдения са заменени с battery capacity и live-price checks.
@@ -196,10 +196,10 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 
 Първоначалната цел не трябва да бъде общата заявка `best gaming laptop`. По-реалистични заявки са:
 
-- `Lenovo Legion 7 Gen 11 benchmarks`;
-- `ASUS TUF A16 FA608 RTX 5060 review`;
+- `Lenovo Legion 5 15AHP10 RTX 5060 review`;
+- `ASUS TUF A16 FA608 RTX 5070 64GB review`;
 - `RTX 5060 laptop 115W benchmarks`;
-- `Dell G16 7630 RTX 4070 140W`;
+- `Alienware 16X Aurora AC16251 review`;
 - `DLSS quality vs balanced laptop`;
 - `best RTX 5060 laptop under $1500`;
 - `[model A] vs [model B]`;
@@ -207,6 +207,8 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 - `[GPU] laptop TGP comparison`.
 
 За всяка основна заявка трябва да има една ясна canonical страница, за да не се конкурират няколко FRAMELIMIT URL-а помежду си.
+
+- [x] `seo-query-map.json` задава една canonical цел за осем приоритетни long-tail намерения; `scripts/audit-seo-query-map.mjs` валидира indexability, canonical, sitemap, required query terms и поне два crawlable входящи линка, а остарелите Gen 11/TUF RTX 5060/Dell G16 примери са заменени с текущите exact-SKU страници.
 
 ### Приоритет 4: Content clusters и internal linking
 
