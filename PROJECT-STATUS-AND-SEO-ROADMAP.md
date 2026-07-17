@@ -357,6 +357,8 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 
 Една review страница е готова, когато:
 
+- [x] Автоматизируемата част от checklist-а се следи от `scripts/audit-review-readiness.mjs`: metadata/JSON-LD, exact canonical, sitemap `lastmod`, direct-ASIN CTA, affiliate атрибути и вътрешни guide/review връзки са blocking проверки; спецификационните полета, evidence boundary и Sources се извеждат като editorial update backlog, без страниците да се скриват.
+
 - [ ] моделът и точният SKU са ясни;
 - [ ] CPU, GPU, VRAM и TGP са проверени;
 - [ ] display, RAM, storage, battery и weight са проверени;
