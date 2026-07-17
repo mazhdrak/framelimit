@@ -440,8 +440,13 @@ FRAMELIMIT вече е технически и редакционно по-пр�
 
 GitHub distribution milestone (17 юли 2026 г.): публикуван е release
 `tgp-dataset-v1.0.0` с CSV, JSON и `datapackage.json`; repository description,
-website и topics са обновени за dataset discovery. Следващият канал е Kaggle,
-след проверка на owner slug и коректното представяне на custom лиценза.
+website и topics са обновени за dataset discovery.
+
+Kaggle distribution milestone (17 юли 2026 г.): dataset-ът е публикуван на
+`kaggle.com/datasets/rumenmazhdrakov/rtx-50-laptop-tgp-database-exact-models`
+с трите distribution файла, custom license като `Other (specified in
+description)`, FRAMELIMIT Data License URL и terms, citation, provenance,
+author, coverage, quarterly update cadence и discovery tags.
 
 - [x] CSV и JSON export-и се генерират детерминирано от canonical `laptops.js` каталога.
 - [x] Всеки ред съдържа exact model/SKU, GPU, OEM maximum GPU power, NVIDIA power range reference, evidence status, source URL и last-verified дата.

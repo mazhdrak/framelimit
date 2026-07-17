@@ -1,7 +1,7 @@
 # TGP Dataset Distribution Sprint
 
-Status: GitHub release and repository discovery metadata published; Kaggle and
-personalized outreach pending.
+Status: GitHub and Kaggle distribution published; personalized outreach
+pending.
 
 ## Canonical links
 
@@ -11,6 +11,7 @@ personalized outreach pending.
 - Data Package: https://framelimit.com/datapackage.json
 - GitHub: https://github.com/mazhdrak/framelimit
 - GitHub release: https://github.com/mazhdrak/framelimit/releases/tag/tgp-dataset-v1.0.0
+- Kaggle: https://www.kaggle.com/datasets/rumenmazhdrakov/rtx-50-laptop-tgp-database-exact-models
 
 ## Distribution order
 
@@ -22,9 +23,10 @@ personalized outreach pending.
    CSV, JSON, and `datapackage.json`. Use the changelog already published on
    the dataset page as release notes. Published as `tgp-dataset-v1.0.0` with
    SHA-256 digests shown by GitHub for all three assets.
-4. Publish a Kaggle dataset only after confirming the account/owner slug and
-   how the custom FRAMELIMIT Data License should be represented. Keep the
-   dataset private for verification before making it public.
+4. [x] Publish a Kaggle dataset after confirming the owner slug and representing
+   the custom terms as `Other (specified in description)`. The private staging
+   copy was verified before publication under owner `rumenmazhdrakov`, with the
+   FRAMELIMIT Data License URL and terms visible in the Data Card.
 5. Send a small number of personalized pitches to writers or maintainers who
    already cover laptop GPU power limits. Link to the public database page,
    state the exact 32-row scope, disclose FRAMELIMIT ownership, and explain the
