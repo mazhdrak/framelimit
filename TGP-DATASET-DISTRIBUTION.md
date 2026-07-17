@@ -1,6 +1,7 @@
 # TGP Dataset Distribution Sprint
 
-Status: repository metadata ready; external publication and outreach pending.
+Status: GitHub release and repository discovery metadata published; Kaggle and
+personalized outreach pending.
 
 ## Canonical links
 
@@ -9,15 +10,18 @@ Status: repository metadata ready; external publication and outreach pending.
 - JSON: https://framelimit.com/data/rtx-50-laptop-tgp-database.json
 - Data Package: https://framelimit.com/datapackage.json
 - GitHub: https://github.com/mazhdrak/framelimit
+- GitHub release: https://github.com/mazhdrak/framelimit/releases/tag/tgp-dataset-v1.0.0
 
 ## Distribution order
 
-1. Confirm the live page and all four metadata/download URLs return HTTP 200.
-2. Add focused GitHub repository topics: `gaming-laptops`, `laptop-gpu`,
+1. [x] Confirm the live page and all four metadata/download URLs return HTTP
+   200.
+2. [x] Add focused GitHub repository topics: `gaming-laptops`, `laptop-gpu`,
    `nvidia-rtx`, `tgp`, `open-data`, and `dataset`.
-3. Create a versioned GitHub release for dataset version 1.0.0 and attach the
+3. [x] Create a versioned GitHub release for dataset version 1.0.0 and attach the
    CSV, JSON, and `datapackage.json`. Use the changelog already published on
-   the dataset page as release notes.
+   the dataset page as release notes. Published as `tgp-dataset-v1.0.0` with
+   SHA-256 digests shown by GitHub for all three assets.
 4. Publish a Kaggle dataset only after confirming the account/owner slug and
    how the custom FRAMELIMIT Data License should be represented. Keep the
    dataset private for verification before making it public.

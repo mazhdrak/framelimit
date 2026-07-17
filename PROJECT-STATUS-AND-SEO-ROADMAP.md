@@ -438,6 +438,11 @@ FRAMELIMIT вече е технически и редакционно по-пр�
 
 ### TGP Dataset Distribution Pack — завършен на 17 юли 2026 г.
 
+GitHub distribution milestone (17 юли 2026 г.): публикуван е release
+`tgp-dataset-v1.0.0` с CSV, JSON и `datapackage.json`; repository description,
+website и topics са обновени за dataset discovery. Следващият канал е Kaggle,
+след проверка на owner slug и коректното представяне на custom лиценза.
+
 - [x] CSV и JSON export-и се генерират детерминирано от canonical `laptops.js` каталога.
 - [x] Всеки ред съдържа exact model/SKU, GPU, OEM maximum GPU power, NVIDIA power range reference, evidence status, source URL и last-verified дата.
 - [x] RTX 50 TGP Database има видими Download data, How to cite, dataset version и changelog секции.
