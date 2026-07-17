@@ -42,6 +42,7 @@ function add(results, file, severity, message) {
 function auditLaptopData(laptops, results) {
   const ids = new Set();
   const requiredText = ['id', 'name', 'cpu', 'gpu', 'gpuVram', 'ram', 'storage'];
+  const nullableSpecs = ['tgp', 'weight', 'battery'];
   for (const laptop of laptops) {
     for (const field of requiredText) {
       if (typeof laptop[field] !== 'string' || !laptop[field].trim()) {
@@ -64,6 +65,14 @@ function auditLaptopData(laptops, results) {
     }
     if (!laptop.modelCode || !/^https:\/\//.test(laptop.specSource || '') || !/^\d{4}-\d{2}-\d{2}$/.test(laptop.specCheckedAt || '')) {
       add(results, 'laptops.js', 'error', `${laptop.id} has incomplete spec-source metadata`);
+    }
+    for (const field of nullableSpecs) {
+      if (laptop[field] === null && (typeof laptop.specGaps?.[field] !== 'string' || !laptop.specGaps[field].trim())) {
+        add(results, 'laptops.js', 'error', `${laptop.id} has an undocumented null ${field}`);
+      }
+      if (laptop[field] !== null && laptop.specGaps?.[field]) {
+        add(results, 'laptops.js', 'error', `${laptop.id} documents a ${field} gap even though the field has a value`);
+      }
     }
   }
 }
