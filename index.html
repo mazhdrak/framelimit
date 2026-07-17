@@ -681,7 +681,7 @@ function updateFinder() {
         <a href="${laptop.amazonUrl}" class="fr-link" rel="nofollow sponsored" target="_blank">Check Price →</a>
         <a href="${secondaryUrl}" class="fr-link fr-link-secondary">${secondaryLabel}</a>
       </div>
-      <div class="fr-note">${window.flRetailerStatus ? window.flRetailerStatus(laptop) : 'Retailer link'} · Reference price is not live · ${window.FL_DATA_LAST_CHECKED_LABEL || 'Price/spec checked recently'}</div>
+      <div class="fr-note">${window.flRetailerStatus ? window.flRetailerStatus(laptop) : 'Retailer link'} · ${window.flReferencePriceStatus ? window.flReferencePriceStatus(laptop) : 'Reference price is dated'} · Not live · ${window.FL_DATA_LAST_CHECKED_LABEL || 'Retail link checked recently'}</div>
     </article>`;
   }).join('');
 }

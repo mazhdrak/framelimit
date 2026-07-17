@@ -63,6 +63,12 @@ function auditLaptopData(laptops, results) {
     if (laptop.battery !== null && (!Number.isFinite(laptop.battery) || laptop.battery <= 0)) {
       add(results, 'laptops.js', 'error', `${laptop.id} has an invalid battery capacity`);
     }
+    if (Number.isFinite(laptop.price) && !/^\d{4}-\d{2}-\d{2}$/.test(laptop.priceCheckedAt || '')) {
+      add(results, 'laptops.js', 'error', `${laptop.id} has an undated reference price`);
+    }
+    if (!Number.isFinite(laptop.price) && laptop.priceCheckedAt) {
+      add(results, 'laptops.js', 'error', `${laptop.id} has a reference-price date without a reference price`);
+    }
     if (!laptop.modelCode || !/^https:\/\//.test(laptop.specSource || '') || !/^\d{4}-\d{2}-\d{2}$/.test(laptop.specCheckedAt || '')) {
       add(results, 'laptops.js', 'error', `${laptop.id} has incomplete spec-source metadata`);
     }

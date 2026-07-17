@@ -19,18 +19,21 @@
       id: 'lenovo-legion-7i-gen10',
       name: 'Lenovo Legion 7i Gen 10',
       price: 2199,
+      priceCheckedAt: '2026-07-15',
       amazonUrl: 'https://www.amazon.com/dp/B0FWVFBB81?tag=framelimit20-20'
     },
     'msi-stealth-a16-ai-plus': {
       id: 'msi-stealth-a16-ai-plus',
       name: 'MSI Stealth A16 AI+',
       price: 2699,
+      priceCheckedAt: '2026-07-15',
       amazonUrl: 'https://www.amazon.com/dp/B0DYSHDBPN?tag=framelimit20-20'
     },
     'hp-omen-transcend-14': {
       id: 'hp-omen-transcend-14',
       name: 'HP Omen Transcend 14',
       price: 1669,
+      priceCheckedAt: '2026-07-15',
       amazonUrl: 'https://www.amazon.com/dp/B0GCQCMGDC?tag=framelimit20-20'
     }
   };
@@ -113,7 +116,7 @@
     }
     const record = getRecord(value);
     if (record && Number.isFinite(record.price)) {
-      return { kind: 'reference', text: 'Typical $' + record.price.toLocaleString('en-US'), offer: null };
+      return { kind: 'reference', text: 'Typical $' + record.price.toLocaleString('en-US'), offer: null, record };
     }
     return { kind: 'unavailable', text: 'Check current price', offer: null };
   }
@@ -134,7 +137,7 @@
     node.title = display.kind === 'amazon'
       ? `Amazon price checked ${new Date(display.offer.checkedAt).toLocaleString('en-US')}. Price and availability can change.`
       : display.kind === 'reference'
-        ? 'Typical street/reference price; not a guaranteed live offer.'
+        ? `${window.flReferencePriceStatus ? window.flReferencePriceStatus(display.record) : 'Dated editorial reference price'}. Not a guaranteed live offer.`
         : 'No recently verified exact offer. Check the retailer for current price and stock.';
   }
 

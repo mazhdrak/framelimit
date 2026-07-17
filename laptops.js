@@ -85,6 +85,7 @@ const LAPTOP_CATALOG = [
     weight: 3.6,
     battery: 99,
     price: 3543,
+    priceCheckedAt: '2026-07-15',
     score: 9.3,
     scores: { perf: 9.5, display: 8.8, thermals: 8.6, battery: 6.5, build: 9.3, value: 8.5 },
     bestFor: 'High-refresh 1440p/4K, upgradeable powerhouse',
@@ -124,6 +125,7 @@ const LAPTOP_CATALOG = [
     weight: 3.3,
     battery: 90,
     price: 4499,
+    priceCheckedAt: '2026-07-15',
     score: 9.6,
     scores: { perf: 9.8, display: 9.0, thermals: 9.5, battery: 6.8, build: 9.6, value: 8.2 },
     bestFor: 'Sustained max performance, competitive gaming',
@@ -163,6 +165,7 @@ const LAPTOP_CATALOG = [
     weight: 2.8,
     battery: 90,
     price: 3799,
+    priceCheckedAt: '2026-07-15',
     score: 9.4,
     scores: { perf: 9.6, display: 9.0, thermals: 9.3, battery: 7.2, build: 9.5, value: 8.6 },
     bestFor: 'Portable flagship, competitive esports + AAA',
@@ -241,6 +244,7 @@ const LAPTOP_CATALOG = [
     weight: 4.34,
     battery: 96,
     price: 3707,
+    priceCheckedAt: '2026-07-15',
     score: 9.2,
     scores: { perf: 9.9, display: 9.2, thermals: 8.5, battery: 5.5, build: 9.8, value: 7.0 },
     bestFor: 'Absolute maximum performance, Alienware ecosystem',
@@ -320,6 +324,7 @@ const LAPTOP_CATALOG = [
     weight: 3.21,
     battery: 99,
     price: 5599,
+    priceCheckedAt: '2026-07-15',
     score: 9.1,
     scores: { perf: 9.7, display: 9.0, thermals: 8.4, battery: 6.2, build: 9.9, value: 7.5 },
     bestFor: 'Razer loyalists, premium large-screen experience',
@@ -359,6 +364,7 @@ const LAPTOP_CATALOG = [
     weight: 2.9,
     battery: 83,
     price: 2998,
+    priceCheckedAt: '2026-07-15',
     score: 9.1,
     scores: { perf: 9.4, display: 8.8, thermals: 8.8, battery: 7.6, build: 9.0, value: 9.3 },
     bestFor: 'Full-power RTX 5080 performance with upgradeable memory',
@@ -398,6 +404,7 @@ const LAPTOP_CATALOG = [
     weight: 1.85,
     battery: 90,
     price: 3939,
+    priceCheckedAt: '2026-07-15',
     score: 9.2,
     scores: { perf: 9.1, display: 9.8, thermals: 8.5, battery: 8.2, build: 9.6, value: 8.4 },
     bestFor: 'Portable flagship, best OLED + performance balance',
@@ -440,6 +447,7 @@ const LAPTOP_CATALOG = [
     weight: 1.9,
     battery: 80,
     price: 1899,
+    priceCheckedAt: '2026-07-15',
     score: 9.2,
     scores: { perf: 9.1, display: 8.5, thermals: 9.0, battery: 7.8, build: 8.8, value: 9.5 },
     bestFor: 'High-performance 1440p gaming with a 165Hz OLED display',
@@ -480,6 +488,7 @@ const LAPTOP_CATALOG = [
     weight: 2.0,
     battery: 80,
     price: 1299,
+    priceCheckedAt: '2026-07-15',
     score: null,
     scores: null,
     bestFor: 'AMD-platform buyers who want RTX 5060 and a 15.1-inch OLED',
@@ -520,6 +529,7 @@ const LAPTOP_CATALOG = [
     weight: 1.63,
     battery: 72,
     price: 2499,
+    priceCheckedAt: '2026-07-15',
     score: null,
     scores: null,
     bestFor: 'Compact OLED gaming with exact native-performance evidence',
@@ -559,6 +569,7 @@ const LAPTOP_CATALOG = [
     weight: 1.57,
     battery: 73,
     price: 2299,
+    priceCheckedAt: '2026-07-15',
     score: 9.0,
     scores: { perf: 8.6, display: 9.8, thermals: 8.2, battery: 8.6, build: 9.5, value: 8.8 },
     bestFor: 'Ultraportable + OLED, travel-friendly gamer',
@@ -598,6 +609,7 @@ const LAPTOP_CATALOG = [
     weight: 1.85,
     battery: 90,
     price: 3399,
+    priceCheckedAt: '2026-07-15',
     score: 8.9,
     scores: { perf: 8.8, display: 9.8, thermals: 8.3, battery: 8.0, build: 9.6, value: 8.6 },
     bestFor: 'OLED quality + portability at mid-range money',
@@ -640,6 +652,7 @@ const LAPTOP_CATALOG = [
     weight: 2.3,
     battery: 76,
     price: 1849,
+    priceCheckedAt: '2026-07-15',
     score: 8.7,
     scores: { perf: 8.8, display: 8.4, thermals: 8.6, battery: 7.4, build: 8.5, value: 9.3 },
     bestFor: 'High-performance gaming on a strict budget',
@@ -679,6 +692,7 @@ const LAPTOP_CATALOG = [
     weight: 2.4,
     battery: 70,
     price: 1669,
+    priceCheckedAt: '2026-07-15',
     score: 8.5,
     scores: { perf: 8.6, display: 7.8, thermals: 8.4, battery: 8.0, build: 8.6, value: 9.0 },
     bestFor: 'Upgradeable RTX 5070 system with several display options',
@@ -721,6 +735,7 @@ const LAPTOP_CATALOG = [
     weight: 2.2,
     battery: 90,
     price: 1969,
+    priceCheckedAt: '2026-07-15',
     score: 8.6,
     scores: { perf: 8.5, display: 8.3, thermals: 8.8, battery: 8.4, build: 9.2, value: 9.2 },
     bestFor: 'MIL-SPEC durability, 32GB RAM, and a 165Hz G-SYNC display',
@@ -761,6 +776,7 @@ const LAPTOP_CATALOG = [
     weight: 2.2,
     battery: 90,
     price: 1799,
+    priceCheckedAt: '2026-07-15',
     score: null,
     scores: null,
     bestFor: 'A current AMD CPU platform with RTX 5070 graphics and upgradeable memory',
@@ -839,6 +855,7 @@ const LAPTOP_CATALOG = [
     weight: 2.57,
     battery: 96,
     price: 2447,
+    priceCheckedAt: '2026-07-15',
     score: 8.7,
     scores: { perf: 9.0, display: 8.5, thermals: 8.8, battery: 7.2, build: 9.4, value: 8.4 },
     bestFor: 'Alienware build quality at a non-Alienware price',
@@ -881,6 +898,7 @@ const LAPTOP_CATALOG = [
     weight: 2.3,
     battery: 60,
     price: 1329,
+    priceCheckedAt: '2026-07-15',
     score: 8.5,
     scores: { perf: 8.0, display: 7.8, thermals: 8.6, battery: 7.2, build: 8.4, value: 9.6 },
     bestFor: 'Best-value RTX 5060 pick for 1080p gaming',
@@ -1001,6 +1019,7 @@ const LAPTOP_CATALOG = [
     weight: 2.2,
     battery: 90,
     price: 2099,
+    priceCheckedAt: '2026-07-15',
     score: 8.4,
     scores: { perf: 8.0, display: 8.2, thermals: 8.8, battery: 8.8, build: 9.2, value: 9.0 },
     bestFor: 'Heavy multitasking, content creation, and RTX 5070 gaming',
@@ -1040,6 +1059,7 @@ const LAPTOP_CATALOG = [
     weight: 2.4,
     battery: 75,
     price: 1744,
+    priceCheckedAt: '2026-07-15',
     score: 7.9,
     scores: { perf: 7.8, display: 7.4, thermals: 8.0, battery: 6.8, build: 8.2, value: 9.0 },
     bestFor: 'RTX 5070 performance and QHD gaming in a 15-inch chassis',
@@ -1079,6 +1099,7 @@ const LAPTOP_CATALOG = [
     weight: 2.2,
     battery: 76,
     price: 1337,
+    priceCheckedAt: '2026-07-15',
     score: 7.8,
     scores: { perf: 7.8, display: 7.9, thermals: 8.0, battery: 6.5, build: 7.8, value: 9.2 },
     bestFor: 'Underrated budget pick, good display ratio',
@@ -1118,6 +1139,7 @@ const LAPTOP_CATALOG = [
     weight: 2.57,
     battery: 60,
     price: 1699,
+    priceCheckedAt: '2026-07-15',
     score: 8.4,
     scores: { perf: 7.8, display: 8.8, thermals: 8.2, battery: 7.4, build: 8.4, value: 9.0 },
     bestFor: 'A current Dell gaming laptop with a sharp 16-inch display and 32GB RAM',
@@ -1151,6 +1173,7 @@ const LAPTOP_CATALOG = [
     weight: 1.85,
     battery: 90,
     price: 3699,
+    priceCheckedAt: '2026-07-15',
     score: null,
     scores: null,
     bestFor: 'Portable flagship buyers who want a 240Hz OLED and high-end creator performance',
@@ -1184,6 +1207,7 @@ const LAPTOP_CATALOG = [
     weight: 3.6,
     battery: 99.9,
     price: 4179,
+    priceCheckedAt: '2026-07-15',
     score: null,
     scores: null,
     bestFor: '4K Mini LED gaming, 64GB memory, and desktop-replacement performance',
@@ -1217,6 +1241,7 @@ const LAPTOP_CATALOG = [
     weight: 2.65,
     battery: 90,
     price: 3698,
+    priceCheckedAt: '2026-07-15',
     score: null,
     scores: null,
     bestFor: 'Full-power RTX 5080 gaming with 64GB RAM and a 240Hz Nebula display',
@@ -1250,6 +1275,7 @@ const LAPTOP_CATALOG = [
     weight: 3.6,
     battery: 99.9,
     price: 4299,
+    priceCheckedAt: '2026-07-15',
     score: null,
     scores: null,
     bestFor: 'Ryzen X3D gaming performance with a full-power RTX 5090',
@@ -1283,6 +1309,7 @@ const LAPTOP_CATALOG = [
     weight: 1.59,
     battery: 70,
     price: 1999,
+    priceCheckedAt: '2026-07-15',
     score: null,
     scores: null,
     bestFor: 'Portable all-AMD gaming, creation, and high-memory iGPU workloads',
@@ -1385,6 +1412,16 @@ function flRetailerStatus(laptop) {
     : 'Amazon search fallback - verify model before buying';
 }
 
+function flReferencePriceStatus(laptop) {
+  if (!laptop || !Number.isFinite(laptop.price) || !/^\d{4}-\d{2}-\d{2}$/.test(laptop.priceCheckedAt || '')) {
+    return 'Reference price date unavailable';
+  }
+  const checked = new Date(`${laptop.priceCheckedAt}T12:00:00Z`).toLocaleDateString('en-US', {
+    timeZone: 'UTC', month: 'short', day: 'numeric', year: 'numeric'
+  });
+  return `Reference price checked ${checked}`;
+}
+
 /* Expose everything globally for plain HTML pages */
 window.LAPTOPS         = LAPTOPS;
 window.FL_DATA_LAST_CHECKED = FL_DATA_LAST_CHECKED;
@@ -1397,3 +1434,4 @@ window.sortByPrice     = sortByPrice;
 window.sortByTGP       = sortByTGP;
 window.flIsDirectAmazonProduct = flIsDirectAmazonProduct;
 window.flRetailerStatus = flRetailerStatus;
+window.flReferencePriceStatus = flReferencePriceStatus;
