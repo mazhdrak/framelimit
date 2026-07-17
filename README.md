@@ -80,6 +80,21 @@ Any page can render laptop data using `data-fl-*` attributes:
 <div data-fl-deals="lenovo-legion-5i-gen10,lenovo-legion-pro-7i-gen10"></div>
 ```
 
+## RTX 50 TGP Dataset Exports
+
+`laptops.js` is also the canonical source for the downloadable RTX 50 laptop
+TGP dataset. Regenerate the committed CSV and JSON files after any included
+catalog row changes:
+
+```bash
+node scripts/generate-tgp-dataset.mjs
+node scripts/audit-tgp-database.mjs
+```
+
+The audit fails when the exports no longer match the catalog or when the public
+database page is missing required fields, download links, citation guidance,
+version metadata, or changelog details.
+
 ## CSS Class System
 
 Guide pages use two class systems — both are defined in `style.css`:

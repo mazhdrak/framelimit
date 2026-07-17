@@ -435,3 +435,13 @@ FRAMELIMIT вече е технически и редакционно по-пр�
 6. sitemap/metadata/internal-link проверка и тест на всички съществуващи audit scripts.
 
 След този пакет следва distribution/backlink sprint, а не създаване на още общи guide страници.
+
+### TGP Dataset Distribution Pack — завършен на 17 юли 2026 г.
+
+- [x] CSV и JSON export-и се генерират детерминирано от canonical `laptops.js` каталога.
+- [x] Всеки ред съдържа exact model/SKU, GPU, OEM maximum GPU power, NVIDIA power range reference, evidence status, source URL и last-verified дата.
+- [x] RTX 50 TGP Database има видими Download data, How to cite, dataset version и changelog секции.
+- [x] `scripts/audit-tgp-database.mjs` блокира stale export-и и разминаване между каталога, export contract-а и HTML renderer-а.
+- [x] Sitemap, metadata, license и internal-link проверките са включени в audit-а; всички съществуващи audit scripts минават.
+
+Следващ приоритет: distribution/backlink sprint с полезни, персонализирани представяния на dataset-а; без купени линкове и без generic guide expansion.

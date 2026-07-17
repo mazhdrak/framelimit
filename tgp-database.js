@@ -35,6 +35,12 @@
     return `${month}/${day}/${year}`;
   }
 
+  function evidenceStatus(laptop) {
+    return laptop.tgp == null
+      ? '<span class="tgp-status tgp-status-partial">Official source; TGP not published</span>'
+      : '<span class="tgp-status">Official OEM specification</span>';
+  }
+
   function displayRows() {
     const query = state.search.toLowerCase();
     const filtered = rows.filter((laptop) => {
@@ -52,7 +58,7 @@
 
     document.getElementById('tgp-result-count').textContent = `${filtered.length} of ${rows.length} sourced configurations shown`;
     if (!filtered.length) {
-      tableBody.innerHTML = '<tr><td colspan="9" class="tgp-empty">No sourced configurations match these filters.</td></tr>';
+      tableBody.innerHTML = '<tr><td colspan="10" class="tgp-empty">No sourced configurations match these filters.</td></tr>';
       return;
     }
 
@@ -63,13 +69,14 @@
         ? '<span class="tgp-muted">Not published</span>'
         : `<div class="tgp-power">${laptop.tgp}W <small>MAX</small></div><div class="tgp-bar"><span style="width:${Math.min(100, laptop.tgp / 175 * 100)}%"></span></div>`;
       const review = reviewUrl ? `<a class="tgp-link" href="${reviewUrl}">Read review →</a>` : '<span class="tgp-muted">Pending</span>';
-      return `<tr>
+      return `<tr data-tgp-row-id="${escapeHtml(laptop.id)}">
         <td><div class="tgp-model">${escapeHtml(laptop.shortName)}</div><div class="tgp-sku">${escapeHtml(laptop.modelCode)}</div></td>
         <td><span class="tgp-gpu">${escapeHtml(laptop.gpu)}</span></td>
         <td>${power}</td>
         <td>${escapeHtml(laptop.gpuVram)}</td>
         <td>${escapeHtml(display)}</td>
         <td>${laptop.weight == null ? '<span class="tgp-muted">N/A</span>' : `${escapeHtml(laptop.weight)}kg`}</td>
+        <td>${evidenceStatus(laptop)}</td>
         <td><a class="tgp-link" href="${escapeHtml(laptop.specSource)}" target="_blank" rel="nofollow">Source →</a><div class="tgp-sku">Checked ${formatDate(laptop.specCheckedAt)}</div></td>
         <td>${review}</td>
         <td><a class="tgp-link" href="${escapeHtml(laptop.amazonUrl)}" target="_blank" rel="nofollow sponsored">Amazon →</a></td>
