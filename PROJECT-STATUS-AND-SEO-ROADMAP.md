@@ -456,6 +456,11 @@ moderator-first hold за r/GamingLaptops; dataset пост няма да се �
 предварително разрешение от модераторите. Tracking-ът и текстовете са в
 `TGP-DATASET-OUTREACH-TARGETS.md`.
 
+Reddit contact update (17 юли 2026 г.): moderator contact е опитан през
+официалния Message Mods flow и чрез един публично посочен модератор, но Reddit
+остави `Send` неактивен за текущия account. Няма изпратено съобщение и няма
+community публикация; hold-ът остава активен.
+
 - [x] CSV и JSON export-и се генерират детерминирано от canonical `laptops.js` каталога.
 - [x] Всеки ред съдържа exact model/SKU, GPU, OEM maximum GPU power, NVIDIA power range reference, evidence status, source URL и last-verified дата.
 - [x] RTX 50 TGP Database има видими Download data, How to cite, dataset version и changelog секции.
