@@ -18,13 +18,14 @@ function add(results, message) {
 }
 
 async function main() {
-  const [laptops, page, script, sitemap, guides, nav] = await Promise.all([
+  const [laptops, page, script, sitemap, guides, nav, methodology] = await Promise.all([
     loadLaptops(),
     fs.readFile(path.join(ROOT, PAGE), 'utf8'),
     fs.readFile(path.join(ROOT, 'tgp-database.js'), 'utf8'),
     fs.readFile(path.join(ROOT, 'sitemap.xml'), 'utf8'),
     fs.readFile(path.join(ROOT, 'guides.html'), 'utf8'),
-    fs.readFile(path.join(ROOT, 'nav.js'), 'utf8')
+    fs.readFile(path.join(ROOT, 'nav.js'), 'utf8'),
+    fs.readFile(path.join(ROOT, 'methodology.html'), 'utf8')
   ]);
   const results = [];
   const rows = laptops.filter((laptop) => /^RTX 50/.test(laptop.gpu) && laptop.modelCode && laptop.specSource && laptop.specCheckedAt);
@@ -52,6 +53,10 @@ async function main() {
   if (!page.includes('id="same-gpu-tgp"') || !page.includes(`${powerSpreadGroups.length} same-GPU power groups`)) add(results, 'database page is missing the current same-GPU TGP comparison section');
   if (!script.includes('renderPowerSpread') || !script.includes('tgp-spread-grid')) add(results, 'client script does not render same-GPU TGP spreads');
   if (!page.includes('"@type": "Dataset"')) add(results, 'database page is missing Dataset JSON-LD');
+  const licenseUrl = 'https://framelimit.com/methodology#data-license-v1-0';
+  if (!page.includes('"license":') || !page.includes(`"url": "${licenseUrl}"`)) add(results, 'Dataset JSON-LD is missing the versioned data license');
+  if (!page.includes('"isAccessibleForFree": true')) add(results, 'Dataset JSON-LD must identify free public access');
+  if (!methodology.includes('id="data-license-v1-0"') || !methodology.includes('FRAMELIMIT Data License 1.0')) add(results, 'methodology is missing the public license target');
   if (!sitemap.includes('https://framelimit.com/guide-rtx-50-laptop-tgp-database')) add(results, 'database page is missing from sitemap.xml');
   if (!guides.includes('href="guide-rtx-50-laptop-tgp-database"')) add(results, 'database page is missing from guides.html');
   if (!nav.includes('href="guide-rtx-50-laptop-tgp-database"')) add(results, 'database page is missing from mobile navigation');
