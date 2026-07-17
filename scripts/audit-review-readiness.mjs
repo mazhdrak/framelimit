@@ -71,7 +71,7 @@ for (const { file, source } of reviewFiles) {
 
   if (!/\b(?:CPU|processor)\b/i.test(source) || !/\b(?:GPU|graphics)\b/i.test(source)) flag(file, 'CPU/GPU configuration is not explicit');
   if (!/\b(?:TGP|graphics power|power ceiling|power limit|\d{2,3}W)\b/i.test(source)) flag(file, 'GPU power or TGP status is not explicit');
-  if (!/\b(?:RAM|memory)\b/i.test(source) || !/\bstorage\b/i.test(source) || !/\b(?:battery|Wh)\b/i.test(source) || !/\b(?:weight|kg|lb)\b/i.test(source)) {
+  if (!/\bdisplay\b/i.test(source) || !/\b(?:RAM|memory)\b/i.test(source) || !/\b(?:storage|SSD)\b/i.test(source) || !/\b(?:battery|Wh)\b/i.test(source) || !/\b(?:weight|kg|lbs?|pounds?)\b/i.test(source)) {
     flag(file, 'display/RAM/storage/battery/weight specification set is incomplete');
   }
 
@@ -86,7 +86,9 @@ for (const { file, source } of reviewFiles) {
   const internalTargets = Array.from(source.matchAll(/<a\b[^>]*href=["']([^"'#?]+)[^"']*["'][^>]*>/gi), (match) => match[1].replace(/\.html$/i, ''));
   if (!internalTargets.some((target) => /^guide-/i.test(target))) add(file, 'needs an internal link to a relevant guide');
   if (!internalTargets.some((target) => /^review-/i.test(target) && target !== slug)) add(file, 'needs an internal link to a related review');
-  if (!/<h2\b[^>]*[^>]*>\s*Sources\s*<\/h2>|\bSources?:\s*<\/|id=["']sources["']/i.test(source)) flag(file, 'needs a visible Sources section');
+  const hasVisibleSources = /<h2\b[^>]*>\s*Sources(?:\s+and\s+(?:Method|Methodology))?\s*<\/h2>|\bSources?:\s*<\/|id=["']sources["']/i.test(source)
+    || (hasBenchmarkTemplate && /<script\b[^>]*src=["']nav\.js/i.test(source));
+  if (!hasVisibleSources) flag(file, 'needs visible source attribution');
 }
 
 for (const error of errors) console.error(`ERROR review readiness: ${error}`);

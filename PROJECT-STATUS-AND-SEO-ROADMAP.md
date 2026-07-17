@@ -358,6 +358,7 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 Една review страница е готова, когато:
 
 - [x] Автоматизируемата част от checklist-а се следи от `scripts/audit-review-readiness.mjs`: metadata/JSON-LD, exact canonical, sitemap `lastmod`, direct-ASIN CTA, affiliate атрибути и вътрешни guide/review връзки са blocking проверки; спецификационните полета, evidence boundary и Sources се извеждат като editorial update backlog, без страниците да се скриват.
+  - [x] Първи review-readiness cleanup batch: audit-ът разпознава динамичната source attribution от общия benchmark component; Flow Z13 и TUF A16 Radeon описват приложимостта или липсата на проверим TGP, а Strix G16, Zephyrus G16, Legion 5 AMD и Raider 18 ясно остават unranked без matched exact-SKU evidence. Editorial backlog-ът е намален от 28 на 5 сигнала.
 
 - [ ] моделът и точният SKU са ясни;
 - [ ] CPU, GPU, VRAM и TGP са проверени;
