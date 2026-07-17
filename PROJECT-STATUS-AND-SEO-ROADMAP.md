@@ -305,6 +305,8 @@ Sitemap-ът не трябва да бъде изтриван и добавян 
 
 Веднъж седмично:
 
+- [x] Локалният workflow е автоматизиран чрез `scripts/analyze-search-console.mjs` и `SEARCH-CONSOLE-WORKFLOW.md`: Google CSV export се филтрира повторяемо по impressions, позиции 8–20 и слаб CTR, без да се записват измислени baseline данни преди реалния export.
+
 - [ ] Проверка на Pages/Indexing report.
 - [ ] Проверка за нови structured data проблеми.
 - [ ] Export на Search Results за последните 28 дни.
