@@ -2,9 +2,8 @@
 
 Research date: 2026-07-17
 
-Status: editorial outreach sent; Reddit moderator contact attempted but not
-sent because Reddit kept the message action disabled. The community post
-remains on moderator-first hold.
+Status: editorial outreach sent; r/GamingLaptops moderators declined the
+dataset post request. The Reddit target is closed with no post and no follow-up.
 
 ## 1. Jarrod'sTech
 
@@ -57,16 +56,14 @@ Draft:
 > work, the CSV/JSON and methodology are here:
 > https://framelimit.com/guide-rtx-50-laptop-tgp-database
 
-## 3. r/GamingLaptops — moderator-first hold
+## 3. r/GamingLaptops — declined
 
 - Relevance: the community directly covers gaming-laptop model selection and
   power-limit questions.
-- Status: hold. Current self-promotion permission was not verified from an
-  authoritative rules page during this research pass. A moderator contact
-  attempt on 2026-07-17 was not sent because Reddit kept `Send` disabled for
-  the current account.
-- Required next action: ask moderators whether one disclosed, non-affiliate
-  dataset post is acceptable. Do not post the dataset until they answer.
+- Status: declined. The moderators refused permission for the dataset post on
+  2026-07-21.
+- Required next action: none. Do not publish the dataset in r/GamingLaptops and
+  do not send a follow-up.
 - Proposed disclosure: FRAMELIMIT ownership, 32-row scope, sourced
   specifications rather than hands-on measurements, and the correction path.
 
@@ -76,7 +73,7 @@ Draft:
 | --- | --- | --- | --- | --- |
 | Jarrod'sTech | Relevant article comment | Awaiting moderation (comment 50430) | 2026-07-17 | One follow-up only if invited |
 | Notebookcheck | Official editorial contact form | Submitted successfully | 2026-07-17 | Monitor `hello@framelimit.com` |
-| r/GamingLaptops | Moderator message first | Contact attempted; Reddit messaging blocked | No | Retry modmail only after messaging is enabled; do not post |
+| r/GamingLaptops | Moderator message first | Declined | 2026-07-21 | Closed; no post and no follow-up |
 
 One personalized message per target. Stop after one follow-up unless invited to
 continue. Do not request reciprocal links, copy the same pitch across channels,
