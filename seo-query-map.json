@@ -38,5 +38,10 @@
     "query": "RTX 50 laptop TGP comparison",
     "target": "guide-rtx-50-laptop-tgp-database",
     "requiredTerms": ["RTX 50", "TGP", "32 sourced configurations"]
+  },
+  {
+    "query": "MSI Vector 16 HX AI RTX 5080 review",
+    "target": "review-msi-vector-16-hx-ai",
+    "requiredTerms": ["MSI Vector 16 HX AI", "RTX 5080", "A2XWIG-058US"]
   }
 ]
