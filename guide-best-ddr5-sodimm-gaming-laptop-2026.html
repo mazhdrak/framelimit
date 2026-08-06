@@ -45,7 +45,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20260806-upgrades">
 </head>
 <body>
 <div id="nav-root"></div>
@@ -89,7 +89,7 @@
 
     <h2 id="quick-picks">Quick picks: 32GB, 64GB, or 96GB?</h2>
     <div style="overflow-x:auto;margin-bottom:30px">
-      <table>
+      <table class="upgrade-table">
         <thead><tr><th>Capacity</th><th>Best fit</th><th>Recommendation</th></tr></thead>
         <tbody>
           <tr><td><strong>32GB (2x16GB)</strong></td><td>Gaming, school, office work, streaming with a normal browser load</td><td>Best default. Do not replace an existing matched 32GB kit only for a higher printed speed unless the laptop supports it and your workload benefits.</td></tr>
@@ -102,26 +102,27 @@
 
     <h2 id="kits">Verified DDR5-5600 kit specifications</h2>
     <p>These are reference specifications, not universal compatibility promises. We favor 1.1V JEDEC/Plug-N-Play laptop modules over kits that require an XMP profile the notebook BIOS may not expose.</p>
-    <div class="pros-cons">
-      <div class="pc-box pro">
+    <div class="upgrade-picks">
+      <div class="upgrade-product">
         <div class="pc-title p">32GB default</div>
         <h3 style="margin-top:10px">Kingston FURY Impact KF556S40IBK2-32</h3>
         <ul class="pc-list"><li>2x16GB</li><li>DDR5-5600 CL40</li><li>1.1V, 262-pin SO-DIMM</li><li>1Rx8 modules</li></ul>
-        <p><a href="https://www.kingston.com/en/memory/search?partid=KF556S40IBK2-32" target="_blank" rel="noopener">Open Kingston specification</a></p>
+        <div class="upgrade-product-actions"><a href="https://www.amazon.com/dp/B0BRTJ4Q94?tag=framelimit20-20" class="btn-buy am" target="_blank" rel="nofollow sponsored noopener">Check 32GB kit on Amazon</a><p><a href="https://www.kingston.com/en/memory/search?partid=KF556S40IBK2-32" target="_blank" rel="noopener">Kingston specification</a></p></div>
       </div>
-      <div class="pc-box pro">
+      <div class="upgrade-product">
         <div class="pc-title p">64GB balanced</div>
         <h3 style="margin-top:10px">Kingston FURY Impact KF556S40IBK2-64</h3>
         <ul class="pc-list"><li>2x32GB</li><li>DDR5-5600 CL40</li><li>1.1V, 262-pin SO-DIMM</li><li>2Rx8 modules</li></ul>
-        <p><a href="https://www.kingston.com/en/memory/search?partid=KF556S40IBK2-64" target="_blank" rel="noopener">Open Kingston specification</a></p>
+        <div class="upgrade-product-actions"><a href="https://www.amazon.com/dp/B0BRTJT5P2?tag=framelimit20-20" class="btn-buy am" target="_blank" rel="nofollow sponsored noopener">Check 64GB kit on Amazon</a><p><a href="https://www.kingston.com/en/memory/search?partid=KF556S40IBK2-64" target="_blank" rel="noopener">Kingston specification</a></p></div>
       </div>
-      <div class="pc-box pro">
+      <div class="upgrade-product">
         <div class="pc-title p">96GB specialist</div>
         <h3 style="margin-top:10px">Crucial CT2K48G56C46S5</h3>
         <ul class="pc-list"><li>2x48GB</li><li>DDR5-5600</li><li>Laptop SO-DIMM kit</li><li>Requires explicit model verification</li></ul>
-        <p><a href="https://www.crucial.com/memory/ddr5/ct2k48g56c46s5/ct25593923" target="_blank" rel="noopener">Open Crucial specification</a></p>
+        <div class="upgrade-product-actions"><a href="https://www.amazon.com/dp/B0C79K5VGZ?tag=framelimit20-20" class="btn-buy am" target="_blank" rel="nofollow sponsored noopener">Check 96GB kit on Amazon</a><p><a href="https://www.crucial.com/memory/ddr5/ct2k48g56c46s5/ct25593923" target="_blank" rel="noopener">Crucial specification</a></p></div>
       </div>
     </div>
+    <p class="upgrade-aff-note">Amazon links open the exact part number where available. Confirm the model code, seller, return policy, and laptop compatibility before purchase. As an Amazon Associate, FRAMELIMIT may earn from qualifying purchases.</p>
 
     <div class="callout callout-tip">
       <span class="callout-label">Buying rule</span>
@@ -140,7 +141,7 @@
 
     <h2 id="models">Current gaming-laptop examples</h2>
     <div style="overflow-x:auto;margin-bottom:30px">
-      <table>
+      <table class="upgrade-table">
         <thead><tr><th>Exact platform</th><th>Memory path</th><th>Storage path</th><th>What to buy</th></tr></thead>
         <tbody>
           <tr><td><a href="review-msi-vector-16-hx-ai#memory-storage-upgrade">MSI Vector 16 HX AI A2XW</a></td><td>2 sockets; MSI lists up to 96GB and up to DDR5-6400</td><td>One PCIe 4.0 M.2 and one PCIe 5.0 M.2</td><td>Use MSI/Kingston model qualification; 64GB is the practical creator upgrade from the 32GB retail kit.</td></tr>

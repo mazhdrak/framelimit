@@ -572,6 +572,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,10,12,.97)
 .article-body a,.article-body a:visited,.co a,.co a:visited{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(0,212,255,.4)}
 .article-body a:hover,.co a:hover{color:var(--white);border-color:var(--cyan)}
 .article-body a:focus-visible,.co a:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.upgrade-table{width:100%;min-width:720px;border-collapse:collapse;background:var(--panel);table-layout:fixed}
+.upgrade-table th{padding:13px 16px;background:var(--deep);border-bottom:2px solid var(--border);font:700 9px 'JetBrains Mono',monospace;letter-spacing:1.2px;text-transform:uppercase;text-align:left;color:var(--muted);white-space:nowrap}
+.upgrade-table td{padding:18px 16px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.65;overflow-wrap:normal;word-break:normal}
+.upgrade-table tr:last-child td{border-bottom:0}
+.upgrade-table th:first-child,.upgrade-table td:first-child{width:150px;white-space:normal}
+.upgrade-table th:nth-child(2),.upgrade-table td:nth-child(2){width:33%}
+.upgrade-picks{display:grid;grid-template-columns:1fr;gap:18px;margin-bottom:26px}
+.upgrade-product{background:var(--deep);border:1px solid var(--border);border-top:2px solid var(--green);padding:24px}
+.upgrade-product h3{margin:8px 0 14px}
+.upgrade-product .pc-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 24px;margin-bottom:18px}
+.upgrade-product-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:18px}
+.upgrade-product-actions p{margin:0}
+.upgrade-aff-note{font-size:13px;color:var(--muted);line-height:1.65;margin-top:-8px}
 .ad-inline{background:var(--panel);border:1px solid var(--border);height:90px;display:flex;align-items:center;justify-content:center;margin:32px 0;color:var(--border);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px}
 .back-link{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);text-decoration:none;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;transition:color .2s;border-bottom:none}.back-link:hover{color:var(--amd)}
 .article-footer{background:var(--deep);border-top:1px solid var(--border);padding:32px 24px;text-align:center;margin-top:60px}
@@ -593,7 +606,7 @@ a.btn-review,a.btn-review:visited{color:var(--text);border-bottom:none}
 a.btn-review:hover{color:var(--cyan);border-bottom:1px solid var(--cyan)}
 a.btn-ghost,a.btn-ghost:visited{color:var(--cyan);border-bottom:none}
 @media(max-width:768px){.nav-links{display:none}nav{padding:0 20px}}
-@media(max-width:600px){.article-wrap{padding:90px 16px 60px}.pick-specs{grid-template-columns:1fr 1fr}.pick-pros-cons{grid-template-columns:1fr}.gpu-lineup{grid-template-columns:1fr}}
+@media(max-width:600px){.article-wrap{padding:90px 16px 60px}.pick-specs{grid-template-columns:1fr 1fr}.pick-pros-cons{grid-template-columns:1fr}.gpu-lineup{grid-template-columns:1fr}.upgrade-product{padding:20px}.upgrade-product .pc-list{grid-template-columns:1fr}.upgrade-product-actions{align-items:stretch}.upgrade-product-actions .btn-buy{width:100%;text-align:center}.upgrade-table td{padding:15px 14px}}
 
 
 /* ============================================================

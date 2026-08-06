@@ -14,6 +14,15 @@
   const MAX_LIVE_PRICE_AGE_MS = 24 * 60 * 60 * 1000;
   const snapshotOffers = (window.FL_PRICE_SNAPSHOT && window.FL_PRICE_SNAPSHOT.offers) || {};
 
+  const UPGRADE_PRODUCTS = [
+    { id: 'kingston-fury-impact-32gb-5600', category: 'memory', model: 'KF556S40IBK2-32', amazonUrl: 'https://www.amazon.com/dp/B0BRTJ4Q94?tag=framelimit20-20' },
+    { id: 'kingston-fury-impact-64gb-5600', category: 'memory', model: 'KF556S40IBK2-64', amazonUrl: 'https://www.amazon.com/dp/B0BRTJT5P2?tag=framelimit20-20' },
+    { id: 'crucial-96gb-5600-sodimm', category: 'memory', model: 'CT2K48G56C46S5', amazonUrl: 'https://www.amazon.com/dp/B0C79K5VGZ?tag=framelimit20-20' },
+    { id: 'samsung-990-pro-2tb', category: 'storage', model: 'MZ-V9P2T0B/AM', amazonUrl: 'https://www.amazon.com/dp/B0BHJJ9Y77?tag=framelimit20-20' },
+    { id: 'wd-black-sn850x-2tb', category: 'storage', model: 'WDS200T2X0E', amazonUrl: 'https://www.amazon.com/dp/B0B7CMZ3QH?tag=framelimit20-20' },
+    { id: 'crucial-t500-2tb', category: 'storage', model: 'CT2000T500SSD8', amazonUrl: 'https://www.amazon.com/dp/B0CK2TC9XQ?tag=framelimit20-20' }
+  ];
+
   const EXTRA_RECORDS = {
     'lenovo-legion-7i-gen10': {
       id: 'lenovo-legion-7i-gen10',
@@ -243,6 +252,7 @@
   }
 
   window.FL_PRICE_TIERS = PRICE_TIERS;
+  window.FL_UPGRADE_PRODUCTS = UPGRADE_PRODUCTS;
   window.FL_PRICE_RECORDS = records;
   window.flGetPriceRecord = getRecord;
   window.flGetPriceDisplay = getPriceDisplay;
