@@ -378,6 +378,9 @@ table.bench{width:100%;border-collapse:collapse;font-size:12px}
 .bench-context-pill.missing{border-color:rgba(255,190,0,.25);color:var(--yellow)}
 .bench-evidence-note{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);line-height:1.65;margin:12px 0 0}
 .bench-evidence-note a{color:var(--cyan)}
+.evidence-note a,.evidence-note a:visited{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(0,212,255,.55)}
+.evidence-note a:hover{color:var(--white);border-bottom-color:var(--cyan)}
+.evidence-note a:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 .verified-benchmark{margin:24px 0 8px;padding:24px;background:var(--deep);border:1px solid var(--border);border-left:3px solid var(--green)}
 .verified-bench-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:10px}
 .verified-bench-head h3{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:0;color:var(--white);margin:4px 0 0}
