@@ -84,6 +84,7 @@
       <li><a href="compare" onclick="window.__flToggleNav()">⚖️ Compare Laptops</a></li>
       <li><a href="upgrades" onclick="window.__flToggleNav()">RAM &amp; SSD Upgrades</a></li>
       <li><a href="guide-best-ddr5-sodimm-gaming-laptop-2026" onclick="window.__flToggleNav()">DDR5 SO-DIMM Guide</a></li>
+      <li><a href="guide-best-ssd-gaming-laptop-2026" onclick="window.__flToggleNav()">Gaming Laptop SSD Guide</a></li>
       <li><a href="methodology" onclick="window.__flToggleNav()">Methodology</a></li>
       <li><a href="guide-gaming-laptop-display-database" onclick="window.__flToggleNav()">Laptop Display Database</a></li>
       <li><a href="guide-dlss-fsr-frame-generation-database" onclick="window.__flToggleNav()">DLSS / FSR Benchmark Database</a></li>

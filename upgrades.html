@@ -27,9 +27,10 @@
     "@type": "ItemList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Best DDR5 SO-DIMM RAM for Gaming Laptops", "url": "https://framelimit.com/guide-best-ddr5-sodimm-gaming-laptop-2026" },
-      { "@type": "ListItem", "position": 2, "name": "MSI Vector 16 HX AI RAM and SSD Upgrade", "url": "https://framelimit.com/review-msi-vector-16-hx-ai#memory-storage-upgrade" },
-      { "@type": "ListItem", "position": 3, "name": "Lenovo Legion Pro 7i Gen 10 RAM and SSD Upgrade", "url": "https://framelimit.com/review-lenovo-legion-pro-7i-gen10#memory-storage-upgrade" },
-      { "@type": "ListItem", "position": 4, "name": "Lenovo Legion 5i Gen 10 RAM and SSD Upgrade", "url": "https://framelimit.com/review-lenovo-legion-5i-gen10#memory-storage-upgrade" }
+      { "@type": "ListItem", "position": 2, "name": "Best SSD for Gaming Laptops", "url": "https://framelimit.com/guide-best-ssd-gaming-laptop-2026" },
+      { "@type": "ListItem", "position": 3, "name": "MSI Vector 16 HX AI RAM and SSD Upgrade", "url": "https://framelimit.com/review-msi-vector-16-hx-ai#memory-storage-upgrade" },
+      { "@type": "ListItem", "position": 4, "name": "Lenovo Legion Pro 7i Gen 10 RAM and SSD Upgrade", "url": "https://framelimit.com/review-lenovo-legion-pro-7i-gen10#memory-storage-upgrade" },
+      { "@type": "ListItem", "position": 5, "name": "Lenovo Legion 5i Gen 10 RAM and SSD Upgrade", "url": "https://framelimit.com/review-lenovo-legion-5i-gen10#memory-storage-upgrade" }
     ]
   }
 }
@@ -38,7 +39,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-.upgrade-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:24px 0 44px}.upgrade-card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--border);padding:24px;text-decoration:none;min-height:260px;transition:border-color .2s,transform .2s}.upgrade-card:hover{border-color:var(--cyan);transform:translateY(-2px)}.upgrade-kicker{font:700 10px 'JetBrains Mono',monospace;color:var(--cyan);letter-spacing:1.4px;text-transform:uppercase}.upgrade-card h2{font:32px 'Bebas Neue',sans-serif;color:var(--white);margin:12px 0 10px;line-height:1.05}.upgrade-card p{color:var(--text);line-height:1.65;margin:0 0 18px}.upgrade-spec{margin-top:auto;color:var(--muted);font:11px 'JetBrains Mono',monospace;line-height:1.7}.upgrade-arrow{display:block;color:var(--cyan);margin-top:16px;font-weight:700}.upgrade-method{background:var(--deep);border:1px solid var(--border);padding:24px;margin:20px 0 36px}.upgrade-method h2{border:0;margin:0 0 12px;padding:0}.upgrade-method ol{margin:0;padding-left:22px}.upgrade-method li{margin:8px 0;color:var(--text);line-height:1.65}@media(max-width:850px){.upgrade-grid{grid-template-columns:1fr}.upgrade-card{min-height:0}}
+.upgrade-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:24px 0 44px}.upgrade-core-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.upgrade-card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--border);padding:24px;text-decoration:none;min-height:260px;transition:border-color .2s,transform .2s}.upgrade-card:hover{border-color:var(--cyan);transform:translateY(-2px)}.upgrade-kicker{font:700 10px 'JetBrains Mono',monospace;color:var(--cyan);letter-spacing:1.4px;text-transform:uppercase}.upgrade-card h2{font:32px 'Bebas Neue',sans-serif;color:var(--white);margin:12px 0 10px;line-height:1.05}.upgrade-card p{color:var(--text);line-height:1.65;margin:0 0 18px}.upgrade-spec{margin-top:auto;color:var(--muted);font:11px 'JetBrains Mono',monospace;line-height:1.7}.upgrade-arrow{display:block;color:var(--cyan);margin-top:16px;font-weight:700}.upgrade-method{background:var(--deep);border:1px solid var(--border);padding:24px;margin:20px 0 36px}.upgrade-method h2{border:0;margin:0 0 12px;padding:0}.upgrade-method ol{margin:0;padding-left:22px}.upgrade-method li{margin:8px 0;color:var(--text);line-height:1.65}@media(max-width:850px){.upgrade-grid,.upgrade-core-grid{grid-template-columns:1fr}.upgrade-card{min-height:0}}
 </style>
 </head>
 <body>
@@ -56,14 +57,21 @@
       DDR5 SO-DIMM, DDR5 CSODIMM, soldered LPDDR5X, and desktop DIMMs are not interchangeable. Even a faster module may run at a lower speed or fail to train if the BIOS and platform do not support its profile.
     </div>
 
-    <h2>Start with the RAM buying guide</h2>
-    <div class="upgrade-grid" style="grid-template-columns:1fr">
+    <h2>Start with a core buying guide</h2>
+    <div class="upgrade-grid upgrade-core-grid">
       <a class="upgrade-card" href="guide-best-ddr5-sodimm-gaming-laptop-2026">
         <span class="upgrade-kicker">Core guide</span>
         <h2>Best DDR5 SO-DIMM RAM for Gaming Laptops in 2026</h2>
         <p>How to choose between 32GB, 64GB, and 96GB kits; why JEDEC and voltage matter; and when a nominally faster kit is the wrong purchase.</p>
         <span class="upgrade-spec">32GB vs 64GB vs 96GB · DDR5-5600 · CSODIMM warning · verification checklist</span>
         <span class="upgrade-arrow">Open the RAM guide &rarr;</span>
+      </a>
+      <a class="upgrade-card" href="guide-best-ssd-gaming-laptop-2026">
+        <span class="upgrade-kicker">Core guide</span>
+        <h2>Best SSD for Gaming Laptops in 2026</h2>
+        <p>Choose between 1TB, 2TB, and 4TB; understand PCIe Gen4 versus Gen5; and avoid heatsink, component-clearance, and slot mistakes.</p>
+        <span class="upgrade-spec">M.2 2280 · PCIe Gen4 vs Gen5 · 2TB default · thermals and migration</span>
+        <span class="upgrade-arrow">Open the SSD guide &rarr;</span>
       </a>
     </div>
 
