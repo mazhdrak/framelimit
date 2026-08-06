@@ -26,6 +26,7 @@
     <li><a href="reviews">Reviews</a></li>
     <li><a href="compare">Compare</a></li>
     <li><a href="guides">Guides</a></li>
+    <li><a href="upgrades">Upgrades</a></li>
     <li><a href="methodology">Methodology</a></li>
     <li><a href="about">About</a></li>
   </ul>
@@ -45,6 +46,7 @@
       <li><a href="guide-gaming-laptop-display-database" onclick="window.__flToggleNav()">Laptop Display Database</a></li>
       <li><a href="guide-dlss-fsr-frame-generation-database" onclick="window.__flToggleNav()">DLSS / FSR Benchmark Database</a></li>
       <li><a href="guide-gaming-laptop-price-report-july-2026" onclick="window.__flToggleNav()">Monthly Price Report</a></li>
+      <li><a href="upgrades" onclick="window.__flToggleNav()">Laptop Upgrades</a></li>
       <li><a href="methodology" onclick="window.__flToggleNav()">Methodology</a></li>
       <li><a href="about" onclick="window.__flToggleNav()">👤 About</a></li>
       <li><a href="contact" onclick="window.__flToggleNav()">✉️ Contact</a></li>
@@ -80,6 +82,8 @@
     <div class="md-label">Tools &amp; Guides</div>
     <ul class="md-links">
       <li><a href="compare" onclick="window.__flToggleNav()">⚖️ Compare Laptops</a></li>
+      <li><a href="upgrades" onclick="window.__flToggleNav()">RAM &amp; SSD Upgrades</a></li>
+      <li><a href="guide-best-ddr5-sodimm-gaming-laptop-2026" onclick="window.__flToggleNav()">DDR5 SO-DIMM Guide</a></li>
       <li><a href="methodology" onclick="window.__flToggleNav()">Methodology</a></li>
       <li><a href="guide-gaming-laptop-display-database" onclick="window.__flToggleNav()">Laptop Display Database</a></li>
       <li><a href="guide-dlss-fsr-frame-generation-database" onclick="window.__flToggleNav()">DLSS / FSR Benchmark Database</a></li>

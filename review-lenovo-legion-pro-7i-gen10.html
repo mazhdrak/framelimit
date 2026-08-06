@@ -45,7 +45,7 @@
       "url": "https://framelimit.com"
     },
     "datePublished": "2026-03-11",
-    "dateModified": "2026-07-16"
+    "dateModified": "2026-08-06"
   }
 }
 </script>
@@ -123,6 +123,16 @@
   <h2>Display</h2>
   <p>The exact retail specification identifies a 16-inch 2560×1600 OLED panel at 240Hz with NVIDIA G-SYNC support. Brightness, gamut, response time, HDR behavior, and comparison with the Blade 16 require measurements from a matching panel and test method; this page does not present them as FRAMELIMIT measurements.</p>
 
+  <h2 id="memory-storage-upgrade">RAM and SSD Upgrade Guide</h2>
+  <p><strong>The 83F50053US starts with 32GB DDR5-6400 and a 1TB PCIe 5.0 NVMe SSD.</strong> Lenovo's 16IAX10H platform specification lists two DDR5-6400 CSODIMM slots with configurations offered up to 64GB. CSODIMM is an important compatibility detail: do not assume every conventional DDR5 SO-DIMM kit is an equivalent replacement.</p>
+  <div style="overflow-x:auto;margin-bottom:24px">
+    <table><thead><tr><th>Component</th><th>Verified platform path</th><th>Practical recommendation</th></tr></thead><tbody>
+      <tr><td>Memory</td><td>2x DDR5 CSODIMM slots; DDR5-6400; up to 64GB Lenovo offering</td><td>Keep the matched 32GB configuration for gaming. For 64GB, use a 2x32GB CSODIMM kit explicitly qualified for the Legion Pro 7 16IAX10H.</td></tr>
+      <tr><td>Storage</td><td>One M.2 2280 PCIe 5.0 x4 slot and one M.2 2280 PCIe 4.0 x4 slot</td><td>The simplest capacity upgrade is a second PCIe 4.0 M.2 drive; retain the factory Gen 5 system drive unless replacement capacity is required.</td></tr>
+    </tbody></table>
+  </div>
+  <p>See the <a href="guide-best-ddr5-sodimm-gaming-laptop-2026">laptop DDR5 guide</a> for the SO-DIMM/CSODIMM distinction and verify the latest details in <a href="https://psref.lenovo.com/syspool/Sys/PDF/Legion/Legion_Pro_7_16IAX10H/Legion_Pro_7_16IAX10H_Spec.PDF" target="_blank" rel="noopener">Lenovo's official PSREF</a>.</p>
+
   <h2>Battery Life</h2>
   <p>The 99.9Wh battery is close to the usual carry-on limit, but actual runtime varies substantially with GPU mode, brightness, refresh rate, and workload. Treat it as capacity evidence rather than a universal runtime promise.</p>
 
@@ -160,6 +170,7 @@
     <a href="guide-best-gaming-laptop-streaming-2026" class="btn-ghost">Gaming Laptops for Streaming</a>
     <a href="guide-best-gaming-laptop-video-editing-2026" class="btn-ghost">Gaming Laptops for Video Editing</a>
     <a href="guide-dlss-fsr-frame-generation-database" class="btn-ghost">DLSS and Frame Generation Evidence</a>
+    <a href="guide-best-ddr5-sodimm-gaming-laptop-2026" class="btn-ghost">RAM Upgrade Guide</a>
   </div>
 
   <div style="margin-top:48px;padding:24px;background:var(--panel);border:1px solid var(--border)">
