@@ -70,7 +70,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20260807-upgrade-review">
 </head>
 <body>
 
@@ -214,12 +214,14 @@
     <h2 id="memory-storage-upgrade">RAM and SSD Upgrade Guide</h2>
     <p><strong>The A2XWIG-058US is configured with 32GB (2x16GB) DDR5-5600 and a 2TB PCIe 4.0 NVMe SSD.</strong> MSI's A2XW platform specification lists two memory sockets, up to 96GB, and memory support up to DDR5-6400. That platform maximum should not be confused with the speed of the factory modules in this US SKU.</p>
     <div style="overflow-x:auto;margin-bottom:24px">
-      <table><thead><tr><th>Component</th><th>Verified platform path</th><th>Practical recommendation</th></tr></thead><tbody>
+      <table class="upgrade-table"><thead><tr><th>Component</th><th>Verified platform path</th><th>Practical recommendation</th></tr></thead><tbody>
         <tr><td>Memory</td><td>2x DDR5 SO-DIMM sockets; up to 96GB; up to DDR5-6400</td><td>Keep 32GB for gaming. Use a matched, model-qualified 2x32GB kit for heavy creation work; use 2x48GB only after explicit compatibility confirmation.</td></tr>
         <tr><td>Storage</td><td>One PCIe 4.0 M.2 slot and one PCIe 5.0 M.2 slot</td><td>Add a second M.2 drive instead of replacing the factory 2TB SSD when capacity is the goal. Verify slot occupancy and heatsink clearance first.</td></tr>
       </tbody></table>
     </div>
     <p>Start with the <a href="guide-best-ddr5-sodimm-gaming-laptop-2026">DDR5 SO-DIMM buying guide</a>, then confirm the kit against the <a href="https://www.kingston.com/unitedkingdom/en/memory/search/model/110551/msi-notebook-vector-16-hx-ai-a2xw" target="_blank" rel="noopener">Kingston A2XW compatibility list</a>. Primary specifications: <a href="https://www.msi.com/Laptop/Vector-16-HX-AI-A2XWX/Specification" target="_blank" rel="noopener">MSI A2XW platform</a> and <a href="https://us.msi.com/Laptop/Vector-16-HX-AI-A2XWX/Specification" target="_blank" rel="noopener">MSI US configurations</a>.</p>
+    <div class="model-upgrade-actions"><a href="https://www.amazon.com/dp/B0BRTJT5P2?tag=framelimit20-20" class="btn-buy am" target="_blank" rel="nofollow sponsored noopener">Check 64GB kit on Amazon</a><a href="https://www.amazon.com/dp/B0BHJJ9Y77?tag=framelimit20-20" class="btn-buy am" target="_blank" rel="nofollow sponsored noopener">Check 2TB SSD on Amazon</a></div>
+    <p class="model-upgrade-note">Confirm the exact RAM part number in Kingston's A2XW compatibility list before purchase. The SSD link is the bare M.2 2280 model without a tall desktop heatsink.</p>
 
     <h2 id="performance">Gaming Performance and Benchmarks</h2>
 
@@ -334,6 +336,6 @@
   </div>
 </footer>
 
-<script src="nav.js"></script>
+<script src="nav.js?v=20260807-hash"></script>
 </body>
 </html>

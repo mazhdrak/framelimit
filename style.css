@@ -588,6 +588,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,10,12,.97)
 .upgrade-product-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:18px}
 .upgrade-product-actions p{margin:0}
 .upgrade-aff-note{font-size:13px;color:var(--muted);line-height:1.65;margin-top:-8px}
+.article-body h2[id]{scroll-margin-top:104px}
+.model-upgrade-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:20px 0 10px}
+.model-upgrade-note{font-size:13px;color:var(--muted);line-height:1.65;margin:0 0 24px}
 .ad-inline{background:var(--panel);border:1px solid var(--border);height:90px;display:flex;align-items:center;justify-content:center;margin:32px 0;color:var(--border);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px}
 .back-link{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);text-decoration:none;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;transition:color .2s;border-bottom:none}.back-link:hover{color:var(--amd)}
 .article-footer{background:var(--deep);border-top:1px solid var(--border);padding:32px 24px;text-align:center;margin-top:60px}
@@ -609,7 +612,7 @@ a.btn-review,a.btn-review:visited{color:var(--text);border-bottom:none}
 a.btn-review:hover{color:var(--cyan);border-bottom:1px solid var(--cyan)}
 a.btn-ghost,a.btn-ghost:visited{color:var(--cyan);border-bottom:none}
 @media(max-width:768px){.nav-links{display:none}nav{padding:0 20px}}
-@media(max-width:600px){.article-wrap{padding:90px 16px 60px}.pick-specs{grid-template-columns:1fr 1fr}.pick-pros-cons{grid-template-columns:1fr}.gpu-lineup{grid-template-columns:1fr}.upgrade-product{padding:20px}.upgrade-product .pc-list{grid-template-columns:1fr}.upgrade-product-actions{align-items:stretch}.upgrade-product-actions .btn-buy{width:100%;text-align:center}.upgrade-table td{padding:15px 14px}}
+@media(max-width:600px){.article-wrap{padding:90px 16px 60px}.pick-specs{grid-template-columns:1fr 1fr}.pick-pros-cons{grid-template-columns:1fr}.gpu-lineup{grid-template-columns:1fr}.upgrade-product{padding:20px}.upgrade-product .pc-list{grid-template-columns:1fr}.upgrade-product-actions{align-items:stretch}.upgrade-product-actions .btn-buy{width:100%;text-align:center}.upgrade-table td{padding:15px 14px}.model-upgrade-actions{align-items:stretch}.model-upgrade-actions .btn-buy,.model-upgrade-actions .btn-ghost{width:100%;text-align:center}}
 
 
 /* ============================================================

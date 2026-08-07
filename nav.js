@@ -116,4 +116,30 @@
       a.style.color = 'var(--cyan)';
     }
   });
+
+  // Re-align deep links after async benchmark blocks above the target finish rendering.
+  // Without this, layout growth can push a review's upgrade section below the viewport.
+  function alignHashTarget() {
+    if (!window.location.hash) return;
+    const target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+    if (target) target.scrollIntoView({ block: 'start', behavior: 'auto' });
+  }
+
+  if (window.location.hash) {
+    window.addEventListener('load', function () {
+      let alignTimer;
+      const layoutObserver = new MutationObserver(function () {
+        window.clearTimeout(alignTimer);
+        alignTimer = window.setTimeout(alignHashTarget, 80);
+      });
+      layoutObserver.observe(document.body, { childList: true, subtree: true });
+      alignHashTarget();
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(alignHashTarget);
+      window.setTimeout(function () {
+        layoutObserver.disconnect();
+        alignHashTarget();
+      }, 1800);
+    });
+    window.addEventListener('hashchange', alignHashTarget);
+  }
 })();
