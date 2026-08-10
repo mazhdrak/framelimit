@@ -55,6 +55,7 @@
 
     <h2>What We Evaluate</h2>
     <p>Every category is designed to answer a buying question: expected sustained performance, display quality, heat and noise behavior reported under documented conditions, and whether the current price makes sense against comparable configurations.</p>
+    <div class="article-table-wrap">
     <table>
       <thead><tr><th>Category</th><th>Weight</th><th>What matters</th></tr></thead>
       <tbody>
@@ -66,6 +67,7 @@
         <tr><td>Value</td><td>15%</td><td>Price checked against competing laptops with similar GPU, TGP, display, RAM, and storage.</td></tr>
       </tbody>
     </table>
+    </div>
 
     <h2>Benchmark Evidence</h2>
     <p>FRAMELIMIT currently relies primarily on official specifications, retailer data, and benchmark evidence from established hardware publications. Before results enter a comparison, we check the exact CPU and GPU configuration, GPU power limit, resolution, graphics preset, performance mode, and use of DLSS, FSR, frame generation, or ray tracing. Results that cannot be compared on a like-for-like basis are excluded rather than blended into a misleading average.</p>
@@ -80,6 +82,7 @@
     <p>Every new or migrated game result must identify the source, exact laptop configuration, GPU power, resolution, preset, ray-tracing mode, upscaler, quality mode, frame-generation state, driver when available, and test date. A missing value is shown as unavailable rather than estimated.</p>
     <p>Explore the implementation in the <a href="guide-dlss-fsr-frame-generation-database">DLSS, FSR and Frame Generation laptop benchmark database</a>, where native, upscaled, generated and unclear published rows remain visibly separated.</p>
     <p>Published screen specifications are indexed separately in the <a href="guide-gaming-laptop-display-database">gaming laptop display database</a>. It identifies the exact model and source date, preserves missing fields, and does not convert catalog brightness or HDR labels into measured panel scores.</p>
+    <div class="article-table-wrap">
     <table>
       <thead><tr><th>Result</th><th>Required fields</th><th>Comparison rule</th></tr></thead>
       <tbody>
@@ -89,10 +92,12 @@
         <tr><td>Thermals and noise</td><td>Power profile, ambient temperature, duration, CPU/GPU load</td><td>Only matching conditions are directly compared.</td></tr>
       </tbody>
     </table>
+    </div>
     <p><strong>Average FPS</strong> is the primary throughput metric. <strong>1% low</strong> describes the slowest one percent of frames and is more useful for judging stutter. <strong>Minimum FPS</strong> is a single worst sample and is kept separate from 1% low. <strong>Maximum FPS</strong> is shown only when a source publishes it, but it is not used to rank laptops because a brief peak is not representative of sustained play.</p>
 
     <h2>Target Game Suite</h2>
     <p>The target suite below is used when matching source data is available. It balances heavy raster, ray tracing, CPU-limited play, and esports. A laptop is not assigned a missing result and different presets are never averaged together.</p>
+    <div class="article-table-wrap">
     <table>
       <thead><tr><th>Workload</th><th>Primary run</th><th>Technology run</th><th>Report</th></tr></thead>
       <tbody>
@@ -106,6 +111,7 @@
         <tr><td>One current strategy title</td><td>Built-in benchmark at named preset</td><td>No upscaling unless explicitly paired</td><td>Average FPS, 1% low, and CPU configuration</td></tr>
       </tbody>
     </table>
+    </div>
     <p>For Radeon laptops, native FPS, FSR Upscaling, FSR Frame Generation, and driver-level AFMF are four different result types. AFMF is never presented as a native in-game FSR result. For GeForce laptops, DLSS Super Resolution, single Frame Generation, and Multi Frame Generation are also reported independently.</p>
 
     <h2>Synthetic Benchmarks</h2>
@@ -118,6 +124,7 @@
 
     <h2>Upscaling and Frame Generation</h2>
     <p>DLSS Super Resolution, DLSS Frame Generation, DLSS Multi Frame Generation, FSR Upscaling, FSR Frame Generation, AFMF, and XeSS are separate technologies. The site never uses the generic label "DLSS 4" or "FSR on" as a complete benchmark setting. RTX 40 supports DLSS Frame Generation and current DLSS model upgrades, while Multi Frame Generation is an RTX 50 feature. AMD FSR support depends on hardware, driver, and game integration.</p>
+    <div class="article-table-wrap">
     <table>
       <thead><tr><th>DLSS SR mode</th><th>Typical input ratio</th><th>Reporting rule</th></tr></thead>
       <tbody>
@@ -128,6 +135,7 @@
         <tr><td>Ultra Performance</td><td>33%</td><td>Intended for very high output resolutions. There is no standard Ultra Quality preset.</td></tr>
       </tbody>
     </table>
+    </div>
     <ul>
       <li><a href="https://www.nvidia.com/en-us/geforce/news/dlss-4-multi-frame-generation-out-now/" rel="noopener" target="_blank">NVIDIA DLSS feature support</a></li>
       <li><a href="https://www.amd.com/en/products/graphics/technologies/fidelityfx/super-resolution.html" rel="noopener" target="_blank">AMD FSR features and requirements</a></li>
