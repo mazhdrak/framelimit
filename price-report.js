@@ -38,13 +38,14 @@
     document.getElementById('pr-result-count').textContent = `${filtered.length} of ${laptops.length} configurations shown`;
     tableBody.innerHTML = filtered.map((item) => {
       const currentAsin = asinFromUrl(item.amazonUrl);
+      const isAmazon = Boolean(currentAsin);
       const latestCandidate = latest && latest.offers ? latest.offers[item.id] : null;
       const live = latestCandidate && latestCandidate.asin === currentAsin ? latestCandidate : null;
       const oldCandidate = previous && previous.offers ? previous.offers[item.id] : null;
       const old = live && oldCandidate && oldCandidate.asin === live.asin ? oldCandidate : null;
       const delta = live && old && Number.isFinite(live.price) && Number.isFinite(old.price) ? (live.price - old.price) / old.price * 100 : null;
       const deltaText = delta == null ? '<span class="pr-muted">Insufficient history</span>' : `<span style="color:${delta < 0 ? 'var(--green)' : delta > 0 ? 'var(--orange)' : 'var(--muted)'}">${delta > 0 ? '+' : ''}${delta.toFixed(1)}%</span>`;
-      return `<tr><td><div class="pr-model">${escapeHtml(item.shortName)}</div><div class="pr-sub">${escapeHtml(item.modelCode || 'Retail configuration')}</div></td><td>${escapeHtml(item.gpu)}</td><td>${Number.isFinite(item.price) ? `<div class="pr-price">${money(item.price)}</div><div class="pr-ref">EDITORIAL REFERENCE</div>` : '<span class="pr-muted">Check retailer</span>'}</td><td>${live ? `<div class="pr-price">${money(live.price)}</div><div class="pr-sub">${escapeHtml(latest.month)}</div>` : '<span class="pr-muted">Awaiting eligible API snapshot</span>'}</td><td>${deltaText}</td><td><a class="pr-link" href="${escapeHtml(item.amazonUrl)}" target="_blank" rel="nofollow sponsored">Amazon →</a></td></tr>`;
+      return `<tr><td><div class="pr-model">${escapeHtml(item.shortName)}</div><div class="pr-sub">${escapeHtml(item.modelCode || 'Retail configuration')}</div></td><td>${escapeHtml(item.gpu)}</td><td>${Number.isFinite(item.price) ? `<div class="pr-price">${money(item.price)}</div><div class="pr-ref">EDITORIAL REFERENCE</div>` : '<span class="pr-muted">Check retailer</span>'}</td><td>${live ? `<div class="pr-price">${money(live.price)}</div><div class="pr-sub">${escapeHtml(latest.month)}</div>` : '<span class="pr-muted">Awaiting eligible API snapshot</span>'}</td><td>${deltaText}</td><td><a class="pr-link" href="${escapeHtml(item.amazonUrl)}" target="_blank" rel="${isAmazon ? 'nofollow sponsored noopener' : 'noopener'}">${isAmazon ? 'Amazon' : escapeHtml(item.retailerName || 'Retailer')} →</a></td></tr>`;
     }).join('');
   }
 

@@ -166,7 +166,9 @@
     const priceLive = article.querySelector('.rc-price-live, .rc-price');
     if (priceLive) {
       priceLive.href = l.amazonUrl;
-      priceLive.textContent = /amazon\.com\/dp\//.test(l.amazonUrl || '') ? 'Check Price on Amazon ↓' : 'Search on Amazon ↓';
+      const isAmazon = /amazon\.com\/dp\//.test(l.amazonUrl || '');
+      priceLive.rel = isAmazon ? 'nofollow sponsored noopener' : 'noopener';
+      priceLive.textContent = isAmazon ? 'Check Price on Amazon ↓' : `Check at ${l.retailerName || 'retailer'} ↓`;
     }
 
     /* ── 9. Add review link if not already present ── */

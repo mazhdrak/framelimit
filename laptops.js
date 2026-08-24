@@ -554,7 +554,7 @@ const LAPTOP_CATALOG = [
     badge: 'Best Compact Powerhouse',
     gpu: 'RTX 5070',
     gpuVram: '8GB GDDR7',
-    tgp: 110,
+    tgp: 90,
     cpu: 'AMD Ryzen 9 270',
     ram: '32GB LPDDR5X',
     ramUpgradeable: false,
@@ -575,11 +575,12 @@ const LAPTOP_CATALOG = [
     scores: { perf: 8.6, display: 9.8, thermals: 8.2, battery: 8.6, build: 9.5, value: 8.8 },
     bestFor: 'Ultraportable + OLED, travel-friendly gamer',
     avoidIf: 'You need max FPS or upgradeable RAM',
-    amazonUrl: 'https://www.amazon.com/dp/B0FHZNH1MW?tag=framelimit20-20',
-    amazonAsin: 'B0FHZNH1MW',
+    amazonUrl: 'https://rog.asus.com/us/laptops/rog-zephyrus/rog-zephyrus-g14-2025/wtb/',
+    amazonAsin: null,
+    retailerName: 'ASUS',
     modelCode: 'GA403UP-CS96',
-    specSource: 'https://rog.asus.com/us/laptops/rog-zephyrus/rog-zephyrus-g14-2025/',
-    specCheckedAt: '2026-07-15',
+    specSource: 'https://rog.asus.com/us/laptops/rog-zephyrus/rog-zephyrus-g14-2025/spec/?config=90NR0M53-M00910',
+    specCheckedAt: '2026-08-24',
     imgUrl: 'images/laptops/asus-rog-zephyrus-g14.webp',
     imgBg: '#0d0d14',
     tags: ['14-inch', 'nvidia', 'intel-cpu', 'oled', 'thin', 'mid-range'],
@@ -1368,12 +1369,11 @@ const LAPTOP_CATALOG = [
 
 ];
 
-// Only products with a directly attributable, currently buyable Amazon product
-// page are exposed to recommendation, comparison, and finder interfaces.
+// Only products with a directly attributable, currently buyable retail page
+// are exposed to recommendation, comparison, and finder interfaces.
 const LAPTOPS = LAPTOP_CATALOG.filter(laptop =>
   laptop.retailStatus !== 'unavailable' &&
-  Boolean(laptop.amazonAsin) &&
-  /amazon\.com\/dp\//.test(laptop.amazonUrl || '')
+  /^https:\/\//.test(laptop.amazonUrl || '')
 );
 
 /* ──────────────────────────────────────────────
@@ -1408,9 +1408,11 @@ function flIsDirectAmazonProduct(laptopOrUrl) {
 }
 
 function flRetailerStatus(laptop) {
-  return flIsDirectAmazonProduct(laptop)
-    ? 'Verified Amazon product page'
-    : 'Amazon search fallback - verify model before buying';
+  if (flIsDirectAmazonProduct(laptop)) return 'Verified Amazon product page';
+  if (laptop && laptop.retailerName && /^https:\/\//.test(laptop.amazonUrl || '')) {
+    return `Official ${laptop.retailerName} product page`;
+  }
+  return 'Retail page - verify model before buying';
 }
 
 function flReferencePriceStatus(laptop) {

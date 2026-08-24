@@ -575,6 +575,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,10,12,.97)
 .article-body a,.article-body a:visited,.co a,.co a:visited{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(0,212,255,.4)}
 .article-body a:hover,.co a:hover{color:var(--white);border-color:var(--cyan)}
 .article-body a:focus-visible,.co a:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.article-wrap>p:not(.article-subtitle){margin-bottom:20px;color:var(--text);line-height:1.85;overflow-wrap:break-word}
+.article-wrap>p:not(.article-subtitle) a,.article-wrap>p:not(.article-subtitle) a:visited{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(0,212,255,.4)}
+.article-wrap>p:not(.article-subtitle) a:hover{color:var(--white);border-bottom-color:var(--cyan)}
+.article-wrap>p:not(.article-subtitle) a:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 /* Readable fallback for editorial tables that do not use a specialised table component. */
 .article-table-wrap{overflow-x:auto;margin:24px 0 32px;border:1px solid var(--border)}
 .article-body table:not([class]){width:100%;min-width:640px;border-collapse:collapse;background:var(--panel);table-layout:auto}

@@ -18,7 +18,7 @@ async function loadReviewMap() {
 }
 
 async function loadAllowedRetailAsins(catalog) {
-  const allowed = new Set(catalog.map((laptop) => laptop.amazonAsin));
+  const allowed = new Set(catalog.map((laptop) => laptop.amazonAsin).filter(Boolean));
   const priceData = await fs.readFile(path.join(ROOT, 'price-data.js'), 'utf8');
   for (const match of priceData.matchAll(/amazon\.com\/dp\/([A-Z0-9]{10})/gi)) allowed.add(match[1].toUpperCase());
   return allowed;
@@ -36,12 +36,17 @@ async function main() {
   for (const laptop of catalog) {
     if (ids.has(laptop.id)) errors.push(`duplicate catalog id ${laptop.id}`);
     ids.add(laptop.id);
-    if (!laptop.amazonAsin || !/^[A-Z0-9]{10}$/.test(laptop.amazonAsin)) errors.push(`${laptop.id} has invalid ASIN`);
-    if (asins.has(laptop.amazonAsin)) errors.push(`duplicate catalog ASIN ${laptop.amazonAsin}`);
-    asins.add(laptop.amazonAsin);
-    const normalizedUrl = String(laptop.amazonUrl).replace(`/dp/${laptop.amazonAsin}/?`, `/dp/${laptop.amazonAsin}?`);
-    const exactUrl = `https://www.amazon.com/dp/${laptop.amazonAsin}?tag=framelimit20-20`;
-    if (normalizedUrl !== exactUrl) errors.push(`${laptop.id} direct URL does not match amazonAsin`);
+    const isAmazon = /amazon\.com\/dp\//.test(laptop.amazonUrl || '');
+    if (isAmazon) {
+      if (!laptop.amazonAsin || !/^[A-Z0-9]{10}$/.test(laptop.amazonAsin)) errors.push(`${laptop.id} has invalid ASIN`);
+      if (asins.has(laptop.amazonAsin)) errors.push(`duplicate catalog ASIN ${laptop.amazonAsin}`);
+      asins.add(laptop.amazonAsin);
+      const normalizedUrl = String(laptop.amazonUrl).replace(`/dp/${laptop.amazonAsin}/?`, `/dp/${laptop.amazonAsin}?`);
+      const exactUrl = `https://www.amazon.com/dp/${laptop.amazonAsin}?tag=framelimit20-20`;
+      if (normalizedUrl !== exactUrl) errors.push(`${laptop.id} direct URL does not match amazonAsin`);
+    } else if (!/^https:\/\//.test(laptop.amazonUrl || '') || !laptop.retailerName) {
+      errors.push(`${laptop.id} has no verified retail URL`);
+    }
 
     const target = reviewMap.get(laptop.id);
     if (!target) continue;
@@ -51,7 +56,8 @@ async function main() {
 
     if (!fragment) {
       checked.push([laptop.id, file]);
-      if (!html.includes(laptop.amazonAsin)) errors.push(`${file} does not contain mapped ${laptop.id} ASIN ${laptop.amazonAsin}`);
+      const retailMarker = laptop.amazonAsin || laptop.amazonUrl;
+      if (!html.includes(retailMarker)) errors.push(`${file} does not contain mapped ${laptop.id} retail URL ${retailMarker}`);
       continue;
     }
 
@@ -68,8 +74,9 @@ async function main() {
       ? html.length
       : sectionStart + heading[0].length + nextHeadingOffset;
     const section = html.slice(sectionStart, sectionEnd);
-    if (!section.includes(laptop.amazonAsin)) {
-      errors.push(`${file}#${fragment} does not contain mapped ${laptop.id} ASIN ${laptop.amazonAsin}`);
+    const retailMarker = laptop.amazonAsin || laptop.amazonUrl;
+    if (!section.includes(retailMarker)) {
+      errors.push(`${file}#${fragment} does not contain mapped ${laptop.id} retail URL ${retailMarker}`);
     }
   }
 

@@ -64,6 +64,7 @@
 
     tableBody.innerHTML = filtered.map((laptop) => {
       const reviewUrl = reviewUrls[laptop.id];
+      const isAmazon = /amazon\.com\/dp\//.test(laptop.amazonUrl || '');
       const display = `${laptop.display.size}\" ${laptop.display.res} ${laptop.display.hz}Hz ${laptop.display.panel}`;
       const power = laptop.tgp == null
         ? '<span class="tgp-muted">Not published</span>'
@@ -79,7 +80,7 @@
         <td>${evidenceStatus(laptop)}</td>
         <td><a class="tgp-link" href="${escapeHtml(laptop.specSource)}" target="_blank" rel="nofollow">Source →</a><div class="tgp-sku">Checked ${formatDate(laptop.specCheckedAt)}</div></td>
         <td>${review}</td>
-        <td><a class="tgp-link" href="${escapeHtml(laptop.amazonUrl)}" target="_blank" rel="nofollow sponsored">Amazon →</a></td>
+        <td><a class="tgp-link" href="${escapeHtml(laptop.amazonUrl)}" target="_blank" rel="${isAmazon ? 'nofollow sponsored noopener' : 'noopener'}">${isAmazon ? 'Amazon' : escapeHtml(laptop.retailerName || 'Retailer')} →</a></td>
       </tr>`;
     }).join('');
   }

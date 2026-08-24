@@ -5,10 +5,10 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const RETAIL = {
   model: 'GA403UP-CS96',
-  asin: 'B0FHZNH1MW',
+  retailUrl: 'https://rog.asus.com/us/laptops/rog-zephyrus/rog-zephyrus-g14-2025/wtb/',
   cpu: 'Ryzen 9 270',
   gpu: 'RTX 5070',
-  tgp: '110W',
+  tgp: '90W',
   ram: '32GB',
   resolution: ['2880×1800', '2880&times;1800'],
   battery: '73Wh',
@@ -53,7 +53,7 @@ async function main() {
 
   const review = await fs.readFile(path.join(ROOT, FILES[0]), 'utf8');
   const reviewErrors = [];
-  [RETAIL.asin, RETAIL.cpu, 'Specifications-only for GA403UP-CS96', 'GU405AR', 'do not apply', `amazon.com/dp/${RETAIL.asin}?tag=framelimit20-20`]
+  [RETAIL.retailUrl, RETAIL.cpu, 'Specifications-only for GA403UP-CS96', 'GU405AR', 'do not apply']
     .forEach((value) => requireText(reviewErrors, review, [value], value));
   if (review.includes('"@type": "Product"') || review.includes('"@type":"Product"')) reviewErrors.push('retail specifications-only page still emits Product review markup');
   reviewErrors.forEach((error) => console.log(`ERROR ${FILES[0]}: ${error}`));

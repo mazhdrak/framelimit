@@ -45,7 +45,7 @@ async function main() {
     modelCodes.add(laptop.modelCode);
     if (!/^https:\/\//.test(laptop.specSource)) errors.push(`${laptop.id} has a non-HTTPS specification source`);
     if (!/^\d{4}-\d{2}-\d{2}$/.test(laptop.specCheckedAt)) errors.push(`${laptop.id} has an invalid specification check date`);
-    if (!/amazon\.com\/dp\/[A-Z0-9]{10}/i.test(laptop.amazonUrl || '')) errors.push(`${laptop.id} is missing a direct Amazon ASIN URL`);
+    if (!/^https:\/\//i.test(laptop.amazonUrl || '')) errors.push(`${laptop.id} is missing a verified retail URL`);
     if (!Number.isFinite(laptop.display.size) || !laptop.display.res || !Number.isFinite(laptop.display.hz)) errors.push(`${laptop.id} has incomplete display identity fields`);
   }
 

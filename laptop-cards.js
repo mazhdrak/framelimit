@@ -49,8 +49,13 @@ function flMobilityLabel(laptop) {
 
 function flAmazonCta(url, shortLabel) {
   const isDirect = /amazon\.com\/dp\//.test(url || '');
-  if (shortLabel) return isDirect ? 'Check Price →' : 'Search Amazon →';
-  return isDirect ? 'Check Price on Amazon →' : 'Search on Amazon →';
+  const isAsus = /(?:^|\.)asus\.com\//.test(url || '');
+  if (shortLabel) return isDirect ? 'Check Price →' : isAsus ? 'Check ASUS →' : 'Check Retailer →';
+  return isDirect ? 'Check Price on Amazon →' : isAsus ? 'Check at ASUS →' : 'Check Retailer →';
+}
+
+function flRetailRel(url) {
+  return /amazon\.com\/dp\//.test(url || '') ? 'nofollow sponsored noopener' : 'noopener';
 }
 
 function flRetailerNote(laptop) {
@@ -187,7 +192,7 @@ function flRenderCard(laptop) {
   </div>
 
   <div class="fl-cta-row">
-    <a href="${laptop.amazonUrl}" class="fl-btn-buy" rel="nofollow sponsored noopener" target="_blank">
+    <a href="${laptop.amazonUrl}" class="fl-btn-buy" rel="${flRetailRel(laptop.amazonUrl)}" target="_blank">
       ${flAmazonCta(laptop.amazonUrl)}
     </a>
     ${reviewBtn}
@@ -224,7 +229,7 @@ function flRenderTable(laptops) {
       <td style="font-family:'JetBrains Mono',monospace;font-size:12px">${l.weight == null ? 'Not verified' : `${l.weight}kg`}</td>
       <td style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:${sc}">${l.score == null ? 'NR' : l.score}</td>
       <td>
-        <a href="${l.amazonUrl}" class="fl-table-buy" rel="nofollow sponsored noopener" target="_blank">${/amazon\.com\/dp\//.test(l.amazonUrl || '') ? 'Amazon →' : 'Search →'}</a>
+        <a href="${l.amazonUrl}" class="fl-table-buy" rel="${flRetailRel(l.amazonUrl)}" target="_blank">${flAmazonCta(l.amazonUrl, true)}</a>
       </td>
     </tr>`;
   }).join('');
@@ -326,7 +331,7 @@ function flRenderDeals(ids) {
     <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">Score: </span>
     <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:${flScoreColor(l.score)}">${l.score}</span>
   </div>
-  <a href="${l.amazonUrl}" class="deal-btn" rel="nofollow sponsored noopener" target="_blank">${flAmazonCta(l.amazonUrl)}</a>
+  <a href="${l.amazonUrl}" class="deal-btn" rel="${flRetailRel(l.amazonUrl)}" target="_blank">${flAmazonCta(l.amazonUrl)}</a>
   <div class="fl-aff-note">${flRetailerNote(l)}</div>
   ${reviewBtn}
 </div>`;

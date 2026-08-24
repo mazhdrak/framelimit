@@ -125,11 +125,11 @@
       "exactModelSku": "GA403UP-CS96",
       "gpu": "RTX 5070",
       "gpuVram": "8GB GDDR7",
-      "oemMaximumGpuPowerWatts": 110,
+      "oemMaximumGpuPowerWatts": 90,
       "nvidiaGpuSubsystemPowerRangeWatts": "50-100",
       "evidenceStatus": "official-oem-specification",
-      "sourceUrl": "https://rog.asus.com/us/laptops/rog-zephyrus/rog-zephyrus-g14-2025/",
-      "lastVerified": "2026-07-15"
+      "sourceUrl": "https://rog.asus.com/us/laptops/rog-zephyrus/rog-zephyrus-g14-2025/spec/?config=90NR0M53-M00910",
+      "lastVerified": "2026-08-24"
     },
     {
       "datasetVersion": "1.0.0",

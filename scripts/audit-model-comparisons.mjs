@@ -95,14 +95,17 @@ async function auditComparison(definition, laptops, sitemap) {
       [[resolution, resolution.replace('×', '&times;')], `${item.id} display resolution`],
       [[`${item.display.hz}Hz`], `${item.id} refresh rate`],
       [[`${item.battery}Wh`], `${item.id} battery`],
-      [[`${item.weight}kg`, String(item.weight)], `${item.id} weight`],
-      [[item.amazonAsin], `${item.id} ASIN`]
+      [[`${item.weight}kg`, String(item.weight)], `${item.id} weight`]
     ];
+    if (item.amazonAsin) exactValues.push([[item.amazonAsin], `${item.id} ASIN`]);
     if (item.tgp != null) exactValues.push([[`${item.tgp}W`], `${item.id} TGP`]);
     if (definition.requireDisplayDetails && Number.isFinite(item.display.nits)) exactValues.push([[`${item.display.nits} nits`], `${item.id} published brightness`]);
     if (definition.requireDisplayDetails && item.display.hdr) exactValues.push([[item.display.hdr], `${item.id} HDR label`]);
     exactValues.forEach(([values, label]) => requireAny(errors, page, values, label));
-    requireAny(errors, page, [`amazon.com/dp/${item.amazonAsin}?tag=framelimit20-20`], `${item.id} direct affiliate URL`);
+    const retailUrl = item.amazonAsin
+      ? `amazon.com/dp/${item.amazonAsin}?tag=framelimit20-20`
+      : item.amazonUrl;
+    requireAny(errors, page, [retailUrl], `${item.id} verified retail URL`);
   });
 
   requireAny(errors, page, ['"@type":"Article"', '"@type": "Article"'], 'Article JSON-LD');
