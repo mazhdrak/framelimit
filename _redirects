@@ -4,6 +4,13 @@
 # Redirect www to non-www (canonical)
 https://www.framelimit.com/* https://framelimit.com/:splat 301
 
+# Retire malformed historical URLs such as
+# /framelimit.com/index.html and /framelimit.com/reviews.html.
+/framelimit.com / 301
+/framelimit.com/ / 301
+/framelimit.com/index.html / 301
+/framelimit.com/* /:splat 301
+
 # Redirect any old /guides/ path variants to root
 /guides/* /:splat 301
 

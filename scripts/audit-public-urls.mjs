@@ -17,6 +17,18 @@ function localFile(target) {
 
 const files = (await fs.readdir(ROOT)).filter((file) => file.endsWith('.html')).sort();
 const errors = [];
+const redirects = await fs.readFile(path.join(ROOT, '_redirects'), 'utf8');
+
+for (const rule of [
+  '/framelimit.com / 301',
+  '/framelimit.com/ / 301',
+  '/framelimit.com/index.html / 301',
+  '/framelimit.com/* /:splat 301'
+]) {
+  if (!redirects.split(/\r?\n/).some((line) => line.trim() === rule)) {
+    errors.push(`_redirects: missing malformed-domain cleanup rule: ${rule}`);
+  }
+}
 
 for (const file of files) {
   const source = await fs.readFile(path.join(ROOT, file), 'utf8');
@@ -28,6 +40,9 @@ for (const file of files) {
 
   if (/https:\/\/framelimit\.com\/[a-z0-9-]+\.html(?:[?#"'<]|$)/i.test(source)) {
     errors.push(`${file}: contains an absolute .html public URL`);
+  }
+  if (/(?:href|src)=["'](?:\.?\.?\/)?framelimit\.com(?:\/|["'])/i.test(source)) {
+    errors.push(`${file}: contains a domain written as a relative URL`);
   }
 
   for (const match of source.matchAll(/<a\b[^>]*href=["']([^"']+)["']/gi)) {
