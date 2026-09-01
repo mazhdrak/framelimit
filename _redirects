@@ -1,8 +1,7 @@
 # Cloudflare Pages redirect rules
 # Fixes "Page with redirect" and canonical issues in Google Search Console
 
-# Redirect www to non-www (canonical)
-https://www.framelimit.com/* https://framelimit.com/:splat 301
+# The www-to-apex redirect is handled by the active Cloudflare Redirect Rule.
 
 # Retire malformed historical URLs such as
 # /framelimit.com/index.html and /framelimit.com/reviews.html.
