@@ -72,3 +72,11 @@ This supersedes earlier references to a 32GB Clubic test unit, including the RTX
 - Removed unverified sub-$1,400/best-price metadata. Expanded memory, total-offer comparison and return-period guidance without inventing benchmarks or current prices.
 - Full audit suite: 24/25 pass; only unchanged reference-price freshness fails. Comparison audit now expects the corrected regional 16GB description.
 - Sources: https://www.clubic.com/test-produit-579277-test-gigabyte-gaming-16-un-gamer-abordable-et-competent-sous-rtx-5060.html and https://www.pcgamer.com/hardware/gaming-laptops/gigabyte-gaming-a16-gaming-laptop-review/ . Continue checking remaining reviews; this does not certify all old ratings or measurements elsewhere.
+
+## Katana follow-up — September 8, 2026
+
+- Expanded Katana review with SSD/RAM planning, 8GB VRAM trade-offs and purchase comparisons. Explicitly identified the MSI specification as regional B14WGK-298NZ; its one-M.2-slot limit must not be assumed for an unverified suffix.
+- Removed unsupported 84°C GPU, 91°C CPU and 47dB claims, fixed QHD/QHD+ wording, and removed the unverified $1,750 best-value assertion.
+- Removed granular subscores from the review, catalog and hub. Existing overall 7.9 is explicitly historical editorial assessment, not a measured metric or current-price ranking; no fresh score was fabricated.
+- Ranking consistency, review readiness, sitemap, evidence claims, Product schema and internal-link audits passed. Amazon eligibility remains an external blocker.
+- Previous Gigabyte commit b5bb937 was verified live (review and benchmark metadata).

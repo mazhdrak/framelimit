@@ -1063,7 +1063,7 @@ const LAPTOP_CATALOG = [
     price: 1744,
     priceCheckedAt: '2026-07-15',
     score: 7.9,
-    scores: { perf: 7.8, display: 7.4, thermals: 8.0, battery: 6.8, build: 8.2, value: 9.0 },
+    scores: null,
     bestFor: 'RTX 5070 performance and QHD gaming in a 15-inch chassis',
     avoidIf: 'Battery life or display brightness matters',
     amazonUrl: 'https://www.amazon.com/dp/B0DZFVBQLK/?tag=framelimit20-20',
