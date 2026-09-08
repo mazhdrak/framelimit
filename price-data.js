@@ -29,7 +29,9 @@
       name: 'Lenovo Legion 7i Gen 10',
       price: 2199,
       priceCheckedAt: '2026-07-15',
-      amazonUrl: 'https://www.amazon.com/dp/B0FWVFBB81?tag=framelimit20-20'
+      amazonUrl: '',
+      retailBlocked: true,
+      retailIssue: "The former Amazon listing now identifies a ThinkPad E16 Gen 2, not Legion 7i 83KY0003US."
     },
     'msi-stealth-a16-ai-plus': {
       id: 'msi-stealth-a16-ai-plus',
@@ -43,7 +45,9 @@
       name: 'HP Omen Transcend 14',
       price: 1669,
       priceCheckedAt: '2026-07-15',
-      amazonUrl: 'https://www.amazon.com/dp/B0GCQCMGDC?tag=framelimit20-20'
+      amazonUrl: '',
+      retailBlocked: true,
+      retailIssue: "The former Amazon listing identifies an RTX 5060 / Core Ultra 7 configuration, not the reviewed RTX 5070 model."
     }
   };
 
@@ -118,18 +122,7 @@
   }
 
   function getPriceDisplay(value) {
-    const offer = getFreshOffer(value);
-    if (offer) {
-      return {
-        kind: 'amazon',
-        text: `Amazon ${offer.displayPrice || '$' + offer.price.toLocaleString('en-US')}`,
-        offer
-      };
-    }
-    const record = getRecord(value);
-    if (record && Number.isFinite(record.price) && window.flIsReferencePriceFresh && window.flIsReferencePriceFresh(record)) {
-      return { kind: 'reference', text: 'Typical $' + record.price.toLocaleString('en-US'), offer: null, record };
-    }
+    // Editorial policy: offer amounts are not displayed, even after API recovery.
     return { kind: 'unavailable', text: 'Check current price', offer: null };
   }
 
@@ -155,6 +148,13 @@
 
   function hydrateAmazonLink(link, value) {
     const record = getRecord(value);
+    if (record && record.retailBlocked) {
+      const note = document.createElement('span');
+      note.className = 'retail-link-unavailable';
+      note.textContent = 'Exact Amazon listing under review';
+      link.replaceWith(note);
+      return;
+    }
     if (!record || !record.amazonUrl) return;
     const offer = getFreshOffer(value);
     link.href = (offer && offer.detailPageUrl) || record.amazonUrl;
@@ -238,7 +238,7 @@
     if (!quickPicks) return;
     const policy = document.createElement('div');
     policy.className = 'price-guide-policy';
-    policy.innerHTML = '<strong>How prices work:</strong> Amazon prices expire after 24 hours; dated reference prices expire after 30 days. When neither is current, we show “Check current price.” Compare the exact configuration, seller and checkout total at the linked retailer. A budget shortlist is not confirmation that an offer is currently within budget.';
+    policy.innerHTML = '<strong>Budget checks:</strong> We check exact offers to place models in budget guides, but publish retailer links instead of individual prices. Dated checks are observations, not a live price feed. Verify the configuration, condition, seller and checkout total before ordering.';
     quickPicks.insertAdjacentElement('afterend', policy);
   }
 
@@ -260,6 +260,7 @@
   window.FL_PRICE_RECORDS = records;
   window.flGetPriceRecord = getRecord;
   window.flGetPriceDisplay = getPriceDisplay;
+  window.flGetFreshOffer = getFreshOffer;
   window.flFormatReferencePrice = formatReferencePrice;
   window.flHydratePrices = hydrate;
 

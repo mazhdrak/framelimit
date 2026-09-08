@@ -32,7 +32,9 @@ const [priceUi, homepage] = await Promise.all([
   fs.readFile(path.join(ROOT, 'price-data.js'), 'utf8'),
   fs.readFile(path.join(ROOT, 'index.html'), 'utf8')
 ]);
-if (!priceUi.includes('window.flIsReferencePriceFresh(record)')) errors.push('price-data.js does not suppress stale reference prices');
+const uiSandbox = { window: sandbox.window, Date, Intl, document: {readyState: 'loading', addEventListener() {}} };
+vm.runInNewContext(priceUi, uiSandbox);
+if (laptops.some(laptop => /\$[\d,]+/.test(uiSandbox.window.flGetPriceDisplay(laptop.id).text))) errors.push('price-data.js displays individual prices despite link-only policy');
 if (!homepage.includes('window.flIsReferencePriceFresh(laptop)')) errors.push('homepage finder does not exclude stale reference prices');
 
 for (const error of errors) console.error(`ERROR reference-price freshness: ${error}`);

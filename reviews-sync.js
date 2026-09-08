@@ -158,13 +158,16 @@
 
     /* ── 8. Replace ALL buy buttons / price links in this card ── */
     article.querySelectorAll('a[href*="amazon.com"]').forEach(a => {
+      if (!l.amazonUrl) { a.replaceWith(document.createTextNode('Exact retail listing under review')); return; }
       a.href = l.amazonUrl;
       /* keep existing label text but update the link */
     });
 
     /* ── 8. Update the rc-price-live badge — no fake price, just CTA ── */
     const priceLive = article.querySelector('.rc-price-live, .rc-price');
-    if (priceLive) {
+    if (priceLive && !l.amazonUrl) {
+      priceLive.replaceWith(document.createTextNode('Exact retail listing under review'));
+    } else if (priceLive) {
       priceLive.href = l.amazonUrl;
       const isAmazon = /amazon\.com\/dp\//.test(l.amazonUrl || '');
       priceLive.rel = isAmazon ? 'nofollow sponsored noopener' : 'noopener';

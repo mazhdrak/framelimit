@@ -370,8 +370,10 @@ const LAPTOP_CATALOG = [
     scores: { perf: 9.4, display: 8.8, thermals: 8.8, battery: 7.6, build: 9.0, value: 9.3 },
     bestFor: 'Full-power RTX 5080 performance with upgradeable memory',
     avoidIf: 'You prefer OLED or need more than 1TB from the factory',
-    amazonUrl: 'https://www.amazon.com/dp/B0F17BHVV1?tag=framelimit20-20',
-    amazonAsin: 'B0F17BHVV1',
+    amazonUrl: '',
+      retailBlocked: true,
+      retailIssue: "The former Amazon listing has conflicting Omen Max and 14-inch Ryzen specifications. An exact B64BNUA offer is not confirmed.",
+    amazonAsin: '',
     modelCode: 'B64BNUA#ABA',
     specSource: 'https://www.hp.com/us-en/shop/pdp/omen-max-gaming-laptop-16t-ah000-16-b64bnua-aba-1',
     specCheckedAt: '2026-07-15',
@@ -659,8 +661,10 @@ const LAPTOP_CATALOG = [
     scores: { perf: 8.8, display: 8.4, thermals: 8.6, battery: 7.4, build: 8.5, value: 9.3 },
     bestFor: 'High-performance gaming on a strict budget',
     avoidIf: 'You need a full-power RTX 5070 Ti implementation',
-    amazonUrl: 'https://www.amazon.com/dp/B0G5XC26P7/?tag=framelimit20-20',
-    amazonAsin: 'B0G5XC26P7',
+    amazonUrl: '',
+      retailBlocked: true,
+      retailIssue: "The former Amazon listing shows a Neo 16 with a 240Hz IPS panel, not the reviewed PHN16S-71-98RF OLED configuration.",
+    amazonAsin: '',
     modelCode: 'PHN16S-71-98RF / NH.QZQAA.001',
     specSource: 'https://www.acer.com/us-en/predator/laptops/helios/helios-neo-16s-ai/pdp/NH.QZQAA.001',
     specCheckedAt: '2026-07-14',
@@ -1369,11 +1373,10 @@ const LAPTOP_CATALOG = [
 
 ];
 
-// Only products with a directly attributable, currently buyable retail page
-// are exposed to recommendation, comparison, and finder interfaces.
+// Keep blocked listings available for editorial comparison, without a purchase URL.
 const LAPTOPS = LAPTOP_CATALOG.filter(laptop =>
   laptop.retailStatus !== 'unavailable' &&
-  /^https:\/\//.test(laptop.amazonUrl || '')
+  (laptop.retailBlocked || /^https:\/\//.test(laptop.amazonUrl || ''))
 );
 
 /* ──────────────────────────────────────────────
@@ -1408,6 +1411,7 @@ function flIsDirectAmazonProduct(laptopOrUrl) {
 }
 
 function flRetailerStatus(laptop) {
+  if (laptop && laptop.retailBlocked) return 'Exact retail listing under review';
   if (flIsDirectAmazonProduct(laptop)) return 'Verified Amazon product page';
   if (laptop && laptop.retailerName && /^https:\/\//.test(laptop.amazonUrl || '')) {
     return `Official ${laptop.retailerName} product page`;

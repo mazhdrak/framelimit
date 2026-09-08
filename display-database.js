@@ -58,7 +58,7 @@
       <td>${Number.isFinite(laptop.display.nits) ? `<span class="displaydb-nits">${escapeHtml(laptop.display.nits)} nits</span>` : '<span class="displaydb-muted">Not published</span>'}</td>
       <td>${laptop.display.hdr ? escapeHtml(laptop.display.hdr) : '<span class="displaydb-muted">Not published</span>'}</td>
       <td><a class="displaydb-link" href="${escapeHtml(laptop.specSource)}" target="_blank" rel="nofollow noopener">Specification source →</a><div class="displaydb-sku">Checked ${formatDate(laptop.specCheckedAt)}</div></td>
-      <td><a class="displaydb-link" href="${escapeHtml(laptop.amazonUrl)}" target="_blank" rel="${/amazon\.com\/dp\//.test(laptop.amazonUrl || '') ? 'nofollow sponsored noopener' : 'noopener'}">Check exact retail page →</a></td>
+      <td>${laptop.amazonUrl ? `<a class="displaydb-link" href="${escapeHtml(laptop.amazonUrl)}" target="_blank" rel="${/amazon\.com\/dp\//.test(laptop.amazonUrl || '') ? 'nofollow sponsored noopener' : 'noopener'}">Check exact retail page →</a>` : '<span>Exact retail listing under review</span>'}</td>
     </tr>`).join('');
   }
 

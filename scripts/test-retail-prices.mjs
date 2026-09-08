@@ -23,8 +23,9 @@ assert.equal(w.flIsReferencePriceFresh({price:1000,priceCheckedAt:'2026-09-09'},
 assert.equal(w.flIsReferencePriceFresh({price:1000,priceCheckedAt:'2026-07-15'},now),false,'expired references must not be used');
 assert.equal(w.flGetPriceDisplay('msi-vector-16-hx-ai').kind,'unavailable');
 const offer={asin:'B0DTN19VXZ',price:2500,currency:'USD',availability:'IN_STOCK',checkedAt:'2026-09-08T10:00:00Z'};
-assert.equal(context(offer).flGetPriceDisplay('msi-vector-16-hx-ai').kind,'amazon');
+assert.equal(context(offer).flGetPriceDisplay('msi-vector-16-hx-ai').kind,'unavailable');
+assert.equal(context(offer).flGetFreshOffer('msi-vector-16-hx-ai').price,2500);
 for(const bad of [{asin:'B0F195W823'},{currency:'EUR'},{price:0},{checkedAt:'2026-09-06T10:00:00Z'},{checkedAt:'2026-09-09T10:00:00Z'},{availability:'OUT_OF_STOCK'}]){
- assert.equal(context({...offer,...bad}).flGetPriceDisplay('msi-vector-16-hx-ai').kind,'unavailable',JSON.stringify(bad));
+ assert.equal(context({...offer,...bad}).flGetFreshOffer('msi-vector-16-hx-ai'),null,JSON.stringify(bad));
 }
 console.log('Retail host/ASIN validation, official retailer mapping, same-day references, expiry, future dates, currency and unavailable-offer tests passed.');

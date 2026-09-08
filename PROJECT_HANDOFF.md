@@ -84,3 +84,21 @@ This supersedes earlier references to a 32GB Clubic test unit, including the RTX
 ## Legion 5i follow-up — September 8, 2026
 
 Expanded 83N20003BO review with SDR/HDR interpretation, glossy-screen considerations, dock/adapter selection and exact-listing comparisons. Rechecked Lenovo 15IAX10 PSREF. Preserved the distinction from related 15IRX10 tests and the unranked exact SKU. Removed stale Value Pick labeling and the misleading exact-evidence label on its Katana alternative. Replaced the unrefreshed Kingston maximum claim with Lenovo's documented 32GB offering. Updated editorial date, reading time and sitemap. Review-readiness, internal links, evidence-claims and sitemap checks passed. No prices or benchmark results were invented.
+
+## Manual budget-offer check — September 8, 2026
+
+User policy: do not publish individual current prices; keep valid Amazon purchase links. Still check actual offers privately to assign budget guides. Central price presentation now remains link-only even if the API later recovers. Historical price-report data is not refreshed by this work.
+
+Checked 16 Amazon ASIN pages in the browser with US delivery ZIP 10001 and USD, plus the ASUS G14 where-to-buy page. Eligibility uses new-item price plus shipping before sales tax; no used/renewed offers, credit-card incentives or different variants substituted. This was a product-page check, not a completed checkout or market-wide search. Exact amounts and seller observations are private in audit-site-2026-09-08/budget-offers-private.json. Never rerun the non-idempotent local update-budget-guides.mjs.
+
+- Under 1,000: none of the checked offers qualifies.
+- Under 1,500: Gigabyte CVHI3US894SH then Nitro ANV16S-41-R2AJ, ordered by observed offer total. LOQ and TUF 64GB unavailable. Gigabyte required opening All Buying Options.
+- Under 2,000: previously listed RTX 5070-class candidates did not qualify; show the cheaper verified RTX 5060 options and a separate watchlist. Katana new offer belongs in the under-2,500 comparison; its cheaper used offer is excluded. Legion 5i, TUF 32GB and Omen Slim unavailable.
+- Under 2,500: Katana then Alienware 16X 32GB/2TB. Blade 14 exceeds the ceiling. G14 exact-SKU price not confirmed; family starting price was excluded.
+- Under 3,000: Vector A2XWIG-058US qualifies; Legion Pro 7i exceeds ceiling.
+
+Withheld four incorrect/conflicting ASINs across static pages and renderers: B0FWVFBB81 now shows ThinkPad E16; B0G5XC26P7 shows Neo 16 IPS instead of reviewed Neo 16S OLED; B0GCQCMGDC shows RTX 5060 instead of reviewed Transcend RTX 5070; B0F17BHVV1 has Omen Max title but unrelated 14-inch Ryzen bullets. Catalog records retain specifications with retailBlocked/retailIssue and empty purchase URLs. No replacement ASIN was guessed. Updater now manages 38 ASINs, excludes blocked records. Tests permit explicitly documented withheld links and verify safe rendering, no retired links, eligibility order and link-only output.
+
+Budget pages, hub copy and sitemap updated. Editorial scores were not recalculated or treated as a current budget rank. Dated eligible offers come first; unavailable, over-budget and unverified references are separated. Do not promote them based on stale reference prices. Next: find and verify replacement exact-SKU Amazon listings for the four blocked products; periodically repeat offer checks and review remaining historical content. Amazon API eligibility is still unresolved.
+
+Validation: 24/25 audits pass after date alignment; only the existing 27 stale July reference prices fail freshness. Both retail-price and budget-offer regression tests pass. Browser preview confirms hydrated guide content and purchase links with no individual price amounts. Local validation record: budget-validation.json.

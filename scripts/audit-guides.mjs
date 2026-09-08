@@ -140,7 +140,7 @@ async function auditGuide(file, laptopIds, allowedRetailAsins, results) {
   }
 
   for (const match of matches(source, /data-fl-(?:laptop|price-id)=["']([^"']+)["']/gi)) {
-    if (!laptopIds.has(match[1]) && match[1] !== 'lenovo-legion-7i-gen10') {
+    if (!laptopIds.has(match[1]) && !['lenovo-legion-7i-gen10', 'hp-omen-transcend-14'].includes(match[1])) {
       add(results, file, 'error', `unknown central laptop id: ${match[1]}`);
     }
   }

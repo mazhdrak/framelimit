@@ -36,6 +36,7 @@ async function main() {
   for (const laptop of catalog) {
     if (ids.has(laptop.id)) errors.push(`duplicate catalog id ${laptop.id}`);
     ids.add(laptop.id);
+    if (laptop.retailBlocked && !laptop.amazonUrl && !laptop.amazonAsin && laptop.retailIssue) continue;
     const isAmazon = /amazon\.com\/dp\//.test(laptop.amazonUrl || '');
     if (isAmazon) {
       if (!laptop.amazonAsin || !/^[A-Z0-9]{10}$/.test(laptop.amazonAsin)) errors.push(`${laptop.id} has invalid ASIN`);

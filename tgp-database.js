@@ -80,7 +80,7 @@
         <td>${evidenceStatus(laptop)}</td>
         <td><a class="tgp-link" href="${escapeHtml(laptop.specSource)}" target="_blank" rel="nofollow">Source →</a><div class="tgp-sku">Checked ${formatDate(laptop.specCheckedAt)}</div></td>
         <td>${review}</td>
-        <td><a class="tgp-link" href="${escapeHtml(laptop.amazonUrl)}" target="_blank" rel="${isAmazon ? 'nofollow sponsored noopener' : 'noopener'}">${isAmazon ? 'Amazon' : escapeHtml(laptop.retailerName || 'Retailer')} →</a></td>
+        <td>${laptop.amazonUrl ? `<a class="tgp-link" href="${escapeHtml(laptop.amazonUrl)}" target="_blank" rel="${isAmazon ? 'nofollow sponsored noopener' : 'noopener'}">${isAmazon ? 'Amazon' : escapeHtml(laptop.retailerName || 'Retailer')} →</a>` : '<span>Exact retail listing under review</span>'}</td>
       </tr>`;
     }).join('');
   }

@@ -83,7 +83,7 @@ for (const { file, source } of reviewFiles) {
 
   const amazonLinks = Array.from(source.matchAll(/<a\b([^>]*href=["'][^"']*amazon\.com\/dp\/[A-Z0-9]{10}[^"']*["'][^>]*)>/gi), (match) => match[1]);
   const hasOfficialRetail = Array.from(source.matchAll(/<a\b[^>]*href=["']([^"']+)["']/gi)).some(match => officialUrls.has(match[1]));
-  if (!amazonLinks.length && !hasOfficialRetail) add(file, 'needs a direct-ASIN Amazon CTA or a catalog-mapped official retailer');
+  if (!amazonLinks.length && !hasOfficialRetail && !(source.includes('id="retail-status"') && source.includes('retail-link-unavailable'))) add(file, 'needs a direct-ASIN Amazon CTA or a catalog-mapped official retailer');
   else if (amazonLinks.some((attributes) => !/rel=["'][^"']*sponsored/i.test(attributes))) add(file, 'Amazon CTA must use rel="sponsored"');
 
   const internalTargets = Array.from(source.matchAll(/<a\b[^>]*href=["']([^"'#?]+)[^"']*["'][^>]*>/gi), (match) => match[1].replace(/\.html$/i, ''));

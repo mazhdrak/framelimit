@@ -192,9 +192,9 @@ function flRenderCard(laptop) {
   </div>
 
   <div class="fl-cta-row">
-    <a href="${laptop.amazonUrl}" class="fl-btn-buy" rel="${flRetailRel(laptop.amazonUrl)}" target="_blank">
+    ${laptop.amazonUrl ? `<a href="${laptop.amazonUrl}" class="fl-btn-buy" rel="${flRetailRel(laptop.amazonUrl)}" target="_blank">
       ${flAmazonCta(laptop.amazonUrl)}
-    </a>
+    </a>` : '<span class="retail-link-unavailable">Exact Amazon listing under review</span>'}
     ${reviewBtn}
   </div>
   <div class="fl-aff-note">Affiliate link · ${flRetailerNote(laptop)} · FRAMELIMIT may earn a commission</div>
@@ -229,7 +229,7 @@ function flRenderTable(laptops) {
       <td style="font-family:'JetBrains Mono',monospace;font-size:12px">${l.weight == null ? 'Not verified' : `${l.weight}kg`}</td>
       <td style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:${sc}">${l.score == null ? 'NR' : l.score}</td>
       <td>
-        <a href="${l.amazonUrl}" class="fl-table-buy" rel="${flRetailRel(l.amazonUrl)}" target="_blank">${flAmazonCta(l.amazonUrl, true)}</a>
+        ${l.amazonUrl ? `<a href="${l.amazonUrl}" class="fl-table-buy" rel="${flRetailRel(l.amazonUrl)}" target="_blank">${flAmazonCta(l.amazonUrl, true)}</a>` : '<span class="retail-link-unavailable">Exact Amazon listing under review</span>'}
       </td>
     </tr>`;
   }).join('');
@@ -331,7 +331,7 @@ function flRenderDeals(ids) {
     <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)">Score: </span>
     <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:${flScoreColor(l.score)}">${l.score}</span>
   </div>
-  <a href="${l.amazonUrl}" class="deal-btn" rel="${flRetailRel(l.amazonUrl)}" target="_blank">${flAmazonCta(l.amazonUrl)}</a>
+  ${l.amazonUrl ? `<a href="${l.amazonUrl}" class="deal-btn" rel="${flRetailRel(l.amazonUrl)}" target="_blank">${flAmazonCta(l.amazonUrl)}</a>` : '<span class="retail-link-unavailable">Exact Amazon listing under review</span>'}
   <div class="fl-aff-note">${flRetailerNote(l)}</div>
   ${reviewBtn}
 </div>`;

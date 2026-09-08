@@ -50,6 +50,7 @@ function auditCatalog(laptops) {
   const ownersByAsin = new Map();
 
   laptops.forEach((laptop) => {
+    if (laptop.retailBlocked && !laptop.amazonUrl && !laptop.amazonAsin && laptop.retailIssue) return;
     const url = String(laptop.amazonUrl || '');
     const product = amazonProduct(url);
     if (!product && laptop.retailerName && /^https:\/\//.test(url) && !laptop.amazonAsin) return;
