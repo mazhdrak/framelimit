@@ -2,6 +2,10 @@
 
 Independent gaming laptop reviews and affiliate site. RTX 50 series focused. Built and operated by Rumen Mazhdrakov, based in Sofia.
 
+## Continuing maintenance
+
+Read [PROJECT_HANDOFF.md](PROJECT_HANDOFF.md) for published changes, validation, known blockers and next steps. Local audit folders contain private account context and must not be bulk-staged.
+
 ## Stack
 
 - Pure HTML / CSS / JS — no framework, no build tools
@@ -12,7 +16,7 @@ Independent gaming laptop reviews and affiliate site. RTX 50 series focused. Bui
 ## Deploy
 
 ```bash
-git add -A
+git add <reviewed-files>
 git commit -m "your message"
 git push
 # Live in ~30 seconds via Cloudflare Pages
