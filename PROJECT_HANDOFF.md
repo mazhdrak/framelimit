@@ -80,3 +80,7 @@ This supersedes earlier references to a 32GB Clubic test unit, including the RTX
 - Removed granular subscores from the review, catalog and hub. Existing overall 7.9 is explicitly historical editorial assessment, not a measured metric or current-price ranking; no fresh score was fabricated.
 - Ranking consistency, review readiness, sitemap, evidence claims, Product schema and internal-link audits passed. Amazon eligibility remains an external blocker.
 - Previous Gigabyte commit b5bb937 was verified live (review and benchmark metadata).
+
+## Legion 5i follow-up — September 8, 2026
+
+Expanded 83N20003BO review with SDR/HDR interpretation, glossy-screen considerations, dock/adapter selection and exact-listing comparisons. Rechecked Lenovo 15IAX10 PSREF. Preserved the distinction from related 15IRX10 tests and the unranked exact SKU. Removed stale Value Pick labeling and the misleading exact-evidence label on its Katana alternative. Replaced the unrefreshed Kingston maximum claim with Lenovo's documented 32GB offering. Updated editorial date, reading time and sitemap. Review-readiness, internal links, evidence-claims and sitemap checks passed. No prices or benchmark results were invented.
