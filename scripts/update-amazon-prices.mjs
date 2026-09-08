@@ -2,12 +2,15 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
+import { amazonProduct } from './retail-links.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SNAPSHOT_PATH = path.join(ROOT, 'price-snapshot.js');
 const PARTNER_TAG = process.env.AMAZON_ASSOCIATE_TAG || 'framelimit20-20';
 const MARKETPLACE = process.env.AMAZON_CREATORS_MARKETPLACE || 'www.amazon.com';
 const CURRENCY = process.env.AMAZON_CREATORS_CURRENCY || 'USD';
+// Deliberately labeled part-number searches are discovery links, not price offers.
+const UPGRADE_SEARCH_PARTS = new Set(['CT2K32G64C52CS5']);
 const VERSION = process.env.AMAZON_CREATORS_CREDENTIAL_VERSION || '';
 const CLIENT_ID = process.env.AMAZON_CREATORS_CLIENT_ID || '';
 const CLIENT_SECRET = process.env.AMAZON_CREATORS_CLIENT_SECRET || '';
@@ -29,9 +32,10 @@ function getArgument(name) {
 
 async function loadLaptops() {
   const source = await fs.readFile(path.join(ROOT, 'laptops.js'), 'utf8');
-  const sandbox = { window: {} };
+  const sandbox = { window: {}, document: { readyState: 'loading', addEventListener() {} } };
   vm.runInNewContext(source, sandbox, { filename: 'laptops.js' });
-  return sandbox.window.LAPTOPS;
+  vm.runInNewContext(await fs.readFile(path.join(ROOT, 'price-data.js'), 'utf8'), sandbox, { filename: 'price-data.js' });
+  return [...Object.values(sandbox.window.FL_PRICE_RECORDS), ...sandbox.window.FL_UPGRADE_PRODUCTS];
 }
 
 function directAsin(laptop) {
@@ -47,10 +51,13 @@ function auditCatalog(laptops) {
 
   laptops.forEach((laptop) => {
     const url = String(laptop.amazonUrl || '');
-    if (!url.includes(`tag=${PARTNER_TAG}`)) {
+    const product = amazonProduct(url);
+    if (!product && laptop.retailerName && /^https:\/\//.test(url) && !laptop.amazonAsin) return;
+    if (!product || product.tag !== PARTNER_TAG) {
       errors.push(`${laptop.id}: missing affiliate tag ${PARTNER_TAG}`);
     }
     const asin = directAsin(laptop);
+    if (product && asin !== product.asin) errors.push(`${laptop.id}: ASIN does not match product URL`);
     if (asin) {
       direct.push({ laptop, asin });
       const owners = ownersByAsin.get(asin) || [];
@@ -109,13 +116,17 @@ async function auditSiteAmazonLinks(managedAsins) {
       }
       const asinMatch = /^\/dp\/([A-Z0-9]{10})(?:[/?#]|$)/i.exec(parsed.pathname);
       if (!asinMatch) {
-        errors.push(`${file}: non-direct Amazon product link: ${url}`);
-        return;
+        const label = source.slice(match.index + match[0].length).split('</a>')[0].replace(/<[^>]+>/g, '');
+        const explicitPartSearch = parsed.pathname === '/s' && UPGRADE_SEARCH_PARTS.has(parsed.searchParams.get('k')) && /search amazon/i.test(label);
+        if (!explicitPartSearch) {
+          errors.push(`${file}: non-direct Amazon product link must be an approved, explicitly labeled part search: ${url}`);
+          return;
+        }
       }
-      directCount += 1;
-      const asin = asinMatch[1].toUpperCase();
-      if (!managedAsins.has(asin)) {
-        errors.push(`${file}: unmanaged direct ASIN ${asin}`);
+      if (asinMatch) {
+        directCount += 1;
+        const asin = asinMatch[1].toUpperCase();
+        if (!managedAsins.has(asin)) errors.push(`${file}: unmanaged direct ASIN ${asin}`);
       }
       if (parsed.searchParams.get('tag') !== PARTNER_TAG) {
         errors.push(`${file}: Amazon product link is missing affiliate tag ${PARTNER_TAG}: ${url}`);
@@ -254,7 +265,7 @@ async function main() {
   const audit = auditCatalog(laptops);
   const managedAsins = await loadManagedAsins(audit);
   const siteAudit = await auditSiteAmazonLinks(managedAsins);
-  console.log(`Amazon links: ${audit.direct.length} direct ASIN, ${audit.search.length} search fallback.`);
+  console.log(`Amazon links: ${audit.direct.length} direct ASIN, ${audit.search.length} unresolved Amazon links; official non-Amazon retailers excluded from API requests.`);
   console.log(`Site HTML: ${siteAudit.directCount} direct Amazon links across ${siteAudit.fileCount} files; ${managedAsins.size} managed ASINs.`);
   if (audit.errors.length) {
     throw new Error(`Affiliate audit failed:\n- ${audit.errors.join('\n- ')}`);
@@ -283,13 +294,15 @@ async function main() {
   }
 
   const offers = normalizeResponses(responses, asinToLaptopId, checkedAt);
+  if (!Object.keys(offers).length) throw new Error('Amazon returned no managed offers; previous snapshot preserved.');
   await writeSnapshot(offers, checkedAt);
   console.log(`Updated ${Object.keys(offers).length} Amazon offers in price-snapshot.js.`);
 }
 
 main().catch((error) => {
   if (isAssociateNotEligible(error)) {
-    console.warn('::warning title=Amazon Creators API not yet eligible::Keeping the reference-price fallback. Run this workflow again after the Associates account meets Amazon eligibility requirements.');
+    console.error('::error title=Amazon Creators API not eligible::No prices refreshed. Previous snapshot preserved; expired prices remain hidden. Run again after the Associates account meets Amazon eligibility requirements.');
+    process.exitCode = 1;
     return;
   }
   console.error(error.message);

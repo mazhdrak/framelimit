@@ -2,6 +2,14 @@ name: Update Amazon prices
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-amazon-prices.yml'
+      - 'scripts/update-amazon-prices.mjs'
+      - 'scripts/retail-links.mjs'
+      - 'laptops.js'
+      - 'price-data.js'
   schedule:
     - cron: "17 5 * * *"
 
@@ -31,8 +39,8 @@ jobs:
           AMAZON_CREATORS_CURRENCY: USD
         run: |
           if [ -z "$AMAZON_CREATORS_CLIENT_ID" ] || [ -z "$AMAZON_CREATORS_CLIENT_SECRET" ] || [ -z "$AMAZON_CREATORS_CREDENTIAL_VERSION" ]; then
-            echo "Creators API secrets are not configured; keeping reference-price fallback."
-            exit 0
+            echo "::error::Creators API credentials are not configured. No prices were refreshed; add the three AMAZON_CREATORS secrets in repository Actions settings."
+            exit 1
           fi
           node scripts/update-amazon-prices.mjs
 

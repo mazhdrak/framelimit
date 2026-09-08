@@ -21,11 +21,11 @@ for (const laptop of priced) {
     errors.push(`${laptop.id}: invalid priceCheckedAt`);
     continue;
   }
-  const checkedAt = Date.parse(`${laptop.priceCheckedAt}T23:59:59Z`);
+  const checkedAt = Date.parse(`${laptop.priceCheckedAt}T00:00:00Z`);
   const ageDays = (now - checkedAt) / (24 * 60 * 60 * 1000);
   if (ageDays < 0) errors.push(`${laptop.id}: reference-price date is in the future`);
   if (ageDays > maxAgeDays) errors.push(`${laptop.id}: reference price is ${Math.floor(ageDays)} days old`);
-  if (!sandbox.window.flIsReferencePriceFresh(laptop, now)) errors.push(`${laptop.id}: freshness helper rejects a current audited price`);
+  if (ageDays >= 0 && ageDays <= maxAgeDays && !sandbox.window.flIsReferencePriceFresh(laptop, now)) errors.push(`${laptop.id}: freshness helper rejects an in-date reference`);
 }
 
 const [priceUi, homepage] = await Promise.all([

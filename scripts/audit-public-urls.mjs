@@ -34,7 +34,7 @@ for (const file of files) {
   const source = await fs.readFile(path.join(ROOT, file), 'utf8');
   const noindex = /<meta\s+name=["']robots["']\s+content=["'][^"']*noindex/i.test(source);
   const canonical = source.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i)?.[1];
-  if (!canonical) errors.push(`${file}: missing canonical`);
+  if (!canonical && !noindex) errors.push(`${file}: missing canonical`);
   if (!noindex && canonical !== publicUrl(file)) errors.push(`${file}: canonical must be ${publicUrl(file)}`);
   if (canonical && /\.html(?:$|[?#])/.test(canonical)) errors.push(`${file}: canonical must be extensionless`);
 

@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { officialRetailUrls } from './retail-links.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://framelimit.com/';
@@ -13,6 +14,7 @@ const [manifestSource, sitemap] = await Promise.all([
 const pages = JSON.parse(manifestSource);
 const errors = [];
 const seen = new Set();
+const officialUrls = await officialRetailUrls();
 
 for (const page of pages) {
   if (seen.has(page.target)) errors.push(`${page.target}: duplicate money-page target`);
@@ -37,7 +39,9 @@ for (const page of pages) {
   }
 
   const amazonLinks = Array.from(source.matchAll(/<a\b([^>]*href=["']https:\/\/www\.amazon\.com\/dp\/([A-Z0-9]{10})[^"']*["'][^>]*)>/gi));
-  if (amazonLinks.length < page.minDirectOffers) errors.push(`${file}: expected at least ${page.minDirectOffers} direct Amazon offers, found ${amazonLinks.length}`);
+  const officialLinks = Array.from(source.matchAll(/<a\b[^>]*href=["']([^"']+)["']/gi)).filter(match => officialUrls.has(match[1]));
+  const offerCount = amazonLinks.length + officialLinks.length;
+  if (offerCount < page.minDirectOffers) errors.push(`${file}: expected at least ${page.minDirectOffers} catalog-backed retailer offers, found ${offerCount}`);
   for (const [, attributes, asin] of amazonLinks) {
     const href = attributes.match(/href=["']([^"']+)["']/i)?.[1] || '';
     const rel = attributes.match(/rel=["']([^"']+)["']/i)?.[1] || '';

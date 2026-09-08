@@ -1,11 +1,13 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { officialRetailUrls } from './retail-links.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://framelimit.com';
 const errors = [];
 const reviewFlags = [];
+const officialUrls = await officialRetailUrls();
 
 function add(file, message) {
   errors.push(`${file}: ${message}`);
@@ -80,7 +82,8 @@ for (const { file, source } of reviewFiles) {
   if (!hasBenchmarkTemplate && !statesEvidenceBoundary) flag(file, 'needs the shared benchmark template or an explicit no-matched-evidence boundary');
 
   const amazonLinks = Array.from(source.matchAll(/<a\b([^>]*href=["'][^"']*amazon\.com\/dp\/[A-Z0-9]{10}[^"']*["'][^>]*)>/gi), (match) => match[1]);
-  if (!amazonLinks.length) add(file, 'needs a direct-ASIN Amazon CTA or a clearly mapped buyable alternative');
+  const hasOfficialRetail = Array.from(source.matchAll(/<a\b[^>]*href=["']([^"']+)["']/gi)).some(match => officialUrls.has(match[1]));
+  if (!amazonLinks.length && !hasOfficialRetail) add(file, 'needs a direct-ASIN Amazon CTA or a catalog-mapped official retailer');
   else if (amazonLinks.some((attributes) => !/rel=["'][^"']*sponsored/i.test(attributes))) add(file, 'Amazon CTA must use rel="sponsored"');
 
   const internalTargets = Array.from(source.matchAll(/<a\b[^>]*href=["']([^"'#?]+)[^"']*["'][^>]*>/gi), (match) => match[1].replace(/\.html$/i, ''));

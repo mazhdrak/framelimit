@@ -109,6 +109,9 @@
     const id = resolveId(value);
     const offer = id ? snapshotOffers[id] : null;
     if (!offer || !Number.isFinite(offer.price) || !offer.checkedAt) return null;
+    const record = id ? records[id] : null;
+    const currentAsin = record && (record.amazonAsin || (record.amazonUrl || '').match(/\/dp\/([A-Z0-9]{10})/i)?.[1]);
+    if (!currentAsin || offer.asin !== currentAsin || offer.price <= 0 || offer.currency !== 'USD') return null;
     const age = Date.now() - Date.parse(offer.checkedAt);
     const unavailable = ['OUT_OF_STOCK', 'UNAVAILABLE'].includes(offer.availability);
     return age >= 0 && age <= MAX_LIVE_PRICE_AGE_MS && !unavailable ? offer : null;
@@ -124,7 +127,7 @@
       };
     }
     const record = getRecord(value);
-    if (record && Number.isFinite(record.price) && (!window.flIsReferencePriceFresh || window.flIsReferencePriceFresh(record))) {
+    if (record && Number.isFinite(record.price) && window.flIsReferencePriceFresh && window.flIsReferencePriceFresh(record)) {
       return { kind: 'reference', text: 'Typical $' + record.price.toLocaleString('en-US'), offer: null, record };
     }
     return { kind: 'unavailable', text: 'Check current price', offer: null };
@@ -155,7 +158,8 @@
     if (!record || !record.amazonUrl) return;
     const offer = getFreshOffer(value);
     link.href = (offer && offer.detailPageUrl) || record.amazonUrl;
-    link.rel = 'nofollow sponsored noopener';
+    const isAmazon = /^https:\/\/www\.amazon\.com\//.test(link.href);
+    link.rel = isAmazon ? 'nofollow sponsored noopener' : 'noopener';
     link.target = '_blank';
     link.textContent = isSearchUrl(link.href) ? 'Search Amazon \u2192' : 'Check current price \u2192';
   }
@@ -234,7 +238,7 @@
     if (!quickPicks) return;
     const policy = document.createElement('div');
     policy.className = 'price-guide-policy';
-    policy.innerHTML = '<strong>How prices work:</strong> Fresh API prices are labeled “Amazon”; otherwise we show a typical street/reference price. Prices and stock can change at any time. Direct product pages are used when available; otherwise the button opens a model-specific affiliate search. <span>' + (window.FL_DATA_LAST_CHECKED_LABEL || 'Links checked regularly') + '.</span>';
+    policy.innerHTML = '<strong>How prices work:</strong> Amazon prices expire after 24 hours; dated reference prices expire after 30 days. When neither is current, we show “Check current price.” Compare the exact configuration, seller and checkout total at the linked retailer. A budget shortlist is not confirmation that an offer is currently within budget.';
     quickPicks.insertAdjacentElement('afterend', policy);
   }
 

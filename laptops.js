@@ -1427,7 +1427,7 @@ function flReferencePriceStatus(laptop) {
 
 function flIsReferencePriceFresh(laptop, now = Date.now()) {
   if (!laptop || !Number.isFinite(laptop.price) || !/^\d{4}-\d{2}-\d{2}$/.test(laptop.priceCheckedAt || '')) return false;
-  const checkedAt = Date.parse(`${laptop.priceCheckedAt}T23:59:59Z`);
+  const checkedAt = Date.parse(`${laptop.priceCheckedAt}T00:00:00Z`);
   const age = now - checkedAt;
   return age >= 0 && age <= FL_REFERENCE_PRICE_MAX_AGE_DAYS * 24 * 60 * 60 * 1000;
 }
