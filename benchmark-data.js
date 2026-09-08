@@ -400,7 +400,7 @@
     },
     'verified-gigabytea16-benchmark': {
       title: 'Gigabyte Gaming A16 (2025)',
-      configuration: 'Gaming A16 · Core i7-13620H · RTX 5060 Laptop · 85W max TGP · 32GB DDR5 · 1920x1200 IPS 165Hz',
+      configuration: 'Gaming A16 · Core i7-13620H · RTX 5060 Laptop · 85W max TGP · 16GB DDR5-5200 · French test unit; exact US SKU not established · 1920x1200 IPS 165Hz',
       games: [
         ['Cyberpunk 2077', '1920x1200 · Ultra · Path Tracing', 'DLSS · MFG x4', '85W max TGP', 102, null, null],
         ['Cyberpunk 2077', '1920x1200 · Ultra · RT Ultra', 'DLSS Quality · FG off', '85W max TGP', 47, null, null],
@@ -412,7 +412,7 @@
       synthetics: [
         ['Cinebench 2024', 'Single-core', 109], ['Cinebench 2024', 'Multi-core', 865]
       ],
-      sources: [['Clubic exact-configuration measurements', 'https://www.clubic.com/test-produit-579277-test-gigabyte-gaming-16-un-gamer-abordable-et-competent-sous-rtx-5060.html']]
+      sources: [['Clubic regional 16GB configuration measurements', 'https://www.clubic.com/test-produit-579277-test-gigabyte-gaming-16-un-gamer-abordable-et-competent-sous-rtx-5060.html']]
     },
     'verified-g14-benchmark': {
       title: 'ASUS ROG Zephyrus G14 (2026)',

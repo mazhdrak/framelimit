@@ -61,3 +61,14 @@ At this checkpoint `price-snapshot.js` is empty and 27 catalog reference prices 
 `audit-site-2026-09-08/` contains REPORT.md (original audit snapshot), IMPLEMENTED.md (implementation log), CONTENT-PAGES.md, inventories and check outputs, including private Search Console context. It is intentionally untracked. `audit-homepage/` also predates these commits and remains untracked. Preserve both; do not bulk-stage them or treat the original report as the current implementation state.
 
 The public repository intentionally excludes Search Console traffic/ranking details and raw account evidence. Read local IMPLEMENTED.md when available, then verify live state. Audit helper scripts may be non-idempotent; do not blindly rerun the content insertion scripts.
+
+## Gigabyte evidence correction — September 8, 2026
+
+This supersedes earlier references to a 32GB Clubic test unit, including the RTX 5060 guide text in 3031b1a. Re-reading Clubic's original review established a French 16GB DDR5-5200 test unit. PC Gamer's separate CVHI3US864SH review uses 32GB. Neither proves an exact CVHI3US894SH US retail match.
+
+- Corrected benchmark configuration metadata and attribution; synchronized reviews hub, RTX 5060 guide, under-$1,500 guide and LOQ/Gigabyte comparison (including FAQ schema).
+- Removed contradictory 8.1/7.8 ratings and subscores from the retail review, catalog and hub; exact US configuration is unranked. Product-with-rating schema became Article.
+- Removed unsupported 83°C GPU / 85°C CPU / 45dB claims. Attributed Clubic's regional 50–51dB and 53°C keyboard-area observation explicitly, distinguishing surface from component temperature.
+- Removed unverified sub-$1,400/best-price metadata. Expanded memory, total-offer comparison and return-period guidance without inventing benchmarks or current prices.
+- Full audit suite: 24/25 pass; only unchanged reference-price freshness fails. Comparison audit now expects the corrected regional 16GB description.
+- Sources: https://www.clubic.com/test-produit-579277-test-gigabyte-gaming-16-un-gamer-abordable-et-competent-sous-rtx-5060.html and https://www.pcgamer.com/hardware/gaming-laptops/gigabyte-gaming-a16-gaming-laptop-review/ . Continue checking remaining reviews; this does not certify all old ratings or measurements elsewhere.
