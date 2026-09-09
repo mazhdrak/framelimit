@@ -140,7 +140,7 @@ async function auditGuide(file, laptopIds, allowedRetailAsins, results) {
   }
 
   for (const match of matches(source, /data-fl-(?:laptop|price-id)=["']([^"']+)["']/gi)) {
-    if (!laptopIds.has(match[1]) && !['lenovo-legion-7i-gen10', 'hp-omen-transcend-14'].includes(match[1])) {
+    if (!laptopIds.has(match[1])) {
       add(results, file, 'error', `unknown central laptop id: ${match[1]}`);
     }
   }
@@ -172,6 +172,9 @@ async function main() {
   for (const match of priceDataSource.matchAll(/amazon\.com\/dp\/([A-Z0-9]{10})/gi)) {
     allowedRetailAsins.add(match[1].toUpperCase());
   }
+  const priceSandbox = { window: { LAPTOPS: laptops }, document: { readyState: 'loading', addEventListener() {} } };
+  vm.runInNewContext(priceDataSource, priceSandbox);
+  Object.keys(priceSandbox.window.FL_PRICE_RECORDS).forEach(id => laptopIds.add(id));
   const results = [];
   auditLaptopData(laptops, results);
   for (const guide of guides) await auditGuide(guide, laptopIds, allowedRetailAsins, results);

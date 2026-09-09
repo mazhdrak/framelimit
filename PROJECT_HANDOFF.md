@@ -113,3 +113,13 @@ Rechecked the four blocked listings and searched alternatives. The retired ASINs
 - Omen Max: focused Amazon search on September 9 did not identify a replacement 16-ah0097nr/B64BNUA. Results were different AMD/RTX 5070 configurations. Original conflicting ASIN remains withheld. HP exact-model datasheet: https://h20195.www2.hp.com/v2/getpdf.aspx/c09099360.pdf .
 
 The four original page problems remain as recorded above. This investigation does not establish that no other matching offers exist.
+
+## Additional budget alternatives — September 9, 2026
+
+Added three separately identified, unranked configurations to central price records and guides after browser checks for US ZIP 10001. No product amounts or reference-price dates added to public code. Private amounts, sellers and condition evidence: audit-site-2026-09-08/additional-offers-2026-09-09.json.
+
+- Under 1,000: HP Victus 15-fa1040nr, B0C6WJMFYH, i5-12500H/RTX 4050/16GB/512GB. All Offers explicitly confirmed New, SPTT LLC, free shipping. HP datasheet confirms model; guide explains older platform, 6GB VRAM, basic 250-nit/45% NTSC display and storage limits.
+- Under 2,000: Gigabyte A16 CWHI3US864SH, B0FDM3M1WF, i7-13620H/RTX 5070/32GB/1TB, new offer from GS Electronics with free shipping. Exact listing specifications only; no performance results borrowed from CVHI3US894SH RTX 5060 review.
+- Under 2,000: MSI Vector A2XWHG-212US, B0DTN2RZ1Q, Ultra 7 255HX/RTX 5070 Ti/16GB/512GB, new Amazon.com offer with free shipping. MSI confirms base 144Hz FHD+ 45% NTSC panel and two 8GB modules. No transfer of RTX 5080 A2XWIG-058US scores or benchmarks.
+
+Existing September 8 offers retain their original dated observations. New eligible cards follow the older cheaper RTX 5060 records by observed total, with mixed check dates disclosed. Updated guide summaries, hub and sitemap. These are selected alternatives, not a complete market ranking. The guide audit now resolves all central price-record IDs instead of a hardcoded exception list. Managed ASIN count is 41.
