@@ -666,7 +666,7 @@ const LAPTOP_CATALOG = [
       retailIssue: "The former Amazon listing shows a Neo 16 with a 240Hz IPS panel, not the reviewed PHN16S-71-98RF OLED configuration.",
     amazonAsin: '',
     modelCode: 'PHN16S-71-98RF / NH.QZQAA.001',
-    specSource: 'https://www.acer.com/us-en/predator/laptops/helios/helios-neo-16s-ai/pdp/NH.QZQAA.001',
+    specSource: 'https://www.acer.com/ca-en/predator/laptops/helios/helios-neo-16s-ai/pdp/NH.QZQAA.001',
     specCheckedAt: '2026-07-14',
     imgUrl: 'images/laptops/acer-predator-helios-neo-16.webp',
     imgBg: '#05100a',

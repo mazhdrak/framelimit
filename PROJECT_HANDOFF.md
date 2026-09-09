@@ -102,3 +102,14 @@ Withheld four incorrect/conflicting ASINs across static pages and renderers: B0F
 Budget pages, hub copy and sitemap updated. Editorial scores were not recalculated or treated as a current budget rank. Dated eligible offers come first; unavailable, over-budget and unverified references are separated. Do not promote them based on stale reference prices. Next: find and verify replacement exact-SKU Amazon listings for the four blocked products; periodically repeat offer checks and review remaining historical content. Amazon API eligibility is still unresolved.
 
 Validation: 24/25 audits pass after date alignment; only the existing 27 stale July reference prices fail freshness. Both retail-price and budget-offer regression tests pass. Browser preview confirms hydrated guide content and purchase links with no individual price amounts. Local validation record: budget-validation.json.
+
+## Replacement listing investigation — September 9, 2026
+
+Rechecked the four blocked listings and searched alternatives. The retired ASINs remain excluded from purchase records. No individual prices published and no budget eligibility promoted.
+
+- Legion 7i: B0G5Z8CJ54 explicitly identifies 83KY0003US, Ultra 9 275HX, RTX 5070, 32GB, 1TB and 240Hz OLED. Browser check on September 9 with US ZIP 10001 showed currently unavailable. Recorded the matching ASIN and unavailable status in the review; blocked purchase record remains until a usable offer is checked.
+- Predator: B0G6CKXT1F is an unavailable 240Hz OLED/Windows Pro candidate, not a confirmed NH.QZQAA.001 replacement. Acer Canada specifies NH.QZQAA.001 at 165Hz OLED; Acer US specifies NH.U0KAA.001 at 240Hz OLED, both named PHN16S-71-98RF. Corrected catalog source to Canada and explained regional distinction in review. Do not transfer panel measurements between them.
+- Transcend: B0HB3LP5JK matches major Ultra 9 285H/RTX 5070/32GB/1TB/OLED specifications, but the seller bundle does not identify 14-fb1053dx/D8KM4UA. Not accepted as an exact-SKU replacement. Earlier observed offer exceeded the under-2,500 ceiling; do not treat it as a newly refreshed September 9 price.
+- Omen Max: focused Amazon search on September 9 did not identify a replacement 16-ah0097nr/B64BNUA. Results were different AMD/RTX 5070 configurations. Original conflicting ASIN remains withheld. HP exact-model datasheet: https://h20195.www2.hp.com/v2/getpdf.aspx/c09099360.pdf .
+
+The four original page problems remain as recorded above. This investigation does not establish that no other matching offers exist.
