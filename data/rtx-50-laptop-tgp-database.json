@@ -392,14 +392,14 @@
       "id": "msi-raider-18-hx-ai",
       "manufacturer": "MSI",
       "model": "MSI Raider 18 HX AI",
-      "exactModelSku": "Raider 18 HX AI A2XWIG (B0F4PHGLW3)",
+      "exactModelSku": "Raider 18 HX AI A2XWIG-418US",
       "gpu": "RTX 5080",
       "gpuVram": "16GB GDDR7",
       "oemMaximumGpuPowerWatts": 175,
       "nvidiaGpuSubsystemPowerRangeWatts": "80-150",
       "evidenceStatus": "official-oem-specification",
-      "sourceUrl": "https://www.msi.com/Laptop/Raider-18-HX-AI-A2XWX/Specification",
-      "lastVerified": "2026-07-16"
+      "sourceUrl": "https://storage-asset.msi.com/excelSku/us/nb/Raider%2018%20HX%20AI%20A2XWIG-418US.pdf",
+      "lastVerified": "2026-09-10"
     },
     {
       "datasetVersion": "1.0.0",
