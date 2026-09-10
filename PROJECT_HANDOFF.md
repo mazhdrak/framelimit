@@ -123,3 +123,7 @@ Added three separately identified, unranked configurations to central price reco
 - Under 2,000: MSI Vector A2XWHG-212US, B0DTN2RZ1Q, Ultra 7 255HX/RTX 5070 Ti/16GB/512GB, new Amazon.com offer with free shipping. MSI confirms base 144Hz FHD+ 45% NTSC panel and two 8GB modules. No transfer of RTX 5080 A2XWIG-058US scores or benchmarks.
 
 Existing September 8 offers retain their original dated observations. New eligible cards follow the older cheaper RTX 5060 records by observed total, with mixed check dates disclosed. Updated guide summaries, hub and sitemap. These are selected alternatives, not a complete market ranking. The guide audit now resolves all central price-record IDs instead of a hardcoded exception list. Managed ASIN count is 41.
+
+## Nitro RTX 5070 budget follow-up — September 9, 2026
+
+Added separate ANV16-72-72ZY / NH.U2FAA.002, ASIN B0FRNL6NQ7, to under-1,500 and under-2,000 guides, first by observed total. Browser confirmed new/in-stock offer, free US ZIP 10001 delivery, seller named Acer_Authorized; its authorization is not independently certified. Private amount in nitro-offer-2026-09-09.json. Acer exact model page confirms Core 7 240H, 16GB/512GB, WUXGA IPS 180Hz and maximum graphics power 85W; Amazon identifies RTX 5070. No benchmark transfer from Ryzen ANV16S-41-R2AJ or scores invented. Removed blanket cheaper-RTX-5060 wording now contradicted by this offer. Existing September 8 observations retain dates. No individual prices published. Managed ASINs: 42.

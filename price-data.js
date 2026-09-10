@@ -24,6 +24,7 @@
   ];
 
   const EXTRA_RECORDS = {
+    'acer-nitro-anv16-72-72zy': { id: 'acer-nitro-anv16-72-72zy', name: 'Acer Nitro V 16 ANV16-72-72ZY', amazonUrl: 'https://www.amazon.com/dp/B0FRNL6NQ7?tag=framelimit20-20' },
     'hp-victus-15-fa1040nr': { id: 'hp-victus-15-fa1040nr', name: 'HP Victus 15-fa1040nr', amazonUrl: 'https://www.amazon.com/dp/B0C6WJMFYH?tag=framelimit20-20' },
     'gigabyte-a16-cwhi3us864sh': { id: 'gigabyte-a16-cwhi3us864sh', name: 'Gigabyte Gaming A16 CWHI3US864SH', amazonUrl: 'https://www.amazon.com/dp/B0FDM3M1WF?tag=framelimit20-20' },
     'msi-vector-a2xwhg-212us': { id: 'msi-vector-a2xwhg-212us', name: 'MSI Vector 16 HX AI A2XWHG-212US', amazonUrl: 'https://www.amazon.com/dp/B0DTN2RZ1Q?tag=framelimit20-20' },
