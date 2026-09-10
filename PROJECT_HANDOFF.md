@@ -127,3 +127,13 @@ Existing September 8 offers retain their original dated observations. New eligib
 ## Nitro RTX 5070 budget follow-up — September 9, 2026
 
 Added separate ANV16-72-72ZY / NH.U2FAA.002, ASIN B0FRNL6NQ7, to under-1,500 and under-2,000 guides, first by observed total. Browser confirmed new/in-stock offer, free US ZIP 10001 delivery, seller named Acer_Authorized; its authorization is not independently certified. Private amount in nitro-offer-2026-09-09.json. Acer exact model page confirms Core 7 240H, 16GB/512GB, WUXGA IPS 180Hz and maximum graphics power 85W; Amazon identifies RTX 5070. No benchmark transfer from Ryzen ANV16S-41-R2AJ or scores invented. Removed blanket cheaper-RTX-5060 wording now contradicted by this offer. Existing September 8 observations retain dates. No individual prices published. Managed ASINs: 42.
+
+## Alienware 16 Aurora editorial follow-up — September 10, 2026
+
+Expanded the short AC16250 RTX 5060 page into a specification-led buying review. Dell documentation now supports the display, memory, storage and port sections; the page explicitly states that FRAMELIMIT has not tested the exact unit and does not transfer Dell G16 benchmarks, thermals, noise or battery runtime.
+
+- Rechecked Amazon ASIN B0FXX3QS1F with US ZIP 10001. Its visible major configuration matched Core 7 240H, RTX 5060, 32GB, 1TB and 2560x1600 120Hz, but the page was currently unavailable. Kept the tagged exact-product link without publishing a price or treating availability as a current value ranking.
+- Corrected the identified retail configuration from 60Wh / 2.57kg to the listing's 96Wh / 5.68 lb (about 2.58kg) and 180W adapter. The AC16250 family has other battery options, so do not transfer this value to another suffix without checking it.
+- Added Dell-documented 120Hz/30ms-typical display limits, two-slot 32GB memory context, two M.2 2230 storage slots and required SSD thermal hardware, full port limitations and buyer/skip guidance.
+- Removed the unsupported 8.4 score and subscores from the Aurora catalog path. Removed the mismatched Aurora affiliate link from the hidden archived Dell G16 block and excluded that block from active review-card auditing. The unranked Aurora is no longer shown in the scored comparison table; its direct review card remains linked near the top of the hub.
+- Updated article metadata and sitemap to September 10. Guide, ranking, retail-link, review-readiness, comparison, internal-link, sitemap, money-page, Product-schema, evidence-claim and SEO-query audits passed. Amazon audit reports 42 managed direct ASINs and 197 direct HTML links. Retail-price and budget-offer regression tests passed. The existing Amazon API eligibility blocker and stale July reference-price data are unchanged.
