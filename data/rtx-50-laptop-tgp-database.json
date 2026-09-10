@@ -53,7 +53,7 @@
       "oemMaximumGpuPowerWatts": 115,
       "nvidiaGpuSubsystemPowerRangeWatts": "60-115",
       "evidenceStatus": "official-oem-specification",
-      "sourceUrl": "https://www.acer.com/us-en/predator/laptops/helios/helios-neo-16s-ai/pdp/NH.QZQAA.001",
+      "sourceUrl": "https://www.acer.com/ca-en/predator/laptops/helios/helios-neo-16s-ai/pdp/NH.QZQAA.001",
       "lastVerified": "2026-07-14"
     },
     {
@@ -107,14 +107,14 @@
       "id": "asus-rog-strix-g16-2026",
       "manufacturer": "ASUS ROG",
       "model": "ROG Strix G16 RTX 5080",
-      "exactModelSku": "G615LW retail 64GB configuration",
+      "exactModelSku": "G615_380W retailer bundle; factory suffix not exposed",
       "gpu": "RTX 5080",
       "gpuVram": "16GB GDDR7",
       "oemMaximumGpuPowerWatts": 175,
       "nvidiaGpuSubsystemPowerRangeWatts": "80-150",
       "evidenceStatus": "official-oem-specification",
       "sourceUrl": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025/spec/",
-      "lastVerified": "2026-07-15"
+      "lastVerified": "2026-09-10"
     },
     {
       "datasetVersion": "1.0.0",
@@ -249,7 +249,7 @@
       "nvidiaGpuSubsystemPowerRangeWatts": "45-100",
       "evidenceStatus": "official-oem-specification",
       "sourceUrl": "https://www.dell.com/en-us/shop/dell-laptops/alienware-16-aurora-gaming-laptop/spd/alienware-aurora-ac16250-gaming-laptop",
-      "lastVerified": "2026-07-15"
+      "lastVerified": "2026-09-10"
     },
     {
       "datasetVersion": "1.0.0",
@@ -377,14 +377,14 @@
       "id": "msi-raider-16-max-hx",
       "manufacturer": "MSI",
       "model": "MSI Raider 18 HX 64GB",
-      "exactModelSku": "Raider 18 HX AI A2XWJG retail 64GB configuration",
+      "exactModelSku": "A2XWJG family; factory suffix not exposed",
       "gpu": "RTX 5090",
       "gpuVram": "24GB GDDR7",
       "oemMaximumGpuPowerWatts": 175,
       "nvidiaGpuSubsystemPowerRangeWatts": "95-150",
       "evidenceStatus": "official-oem-specification",
-      "sourceUrl": "https://www.msi.com/Laptop/Raider-18-HX-AI-A2XWX/Specification",
-      "lastVerified": "2026-07-15"
+      "sourceUrl": "https://us.msi.com/Laptop/Raider-18-HX-AI-A2XWX/Specification",
+      "lastVerified": "2026-09-10"
     },
     {
       "datasetVersion": "1.0.0",

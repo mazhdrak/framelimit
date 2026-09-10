@@ -1252,12 +1252,12 @@ const LAPTOP_CATALOG = [
     avoidIf: 'You want a thin laptop or Mini LED local dimming',
     amazonUrl: 'https://www.amazon.com/dp/B0FLZC7J3B?tag=framelimit20-20',
     amazonAsin: 'B0FLZC7J3B',
-    modelCode: 'G615LW retail 64GB configuration',
+    modelCode: 'G615_380W retailer bundle; factory suffix not exposed',
     specSource: 'https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025/spec/',
-    specCheckedAt: '2026-07-15',
+    specCheckedAt: '2026-09-10',
     imgUrl: 'images/laptops/asus-rog-strix-g16-2026.webp',
     imgBg: '#080b10',
-    tags: ['16-inch', 'nvidia', 'intel-cpu', 'mini-led', 'flagship', 'evidence-review'],
+    tags: ['16-inch', 'nvidia', 'intel-cpu', 'high-refresh', 'flagship', 'evidence-review'],
   },
 
   {
