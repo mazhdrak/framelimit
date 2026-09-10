@@ -181,15 +181,15 @@
       "releaseDate": "2026-07-17",
       "id": "asus-tuf-a16-entry",
       "manufacturer": "ASUS TUF",
-      "model": "TUF Gaming A16 64GB",
-      "exactModelSku": "FA608 retail 64GB configuration",
+      "model": "TUF Gaming A16",
+      "exactModelSku": "FA608UP-A16.R95070 seller-upgraded 64GB bundle",
       "gpu": "RTX 5070",
       "gpuVram": "8GB GDDR7",
       "oemMaximumGpuPowerWatts": 115,
       "nvidiaGpuSubsystemPowerRangeWatts": "50-100",
       "evidenceStatus": "official-oem-specification",
       "sourceUrl": "https://www.asus.com/us/laptops/for-gaming/tuf-gaming/asus-tuf-gaming-a16-2025/techspec/",
-      "lastVerified": "2026-07-15"
+      "lastVerified": "2026-09-10"
     },
     {
       "datasetVersion": "1.0.0",

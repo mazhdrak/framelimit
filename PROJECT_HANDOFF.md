@@ -1,6 +1,6 @@
 # FrameLimit maintenance handoff
 
-Last updated: 2026-09-08. This is a historical checkpoint, not proof of current prices, rankings, stock or deployment status. Recheck external state when continuing.
+Last updated: 2026-09-10. This is a historical checkpoint, not proof of current prices, rankings, stock or deployment status. Recheck external state when continuing.
 
 ## Published work
 
@@ -158,3 +158,15 @@ Expanded the short G615LW RTX 5080 page into a specification-led review covering
 - Updated the RTX 5080 guide, Legion Pro 7i comparison, reviews hub and sitemap. Removed directly-buyable/exact-ASIN claims and the public historical Strix amount. The comparison now explains that the Strix was unavailable and that older figures are not live checkout prices.
 - Private retail observation: audit-site-2026-09-08/strix-g16-retail-check-2026-09-10.json. Do not stage the audit directory.
 - All content, link, schema, ranking, retail, price-report and dataset audits pass. The only known failure is the existing freshness audit for 27 stale July reference prices; the Strix date was not falsely refreshed. Amazon audit remains at 41 managed ASINs and 195 direct HTML Amazon links. Retail-price and budget-offer regression tests pass. Browser previews of the review and RTX 5080 guide render correctly.
+
+## Public product-name cleanup and ASUS TUF Gaming A16 correction — September 10, 2026
+
+User-facing editorial policy now uses normal laptop names in titles, headings, product cards, comparison labels, CTA labels and metadata. Do not expose Amazon ASINs or retailer/factory model identifiers in those presentation fields. Keep identifiers in Amazon hrefs, internal catalog records and private verification evidence where they are needed for link integrity and configuration control. Technical databases such as the RTX 50 Laptop TGP database may retain model identifiers because the identifier is part of the dataset.
+
+- Reworked the ASUS TUF Gaming A16 review around the public product name. The page no longer displays its ASIN or retailer model code. The Amazon link remains tagged and points to the checked product page.
+- The linked offer described Ryzen 9 270, RTX 5070, 64GB DDR5 and 1TB storage, with seller-installed memory that requires opening the original seal. It was unavailable during the September 10 US check, so no current price or seller is published.
+- Removed the unsupported 8.4 score and legacy subscores from the TUF path. The review and hub now show N/R because there is no matching controlled test. The older RTX 5060 benchmark block is not evidence for this RTX 5070 configuration.
+- Expanded the review with platform specifications, upgrade context, display and performance limits, buyer guidance and internal links. Updated the TUF A16 versus TUF F16 guide to use normal product names while preserving the configuration differences in the specification rows.
+- Normalized prominent laptop names across the review and guide collection. Public ASIN wording was replaced with Amazon-link wording; exact product URLs were preserved. Added `scripts/audit-public-retail-identifiers.mjs` to prevent visible ASINs and model identifiers from returning in presentation fields.
+- Corrected the reviews-hub score mismatch by marking the hidden legacy TUF card N/R instead of restoring an unsupported score. Ranked rows remain above unranked rows.
+- Browser preview confirmed the TUF page renders with `ASUS TUF Gaming A16 Review`, a plain product-name row and a working Amazon CTA. All audits pass except `audit-price-freshness.mjs`, which correctly reports the unchanged 27 July reference prices as 57 days old. Retail-price and budget-offer regression tests pass.

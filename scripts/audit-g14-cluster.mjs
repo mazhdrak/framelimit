@@ -33,7 +33,6 @@ async function main() {
   for (const file of FILES) {
     const source = await fs.readFile(path.join(ROOT, file), 'utf8');
     const errors = [];
-    requireText(errors, source, [RETAIL.model], 'retail model code');
     requireText(errors, source, [RETAIL.gpu], 'retail GPU');
     requireText(errors, source, [RETAIL.tgp], 'retail TGP');
     requireText(errors, source, [RETAIL.ram], 'retail memory');

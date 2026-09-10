@@ -49,7 +49,7 @@ async function main() {
   }
 
   const review = await fs.readFile(path.join(ROOT, 'review-razer-blade-14-2026.html'), 'utf8');
-  ['RZ09-05306ES3-R3U1', ASIN, 'Ryzen AI 9 365', '115W', '32GB LPDDR5X', '1TB PCIe 4.0 NVMe SSD', '72Wh', '1.63kg']
+  ['Razer Blade 14 (2025)', 'Ryzen AI 9 365', '115W', '32GB LPDDR5X', '1TB PCIe 4.0 NVMe SSD', '72Wh', '1.63kg']
     .forEach((value) => requireText(errors, review, [value], `review exact value ${value}`));
 
   const central = await fs.readFile(path.join(ROOT, 'reviews.html'), 'utf8');

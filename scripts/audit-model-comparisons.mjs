@@ -50,7 +50,7 @@ const COMPARISONS = [
     page: 'guide-asus-tuf-a16-vs-tuf-f16-rtx-5070.html',
     ids: ['asus-tuf-a16-entry', 'asus-tuf-gaming-f16-rtx5070'],
     requireDisplayDetails: false,
-    required: ['No Defensible Universal Winner', 'not a live checkout price', 'FA608 / Ryzen 7 260 / RTX 5060', 'does not apply'],
+    required: ['No Defensible Universal Winner', 'not a live checkout price', 'Ryzen 7 260 / RTX 5060', 'does not apply'],
     backlinks: ['guides.html', 'compare.html', 'guide-best-gaming-laptop-under-2000.html', 'review-asus-tuf-gaming-a16-2026.html', 'review-asus-tuf-gaming-f16-rtx5070.html']
   },
   {
@@ -86,7 +86,6 @@ async function auditComparison(definition, laptops, sitemap) {
     }
     const resolution = item.display.res;
     const exactValues = [
-      [[item.modelCode], `${item.id} model code`],
       [[item.gpu], `${item.id} GPU`],
       [[item.gpuVram], `${item.id} VRAM`],
       [[item.cpu, item.cpu.replace(/^Intel /, '')], `${item.id} CPU`],

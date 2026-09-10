@@ -1,13 +1,13 @@
 [
   {
-    "query": "Lenovo Legion 5 15AHP10 RTX 5060 review",
+    "query": "Lenovo Legion 5 RTX 5060 review",
     "target": "review-lenovo-legion-5-gen10-amd",
-    "requiredTerms": ["15AHP10", "RTX 5060"]
+    "requiredTerms": ["Lenovo Legion 5", "RTX 5060"]
   },
   {
-    "query": "ASUS TUF A16 FA608 RTX 5070 64GB review",
+    "query": "ASUS TUF Gaming A16 RTX 5070 review",
     "target": "review-asus-tuf-gaming-a16-2026",
-    "requiredTerms": ["FA608", "RTX 5070", "64GB"]
+    "requiredTerms": ["ASUS TUF Gaming A16", "RTX 5070", "64GB"]
   },
   {
     "query": "RTX 5060 laptop 115W benchmarks",
