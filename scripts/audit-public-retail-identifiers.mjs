@@ -41,7 +41,7 @@ function presentationCopy(source) {
     .replace(/<style\b[\s\S]*?<\/style>/gi, ' ');
   const headings = [...withoutExecutable.matchAll(/<(title|h[1-4])\b[^>]*>([\s\S]*?)<\/\1>/gi)]
     .map((match) => match[2]);
-  const namedCards = [...withoutExecutable.matchAll(/<[^>]+class=(['"])[^'"]*\b(?:pick-name|rc-name|laptop-name|latest-review-tag|latest-review-title|cmp-sku)\b[^'"]*\1[^>]*>([\s\S]*?)<\/[^>]+>/gi)]
+  const namedCards = [...withoutExecutable.matchAll(/<[^>]+class=(['"])[^'"]*\b(?:pick-name|rc-name|laptop-name|latest-review-tag|latest-review-title|cmp-sku|badge|retail-link-unavailable)\b[^'"]*\1[^>]*>([\s\S]*?)<\/[^>]+>/gi)]
     .map((match) => match[2]);
   const attributes = [...withoutExecutable.matchAll(/\b(?:content|alt|title|aria-label)=(['"])([\s\S]*?)\1/gi)]
     .map((match) => match[2]);
@@ -64,7 +64,7 @@ for (const entry of htmlFiles) {
   if (protectedPattern?.test(copy)) {
     failures.push(`${entry.name}: exposes an internal retailer/model identifier`);
   }
-  if (/^(?:review|guide)-/i.test(entry.name) && laptopIdentifierPattern.test(presentationCopy(source))) {
+  if ((entry.name === 'reviews.html' || /^(?:review|guide)-/i.test(entry.name)) && laptopIdentifierPattern.test(presentationCopy(source))) {
     failures.push(`${entry.name}: exposes a retailer/model identifier in a public title, heading, card name or metadata`);
   }
 }
