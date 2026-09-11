@@ -13,12 +13,6 @@ async function loadWindowFile(file) {
   return sandbox.window;
 }
 
-function median(values) {
-  const sorted = values.filter(Number.isFinite).sort((a, b) => a - b);
-  const middle = Math.floor(sorted.length / 2);
-  return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2;
-}
-
 async function main() {
   const [laptopWindow, historyWindow, page, script, workflow, sitemap, guides, nav] = await Promise.all([
     loadWindowFile('laptops.js'), loadWindowFile('price-history.js'),
@@ -30,13 +24,13 @@ async function main() {
   const errors = [];
   const laptops = laptopWindow.LAPTOPS || [];
   const priced = laptops.filter((item) => Number.isFinite(item.price));
-  const expectedMedian = median(priced.map((item) => item.price));
-  const requiredText = [`${laptops.length} current configurations`, `${priced.length} reference-price records`, `$${expectedMedian.toLocaleString('en-US')}`];
+  const requiredText = [`${laptops.length} current configurations`, 'Link-only price policy', 'Individual prices stay off the page'];
   requiredText.forEach((value) => { if (!page.includes(value)) errors.push(`page is missing current baseline value: ${value}`); });
 
   if (!page.includes('"@type":"Dataset"')) errors.push('page is missing Dataset JSON-LD');
   if (!page.includes('price-history.js') || !page.includes('price-report.js') || !page.includes('laptops.js')) errors.push('page is missing a required data script');
-  if (!script.includes('Insufficient history') || !script.includes('EDITORIAL REFERENCE')) errors.push('client script does not preserve price-status labels');
+  if (!script.includes('Insufficient history') || !script.includes('CHECKED')) errors.push('client script does not preserve price-status labels');
+  if (/style:\s*['"]currency['"]|function money\(|<div class="pr-price">/.test(script)) errors.push('client script can render individual prices despite link-only policy');
   if (!script.includes('latestCandidate.asin === currentAsin') || !script.includes('oldCandidate.asin === live.asin')) errors.push('client script does not enforce same-ASIN monthly comparisons');
   if (!workflow.includes('node scripts/archive-price-snapshot.mjs')) errors.push('Amazon workflow does not archive monthly history');
   if (!workflow.includes('price-snapshot.js price-history.js')) errors.push('Amazon workflow does not commit both price files');

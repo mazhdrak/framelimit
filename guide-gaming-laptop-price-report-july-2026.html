@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gaming Laptop Price Report — July 2026 Baseline | FRAMELIMIT</title>
-<meta name="description" content="July 2026 gaming laptop reference-price baseline: 33 current configurations, 24 published reference prices, GPU-tier medians, price bands, and transparent live-history status.">
+<meta name="description" content="Gaming laptop retail coverage report with current catalog counts, Amazon links, checked-reference status and transparent live-history coverage without publishing individual prices.">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://framelimit.com/guide-gaming-laptop-price-report-july-2026">
 <meta property="og:title" content="Gaming Laptop Price Report — July 2026 | FRAMELIMIT">
-<meta property="og:description" content="The first transparent FRAMELIMIT gaming-laptop price baseline, with GPU-tier medians and exact retail configurations.">
+<meta property="og:description" content="FRAMELIMIT gaming-laptop retail coverage with Amazon links and transparent price-check status without publishing individual prices.">
 <meta property="og:image" content="https://framelimit.com/og-default.jpg">
 <meta property="og:site_name" content="FRAMELIMIT">
 <meta name="twitter:card" content="summary_large_image">
@@ -37,24 +37,24 @@
   <header class="pr-hero">
     <div class="pr-kicker">Monthly Market Watch · First Edition</div>
     <h1>Gaming Laptop Price Report<br>July 2026</h1>
-    <p class="pr-lead">A transparent reference-price baseline for FRAMELIMIT's current US retail catalog. This first edition establishes the starting point; it does not claim a month-over-month market trend before live Amazon history exists.</p>
-    <div class="pr-meta"><span>Published Jul 15, 2026</span><span>33 current configurations</span><span>24 reference-price records</span><span>9 price-unavailable records</span></div>
+    <p class="pr-lead">A transparent retail-coverage report for FRAMELIMIT's current US catalog. Individual prices stay off the page; use the retailer links to verify the current offer, condition, seller and checkout total.</p>
+    <div class="pr-meta"><span>Published Jul 15, 2026</span><span>33 current configurations</span><span>Link-only price policy</span><span>Updated Sep 11, 2026</span></div>
   </header>
 
   <div class="pr-wrap">
-    <div class="pr-status" id="pr-status"><strong>Baseline edition:</strong> Amazon Creators API history is not yet available, so all dollar values below are explicitly labeled editorial reference prices rather than live offers. Checkout price and availability can change at any time.</div>
+    <div class="pr-status" id="pr-status"><strong>Link-only report:</strong> Internal price checks support guide eligibility and ordering, but individual amounts are not published. Checkout price and availability can change at any time.</div>
 
     <section class="pr-stats" aria-label="July price baseline summary">
       <div class="pr-stat"><b id="pr-catalog-count">34</b><span>Current configurations</span></div>
       <div class="pr-stat"><b id="pr-priced-count">27</b><span>Reference-price records</span></div>
-      <div class="pr-stat"><b id="pr-median-price">$2,199</b><span>Catalog median reference</span></div>
+      <div class="pr-stat"><b id="pr-median-price">—</b><span>Retail links available</span></div>
       <div class="pr-stat"><b id="pr-live-months">0</b><span>Archived live months</span></div>
     </section>
 
     <section class="pr-section">
-      <h2>July Reference-Price Findings</h2>
-      <p>The catalog median is $2,199 across the 24 configurations with an editorial reference price. The lowest reference point is $1,299, while the highest is $5,599. These values describe this curated catalog, not the entire US laptop market.</p>
-      <p>RTX 5060 configurations form the lowest median tier in this dataset at $1,333. RTX 5070 moves to $1,969; RTX 5080 to $3,620.50; and RTX 5090 to $4,299. The small RTX 5070 Ti sample is reported but should not be treated as a stable market index.</p>
+      <h2>Catalog Coverage by GPU</h2>
+      <p>The report shows how many current catalog products use each GPU tier. It does not publish individual or median prices; budget guides use same-day private checks to establish eligibility and order, then link to the retailer for the current amount.</p>
+      <p>Counts describe this curated catalog rather than the entire US laptop market. A product can remain in the research catalog while its exact new retail offer is unavailable.</p>
       <div class="pr-gpu-grid" id="pr-gpu-grid" aria-label="Reference price median by GPU tier"></div>
     </section>
 
@@ -62,17 +62,17 @@
       <h2 id="pr-table-heading">Configuration Price Table</h2>
       <p>Search the exact configuration and verify the linked retailer page. A reference price is a research aid, never a guarantee that the item is currently available at that amount.</p>
       <div class="pr-controls">
-        <input id="pr-search" type="search" placeholder="Search laptop, GPU, brand, or model code" aria-label="Search price report">
+        <input id="pr-search" type="search" placeholder="Search laptop, GPU, or brand" aria-label="Search price report">
         <select id="pr-gpu" aria-label="Filter by GPU"><option value="all">All GPUs</option></select>
-        <select id="pr-sort" aria-label="Sort prices"><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option><option value="gpu">GPU tier</option><option value="name">Laptop name</option></select>
+        <select id="pr-sort" aria-label="Sort products"><option value="gpu">GPU tier</option><option value="name">Laptop name</option></select>
       </div>
       <div id="pr-result-count" class="pr-count" aria-live="polite">Loading catalog…</div>
-      <div class="pr-table-wrap"><table class="pr-table"><thead><tr><th>Exact configuration</th><th>GPU</th><th>Reference price</th><th>Latest archived live price</th><th>Monthly change</th><th>Retail</th></tr></thead><tbody id="pr-table-body"><tr><td colspan="6" class="pr-muted">Loading report…</td></tr></tbody></table></div>
+      <div class="pr-table-wrap"><table class="pr-table"><thead><tr><th>Product</th><th>GPU</th><th>Reference status</th><th>Archived snapshot</th><th>History status</th><th>Retail</th></tr></thead><tbody id="pr-table-body"><tr><td colspan="6" class="pr-muted">Loading report…</td></tr></tbody></table></div>
     </section>
 
     <section class="pr-section">
       <h2>Methodology and Limitations</h2>
-      <div class="pr-method"><h3>What is a reference price?</h3><p>An editorial typical, street, or last-observed value stored with the exact catalog configuration. It is not a current Amazon price and is never placed in Product offer structured data.</p></div>
+      <div class="pr-method"><h3>What is a reference price?</h3><p>An internal dated observation used for budget eligibility and ordering. The individual amount is not published; the retailer link is the source for the current offer.</p></div>
       <div class="pr-method"><h3>When will monthly change appear?</h3><p>The daily Amazon workflow archives one latest snapshot per calendar month. Month-over-month change appears only after two eligible live snapshots contain the same product and that listing still matches the current catalog configuration.</p></div>
       <div class="pr-method"><h3>How are missing prices handled?</h3><p>They remain “Check retailer” rather than receiving an estimate from another configuration. Regional models, seller upgrades, storage, memory, and display options can materially change price.</p></div>
       <div class="pr-method"><h3>What does this report represent?</h3><p>A curated FRAMELIMIT catalog focused on current buyable gaming laptops, not a statistically complete census of every US listing.</p></div>
@@ -83,8 +83,8 @@
 </main>
 <footer><div class="footer-inner"><div class="footer-disc"><strong>Affiliate Disclosure:</strong> FRAMELIMIT may earn from qualifying Amazon purchases. Commissions do not change the reference values or inclusion rules.</div><div class="footer-bottom"><span>2026 FRAMELIMIT</span><a href="/">Home</a><a href="affiliate-disclosure">Disclosure</a><a href="about">About</a></div></div></footer>
 <script src="nav.js"></script>
-<script src="laptops.js?v=20260911-3"></script>
+<script src="laptops.js?v=20260911-4"></script>
 <script src="price-history.js?v=20260715-1"></script>
-<script src="price-report.js?v=20260716-1"></script>
+<script src="price-report.js?v=20260911-1"></script>
 </body>
 </html>

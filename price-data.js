@@ -24,15 +24,15 @@
   ];
 
   const EXTRA_RECORDS = {
-    'acer-nitro-anv16-72-72zy': { id: 'acer-nitro-anv16-72-72zy', name: 'Acer Nitro V 16 ANV16-72-72ZY', amazonUrl: 'https://www.amazon.com/dp/B0FRNL6NQ7?tag=framelimit20-20' },
-    'hp-victus-15-fa1040nr': { id: 'hp-victus-15-fa1040nr', name: 'HP Victus 15-fa1040nr', amazonUrl: 'https://www.amazon.com/dp/B0C6WJMFYH?tag=framelimit20-20' },
-    'gigabyte-a16-cwhi3us864sh': { id: 'gigabyte-a16-cwhi3us864sh', name: 'Gigabyte Gaming A16 CWHI3US864SH', amazonUrl: 'https://www.amazon.com/dp/B0FDM3M1WF?tag=framelimit20-20' },
-    'msi-vector-a2xwhg-212us': { id: 'msi-vector-a2xwhg-212us', name: 'MSI Vector 16 HX AI A2XWHG-212US', amazonUrl: 'https://www.amazon.com/dp/B0DTN2RZ1Q?tag=framelimit20-20' },
+    'acer-nitro-anv16-72-72zy': { id: 'acer-nitro-anv16-72-72zy', name: 'Acer Nitro V 16', price: null, priceCheckedAt: null, amazonUrl: 'https://www.amazon.com/dp/B0FRNL6NQ7?tag=framelimit20-20' },
+    'hp-victus-15-fa1040nr': { id: 'hp-victus-15-fa1040nr', name: 'HP Victus 15', price: 949.99, priceCheckedAt: '2026-09-11', amazonUrl: 'https://www.amazon.com/dp/B0C6WJMFYH?tag=framelimit20-20' },
+    'gigabyte-a16-cwhi3us864sh': { id: 'gigabyte-a16-cwhi3us864sh', name: 'Gigabyte Gaming A16', price: 1547.91, priceCheckedAt: '2026-09-11', amazonUrl: 'https://www.amazon.com/dp/B0FDM3M1WF?tag=framelimit20-20' },
+    'msi-vector-a2xwhg-212us': { id: 'msi-vector-a2xwhg-212us', name: 'MSI Vector 16 HX AI', price: 1646.99, priceCheckedAt: '2026-09-11', amazonUrl: 'https://www.amazon.com/dp/B0DTN2RZ1Q?tag=framelimit20-20' },
     'lenovo-legion-7i-gen10': {
       id: 'lenovo-legion-7i-gen10',
       name: 'Lenovo Legion 7i Gen 10',
-      price: 2199,
-      priceCheckedAt: '2026-07-15',
+      price: null,
+      priceCheckedAt: null,
       amazonUrl: '',
       retailBlocked: true,
       retailIssue: "The former Amazon listing now identifies a ThinkPad E16 Gen 2, not Legion 7i 83KY0003US."
@@ -40,15 +40,15 @@
     'msi-stealth-a16-ai-plus': {
       id: 'msi-stealth-a16-ai-plus',
       name: 'MSI Stealth A16 AI+',
-      price: 2699,
-      priceCheckedAt: '2026-07-15',
+      price: null,
+      priceCheckedAt: null,
       amazonUrl: 'https://www.amazon.com/dp/B0DYSHDBPN?tag=framelimit20-20'
     },
     'hp-omen-transcend-14': {
       id: 'hp-omen-transcend-14',
       name: 'HP Omen Transcend 14',
-      price: 1669,
-      priceCheckedAt: '2026-07-15',
+      price: null,
+      priceCheckedAt: null,
       amazonUrl: '',
       retailBlocked: true,
       retailIssue: "The former Amazon listing identifies an RTX 5060 / Core Ultra 7 configuration, not the reviewed RTX 5070 model."
