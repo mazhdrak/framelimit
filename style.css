@@ -496,10 +496,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,10,12,.97)
 .nav-links{display:flex;gap:24px;list-style:none}.nav-links a{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}.nav-links a:hover{color:var(--cyan)}
 .nav-cta{background:var(--amd);color:var(--white);font-family:'Barlow',sans-serif;font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:8px 18px;text-decoration:none}.nav-cta:hover{background:var(--white);color:var(--black)}
 .article-wrap{max-width:780px;margin:0 auto;padding:100px 24px 80px;overflow-x:hidden;word-break:break-word}
+.article-wrap.review-page{padding-top:78px}
+.review-page .article-subtitle{color:#9aa8ba;margin-bottom:24px}
+.review-page .article-meta{margin-bottom:28px}
 .article-cat{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--amd);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px}.article-cat::before{content:'';width:32px;height:1px;background:var(--amd)}
 .article-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,7vw,68px);color:var(--white);letter-spacing:1px;line-height:1.05;margin-bottom:20px}
 .article-subtitle{font-size:18px;color:var(--muted);line-height:1.7;margin-bottom:28px}
 .article-meta{display:flex;gap:20px;flex-wrap:wrap;align-items:center;padding-bottom:24px;border-bottom:1px solid var(--border);margin-bottom:40px}
+.review-glance{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin:0 0 28px;padding:1px;background:var(--border);border-left:3px solid var(--cyan)}
+.review-glance-item{min-width:0;background:var(--panel);padding:15px 16px}
+.review-glance-label{display:block;margin-bottom:5px;font:700 9px/1.4 'JetBrains Mono',monospace;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.review-glance-value{display:block;color:var(--white);font-size:15px;line-height:1.35;overflow-wrap:normal;word-break:normal}
+.review-hero-media{display:flex;align-items:center;justify-content:center;min-height:260px;margin:0 0 28px;background:radial-gradient(circle at 50% 42%,rgba(0,212,255,.07),transparent)}
+.review-hero-media img{display:block;max-width:100%;max-height:320px;object-fit:contain}
 .meta-author{display:flex;align-items:center;gap:10px}
 .meta-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--amd),var(--yellow));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--black);flex-shrink:0}
 .meta-name{font-weight:600;font-size:14px;color:var(--white)}.meta-role{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted)}
@@ -624,7 +633,7 @@ a.btn-review,a.btn-review:visited{color:var(--text);border-bottom:none}
 a.btn-review:hover{color:var(--cyan);border-bottom:1px solid var(--cyan)}
 a.btn-ghost,a.btn-ghost:visited{color:var(--cyan);border-bottom:none}
 @media(max-width:768px){.nav-links{display:none}nav{padding:0 20px}}
-@media(max-width:600px){.article-wrap{padding:90px 16px 60px}.pick-specs{grid-template-columns:1fr 1fr}.pick-pros-cons{grid-template-columns:1fr}.gpu-lineup{grid-template-columns:1fr}.upgrade-product{padding:20px}.upgrade-product .pc-list{grid-template-columns:1fr}.upgrade-product-actions{align-items:stretch}.upgrade-product-actions .btn-buy{width:100%;text-align:center}.upgrade-table td{padding:15px 14px}.model-upgrade-actions{align-items:stretch}.model-upgrade-actions .btn-buy,.model-upgrade-actions .btn-ghost{width:100%;text-align:center}}
+@media(max-width:600px){.article-wrap{padding:90px 16px 60px}.review-glance{grid-template-columns:1fr 1fr}.review-glance-item{padding:13px 12px}.review-glance-value{font-size:14px}.review-hero-media{min-height:210px}.pick-specs{grid-template-columns:1fr 1fr}.pick-pros-cons{grid-template-columns:1fr}.gpu-lineup{grid-template-columns:1fr}.upgrade-product{padding:20px}.upgrade-product .pc-list{grid-template-columns:1fr}.upgrade-product-actions{align-items:stretch}.upgrade-product-actions .btn-buy{width:100%;text-align:center}.upgrade-table td{padding:15px 14px}.model-upgrade-actions{align-items:stretch}.model-upgrade-actions .btn-buy,.model-upgrade-actions .btn-ghost{width:100%;text-align:center}}
 
 
 /* ============================================================

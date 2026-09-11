@@ -235,7 +235,7 @@
       <button id="picks-tab-budget" class="gpu-tab" type="button" role="tab" aria-selected="false" aria-controls="picks-budget" tabindex="-1" onclick="switchPicksTier('budget',this)" onkeydown="handlePicksTabKey(event)">Budget</button>
     </div>
 
-    <div id="picks-flagship" class="picks-grid" role="tabpanel" aria-labelledby="picks-tab-flagship" data-fl-picks-grid="asus-rog-scar-18-2026,lenovo-legion-pro-7i-gen10,asus-rog-zephyrus-g16-high"></div>
+    <div id="picks-flagship" class="picks-grid" role="tabpanel" aria-labelledby="picks-tab-flagship" data-fl-picks-grid="asus-rog-scar-18-2026,lenovo-legion-pro-7i-gen10,asus-rog-scar-16-2026"></div>
     <div id="picks-mid" class="picks-grid" role="tabpanel" aria-labelledby="picks-tab-mid" data-fl-picks-grid="lenovo-legion-5i-gen10,asus-rog-zephyrus-g14-2026,msi-vector-16-hx-ai" hidden></div>
     <div id="picks-budget" class="picks-grid" role="tabpanel" aria-labelledby="picks-tab-budget" data-fl-picks-grid="lenovo-loq-15-gen10,acer-nitro-16-2025,acer-nitro-v-16" hidden></div>
   </div>
@@ -615,7 +615,7 @@ function renderPicksGrids() {
         <div class="pick-spec">${l.gpu} ${l.tgp == null ? 'TGP n/a' : `${l.tgp}W`} · ${l.display.size}" ${l.display.panel} ${l.display.hz}Hz · ${l.ram}</div>
         
         <div class="pick-score">${l.score == null ? 'NR' : l.score}<div class="pick-score-sub">${l.score == null ? 'PREVIEW' : 'SCORE'}</div></div>
-        ${l.amazonUrl ? `<a href="${l.amazonUrl}" class="pick-btn" rel="nofollow sponsored" target="_blank">Check Price →</a>` : '<span class="retail-link-unavailable">Exact Amazon listing under review</span>'}
+        ${l.amazonUrl ? `<a href="${l.amazonUrl}" class="pick-btn" rel="nofollow sponsored" target="_blank">Check Price →</a>` : '<span class="retail-link-unavailable">Amazon listing under review</span>'}
         <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:10px">${retailerNote} · ${window.FL_DATA_LAST_CHECKED_LABEL || 'Price/spec checked recently'}</div>
       </div>`;
     }).join('');
@@ -679,7 +679,7 @@ function updateFinder() {
       <div class="fr-price">Reference price $${laptop.price.toLocaleString()}${isOverBudget ? ' · Above selected budget' : ''}</div>
       <div class="fr-sub">${laptop.gpu} ${laptop.tgp == null ? 'TGP n/a' : `${laptop.tgp}W`} · ${laptop.display.size}" ${laptop.display.panel} ${laptop.display.hz}Hz · ${laptop.ram} · ${laptop.bestFor}</div>
       <div class="fr-actions">
-        ${laptop.amazonUrl ? `<a href="${laptop.amazonUrl}" class="fr-link" rel="nofollow sponsored" target="_blank">Check Price →</a>` : '<span class="retail-link-unavailable">Exact Amazon listing under review</span>'}
+        ${laptop.amazonUrl ? `<a href="${laptop.amazonUrl}" class="fr-link" rel="nofollow sponsored" target="_blank">Check Price →</a>` : '<span class="retail-link-unavailable">Amazon listing under review</span>'}
         <a href="${secondaryUrl}" class="fr-link fr-link-secondary">${secondaryLabel}</a>
       </div>
       <div class="fr-note">${window.flRetailerStatus ? window.flRetailerStatus(laptop) : 'Retailer link'} · ${window.flReferencePriceStatus ? window.flReferencePriceStatus(laptop) : 'Reference price is dated'} · Not live · ${window.FL_DATA_LAST_CHECKED_LABEL || 'Retail link checked recently'}</div>

@@ -43,9 +43,11 @@ function presentationCopy(source) {
     .map((match) => match[2]);
   const namedCards = [...withoutExecutable.matchAll(/<[^>]+class=(['"])[^'"]*\b(?:pick-name|rc-name|laptop-name|latest-review-tag|latest-review-title|cmp-sku|badge|retail-link-unavailable)\b[^'"]*\1[^>]*>([\s\S]*?)<\/[^>]+>/gi)]
     .map((match) => match[2]);
+  const retailCallsToAction = [...withoutExecutable.matchAll(/<a\b[^>]+class=(['"])[^'"]*\b(?:btn-buy|rc-price|c-price)\b[^'"]*\1[^>]*>([\s\S]*?)<\/a>/gi)]
+    .map((match) => match[2]);
   const attributes = [...withoutExecutable.matchAll(/\b(?:content|alt|title|aria-label)=(['"])([\s\S]*?)\1/gi)]
     .map((match) => match[2]);
-  return [...headings, ...namedCards, ...attributes]
+  return [...headings, ...namedCards, ...retailCallsToAction, ...attributes]
     .join(' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ');
@@ -66,6 +68,9 @@ for (const entry of htmlFiles) {
   }
   if ((entry.name === 'reviews.html' || /^(?:review|guide)-/i.test(entry.name)) && laptopIdentifierPattern.test(presentationCopy(source))) {
     failures.push(`${entry.name}: exposes a retailer/model identifier in a public title, heading, card name or metadata`);
+  }
+  if ((entry.name === 'reviews.html' || /^(?:review|guide)-/i.test(entry.name)) && /\b(?:check|view)\s+(?:the\s+)?exact\b/i.test(presentationCopy(source))) {
+    failures.push(`${entry.name}: uses exact-configuration wording in a public retailer CTA`);
   }
 }
 
