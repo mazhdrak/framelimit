@@ -41,7 +41,7 @@ function presentationCopy(source) {
     .replace(/<style\b[\s\S]*?<\/style>/gi, ' ');
   const headings = [...withoutExecutable.matchAll(/<(title|h[1-4])\b[^>]*>([\s\S]*?)<\/\1>/gi)]
     .map((match) => match[2]);
-  const namedCards = [...withoutExecutable.matchAll(/<[^>]+class=(['"])[^'"]*\b(?:pick-name|rc-name|laptop-name|latest-review-tag|latest-review-title|cmp-sku|badge|retail-link-unavailable)\b[^'"]*\1[^>]*>([\s\S]*?)<\/[^>]+>/gi)]
+  const namedCards = [...withoutExecutable.matchAll(/<[^>]+class=(['"])[^'"]*\b(?:pick-name|rc-name|rc-summary|v-text|pc-list|spec|laptop-name|latest-review-tag|latest-review-title|cmp-sku|badge|retail-link-unavailable)\b[^'"]*\1[^>]*>([\s\S]*?)<\/[^>]+>/gi)]
     .map((match) => match[2]);
   const retailCallsToAction = [...withoutExecutable.matchAll(/<a\b[^>]+class=(['"])[^'"]*\b(?:btn-buy|rc-price|c-price)\b[^'"]*\1[^>]*>([\s\S]*?)<\/a>/gi)]
     .map((match) => match[2]);
@@ -71,6 +71,14 @@ for (const entry of htmlFiles) {
   }
   if ((entry.name === 'reviews.html' || /^(?:review|guide)-/i.test(entry.name)) && /\b(?:check|view)\s+(?:the\s+)?exact\b/i.test(presentationCopy(source))) {
     failures.push(`${entry.name}: uses exact-configuration wording in a public retailer CTA`);
+  }
+}
+
+const laptopCatalog = await fs.readFile(path.join(root, 'laptops.js'), 'utf8');
+for (const match of laptopCatalog.matchAll(/\b(name|shortName|badge|bestFor|avoidIf):\s*(['"])(.*?)\2/g)) {
+  const [, field, , value] = match;
+  if (laptopIdentifierPattern.test(value) || /\bASINs?\b|\bB0[A-Z0-9]{8}\b/i.test(value)) {
+    failures.push(`laptops.js: ${field} exposes a retailer/model identifier in rendered catalog copy`);
   }
 }
 
