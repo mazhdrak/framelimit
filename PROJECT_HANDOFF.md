@@ -1,6 +1,6 @@
 # FrameLimit maintenance handoff
 
-Last updated: 2026-09-10. This is a historical checkpoint, not proof of current prices, rankings, stock or deployment status. Recheck external state when continuing.
+Last updated: 2026-09-14. This is a historical checkpoint, not proof of current prices, rankings, stock or deployment status. Recheck external state when continuing.
 
 ## Published work
 
@@ -206,3 +206,14 @@ Rechecked the stale retail references in Amazon US and ASUS US with delivery loc
 - Updated cache versions to `laptops.js?v=20260911-4`, `price-data.js?v=20260911-1` and `price-report.js?v=20260911-1` on affected pages.
 - Desktop browser QA confirmed the under-2,500 guide presents the refreshed order with prominent specifications and that the link-only report is readable and does not render product prices. A new programmatic mobile viewport was unavailable in this pass, so do not treat it as a fresh mobile or WCAG certification.
 - Validation: all 26 audit scripts pass; retail-price and budget-offer regression tests pass; `update-amazon-prices.mjs --audit` reports 40 managed direct ASINs, zero unresolved records and 197 direct HTML Amazon links across 85 files. Official non-Amazon retailer links remain excluded from the Amazon count. `git diff --check` passes apart from line-ending conversion warnings.
+
+## Review buying flow and LOQ source correction — September 14, 2026
+
+Local implementation; not committed or deployed at this checkpoint. Updated Legion 5 AMD, Gigabyte Gaming A16 and Lenovo LOQ 15 reviews with clearer opening summaries, existing product photography beside the verdict, six specification cells, section navigation, a prominent Amazon link near the summary and a dedicated buying-decision panel after the analysis. Additional guides are separated from the primary retail action. `review-conversion.css` is scoped to these three pages and preserves the established typography and palette. Retail links remain direct and tagged, with no individual price, fabricated availability, urgency or new scores.
+
+- Rechecked Lenovo Legion platform documentation. Preserved the unranked exact retail configuration, distinguished the published 115W ceiling from measured performance, and documented the second SSD slot's x2 lane footnote. The old retail-mapping check date remains historical.
+- Rechecked Lenovo's current LOQ PSREF (document dated August 24) and PCWorld's review. Lenovo lists 100W RTX 5060 power and weight starting at 2.4kg; PCWorld describes its Ryzen 7 250 / 16GB / 512GB test configuration as 115W. The catalog and OEM TGP exports now follow the OEM source. Publisher benchmark numbers remain unchanged and explicitly belong to that publisher's 115W-described test unit; do not relabel those results as measurements of the 100W retail configuration.
+- Removed the LOQ review's unsupported temperature/noise figures, narrow color-gamut claim, subjective chassis/thermal superlatives and granular subscores. The existing overall 8.5 is identified as a historical editorial assessment. `laptops.js` retains that overall score and uses null subscores.
+- Synchronized the two LOQ comparisons, RTX 5060 guide, affected college/buying-guide references and the TGP comparison's 15W difference. Catalog cache version is `20260914-1`; the shared benchmark loader requests `benchmark-data.js?v=20260914-1`. No retail price/date observations were refreshed.
+- Desktop and 390×844 browser checks covered all three review openings and buying flow; mobile specification tables fit, benchmark tables scroll within their containers, section anchors resolve, and keyboard focus on the Amazon link is visible. This is targeted QA, not full accessibility certification or measured conversion uplift.
+- Validation: all 26 existing audits pass, both retail and budget regression suites pass. Amazon link audit: 40 managed ASINs, zero unresolved, 200 direct HTML Amazon links across 85 files. The three added links are the new summary CTAs. Private screenshots, source-analysis scripts, validation and Search Console notes remain in `audit-site-2026-09-08/search-review-2026-09-14/`; preserve and do not stage that folder. Its editing scripts are one-time migrations, not safe to rerun.

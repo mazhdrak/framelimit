@@ -335,11 +335,11 @@
       "exactModelSku": "15AHP10",
       "gpu": "RTX 5060",
       "gpuVram": "8GB GDDR7",
-      "oemMaximumGpuPowerWatts": 115,
+      "oemMaximumGpuPowerWatts": 100,
       "nvidiaGpuSubsystemPowerRangeWatts": "45-100",
       "evidenceStatus": "official-oem-specification",
       "sourceUrl": "https://psref.lenovo.com/syspool/Sys/PDF/LOQ/LOQ_15AHP10/LOQ_15AHP10_Spec.pdf",
-      "lastVerified": "2026-07-14"
+      "lastVerified": "2026-09-14"
     },
     {
       "datasetVersion": "1.0.0",

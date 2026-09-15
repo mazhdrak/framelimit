@@ -7,7 +7,7 @@
 (function () {
   if (!window.FL_BENCHMARK_STANDARD && !document.querySelector('script[data-fl-benchmark]')) {
     const benchmarkScript = document.createElement('script');
-    benchmarkScript.src = 'benchmark-data.js?v=20260713i';
+    benchmarkScript.src = 'benchmark-data.js?v=20260914-1';
     benchmarkScript.dataset.flBenchmark = 'true';
     document.head.appendChild(benchmarkScript);
   }

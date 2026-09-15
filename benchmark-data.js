@@ -447,7 +447,7 @@
     },
     'verified-loq15-benchmark': {
       title: 'Lenovo LOQ 15 Gen 10',
-      configuration: '15AHP10 · Ryzen 7 250 · RTX 5060 Laptop · 115W max TGP · 16GB DDR5-5600 · 1920x1080 IPS 144Hz',
+      configuration: '15AHP10 · Ryzen 7 250 · RTX 5060 Laptop · 115W described by PCWorld (current Lenovo PSREF lists 100W) · 16GB DDR5-5600 · 1920x1080 IPS 144Hz',
       games: [
         ['Shadow of the Tomb Raider', '1920x1080 · Highest', 'Native · upscaling/FG off', '115W max TGP', 118, null, null],
         ['Metro Exodus', '1920x1080 · Extreme', 'Native · upscaling/FG off', '115W max TGP', 49, null, null],
@@ -458,8 +458,8 @@
       ],
       synthetics: [],
       sources: [
-        ['PCWorld exact-configuration measurements', 'https://www.pcworld.com/article/2934656/lenovo-loq-15-review-3.html'],
-        ['PC Gamer 15AHP10 configuration verification', 'https://www.pcgamer.com/hardware/gaming-laptops/lenovo-loq-15-gen10-review/']
+        ['PCWorld review-unit measurements (115W described)', 'https://www.pcworld.com/article/2934656/lenovo-loq-15-review-3.html'],
+        ['PC Gamer separate LOQ review', 'https://www.pcgamer.com/hardware/gaming-laptops/lenovo-loq-15-gen10-review/']
       ]
     },
     'verified-strixg16-reference-benchmark': {
