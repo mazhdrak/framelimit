@@ -1,4 +1,4 @@
-/* Review purchase flow. Scoped to the three September 14 editorial updates. */
+/* Shared review opening, evidence and buying flow. */
 .review-conversion.article-wrap{max-width:1000px;padding-top:52px;overflow:visible}
 .review-conversion .article-title{font-size:clamp(38px,5.8vw,62px);max-width:900px}
 .review-conversion .article-subtitle{max-width:780px;color:#b4c4d1;font-size:19px;line-height:1.6;margin-bottom:14px}
@@ -23,6 +23,12 @@
 .review-jumps a{padding:10px 14px;border:1px solid var(--border);border-radius:3px;font-size:14px;color:#c5d7e4;text-decoration:none;min-height:44px;display:flex;align-items:center}
 .review-jumps a:hover{border-color:var(--cyan);color:var(--cyan)}
 .review-conversion .article-body{max-width:780px;margin:0 auto}
+.review-conversion .review-glance dd{margin:0}
+.review-conversion>.pros-cons{max-width:780px;margin:28px auto}
+.review-benchmark-context{margin:36px 0;scroll-margin-top:95px}
+.review-benchmark-context caption{text-align:left;padding:12px 0;color:var(--muted);font-size:13px}
+.review-conversion .review-benchmark-context th{width:60%;text-align:left;white-space:normal;overflow-wrap:anywhere;padding:14px;font-size:12px;letter-spacing:.5px;line-height:1.6}
+.review-conversion .article-body>div[style*="overflow-x"]{max-width:100%}
 .review-conversion .article-body h2{scroll-margin-top:95px}
 .review-conversion .spec-table{min-width:0;width:100%;table-layout:fixed}
 .review-conversion .spec-table td:first-child{width:28%;min-width:0}

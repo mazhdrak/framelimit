@@ -1,6 +1,6 @@
 # FrameLimit maintenance handoff
 
-Last updated: 2026-09-14. This is a historical checkpoint, not proof of current prices, rankings, stock or deployment status. Recheck external state when continuing.
+Last updated: 2026-09-15. This is a historical checkpoint, not proof of current prices, rankings, stock or deployment status. Recheck external state when continuing.
 
 ## Published work
 
@@ -217,3 +217,13 @@ Published September 15 in commit `0dd6e34`, pushed to `origin/main`. Production 
 - Synchronized the two LOQ comparisons, RTX 5060 guide, affected college/buying-guide references and the TGP comparison's 15W difference. Catalog cache version is `20260914-1`; the shared benchmark loader requests `benchmark-data.js?v=20260914-1`. No retail price/date observations were refreshed.
 - Desktop and 390×844 browser checks covered all three review openings and buying flow; mobile specification tables fit, benchmark tables scroll within their containers, section anchors resolve, and keyboard focus on the Amazon link is visible. This is targeted QA, not full accessibility certification or measured conversion uplift.
 - Validation: all 26 existing audits pass, both retail and budget regression suites pass. Amazon link audit: 40 managed ASINs, zero unresolved, 200 direct HTML Amazon links across 85 files. The three added links are the new summary CTAs. Private screenshots, source-analysis scripts, validation and Search Console notes remain in `audit-site-2026-09-08/search-review-2026-09-14/`; preserve and do not stage that folder. Its editing scripts are one-time migrations, not safe to rerun.
+
+## Shared review layout and synthetic context — September 15, 2026
+
+- Extended the Legion 5 opening/buying layout to the other 26 canonical reviews. All 29 canonical reviews now have an image-led short answer, six quick specifications, section navigation and a buying panel. Redirect/noindex aliases and review-notes remain separate. Existing detailed analysis and benchmark datasets were retained; this is not a new full factual certification of older review bodies.
+- Added attributed Time Spy Graphics and Steel Nomad scores to Alienware 16X Aurora, Omen Max 16, Legion Pro 7i, Legion 5i and Predator Helios Neo 16S. Source: https://jarrods.tech/best-gaming-laptop-3dmark-results/ checked September 15. Each block names the publisher's 2025 CPU/GPU/power configuration, discloses unconfirmed memory/storage/regional matching and distinguishes synthetic points from FPS and exact-retail measurements. These rows do not populate exact-SKU rankings or the shared benchmark database. Other pages link to Notebookcheck game results and 3DMark search with comparison guidance; no score was invented for unmatched configurations.
+- Preserved withheld links for Omen Max, Transcend, Legion 7i and Predator; G14 uses ASUS. New summary and purchase links target laptops, not RAM/SSD upgrade links. Corrected Legion 7i's old 16GB RTX 5070 statement to the documented 8GB option and removed two old individual price amounts. No prices, availability or price-check dates were refreshed.
+- Added `scripts/audit-review-layout.mjs` for canonical coverage, duplicate/missing anchors, six specs, image files, laptop-only overview purchase targets and synthetic attribution. All 27 audits pass; retail-price and budget tests pass. Amazon audit: 40 managed ASINs, zero unresolved, 238 direct HTML Amazon links across 85 files.
+- Browser checks at 390x844 and 1440x1000 covered all 29 reviews: no document horizontal overflow or missing overview images. Inspected Vector/G14 openings and the Legion 5i benchmark table visually; fixed mobile header overlap in that table. This is targeted responsive QA, not full accessibility certification.
+- One-time migration helpers and validation logs are retained privately under `audit-site-2026-09-08/review-layout-2026-09-15/`; do not stage or rerun them.
+- The user explicitly approved publication of this batch on September 15, following the initial automatic approval rejection. Publish through the existing GitHub main / Cloudflare Pages route; do not migrate hosting.
