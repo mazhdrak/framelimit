@@ -62,7 +62,7 @@
       "id": "alienware-18-area-51",
       "manufacturer": "Alienware",
       "model": "Alienware 18 Area-51",
-      "exactModelSku": "Alienware 18 Area-51 AA18250 (B0F5WVJBC2)",
+      "exactModelSku": "Alienware 18 Area-51 AA18250",
       "gpu": "RTX 5090",
       "gpuVram": "24GB GDDR7",
       "oemMaximumGpuPowerWatts": 175,

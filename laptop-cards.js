@@ -306,7 +306,7 @@ function flRenderHeroPicks(ids) {
 function flRenderDeals(ids) {
   const badgeMap = {
     'high-end':  ['⭐ FLAGSHIP',   'badge-hot'],
-    'mid-range': ['🔥 BEST VALUE', 'badge-new'],
+    'mid-range': ['⚖️ MID-RANGE PICK', 'badge-new'],
     'budget':    ['💰 BUDGET PICK','badge-sale'],
   };
   return ids.map(id => {

@@ -4,7 +4,7 @@
  * tag: framelimit20-20
  *
  * TIERS:   high-end | mid-range | budget
- * UPDATED: July 2026
+ * UPDATED: September 2026
  * Prices are editorial reference/MSRP or last-observed values, not live prices.
  * Always use Amazon/retailer pages for the current checkout price.
  *
@@ -13,8 +13,8 @@
  *   Then access window.LAPTOPS, window.LAPTOPS_BY_TIER, window.getLaptop(id)
  */
 
-const FL_DATA_LAST_CHECKED = '2026-07-15';
-const FL_DATA_LAST_CHECKED_LABEL = 'Direct retail links audited Jul 15, 2026';
+const FL_DATA_LAST_CHECKED = '2026-09-27';
+const FL_DATA_LAST_CHECKED_LABEL = 'Amazon links checked Sep 27, 2026';
 const FL_REFERENCE_PRICE_MAX_AGE_DAYS = 30;
 
 const LAPTOP_CATALOG = [
@@ -127,7 +127,7 @@ const LAPTOP_CATALOG = [
     weight: 3.3,
     battery: 90,
     price: 4499.99,
-    priceCheckedAt: '2026-09-11',
+    priceCheckedAt: '2026-09-27',
     score: 9.6,
     scores: { perf: 9.8, display: 9.0, thermals: 9.5, battery: 6.8, build: 9.6, value: 8.2 },
     bestFor: 'Desk-focused gaming with a 175W RTX 5090 and MiniLED display',
@@ -206,8 +206,8 @@ const LAPTOP_CATALOG = [
     },
     weight: 2.71,
     battery: 99.9,
-    price: 3589,
-    priceCheckedAt: '2026-09-11',
+    price: 3599.99,
+    priceCheckedAt: '2026-09-27',
     score: 9.4,
     scores: { perf: 9.5, display: 9.8, thermals: 9.0, battery: 7.5, build: 9.2, value: 9.2 },
     bestFor: 'A 175W RTX 5080, OLED display and upgradeable memory',
@@ -246,15 +246,17 @@ const LAPTOP_CATALOG = [
     },
     weight: 4.34,
     battery: 96,
-    price: 3999,
-    priceCheckedAt: '2026-09-11',
+    price: null,
+    priceCheckedAt: null,
     score: 9.2,
     scores: { perf: 9.9, display: 9.2, thermals: 8.5, battery: 5.5, build: 9.8, value: 7.0 },
     bestFor: 'Desktop-replacement buyers who want RTX 5090 graphics and extensive storage expansion',
     avoidIf: 'Weight, portability or an OLED display matters',
-    amazonUrl: 'https://www.amazon.com/dp/B0F5WVJBC2/?tag=framelimit20-20',
-    amazonAsin: 'B0F5WVJBC2',
-    modelCode: 'Alienware 18 Area-51 AA18250 (B0F5WVJBC2)',
+    amazonUrl: '',
+    retailBlocked: true,
+    retailIssue: 'The previously linked Amazon listing now identifies an RTX 5080 / 32GB / 2TB Area-51 configuration, not the reviewed RTX 5090 / 64GB / 4TB model.',
+    amazonAsin: '',
+    modelCode: 'Alienware 18 Area-51 AA18250',
     specSource: 'https://www.dell.com/support/manuals/en-us/alienware-area-51-aa18250-gaming-laptop/alienware-18-area-51-aa18250-owners-manual/',
     specCheckedAt: '2026-07-16',
     imgUrl: 'images/laptops/alienware-18-area-51.webp',
@@ -326,8 +328,8 @@ const LAPTOP_CATALOG = [
     },
     weight: 3.21,
     battery: 99,
-    price: 5999.99,
-    priceCheckedAt: '2026-09-11',
+    price: 6795,
+    priceCheckedAt: '2026-09-27',
     score: 9.1,
     scores: { perf: 9.7, display: 9.0, thermals: 8.4, battery: 6.2, build: 9.9, value: 7.5 },
     bestFor: 'Razer loyalists, premium large-screen experience',
@@ -393,7 +395,8 @@ const LAPTOP_CATALOG = [
     name: 'Legion 5i Gen 10',
     shortName: 'Lenovo Legion 5i',
     tier: 'mid-range',
-    badge: '#1 Mid-Range Pick',
+    badge: 'Unranked Retail Configuration',
+    status: 'evidence-review',
     gpu: 'RTX 5070',
     gpuVram: '8GB GDDR7',
     tgp: 115,
@@ -413,18 +416,20 @@ const LAPTOP_CATALOG = [
     battery: 80,
     price: null,
     priceCheckedAt: null,
-    score: 9.2,
-    scores: { perf: 9.1, display: 8.5, thermals: 9.0, battery: 7.8, build: 8.8, value: 9.5 },
+    score: null,
+    scores: null,
     bestFor: 'High-performance 1440p gaming with a 165Hz OLED display',
     avoidIf: 'You need more than 8GB VRAM or dislike glossy OLED panels',
     amazonUrl: 'https://www.amazon.com/dp/B0FSY77WS1?tag=framelimit20-20',
     amazonAsin: 'B0FSY77WS1',
+    stockStatus: 'unavailable',
+    stockCheckedAt: '2026-09-27',
     modelCode: '15IAX10 / 83N20003BO',
     specSource: 'https://www.lenovo.com/br/pt/p/laptops/legion-laptops/legion-5-series/lenovo-legion-5i-gen-10-15-inch-intel/83n20003bo/',
     specCheckedAt: '2026-07-14',
     imgUrl: 'images/laptops/lenovo-legion-5i.webp',
     imgBg: '#070d12',
-    tags: ['16-inch', 'nvidia', 'intel-cpu', 'best-value', 'mid-range'],
+    tags: ['16-inch', 'nvidia', 'intel-cpu', 'mid-range'],
   },
 
   {
@@ -460,6 +465,8 @@ const LAPTOP_CATALOG = [
     avoidIf: 'You need more than 8GB VRAM or a higher-power GPU tier',
     amazonUrl: 'https://www.amazon.com/dp/B0FPFP4T1R?tag=framelimit20-20',
     amazonAsin: 'B0FPFP4T1R',
+    stockStatus: 'unavailable',
+    stockCheckedAt: '2026-09-27',
     modelCode: 'Legion 5 15AHP10 retail configuration',
     specSource: 'https://psref.lenovo.com/Product/Legion/Legion_5_15AHP10',
     specCheckedAt: '2026-07-15',
@@ -501,6 +508,8 @@ const LAPTOP_CATALOG = [
     avoidIf: 'You need upgradeable memory or more than 8GB VRAM',
     amazonUrl: 'https://www.amazon.com/dp/B0DYLB2QRF?tag=framelimit20-20',
     amazonAsin: 'B0DYLB2QRF',
+    stockStatus: 'used-only',
+    stockCheckedAt: '2026-09-27',
     modelCode: 'RZ09-05306ES3-R3U1',
     specSource: 'https://mysupport.razer.com/app/answers/detail/a_id/15088',
     specCheckedAt: '2026-07-15',
@@ -582,6 +591,8 @@ const LAPTOP_CATALOG = [
     avoidIf: 'Max TGP or upgradeable RAM is required',
     amazonUrl: 'https://www.amazon.com/dp/B0FGRTF913?tag=framelimit20-20',
     amazonAsin: 'B0FGRTF913',
+    stockStatus: 'unavailable',
+    stockCheckedAt: '2026-09-27',
     modelCode: 'GU605CR retail configuration',
     specSource: 'https://rog.asus.com/us/laptops/rog-zephyrus/rog-zephyrus-g16-2025/',
     specCheckedAt: '2026-07-15',
@@ -667,6 +678,8 @@ const LAPTOP_CATALOG = [
     avoidIf: 'The retailer does not identify the exact 16-an0000 configuration',
     amazonUrl: 'https://www.amazon.com/dp/B0G31VXF5L?tag=framelimit20-20',
     amazonAsin: 'B0G31VXF5L',
+    stockStatus: 'unavailable',
+    stockCheckedAt: '2026-09-27',
     modelCode: '16-an0000',
     specSource: 'https://support.hp.com/us-en/document/ish_12515572-12516081-16',
     specCheckedAt: '2026-07-14',
@@ -710,6 +723,8 @@ const LAPTOP_CATALOG = [
     avoidIf: 'You need maximum GPU TGP',
     amazonUrl: 'https://www.amazon.com/dp/B0G6Y8YTX7?tag=framelimit20-20',
     amazonAsin: 'B0G6Y8YTX7',
+    stockStatus: 'unavailable',
+    stockCheckedAt: '2026-09-27',
     modelCode: 'FX507 retail configuration',
     specSource: 'https://www.asus.com/us/laptops/for-gaming/tuf-gaming/asus-tuf-gaming-f16-2024/techspec/',
     specCheckedAt: '2026-07-15',
@@ -751,6 +766,8 @@ const LAPTOP_CATALOG = [
     avoidIf: 'You need an OLED panel or a factory-sealed memory configuration',
     amazonUrl: 'https://www.amazon.com/dp/B0GGXQ45H3?tag=framelimit20-20',
     amazonAsin: 'B0GGXQ45H3',
+    stockStatus: 'unavailable',
+    stockCheckedAt: '2026-09-27',
     modelCode: 'TUF A16 retail 32GB configuration',
     specSource: 'https://www.asus.com/us/laptops/for-gaming/tuf-gaming/asus-tuf-gaming-a16-2025/techspec/',
     specCheckedAt: '2026-07-16',
@@ -783,8 +800,8 @@ const LAPTOP_CATALOG = [
     },
     weight: 2.7,
     battery: 90,
-    price: 2768.88,
-    priceCheckedAt: '2026-09-11',
+    price: 2798.88,
+    priceCheckedAt: '2026-09-27',
     score: 9.0,
     scores: { perf: 9.0, display: 8.8, thermals: 8.7, battery: 7.6, build: 8.9, value: 8.9 },
     bestFor: 'A 175W RTX 5080 and 240Hz display in a 16-inch chassis',
@@ -823,8 +840,8 @@ const LAPTOP_CATALOG = [
     },
     weight: 2.57,
     battery: 96,
-    price: 2399,
-    priceCheckedAt: '2026-09-11',
+    price: 2499,
+    priceCheckedAt: '2026-09-27',
     score: 8.7,
     scores: { perf: 9.0, display: 8.5, thermals: 8.8, battery: 7.2, build: 9.4, value: 8.4 },
     bestFor: 'Buyers who want an Alienware chassis with RTX 5070 graphics',
@@ -875,6 +892,8 @@ const LAPTOP_CATALOG = [
     avoidIf: '1440p or OLED is something you care about',
     amazonUrl: 'https://www.amazon.com/dp/B0G2LHS38J?tag=framelimit20-20',
     amazonAsin: 'B0G2LHS38J',
+    stockStatus: 'unavailable',
+    stockCheckedAt: '2026-09-27',
     modelCode: '15AHP10',
     specSource: 'https://psref.lenovo.com/syspool/Sys/PDF/LOQ/LOQ_15AHP10/LOQ_15AHP10_Spec.pdf',
     specCheckedAt: '2026-09-14',
@@ -947,8 +966,8 @@ const LAPTOP_CATALOG = [
     },
     weight: 2.1,
     battery: 76,
-    price: 1449.99,
-    priceCheckedAt: '2026-09-11',
+    price: 1399.99,
+    priceCheckedAt: '2026-09-27',
     score: 8.1,
     scores: { perf: 7.8, display: 7.6, thermals: 7.8, battery: 6.8, build: 7.2, value: 8.8 },
     bestFor: '32GB memory and a 180Hz display in a budget RTX 5060 configuration',
@@ -997,6 +1016,8 @@ const LAPTOP_CATALOG = [
     avoidIf: 'You only need 16GB or 32GB and want the lowest price',
     amazonUrl: 'https://www.amazon.com/dp/B0G3XTVGTD?tag=framelimit20-20',
     amazonAsin: 'B0G3XTVGTD',
+    stockStatus: 'unavailable',
+    stockCheckedAt: '2026-09-27',
     modelCode: 'FA608UP-A16.R95070 seller-upgraded 64GB bundle',
     specSource: 'https://www.asus.com/us/laptops/for-gaming/tuf-gaming/asus-tuf-gaming-a16-2025/techspec/',
     specCheckedAt: '2026-09-10',
@@ -1029,8 +1050,8 @@ const LAPTOP_CATALOG = [
     },
     weight: 2.4,
     battery: 75,
-    price: 2272.74,
-    priceCheckedAt: '2026-09-11',
+    price: 2199.99,
+    priceCheckedAt: '2026-09-27',
     score: 7.9,
     scores: null,
     bestFor: 'RTX 5070 performance and QHD gaming in a 15-inch chassis',
@@ -1069,8 +1090,8 @@ const LAPTOP_CATALOG = [
     },
     weight: 2.2,
     battery: 76,
-    price: null,
-    priceCheckedAt: null,
+    price: 1299.49,
+    priceCheckedAt: '2026-09-27',
     score: null,
     scores: null,
     bestFor: '16:10 display and 1TB storage; compare current offers',
@@ -1115,6 +1136,8 @@ const LAPTOP_CATALOG = [
     avoidIf: 'You want a faster 165Hz or 240Hz panel',
     amazonUrl: 'https://www.amazon.com/dp/B0FXX3QS1F?tag=framelimit20-20',
     amazonAsin: 'B0FXX3QS1F',
+    stockStatus: 'unavailable',
+    stockCheckedAt: '2026-09-27',
     modelCode: 'Alienware 16 Aurora AC16250',
     specSource: 'https://www.dell.com/en-us/shop/dell-laptops/alienware-16-aurora-gaming-laptop/spd/alienware-aurora-ac16250-gaming-laptop',
     specCheckedAt: '2026-09-10',
@@ -1183,6 +1206,8 @@ const LAPTOP_CATALOG = [
     avoidIf: 'Portability or a compact power adapter matters',
     amazonUrl: 'https://www.amazon.com/dp/B0FXHBZCK3?tag=framelimit20-20',
     amazonAsin: 'B0FXHBZCK3',
+    stockStatus: 'unavailable',
+    stockCheckedAt: '2026-09-27',
     modelCode: 'A2XWJG family; factory suffix not exposed',
     specSource: 'https://us.msi.com/Laptop/Raider-18-HX-AI-A2XWX/Specification',
     specCheckedAt: '2026-09-10',
@@ -1217,6 +1242,8 @@ const LAPTOP_CATALOG = [
     avoidIf: 'You want a thin laptop or Mini LED local dimming',
     amazonUrl: 'https://www.amazon.com/dp/B0FLZC7J3B?tag=framelimit20-20',
     amazonAsin: 'B0FLZC7J3B',
+    stockStatus: 'unavailable',
+    stockCheckedAt: '2026-09-27',
     modelCode: 'G615_380W retailer bundle; factory suffix not exposed',
     specSource: 'https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025/spec/',
     specCheckedAt: '2026-09-10',
@@ -1251,6 +1278,8 @@ const LAPTOP_CATALOG = [
     avoidIf: 'You need portability or a value-focused configuration',
     amazonUrl: 'https://www.amazon.com/dp/B0DVDH7JCV?tag=framelimit20-20',
     amazonAsin: 'B0DVDH7JCV',
+    stockStatus: 'unavailable',
+    stockCheckedAt: '2026-09-27',
     modelCode: 'A9WJG-052US',
     specSource: 'https://www.msi.com/Laptop/Raider-A18-HX-A9WX/Specification',
     specCheckedAt: '2026-07-15',
@@ -1277,8 +1306,8 @@ const LAPTOP_CATALOG = [
     display: { size: 13.4, res: '2560×1600', hz: 180, panel: 'IPS Touch', nits: 500, hdr: 'Dolby Vision' },
     weight: 1.59,
     battery: 70,
-    price: 2099.99,
-    priceCheckedAt: '2026-09-11',
+    price: 2256,
+    priceCheckedAt: '2026-09-27',
     score: null,
     scores: null,
     bestFor: 'Portable all-AMD gaming, creation, and high-memory iGPU workloads',
@@ -1373,8 +1402,20 @@ function flIsDirectAmazonProduct(laptopOrUrl) {
   return /amazon\.com\/dp\//.test(url || '');
 }
 
+function flStockLabel(laptop) {
+  if (!laptop || !/^\d{4}-\d{2}-\d{2}$/.test(laptop.stockCheckedAt || '')) return '';
+  const checked = new Date(`${laptop.stockCheckedAt}T12:00:00Z`).toLocaleDateString('en-US', {
+    timeZone: 'UTC', month: 'short', day: 'numeric'
+  });
+  if (laptop.stockStatus === 'unavailable') return `Amazon showed unavailable on ${checked}`;
+  if (laptop.stockStatus === 'used-only') return `Only used offers on Amazon on ${checked}`;
+  return '';
+}
+
 function flRetailerStatus(laptop) {
   if (laptop && laptop.retailBlocked) return 'Exact retail listing under review';
+  const stock = flStockLabel(laptop);
+  if (stock) return stock;
   if (flIsDirectAmazonProduct(laptop)) return 'Verified Amazon product page';
   if (laptop && laptop.retailerName && /^https:\/\//.test(laptop.amazonUrl || '')) {
     return `Official ${laptop.retailerName} product page`;
@@ -1412,5 +1453,6 @@ window.sortByPrice     = sortByPrice;
 window.sortByTGP       = sortByTGP;
 window.flIsDirectAmazonProduct = flIsDirectAmazonProduct;
 window.flRetailerStatus = flRetailerStatus;
+window.flStockLabel = flStockLabel;
 window.flReferencePriceStatus = flReferencePriceStatus;
 window.flIsReferencePriceFresh = flIsReferencePriceFresh;
