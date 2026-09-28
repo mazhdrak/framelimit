@@ -631,7 +631,7 @@ const LAPTOP_CATALOG = [
     price: null,
     priceCheckedAt: null,
     score: 8.7,
-    scores: { perf: 8.8, display: 8.4, thermals: 8.6, battery: 7.4, build: 8.5, value: 9.3 },
+    scores: null,
     bestFor: 'RTX 5070 Ti graphics, an OLED display and upgradeable memory',
     avoidIf: 'You need a full-power RTX 5070 Ti implementation',
     amazonUrl: '',
