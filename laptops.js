@@ -562,7 +562,7 @@ const LAPTOP_CATALOG = [
   {
     id: 'asus-rog-zephyrus-g16-mid',
     brand: 'ASUS ROG',
-    name: 'ASUS ROG Zephyrus G16',
+    name: 'Zephyrus G16',
     shortName: 'ASUS ROG Zephyrus G16',
     tier: 'mid-range',
     badge: 'RTX 5070 Ti OLED',
@@ -1149,7 +1149,7 @@ const LAPTOP_CATALOG = [
   {
     id: 'asus-rog-zephyrus-g16-2026',
     brand: 'ASUS ROG',
-    name: 'ASUS ROG Zephyrus G16',
+    name: 'Zephyrus G16',
     shortName: 'ASUS ROG Zephyrus G16',
     tier: 'high-end',
     badge: 'Specification Review',
@@ -1219,7 +1219,7 @@ const LAPTOP_CATALOG = [
   {
     id: 'asus-rog-strix-g16-2026',
     brand: 'ASUS ROG',
-    name: 'ROG Strix G16 (2025)',
+    name: 'Strix G16 (2025)',
     shortName: 'ROG Strix G16 RTX 5080',
     tier: 'high-end',
     badge: 'New 2026 Review',
@@ -1368,7 +1368,7 @@ const LAPTOP_CATALOG = [
   {
     id: 'asus-rog-flow-z13-radeon-8060s',
     brand: 'ASUS ROG',
-    name: 'ROG Flow Z13 (2025)',
+    name: 'Flow Z13 (2025)',
     shortName: 'ROG Flow Z13 Radeon 8060S',
     tier: 'high-end',
     badge: 'Radeon 8060S',

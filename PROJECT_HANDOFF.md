@@ -281,5 +281,5 @@ Checked the handoff list of 2026 refreshes in the built-in browser. Amazon deliv
   2. RTX Spark laptops are expected in October: add them through the same evidence-review flow (Amazon listing sold by Amazon.com/manufacturer, official spec page, US price check at ZIP 10001).
   3. Owner to check Associates Reports by marketplace in 1-2 weeks to confirm global earning attribution for EU clicks.
   4. Replace reused 2025 chassis images for the two 2026 ASUS records once the owner approves downloading official images.
-  5. Cosmetic: the 2025 Strix G16 record name "ROG Strix G16 (2025)" renders as "ASUS ROG ROG Strix"; the 2026 records use names without "ROG".
+  5. Done Sep 28: cards render `brand` then `name`, so catalog names must not repeat the brand. Fixed Strix G16 (2025), Flow Z13 (2025) and both Zephyrus G16 records; `laptops.js?v=20260928-3`. All 27 audits and both tests pass.
 - Working conventions confirmed in this session: reply to the owner in Bulgarian; run all `scripts/audit-*.mjs` plus both `scripts/test-*.mjs` before committing; bump `laptops.js?v=` on all pages when catalog data changes; commit only the files touched, never `audit-homepage/` or `audit-site-2026-09-08/`; push to main after the owner approves; verify the live site after deploy.
