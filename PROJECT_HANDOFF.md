@@ -241,4 +241,11 @@ Checked all 40 direct Amazon ASINs with the built-in browser, delivery ZIP 10001
 - Reference prices for checked records dated 2026-09-27; `FL_DATA_LAST_CHECKED` label now "Amazon links checked Sep 27, 2026". Cache versions `laptops.js?v=20260927-1`, `price-data.js?v=20260927-1`, `laptop-cards.js?v=20260927-1`.
 - All 27 audits plus retail-price and budget-offer tests pass. Amazon audit: 39 managed ASINs, 0 unresolved.
 
-Open items: homepage GPU FPS chart (hardcoded, unsourced per-row values, old LOQ 115W label) needs sourcing or removal; 2026 model refreshes (Strix G16/SCAR 18 2026 with 290HX Plus, Legion Pro 7i Gen 11, Alienware 16 Area-51 2026, TUF 2026) are on Amazon US and not covered; RTX Spark laptops expected in October; price workflow still fails daily on Amazon Associates eligibility; EU visitors are redirected to amazon.co.uk where the US tag earns nothing.
+Open items: 2026 model refreshes (Strix G16/SCAR 18 2026 with 290HX Plus, Legion Pro 7i Gen 11, Alienware 16 Area-51 2026, TUF 2026) are on Amazon US and not covered; RTX Spark laptops expected in October; price workflow still fails daily on Amazon Associates eligibility; EU visitors are redirected to amazon.co.uk where the US tag earns nothing.
+
+## Homepage FPS chart removed — September 28, 2026
+
+- Removed the hardcoded, unsourced GPU FPS chart from `index.html`: resolution tabs, legend, canvas and source note, the `laptops`/`games` FPS arrays and chart JS, and the Chart.js CDN script. No other page used Chart.js.
+- The `#compare-tool` section is now "Laptop Spec Comparison" and contains only the `laptops.js`-driven spec table. The anchor ID is unchanged; the tools-bar and footer links now read "Spec Comparison" instead of "GPU Benchmarks".
+- The hidden synthetic-benchmark and 1% lows blocks and their data were left in place (still `hidden`, not rendered). The hero stat "11 Games Compared" was not changed.
+- Validation: homepage-picks, crawlable-pages, internal-links, public-urls, sitemap, guides and price-freshness audits pass. Local browser check: spec table renders 33 rows, no console errors, no Chart.js global.
