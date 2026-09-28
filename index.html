@@ -61,6 +61,29 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+.bench-tabs .gpu-tab{flex:1 1 auto}
+.bench-board{display:flex;flex-direction:column;border:1px solid var(--border);background:var(--panel)}
+.bench-row{display:grid;grid-template-columns:minmax(180px,1.3fr) 2fr 72px minmax(140px,1fr);gap:16px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border)}
+.bench-row:last-child{border-bottom:none}
+.bench-name{font-family:'Barlow',sans-serif;font-size:14px;font-weight:600;color:var(--white);line-height:1.3}
+.bench-name a{color:inherit;text-decoration:none}
+.bench-name a:hover{color:var(--cyan)}
+.bench-cfg{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:400;color:var(--muted);margin-top:2px}
+.bench-bar{height:10px;background:rgba(30,42,54,.6);border-radius:2px;overflow:hidden}
+.bench-bar span{display:block;height:100%;background:var(--cyan);border-radius:2px}
+.bench-score{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;color:var(--white);text-align:right}
+.bench-src{font-family:'JetBrains Mono',monospace;font-size:10px;line-height:1.4}
+.bench-src a{color:var(--muted)}
+.bench-src a:hover{color:var(--cyan)}
+.bench-note{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-top:12px;line-height:1.6}
+.bench-note a{color:var(--cyan)}
+@media (max-width:760px){
+  .bench-row{grid-template-columns:1fr 64px;gap:6px 12px}
+  .bench-bar{grid-column:1 / -1;grid-row:2}
+  .bench-src{grid-column:1 / -1;grid-row:3}
+}
+</style>
 </head>
 <body>
 
@@ -81,8 +104,8 @@
       </div>
       <div class="hero-stats">
         <div class="hs"><div class="hs-num" id="hero-stat-total">31</div><div class="hs-label">Laptops Analyzed</div></div>
-        <div class="hs"><div class="hs-num">11</div><div class="hs-label">Games Compared</div></div>
-        <div class="hs"><div class="hs-num">3<span>×</span></div><div class="hs-label">Resolutions</div></div>
+        <div class="hs"><div class="hs-num" id="hero-stat-games">29</div><div class="hs-label">Games Benchmarked</div></div>
+        <div class="hs"><div class="hs-num" id="hero-stat-benchsets">26</div><div class="hs-label">Sourced Test Sets</div></div>
         <div class="hs"><div class="hs-num">0</div><div class="hs-label">Sponsored Rankings</div></div>
       </div>
     </div>
@@ -99,7 +122,8 @@
 <div class="tools-bar">
   <div class="tools-inner">
     <span class="tool-label">Interactive Tools:</span>
-    <a href="#compare-tool" class="tool-btn">📊 Spec Comparison</a>
+    <a href="#benchmarks" class="tool-btn">📊 GPU Benchmarks</a>
+    <a href="#compare-tool" class="tool-btn">📋 Spec Comparison</a>
     <a href="#finder" class="tool-btn">🎯 Laptop Finder</a>
   </div>
 </div>
@@ -120,6 +144,22 @@
 </section>
 
 <!-- ═══════════════════════════════════════════
+     GPU BENCHMARKS — rendered from benchmark-data.js
+     ═══════════════════════════════════════════ -->
+<section id="benchmarks">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Sourced Benchmarks</div>
+      <h2 class="section-title">GPU Benchmark Leaderboard</h2>
+      <p class="section-sub">3DMark GPU scores from published reviews of the exact configuration listed. Every row names its source.</p>
+    </div>
+    <div class="gpu-tabs bench-tabs" id="bench-tabs" role="tablist" aria-label="3DMark test"></div>
+    <div class="bench-board" id="bench-board" role="tabpanel" aria-live="polite"></div>
+    <p class="bench-note">3DMark is a standardized test, but these scores come from different publications, power modes and drivers, so small gaps are not meaningful. Graphics and overall scores are never mixed. Per-game FPS with exact settings, upscaling and frame generation labelled: <a href="guide-dlss-fsr-frame-generation-database">DLSS &amp; FSR benchmark database →</a></p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
      LAPTOP SPEC COMPARISON — data-driven table
      ═══════════════════════════════════════════ -->
 <section id="compare-tool">
@@ -128,53 +168,6 @@
       <div class="section-label">Spec Comparison</div>
       <h2 class="section-title">Laptop Spec Comparison</h2>
       <p class="section-sub">GPU, TGP, CPU, display, weight and score for every laptop in the catalog. Filter by tier to compare like with like.</p>
-    </div>
-
-    <!-- ── SYNTHETIC BENCHMARKS ── -->
-    <div hidden>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:12px"><span class="u-cyan-line"></span>Synthetic Benchmarks</div>
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);margin-bottom:6px">3DMark · Cinebench R24 · Thermals</h3>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Time Spy = overall GPU. Port Royal = ray tracing. CineBench R24 = CPU. Temps + noise at sustained full load.</p>
-      <div style="overflow-x:auto">
-        <table id="synth-table" style="width:100%;border-collapse:collapse">
-          <thead>
-            <tr>
-              <th style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:left;white-space:nowrap">Laptop / GPU</th>
-              <th class="u-tbl-hdr-r">3DM Time Spy</th>
-              <th class="u-tbl-hdr-r">Port Royal</th>
-              <th class="u-tbl-hdr-r">CB R24 1T</th>
-              <th class="u-tbl-hdr-r">CB R24 nT</th>
-              <th class="u-tbl-hdr-r">GPU Temp</th>
-              <th class="u-tbl-hdr-r">Fan Noise</th>
-            </tr>
-          </thead>
-          <tbody id="synth-tbody"></tbody>
-        </table>
-      </div>
-      <button class="fl-expand-btn" id="synth-expand-btn" onclick="toggleInlineTable('synth-table','synth-expand-btn','laptops')">Show all laptops ▼</button>
-    </div>
-
-    <!-- ── 1% LOWS / STUTTER ── -->
-    <div hidden>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:12px"><span class="u-cyan-line"></span>Stutter Analysis</div>
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);margin-bottom:6px">Avg FPS vs 1% Lows — 1440p Ultra</h3>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Format: <span style="color:var(--white)">Avg</span> / <span style="color:var(--green)">1% Low</span>. Closer together = smoother experience. 1% lows below 65% of avg = noticeable stutter.</p>
-      <div style="overflow-x:auto">
-        <table id="lows-table" style="width:100%;border-collapse:collapse">
-          <thead>
-            <tr>
-              <th style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;padding:12px 14px;background:var(--panel);border-bottom:2px solid var(--border);text-align:left">Laptop</th>
-              <th class="u-tbl-hdr">Cyberpunk 2077</th>
-              <th class="u-tbl-hdr">Black Myth</th>
-              <th class="u-tbl-hdr">Alan Wake 2</th>
-              <th class="u-tbl-hdr">Stutter Rating</th>
-            </tr>
-          </thead>
-          <tbody id="lows-tbody"></tbody>
-        </table>
-      </div>
-      <button class="fl-expand-btn" id="lows-expand-btn" onclick="toggleInlineTable('lows-table','lows-expand-btn','laptops')">Show all laptops ▼</button>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:8px">1440p · DLSS 4.5 Quality · Sustained 30-min load · Jan–Mar 2026</div>
     </div>
 
     <!-- ── FULL SPEC COMPARISON TABLE (from laptops.js) ── -->
@@ -476,6 +469,7 @@
         <ul class="footer-links">
           <li><a href="reviews">All Reviews</a></li>
           <li><a href="#deals-section">Current Deals</a></li>
+          <li><a href="#benchmarks">GPU Benchmarks</a></li>
           <li><a href="#compare-tool">Spec Comparison</a></li>
           <li><a href="about">About</a></li>
           <li><a href="contact">Contact</a></li>
@@ -500,6 +494,8 @@
 <script src="laptops.js?v=20260927-1"></script>
 <!-- RENDERER — all data-fl-* attributes -->
 <script src="laptop-cards.js?v=20260927-1"></script>
+<!-- SOURCED BENCHMARKS — FL_MODEL_BENCHMARKS -->
+<script src="benchmark-data.js?v=20260928-1"></script>
 
 <script>
 /* ── MOBILE NAV — handled by nav.js ── */
@@ -525,6 +521,11 @@ function syncHomepageCounts() {
     'spec-mid-count': tierCounts.mid,
     'spec-budget-count': tierCounts.budget,
   };
+  const benchmarks = Object.values(window.FL_MODEL_BENCHMARKS || {});
+  if (benchmarks.length) {
+    values['hero-stat-benchsets'] = benchmarks.length;
+    values['hero-stat-games'] = new Set(benchmarks.flatMap(set => (set.games || []).map(game => game[0]))).size;
+  }
   Object.entries(values).forEach(([id, value]) => {
     const element = document.getElementById(id);
     if (element) element.textContent = value;
@@ -674,99 +675,102 @@ function setPlatform(p, btn) {
   updateFinder();
 }
 
-/* ── SYNTHETIC BENCHMARKS TABLE ── */
-const synthData = [
-  { name:'ASUS ROG Strix SCAR 18',  gpu:'RTX 5090 · 175W', timeSpy:29400, portRoyal:23500, cbS:141, cbM:3350, gpuTemp:'88°C', fanDb:'52 dB' },
-  { name:'Legion Pro 7i Gen 10',    gpu:'RTX 5080 · 175W', timeSpy:26900, portRoyal:19800, cbS:142, cbM:3420, gpuTemp:'82°C', fanDb:'46 dB' },
-  { name:'Razer Blade 16 (2026)',   gpu:'RTX 5080 · 150W', timeSpy:24800, portRoyal:18200, cbS:138, cbM:3180, gpuTemp:'91°C', fanDb:'48 dB' },
-  { name:'HP Omen Max 16',          gpu:'RTX 5080 · 175W', timeSpy:26200, portRoyal:19200, cbS:139, cbM:3380, gpuTemp:'85°C', fanDb:'47 dB' },
-  { name:'Legion 5i Gen 10',        gpu:'RTX 5070 · 115W',timeSpy:20400, portRoyal:14800, cbS:136, cbM:3200, gpuTemp:'80°C', fanDb:'43 dB' },
-  { name:'MSI Vector 16 HX AI',     gpu:'RTX 5070Ti · 140W',timeSpy:20100, portRoyal:14500, cbS:134, cbM:3150, gpuTemp:'82°C', fanDb:'44 dB' },
-  { name:'TUF Gaming F16',          gpu:'RTX 5070 · 115W',  timeSpy:17200, portRoyal:12100, cbS:132, cbM:2980, gpuTemp:'78°C', fanDb:'41 dB' },
-  { name:'Lenovo LOQ 15',           gpu:'RTX 5060 · 100W',  timeSpy:12800, portRoyal:8900,  cbS:128, cbM:2760, gpuTemp:'81°C', fanDb:'42 dB' },
-  { name:'ASUS TUF A16 Entry',      gpu:'RTX 5060 · 100W',  timeSpy:12500, portRoyal:8700,  cbS:122, cbM:2640, gpuTemp:'83°C', fanDb:'44 dB' },
+/* ── GPU BENCHMARK LEADERBOARD (benchmark-data.js) ── */
+const BENCH_METRICS = [
+  { test: '3DMark Time Spy',    part: 'Graphics', label: 'Time Spy Graphics', role: 'DX12 raster' },
+  { test: '3DMark Steel Nomad', part: 'Overall',  label: 'Steel Nomad',       role: 'Modern raster' },
+  { test: '3DMark Speed Way',   part: 'Overall',  label: 'Speed Way',         role: 'Ray tracing' },
 ];
 
-function renderSynthTable() {
-  const maxTs = Math.max(...synthData.map(d => d.timeSpy));
-  const maxPr = Math.max(...synthData.map(d => d.portRoyal));
-  const tbody = document.getElementById('synth-tbody');
-  if (!tbody) return;
-  tbody.innerHTML = synthData.map((d, i) => {
-    const tsColor   = d.timeSpy   >= maxTs * .95 ? 'var(--green)' : d.timeSpy   >= maxTs * .75 ? 'var(--yellow)' : 'var(--text)';
-    const prColor   = d.portRoyal >= maxPr * .95 ? 'var(--green)' : d.portRoyal >= maxPr * .75 ? 'var(--yellow)' : 'var(--text)';
-    const tempC     = parseInt(d.gpuTemp);
-    const tempColor = tempC >= 92 ? 'var(--orange)' : tempC >= 85 ? 'var(--yellow)' : 'var(--green)';
-    const dbC       = parseInt(d.fanDb);
-    const dbColor   = dbC  >= 50 ? 'var(--orange)' : dbC  >= 46  ? 'var(--yellow)' : 'var(--green)';
-    const hidden    = i >= 4 ? ' class="synth-hidden" style="display:none"' : '';
-    return `<tr${hidden} style="${i>=4?'display:none;':''}border-bottom:1px solid rgba(30,42,54,.5)">
-      <td style="padding:10px 14px;font-family:'Barlow',sans-serif;font-size:13px;font-weight:600;color:var(--white)">${d.name}<br><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);font-weight:400">${d.gpu}</span></td>
-      <td style="padding:10px 14px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px;color:${tsColor}">${d.timeSpy.toLocaleString()}</td>
-      <td style="padding:10px 14px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px;color:${prColor}">${d.portRoyal.toLocaleString()}</td>
-      <td style="padding:10px 14px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text)">${d.cbS}</td>
-      <td style="padding:10px 14px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text)">${d.cbM.toLocaleString()}</td>
-      <td style="padding:10px 14px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px;color:${tempColor}">${d.gpuTemp}</td>
-      <td style="padding:10px 14px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px;color:${dbColor}">${d.fanDb}</td>
-    </tr>`;
-  }).join('');
-  const btn = document.getElementById('synth-expand-btn');
-  if (btn) btn.textContent = `Show all ${synthData.length} laptops ▼`;
+// Only reviews that already publish the same benchmark dataset (same configuration).
+const BENCH_REVIEWS = {
+  'verified-nitrov16-benchmark': 'review-acer-nitro-v-16-2026',
+  'verified-heliosneo-benchmark': 'review-acer-predator-helios-neo-16',
+  'verified-aurora16x-benchmark': 'review-alienware-16x-aurora',
+  'verified-area51-benchmark': 'review-alienware-18-area-51',
+  'verified-scar16-benchmark': 'review-asus-rog-strix-scar-16-2026',
+  'verified-g14-benchmark': 'review-asus-rog-zephyrus-g14-2026',
+  'verified-gigabytea16-benchmark': 'review-gigabyte-gaming-a16',
+  'verified-omentranscend-benchmark': 'review-hp-omen-transcend-14',
+  'verified-legion5i-benchmark': 'review-lenovo-legion-5i-gen10',
+  'verified-legion7i-benchmark': 'review-lenovo-legion-7i-gen10',
+  'verified-legion-benchmark': 'review-lenovo-legion-pro-7i-gen10',
+  'verified-loq15-benchmark': 'review-lenovo-loq-15-gen10',
+  'verified-katana15-benchmark': 'review-msi-katana-15-hx',
+  'verified-stealtha16-benchmark': 'review-msi-stealth-a16-ai-plus',
+  'verified-vector16-benchmark': 'review-msi-vector-16-hx-ai',
+  'verified-blade14-benchmark': 'review-razer-blade-14-2026',
+  'verified-blade16-benchmark': 'review-razer-blade-16-2026',
+};
+
+function benchEscape(value) {
+  return String(value ?? '').replace(/[&<>'"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[c]);
 }
 
-/* ── 1% LOWS TABLE ── */
-const lowsData = [
-  { name:'Legion Pro 7i Gen 10',   cp:[148,118], bm:[128,102], aw:[118,95],  stutter:'Excellent', sColor:'var(--green)'  },
-  { name:'ASUS ROG Strix SCAR 18', cp:[142,115], bm:[132,106], aw:[127,101], stutter:'Excellent', sColor:'var(--green)'  },
-  { name:'HP Omen Max 16',         cp:[143,112], bm:[118,92],  aw:[128,100], stutter:'Excellent', sColor:'var(--green)'  },
-  { name:'Razer Blade 16 (2026)',  cp:[130,90],  bm:[120,82],  aw:[122,84],  stutter:'Good',      sColor:'var(--yellow)' },
-  { name:'Legion 5i Gen 10',       cp:[102,80],  bm:[85,66],   aw:[88,70],   stutter:'Good',      sColor:'var(--yellow)' },
-  { name:'MSI Vector 16 HX AI',    cp:[98,76],   bm:[82,63],   aw:[84,66],   stutter:'Good',      sColor:'var(--yellow)' },
-  { name:'TUF Gaming F16',         cp:[88,68],   bm:[72,55],   aw:[74,57],   stutter:'Good',      sColor:'var(--yellow)' },
-  { name:'Lenovo LOQ 15',          cp:[72,54],   bm:[58,42],   aw:[60,44],   stutter:'Acceptable',sColor:'var(--orange)' },
-];
-
-function renderLowsTable() {
-  const tbody = document.getElementById('lows-tbody');
-  if (!tbody) return;
-  tbody.innerHTML = lowsData.map((d, i) => {
-    const fmt = (avg, low) => {
-      const pct = Math.round(low / avg * 100);
-      const c   = pct >= 80 ? 'var(--green)' : pct >= 65 ? 'var(--yellow)' : 'var(--orange)';
-      return `<span style="color:var(--white)">${avg}</span>&thinsp;/&thinsp;<span style="color:${c}">${low}</span>`;
-    };
-    const hidden = i >= 4 ? ' style="display:none"' : '';
-    return `<tr${hidden} style="border-bottom:1px solid rgba(30,42,54,.5)${i>=4?';display:none':''}">
-      <td style="padding:10px 14px;font-family:'Barlow',sans-serif;font-size:13px;font-weight:600;color:var(--white)">${d.name}</td>
-      <td style="padding:10px 14px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px">${fmt(...d.cp)}</td>
-      <td style="padding:10px 14px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px">${fmt(...d.bm)}</td>
-      <td style="padding:10px 14px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px">${fmt(...d.aw)}</td>
-      <td style="padding:10px 14px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:${d.sColor}">${d.stutter}</td>
-    </tr>`;
-  }).join('');
-  const btn = document.getElementById('lows-expand-btn');
-  if (btn) btn.textContent = `Show all ${lowsData.length} laptops ▼`;
+function benchGpuLabel(configuration) {
+  const parts = String(configuration || '').split(' · ');
+  const gpu = parts.find(part => /RTX|Radeon/.test(part)) || '';
+  const power = parts.find(part => /\d+\s*W\b/.test(part) && !/SSD|RAM|DDR/.test(part)) || '';
+  return [gpu.replace(/\s*Laptop$/, ''), power].filter(Boolean).join(' · ');
 }
 
-/* ── GENERIC INLINE TABLE TOGGLE ── */
-function toggleInlineTable(tableId, btnId, label) {
-  const tbody = document.querySelector('#' + tableId + ' tbody');
-  const btn   = document.getElementById(btnId);
-  if (!tbody || !btn) return;
-  const rows  = Array.from(tbody.querySelectorAll('tr'));
-  const hiddenRows = rows.slice(4);
-  if (!hiddenRows.length) return;
-  const isCollapsed = hiddenRows[0].style.display === 'none' || hiddenRows[0].style.display === '';
-  hiddenRows.forEach(r => { r.style.display = isCollapsed ? 'table-row' : 'none'; });
-  btn.textContent = isCollapsed
-    ? `Show fewer ▲`
-    : `Show all ${rows.length} ${label} ▼`;
+function benchRows(metric) {
+  return Object.entries(window.FL_MODEL_BENCHMARKS || {}).flatMap(([id, data]) => {
+    const hit = (data.synthetics || []).find(row => row[0] === metric.test && row[1] === metric.part && Number.isFinite(row[2]));
+    if (!hit) return [];
+    const source = data.sources?.[0] || [];
+    return [{ id, title: data.title, gpu: benchGpuLabel(data.configuration), score: hit[2], sourceName: source[0] || 'Published source', sourceUrl: source[1] || '' }];
+  }).sort((a, b) => b.score - a.score);
+}
+
+function renderBenchBoard(index) {
+  const board = document.getElementById('bench-board');
+  const metric = BENCH_METRICS[index];
+  if (!board || !metric) return;
+  const rows = benchRows(metric);
+  const max = Math.max(...rows.map(row => row.score));
+  board.setAttribute('aria-labelledby', `bench-tab-${index}`);
+  board.innerHTML = rows.map(row => {
+    const review = BENCH_REVIEWS[row.id];
+    const name = review ? `<a href="${review}">${benchEscape(row.title)}</a>` : benchEscape(row.title);
+    const source = row.sourceUrl
+      ? `<a href="${benchEscape(row.sourceUrl)}" rel="nofollow noopener" target="_blank">${benchEscape(row.sourceName)}</a>`
+      : benchEscape(row.sourceName);
+    return `<div class="bench-row">
+      <div class="bench-name">${name}<span class="bench-cfg">${benchEscape(row.gpu)}</span></div>
+      <div class="bench-bar" aria-hidden="true"><span style="width:${(row.score / max * 100).toFixed(1)}%"></span></div>
+      <div class="bench-score">${row.score.toLocaleString('en-US')}</div>
+      <div class="bench-src">${source}</div>
+    </div>`;
+  }).join('');
+}
+
+function initBenchBoard() {
+  const tabs = document.getElementById('bench-tabs');
+  if (!tabs || !window.FL_MODEL_BENCHMARKS) return;
+  tabs.innerHTML = BENCH_METRICS.map((metric, index) => {
+    const count = benchRows(metric).length;
+    return `<button id="bench-tab-${index}" class="gpu-tab${index === 0 ? ' active' : ''}" type="button" role="tab" aria-selected="${index === 0}" tabindex="${index === 0 ? 0 : -1}" data-bench-index="${index}" onkeydown="handlePicksTabKey(event)">${metric.label} · ${metric.role} (${count})</button>`;
+  }).join('');
+  tabs.addEventListener('click', event => {
+    const btn = event.target.closest('[data-bench-index]');
+    if (!btn) return;
+    tabs.querySelectorAll('[role="tab"]').forEach(tab => {
+      const isActive = tab === btn;
+      tab.classList.toggle('active', isActive);
+      tab.setAttribute('aria-selected', String(isActive));
+      tab.tabIndex = isActive ? 0 : -1;
+    });
+    renderBenchBoard(Number(btn.dataset.benchIndex));
+  });
+  renderBenchBoard(0);
 }
 
 /* ── INIT ── */
 document.addEventListener('DOMContentLoaded', function () {
   syncHomepageCounts();
   renderPicksGrids();
+  initBenchBoard();
   updateFinder();
 });
 </script>
