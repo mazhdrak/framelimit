@@ -241,7 +241,7 @@ Checked all 40 direct Amazon ASINs with the built-in browser, delivery ZIP 10001
 - Reference prices for checked records dated 2026-09-27; `FL_DATA_LAST_CHECKED` label now "Amazon links checked Sep 27, 2026". Cache versions `laptops.js?v=20260927-1`, `price-data.js?v=20260927-1`, `laptop-cards.js?v=20260927-1`.
 - All 27 audits plus retail-price and budget-offer tests pass. Amazon audit: 39 managed ASINs, 0 unresolved.
 
-Open items: 2026 model refreshes (Strix G16/SCAR 18 2026 with 290HX Plus, Legion Pro 7i Gen 11, Alienware 16 Area-51 2026, TUF 2026) are on Amazon US and not covered; RTX Spark laptops expected in October; price workflow still fails daily on Amazon Associates eligibility; EU visitors are redirected to amazon.co.uk where the US tag earns nothing.
+Open items: 2026 model refreshes (Strix G16/SCAR 18 2026 with 290HX Plus, Legion Pro 7i Gen 11, Alienware 16 Area-51 2026, TUF 2026) are on Amazon US and not covered; RTX Spark laptops expected in October; price workflow still fails daily on Amazon Associates eligibility. (EU redirect concern resolved Sep 28, see below.)
 
 ## Homepage FPS chart removed — September 28, 2026
 
@@ -263,3 +263,10 @@ Checked the handoff list of 2026 refreshes in the built-in browser. Amazon deliv
 - No exact-configuration benchmarks yet, so neither model is in `benchmark-data.js` or the homepage leaderboard. Tom's Hardware and Ultrabookreview tested G835LXG (RTX 5090), which is not sold on Amazon US. MyFixGuide's "RTX 5080" SCAR 18 2026 review is internally inconsistent (text and scores describe an RTX 5090 / 128GB unit); do not use it.
 - Not added: Legion Pro 7i Gen 11 (no Amazon US listing, no Lenovo US page, only a video review on Notebookcheck on Sep 28); Alienware 16 Area-51 2026 (only 275HX listings and resellers); TUF 2026 (only reseller bundles with RTX 4050/5050). Candidate found: Alienware 16X with Ultra 9 290HX and RTX 5070 (ASIN B0H5D3PQ1M), not yet verified.
 - Updated static counts and dates on the display database (35 rows, 6 Mini-LED, 20 IPS, 15 fast), TGP database (33/31) and price report (35) pages, sitemap lastmod, and bumped `laptops.js?v=20260928-1` on all 16 pages. All 27 audits and both regression tests pass; Amazon audit: 41 managed ASINs, 0 unresolved.
+
+## Amazon global earning — September 28, 2026
+
+- The US Associates account (framelimit20-20) has Global earning preferences enabled for 10 of 10 stores: US, Canada, France, Germany, Italy, Netherlands, Poland, Spain, Sweden, UK (owner screenshot, Sep 28). No separate EU Associates accounts are needed for these stores. OneLink is only needed for Japan, Australia, Singapore, Ireland, Belgium, India, Brazil, Mexico, Turkey, Saudi Arabia, UAE and Egypt.
+- Browser test from a Bulgarian IP: `amazon.com/dp/B0H4279K5T?tag=framelimit20-20` and `amazon.com/dp/B0FL4HLJ56?tag=framelimit20-20` both redirected to the same ASIN on amazon.co.uk with `tag=framelimit20-20` preserved and Amazon redirect parameters (`ar_srct`, `linkCode=gt2`). Confirm attribution in Associates reports by marketplace before claiming earnings; ASINs missing from a local store were not tested.
+- ASIN coverage check (curl, Sep 28, no captcha): of 30 catalog records with direct Amazon links, the same ASIN has a product page on amazon.co.uk for 25 and on amazon.de for 23. Missing on both: LOQ 15 Gen 10 (B0G2LHS38J), TUF A16 entry (B0G3XTVGTD), Dell G16 (B0FXX3QS1F). Missing on UK only: Legion 5 Gen 10 AMD. Missing on DE only: SCAR 16 2025, Nitro V 16, Zephyrus G16 2026, Strix G16 2025. A product page existing does not mean it is in stock or sold new in that store. Guide-only ASINs were not checked.
+- Not added: Alienware 16X B0H5D3PQ1M. Dell sells AC16251 with a 290HX Plus CPU option, so it is a configuration of the existing 16X Aurora, and this reseller listing contradicts itself (RTX 5070 vs RTX 5060, OLED vs matte).
