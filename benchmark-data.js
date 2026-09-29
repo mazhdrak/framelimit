@@ -364,7 +364,7 @@
       ],
       synthetics: [['Cinebench R23', 'Multi-core', 33224]],
       sources: [
-        ['PCWorld exact-configuration review', 'https://www.pcworld.com/article/2785374/hp-omen-max-16-review-packs-rtx-5080-performance-for-a-little-less.html'],
+        ['PCWorld 16-ah0070ca review (Canadian 2TB configuration)', 'https://www.pcworld.com/article/2785374/hp-omen-max-16-review-packs-rtx-5080-performance-for-a-little-less.html'],
         ['RTINGS 16-ah0070ca configuration verification', 'https://www.rtings.com/laptop/reviews/hp/omen-max-16-2025']
       ]
     },
