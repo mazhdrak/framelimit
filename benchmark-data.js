@@ -372,11 +372,11 @@
       title: 'HP Omen Transcend 14 (2025)',
       configuration: '14-fb1053dx · Core Ultra 9 285H · RTX 5070 Laptop · 8GB GDDR7 · 32GB LPDDR5X · 2880x1800 OLED 120Hz',
       games: [
-        ['FBC: Firebreak', 'Resolution / preset not stated', 'DLSS 4 state not stated', 'TGP not published by source', 70, null, null]
+        ['FBC: Firebreak', 'Resolution / preset not stated', 'DLSS 4 on (mode not stated) · Nvidia demo conditions', 'TGP not published by source', 70, null, null]
       ],
       synthetics: [],
       sources: [
-        ['Tom\'s Guide hands-on measurement', 'https://www.tomsguide.com/computing/gaming-laptops/i-just-played-marvel-rivals-on-an-rtx-5070-ti-gaming-laptop-and-it-reached-a-shockingly-high-320-fps'],
+        ['Tom\'s Guide brief hands-on under Nvidia demo conditions', 'https://www.tomsguide.com/computing/gaming-laptops/i-just-played-marvel-rivals-on-an-rtx-5070-ti-gaming-laptop-and-it-reached-a-shockingly-high-320-fps'],
         ['HP 14-fb1053dx product specification', 'https://files.bbystatic.com/8OqUBapzCzktVOXeCrjY4g%3D%3D/fd8bf1da-8cc4-49d2-b7e5-ab75963dc412.pdf']
       ]
     },
