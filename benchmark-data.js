@@ -144,7 +144,7 @@
     },
     'verified-raider18-benchmark': {
       title: 'MSI Raider 18 HX AI (2025)',
-      configuration: 'A2XW · Core Ultra 9 285HX · RTX 5080 Laptop · 175W max TGP',
+      configuration: 'A2XWIG · Core Ultra 9 285HX · RTX 5080 Laptop · 175W max TGP · tested with 3840×2400 120Hz Mini LED and 64GB DDR5-6400, unlike the QHD+ 240Hz IPS panel in the MSI US specification',
       games: [
         ['Shadow of the Tomb Raider', '1920×1080 · Highest · RT off', 'Native · DLSS/FG off', '175W max TGP', 194, null, null],
         ['Shadow of the Tomb Raider', '3840×2160 · Highest · RT off', 'Native · DLSS/FG off', '175W max TGP', 100, null, null],
@@ -154,8 +154,8 @@
         ['3DMark Time Spy', 'Overall', 21152], ['3DMark Port Royal', 'Overall', 14044]
       ],
       sources: [
-        ['PCWorld exact-configuration review', 'https://www.pcworld.com/article/2683984/msi-raider-18-hx-ai-review.html'],
-        ['PC Gamer configuration verification', 'https://www.pcgamer.com/hardware/gaming-laptops/msi-raider-18-hx-ai-a2xw-gaming-laptop-review/']
+        ['PCWorld A2XWIG review (4K Mini LED, 4TB PCIe 5.0 unit)', 'https://www.pcworld.com/article/2683984/msi-raider-18-hx-ai-review.html'],
+        ['PC Gamer A2XW review (4K Mini LED, 4TB unit)', 'https://www.pcgamer.com/hardware/gaming-laptops/msi-raider-18-hx-ai-a2xw-gaming-laptop-review/']
       ]
     },
     'verified-stealtha16-benchmark': {
