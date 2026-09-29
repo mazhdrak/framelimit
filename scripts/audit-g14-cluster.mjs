@@ -12,7 +12,7 @@ const RETAIL = {
   ram: '32GB',
   resolution: ['2880×1800', '2880&times;1800'],
   battery: '73Wh',
-  weight: '1.57kg'
+  weight: '1.50kg'
 };
 
 const FILES = [
