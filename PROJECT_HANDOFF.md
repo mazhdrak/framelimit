@@ -348,6 +348,13 @@ Second pass the same day (owner approved all three open items):
 - The five under-$X guides open with a "The short answer" box (who each eligible laptop suits, what to skip) written only from facts already on the page; unsupported "best value/best build" labels were avoided. The repeated ZIP 10001 methodology paragraph is inside `<details class="how-checked">`. When the budget order changes, update the short answer together with the quick-picks list — no audit checks it.
 - Replaced the visible "Exact <model code> model code" pros (8 cards, under-$1,000 to $2,500) with "Listing names the exact factory model code" to follow the public naming policy.
 
+## Reviews hub and guides index — September 30, 2026
+
+- `reviews.html`: in all 20 review cards the benchmark block, pros/cons and verdict are inside `<details class="rc-more">` (specs, summary and CTAs stay visible). The markup is unchanged inside, so ranking/readiness audits still read it; `benchmark-data.js` still renders into the collapsed blocks. A small script opens the enclosing `<details>` when the URL hash targets an element inside it. The evidence note and "How to read the FPS charts" standard moved into a collapsed `.hub-method` block under the filters. Latest 2026 cards got the photo each review page already uses (Raider A18 AMD and Alienware 16 Aurora reuse the Raider 18 and 16X images, as their reviews do). Card photos now follow the text column height. Desktop page height ~35,100px → ~16,900px.
+- Corrected the SCAR 18 hub pros that the Sep 28 audit missed: "over 2,000 dimming zones and 1,200 nits peak HDR" (ASUS) instead of 2,048 / 1,100, and "175W maximum graphics power" instead of "highest TGP available".
+- Benchmark tables site-wide: cells 13px (FPS 15px), headers 10px, notes 11px (were 10/8/8-9px).
+- `guides.html`: jump links (a `div role="navigation"`, because the global `nav` style is fixed-position), six photo cards for the budget guides, a separate "By GPU & Platform" list, two-column lists on desktop, emoji icons hidden. Rewrote stale or unsupported descriptions (e.g. "NVENC Gen 7 tested… under 3% fps drop", "11-game head-to-head", machine counts, factory codes in comparison blurbs; the July price report is now described as the link-only coverage report).
+
 ## Next steps — updated September 30, 2026
 
 1. Owner: confirm in Associates Central that the account is active and approved, and check reports by marketplace (US and EU global earning). Third-party Marketplace purchases through tagged links count as qualifying purchases only if the account is in good standing. The price-update workflow still fails on Amazon API eligibility.
