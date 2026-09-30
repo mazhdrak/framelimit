@@ -13,7 +13,7 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260911-1">
+<link rel="stylesheet" href="style.css?v=20260930-2">
 <style>
 .brand-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:24px 20px;max-width:900px;margin:0 auto}
 .brand-btn{padding:8px 18px;border:1.5px solid var(--border);background:var(--panel);color:var(--muted);border-radius:4px;cursor:pointer;font-family:'Barlow',sans-serif;font-weight:600;font-size:13px;letter-spacing:.04em;transition:.2s}
@@ -126,8 +126,7 @@
   <button class="brand-btn" onclick="jumpBrand('razer',this)">Razer</button>
   <button class="brand-btn" onclick="jumpBrand('alienware',this)">Alienware</button>
   <button class="brand-btn" onclick="jumpBrand('hp',this)">HP Omen</button>
-  <button class="brand-btn" onclick="jumpBrand('acer',this)">Acer Predator</button>
-  <button class="brand-btn" onclick="jumpBrand('dell',this)">Dell</button>
+  <button class="brand-btn" onclick="jumpBrand('acer',this)">Acer</button>
   <button class="brand-btn" onclick="jumpBrand('gigabyte',this)">Gigabyte</button>
 </div>
 
@@ -171,7 +170,7 @@
 <div class="brand-section-header" id="brand-asus">
   <div class="bsh-line"></div>
   <h2>ASUS ROG</h2>
-  <div class="bsh-tag">2 MODELS REVIEWED</div>
+  <div class="bsh-tag">3 MODELS REVIEWED</div>
   <div class="bsh-line"></div>
 </div>
 
@@ -414,7 +413,7 @@
 <div class="brand-section-header" id="brand-lenovo">
   <div class="bsh-line"></div>
   <h2>LENOVO LEGION</h2>
-  <div class="bsh-tag">2 MODELS REVIEWED</div>
+  <div class="bsh-tag">4 MODELS REVIEWED</div>
   <div class="bsh-line"></div>
 </div>
 
@@ -655,7 +654,7 @@
 <div class="brand-section-header" id="brand-msi">
   <div class="bsh-line"></div>
   <h2>MSI</h2>
-  <div class="bsh-tag">2 MODELS REVIEWED</div>
+  <div class="bsh-tag">4 MODELS REVIEWED</div>
   <div class="bsh-line"></div>
 </div>
 
@@ -1153,7 +1152,7 @@
 <div class="brand-section-header" id="brand-hp">
   <div class="bsh-line"></div>
   <h2>HP OMEN</h2>
-  <div class="bsh-tag">2 MODELS REVIEWED</div>
+  <div class="bsh-tag">1 MODEL REVIEWED</div>
   <div class="bsh-line"></div>
 </div>
 
@@ -1343,12 +1342,6 @@
 </article>
 
 <!-- DELL -->
-<div class="brand-section-header" id="brand-dell">
-  <div class="bsh-line"></div>
-  <h2>DELL</h2>
-  <div class="bsh-tag">1 MODEL REVIEWED</div>
-  <div class="bsh-line"></div>
-</div>
 
 
 <article class="archived-review-record" id="dell-g16-archived" data-cats="archived" hidden aria-hidden="true">
@@ -1613,6 +1606,16 @@ function openHashTarget() {
 }
 window.addEventListener('hashchange', openHashTarget);
 window.addEventListener('load', openHashTarget);
+
+/* Keep each brand header's "N models reviewed" tag in step with the published cards below it */
+document.querySelectorAll('.brand-section-header').forEach(header => {
+  let count = 0;
+  for (let el = header.nextElementSibling; el && !el.classList.contains('brand-section-header'); el = el.nextElementSibling) {
+    if (el.matches('article.review-card') && !el.hidden) count++;
+  }
+  const tag = header.querySelector('.bsh-tag');
+  if (tag && count) tag.textContent = count + (count === 1 ? ' MODEL REVIEWED' : ' MODELS REVIEWED');
+});
 </script>
 <script src="nav.js"></script>
 </body>

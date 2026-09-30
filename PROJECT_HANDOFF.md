@@ -364,3 +364,15 @@ Second pass the same day (owner approved all three open items):
 5. Other budget guides still carry Sep 27 observations; rerun a full ZIP 10001 offer check for all guide cards before the next budget update.
 6. From the Sep 28 list, still open: exact-configuration benchmarks for Strix G16 2026 and SCAR 18 2026 (weekly scout), RTX Spark laptops in October through the evidence-review flow, and official 2026 ASUS images.
 7. If a Cloudflare Pages deploy shows "No deployment available", use Retry deployment before changing code.
+
+## Design audit, step 1 — September 30, 2026
+
+Owner principle for all design work: a visitor should find a laptop they like and buy it. A full audit of all 79 sitemap pages (375px and 1440px) found no document overflow, broken images or missing alt text. Step 1 fixes:
+
+- Every page now loads `style.css?v=20260930-2` (and review pages `review-conversion.css?v=20260930-2`). There were nine different version strings, and 52 pages had none. Returning visitors could see new components unstyled: the under-$1,500 "short answer" rendered as plain text from a cached July stylesheet. Live responses send `Cache-Control: max-age=14400` for style.css even though `_headers` asks for `max-age=0`, so something on the Cloudflare side overrides it (probably Browser Cache TTL; not checked). Bump the shared version on every CSS change.
+- Orange buy buttons (`.btn-buy`, `.btn-buy.am`, `.nav-cta`), orange/purple badges and inline orange/grey budget badges now use dark text. White on orange measured 2.6–3.2:1; dark text is about 5.7–7:1.
+- Removed the visible "ADVERTISEMENT · 728×90" placeholders from five guides.
+- Reviews hub: brand counts corrected (ASUS 3, Lenovo 4, MSI 4, HP 1) and now recalculated from the visible cards at runtime. Removed the empty Dell header and its filter button; the hidden archived Dell record remains. The "Acer Predator" filter is now "Acer".
+- All 27 audits and both tests pass.
+
+Remaining audit order: (2) one shared footer, minimum text/tap-target sizes, and the nav wrapping between 769 and 1100px; (3) plain-language copy on comparisons/RTX vs AMD/Compare and less repetition in budget guides; (4) image width/height and active nav state.
