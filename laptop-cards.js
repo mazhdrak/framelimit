@@ -62,11 +62,9 @@ function flRetailerNote(laptop) {
   const status = window.flRetailerStatus
     ? window.flRetailerStatus(laptop)
     : (/amazon\.com\/dp\//.test(laptop.amazonUrl || '') ? 'Verified Amazon product page' : 'Amazon search fallback');
+  // No individual prices are shown, so the reference-price date is left out here.
   const checked = window.FL_DATA_LAST_CHECKED_LABEL || 'Price/spec checked recently';
-  const priceChecked = window.flReferencePriceStatus && Number.isFinite(laptop.price)
-    ? ` · ${window.flReferencePriceStatus(laptop)}`
-    : '';
-  return `${status}${priceChecked} · ${checked}`;
+  return `${status} · ${checked}`;
 }
 
 /* ── Review anchor link ── */

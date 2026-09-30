@@ -521,10 +521,26 @@
     if (!section || !data || section.dataset.rendered === 'true') return;
     section.dataset.rendered = 'true';
     section.className = 'verified-benchmark verified-model-benchmark';
+    // Average FPS sits next to the setting so it stays visible without horizontal scroll.
+    // Columns that repeat one value on every row move into a note above the table,
+    // and 1% low / minimum columns are dropped when the source published none.
+    const isUniform = index => data.games.every(row => row[index] === data.games[0]?.[index]);
+    const hasValues = index => data.games.some(row => row[index] !== null && row[index] !== undefined);
+    const showMode = !isUniform(2);
+    const showPower = !isUniform(3);
+    const showLow = hasValues(5);
+    const showMin = hasValues(6);
+    const sharedConditions = [!showMode && data.games[0]?.[2], !showPower && data.games[0]?.[3]].filter(Boolean);
+    const unreported = [!showLow && '1% low', !showMin && 'minimum FPS'].filter(Boolean);
     const gameRows = data.games.map(row => `<tr>
-      <td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td>
-      ${valueCell(row[4], 'fps')}${valueCell(row[5], 'low')}${valueCell(row[6], 'minimum')}
+      <td>${row[0]}</td><td>${row[1]}</td>${valueCell(row[4], 'fps')}
+      ${showLow ? valueCell(row[5], 'low') : ''}${showMin ? valueCell(row[6], 'minimum') : ''}
+      ${showMode ? `<td>${row[2]}</td>` : ''}${showPower ? `<td>${row[3]}</td>` : ''}
     </tr>`).join('');
+    const tableNote = [
+      sharedConditions.length ? `All rows: ${sharedConditions.join(' · ')}.` : '',
+      unreported.length ? `The source did not publish ${unreported.join(' or ')} for these runs.` : '',
+    ].filter(Boolean).join(' ');
     const syntheticBlock = data.synthetics.length ? `
       <section class="verified-bench-group">
         <div class="verified-bench-title"><h4>Synthetic benchmarks</h4><span>Graphics and overall scores remain separate</span></div>
@@ -536,8 +552,9 @@
     const gamingBlock = data.games.length ? `
       <section class="verified-bench-group">
         <div class="verified-bench-title"><h4>Gaming performance</h4><span>Average FPS · exact settings shown per row</span></div>
+        ${tableNote ? `<p class="verified-bench-coverage">${tableNote}</p>` : ''}
         <div class="verified-table-wrap"><table class="verified-bench-table model-results-table">
-          <thead><tr><th>Game</th><th>Resolution / preset</th><th>Render mode</th><th>GPU power</th><th>Average</th><th>1% low</th><th>Minimum</th></tr></thead>
+          <thead><tr><th>Game</th><th>Resolution / preset</th><th>Average FPS</th>${showLow ? '<th>1% low</th>' : ''}${showMin ? '<th>Minimum</th>' : ''}${showMode ? '<th>Render mode</th>' : ''}${showPower ? '<th>GPU power</th>' : ''}</tr></thead>
           <tbody>${gameRows}</tbody>
         </table></div>
       </section>` : '<p class="verified-bench-coverage">The cited source published exact-configuration synthetic results, but no game result with enough settings detail for this table. FPS is intentionally not estimated.</p>';

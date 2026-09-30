@@ -329,6 +329,20 @@ The owner supplied Amazon and manufacturer links for the TUF F16 and Omen Transc
 - No subscores remain in the catalog (`scores: {` count 0) or hub cards. Remaining historical overall scores without matched evidence: Transcend 14 (8.6, owner decision pending), Blade 18 (9.1), Nitro 16S (8.3), plus the earlier Katana, LOQ, Area-51, Predator, Legion Pro 7i, SCAR 18/16, Vector, 16X Aurora and Raider 18 records.
 - Working conventions confirmed in this session: reply to the owner in Bulgarian; run all `scripts/audit-*.mjs` plus both `scripts/test-*.mjs` before committing; bump `laptops.js?v=` on all pages when catalog data changes; commit only the files touched, never `audit-homepage/` or `audit-site-2026-09-08/`; push to main after the owner approves; verify the live site after deploy.
 
+## Design pass — September 30, 2026
+
+Owner asked for a "normal visitor" review of the live site. Findings: the design is coherent, but copy reads like an audit log, the homepage repeats the same models in four sections (~17,800px on a 375px phone), review FPS numbers were hidden behind horizontal scroll, and several cards had no images. Fixed in this pass (not yet committed at the time of writing):
+
+- Homepage: removed the visible `ADVERTISEMENT · 728×90 · AdSense / Ezoic Unit` placeholder; Laptop Finder no longer prints individual reference prices (shows "Within/Above this budget at our last offer check" plus the offer-check date; filtering still uses the internal price); hero says "N Scored · M Specs-Only" instead of "Ranked + New Reviews"; removed the duplicate "All N Laptops — Specs at a Glance" heading (count moved into the section subtitle); corrected the stale under-$1,500, under-$3,000 and "31-model" card copy.
+- Images: tier pick cards now show the catalog photo; the 20 guide cards use a relevant existing product photo (or a text label for concept guides) instead of emoji, some of which rendered as faint glyphs. No new images were downloaded.
+- Repeated micro-notes: tier cards show one retailer status line with a single shared date/affiliate note under the grid; `flRetailerNote` no longer appends "Reference price checked …" because no price is displayed.
+- Review benchmark tables (`renderModelBenchmark`): Average FPS is now the third column; columns with one value on every row (render mode, GPU power) and empty 1% low / minimum columns collapse into a note above the table. The 1040px min-width was removed. Checked desktop 1440 and mobile 375 (Nitro V 16S, Katana 15 HX).
+- Versions: `benchmark-data.js?v=20260930-1` (nav.js, index, reviews, DLSS database), `laptop-cards.js?v=20260930-1` on index. style.css is served with must-revalidate.
+- All 27 audits and both tests pass; Amazon audit 42 managed ASINs, 0 unresolved, 237 direct HTML links.
+- `.claude/launch.json` (python http.server on 8765) was added for local preview; it is untracked and not part of the site.
+
+Still open from the review (owner decision needed): shorten the homepage (merge Top Picks with the tier section, move the full spec table to /compare or collapse it); rewrite guide openings in buyer language ("with $X, buy Y because Z") and fold methodology into a collapsible "How we checked" block; reconsider the large "N/R" on budget-guide #1 cards.
+
 ## Next steps — updated September 30, 2026
 
 1. Owner: confirm in Associates Central that the account is active and approved, and check reports by marketplace (US and EU global earning). Third-party Marketplace purchases through tagged links count as qualifying purchases only if the account is in good standing. The price-update workflow still fails on Amazon API eligibility.
