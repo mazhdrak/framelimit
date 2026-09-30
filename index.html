@@ -60,7 +60,7 @@
 <meta name="theme-color" content="#00D4FF">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260930-4">
+<link rel="stylesheet" href="style.css?v=20260930-7">
 <style>
 .bench-tabs .gpu-tab{flex:1 1 auto}
 .bench-board{display:flex;flex-direction:column;border:1px solid var(--border);background:var(--panel)}
@@ -109,6 +109,15 @@
         <div class="hs"><div class="hs-num">0</div><div class="hs-label">Sponsored Rankings</div></div>
       </div>
     </div>
+    <div class="hero-shop" role="navigation" aria-label="Shop by budget">
+      <div class="hero-shop-title">Shop by budget</div>
+      <a href="guide-best-gaming-laptop-under-1000"><span>Under $1,000</span><small>Entry-level RTX</small></a>
+      <a href="guide-best-gaming-laptop-under-1500"><span>Under $1,500</span><small>RTX 5060 and 5070</small></a>
+      <a href="guide-best-gaming-laptop-under-2000"><span>Under $2,000</span><small>RTX 5060 to 5070 Ti</small></a>
+      <a href="guide-best-gaming-laptop-under-2500"><span>Under $2,500</span><small>RTX 5070 and all-AMD</small></a>
+      <a href="guide-best-gaming-laptop-under-3000"><span>Under $3,000</span><small>RTX 5070 and 5080</small></a>
+      <a href="guide-best-flagship-gaming-laptop-2026"><span>No limit</span><small>RTX 5080 and 5090 flagships</small></a>
+    </div>
   </div>
 </section>
 
@@ -116,9 +125,9 @@
 <div class="tools-bar">
   <div class="tools-inner">
     <span class="tool-label">Interactive Tools:</span>
-    <a href="#benchmarks" class="tool-btn">📊 GPU Benchmarks</a>
-    <a href="#compare-tool" class="tool-btn">📋 Spec Comparison</a>
-    <a href="#finder" class="tool-btn">🎯 Laptop Finder</a>
+    <a href="#benchmarks" class="tool-btn">GPU Benchmarks</a>
+    <a href="#compare-tool" class="tool-btn">Spec Comparison</a>
+    <a href="#finder" class="tool-btn">Laptop Finder</a>
   </div>
 </div>
 
@@ -511,9 +520,11 @@ function updateFinder() {
   }
 
   const exactCount = matches.filter(laptop => laptop.price <= budget).length;
+  const overCount = matches.length - exactCount;
   const platformLabel = currentPlatform === 'any' ? 'all platforms' : currentPlatform === 'nvidia' ? 'NVIDIA RTX' : 'AMD CPU / Radeon';
+  const overNote = overCount ? ` · ${overCount} just above it for comparison` : '';
   document.getElementById('finder-summary').textContent = exactCount
-    ? `${exactCount} match${exactCount === 1 ? '' : 'es'} at or below $${budget.toLocaleString()} · ${platformLabel}`
+    ? `${exactCount} match${exactCount === 1 ? '' : 'es'} at or below $${budget.toLocaleString()}${overNote} · ${platformLabel}`
     : `No checked offers at or below $${budget.toLocaleString()} · showing the closest options for ${platformLabel}`;
 
   document.getElementById('finder-result').innerHTML = matches.map((laptop, index) => {
@@ -522,7 +533,7 @@ function updateFinder() {
     const secondaryUrl = reviewUrl || guide.link;
     const secondaryLabel = reviewUrl ? 'Read Review →' : guide.label;
     return `<article class="finder-result${isOverBudget ? ' is-over-budget' : ''}">
-      <div class="fr-match">${isOverBudget ? 'Closest Option' : index === 0 ? 'Best Match' : `Alternative ${index}`}</div>
+      <div class="fr-match">${isOverBudget ? 'Just Above Budget' : index === 0 ? 'Best Match' : `Alternative ${index}`}</div>
       <div class="fr-title">${laptop.shortName}</div>
       <div class="fr-price">${isOverBudget ? 'Above this budget' : 'Within this budget'} at our last offer check</div>
       <div class="fr-sub">${laptop.gpu} ${laptop.tgp == null ? 'TGP n/a' : `${laptop.tgp}W`} · ${laptop.display.size}" ${laptop.display.panel} ${laptop.display.hz}Hz · ${laptop.ram} · ${laptop.bestFor}</div>

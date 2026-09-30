@@ -13,9 +13,9 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260930-4">
+<link rel="stylesheet" href="style.css?v=20260930-7">
 <style>
-.brand-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:24px 20px;max-width:900px;margin:0 auto}
+.brand-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-start;padding:0 32px 20px;max-width:1400px;margin:-16px auto 0}
 .brand-btn{padding:8px 18px;border:1.5px solid var(--border);background:var(--panel);color:var(--muted);border-radius:4px;cursor:pointer;font-family:'Barlow',sans-serif;font-weight:600;font-size:13px;letter-spacing:.04em;transition:.2s}
 .brand-btn:hover,.brand-btn.active{border-color:var(--cyan);color:var(--cyan);background:rgba(0,212,255,.07)}
 .brand-section-header{display:flex;align-items:center;gap:16px;padding:0 20px;max-width:1200px;margin:40px auto 8px}
@@ -130,6 +130,7 @@
   <button class="brand-btn" onclick="jumpBrand('gigabyte',this)">Gigabyte</button>
 </div>
 
+<p class="hub-score-note">Scores are our editorial ratings from each full review, not live deal rankings. Whether a laptop is good value depends on the offer you find, so check the price and configuration on Amazon. <strong>NR</strong> means we have not rated it yet.</p>
 <details class="hub-method">
   <summary>How to read these reviews and benchmark tables</summary>
 <div style="margin-top:8px">
@@ -153,14 +154,14 @@
     <a href="review-asus-tuf-a16-radeon-rx7700s" class="latest-review-card"><span class="latest-review-img"><img width="800" height="800" src="images/laptops/asus-tuf-gaming-a16-amd-advantage.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RX 7700S · Amazon link</span><span class="latest-review-title">TUF Gaming A16 Radeon</span><span class="latest-review-cta">Full Review →</span></a>
     <a href="review-msi-raider-a18-hx-amd" class="latest-review-card"><span class="latest-review-img"><img width="800" height="639" src="images/laptops/msi-raider-18-hx-ai.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5090 · RYZEN X3D</span><span class="latest-review-title">MSI Raider A18 HX AMD</span><span class="latest-review-cta">Full Review →</span></a>
     <a href="review-razer-blade-16-2026" class="latest-review-card"><span class="latest-review-img"><img width="800" height="800" src="images/laptops/razer-blade-16-oled.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5090 · OLED</span><span class="latest-review-title">Razer Blade 16 (2026)</span><span class="latest-review-cta">Full Review →</span></a>
-    <a href="review-asus-rog-zephyrus-g16-2026" class="latest-review-card"><span class="latest-review-img"><img width="800" height="716" src="images/laptops/asus-rog-zephyrus-g16.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5080 · OLED</span><span class="latest-review-title">ASUS ROG Zephyrus G16</span><span class="latest-review-cta">Review details →</span></a>
-    <a href="review-lenovo-legion-5-gen10-amd" class="latest-review-card"><span class="latest-review-img"><img width="800" height="608" src="images/laptops/lenovo-legion-5-amd.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5060 · OLED</span><span class="latest-review-title">Lenovo Legion 5 OLED 16GB</span><span class="latest-review-cta">Review details →</span></a>
-    <a href="review-msi-raider-18-hx-ai" class="latest-review-card"><span class="latest-review-img"><img width="800" height="639" src="images/laptops/msi-raider-18-hx-ai.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5090 · 64GB</span><span class="latest-review-title">MSI Raider 18 HX AI</span><span class="latest-review-cta">Review + retail mapping →</span></a>
-    <a href="review-asus-rog-strix-g16-2026" class="latest-review-card"><span class="latest-review-img"><img width="800" height="800" src="images/laptops/asus-rog-strix-g16-2026.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5080 · 64GB</span><span class="latest-review-title">ASUS ROG Strix G16</span><span class="latest-review-cta">Review + retail mapping →</span></a>
-    <a href="review-hp-omen-max-16-2026" class="latest-review-card"><span class="latest-review-img"><img width="800" height="600" src="images/laptops/hp-omen-max-16.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5080 · 32GB</span><span class="latest-review-title">HP Omen Max 16</span><span class="latest-review-cta">Review details →</span></a>
-    <a href="review-asus-tuf-gaming-f16-rtx5070" class="latest-review-card"><span class="latest-review-img"><img width="800" height="800" src="images/laptops/asus-tuf-gaming-f16.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5070 · 32GB</span><span class="latest-review-title">ASUS TUF Gaming F16</span><span class="latest-review-cta">Review details →</span></a>
-    <a href="review-asus-tuf-gaming-a16-2026" class="latest-review-card"><span class="latest-review-img"><img width="800" height="800" src="images/laptops/asus-tuf-gaming-a16-amd-advantage.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5070 · 64GB</span><span class="latest-review-title">ASUS TUF Gaming A16</span><span class="latest-review-cta">Review details →</span></a>
-    <a href="review-alienware-16-aurora" class="latest-review-card"><span class="latest-review-img"><img width="800" height="661" src="images/laptops/alienware-16x-aurora-m16.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5060 · 32GB</span><span class="latest-review-title">Alienware 16 Aurora</span><span class="latest-review-cta">Review details →</span></a>
+    <a href="review-asus-rog-zephyrus-g16-2026" class="latest-review-card"><span class="latest-review-img"><img width="800" height="716" src="images/laptops/asus-rog-zephyrus-g16.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5080 · OLED</span><span class="latest-review-title">ASUS ROG Zephyrus G16</span><span class="latest-review-cta">Full review →</span></a>
+    <a href="review-lenovo-legion-5-gen10-amd" class="latest-review-card"><span class="latest-review-img"><img width="800" height="608" src="images/laptops/lenovo-legion-5-amd.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5060 · OLED</span><span class="latest-review-title">Lenovo Legion 5 OLED 16GB</span><span class="latest-review-cta">Full review →</span></a>
+    <a href="review-msi-raider-18-hx-ai" class="latest-review-card"><span class="latest-review-img"><img width="800" height="639" src="images/laptops/msi-raider-18-hx-ai.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5090 · 64GB</span><span class="latest-review-title">MSI Raider 18 HX AI</span><span class="latest-review-cta">Full review →</span></a>
+    <a href="review-asus-rog-strix-g16-2026" class="latest-review-card"><span class="latest-review-img"><img width="800" height="800" src="images/laptops/asus-rog-strix-g16-2026.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5080 · 64GB</span><span class="latest-review-title">ASUS ROG Strix G16</span><span class="latest-review-cta">Full review →</span></a>
+    <a href="review-hp-omen-max-16-2026" class="latest-review-card"><span class="latest-review-img"><img width="800" height="600" src="images/laptops/hp-omen-max-16.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5080 · 32GB</span><span class="latest-review-title">HP Omen Max 16</span><span class="latest-review-cta">Full review →</span></a>
+    <a href="review-asus-tuf-gaming-f16-rtx5070" class="latest-review-card"><span class="latest-review-img"><img width="800" height="800" src="images/laptops/asus-tuf-gaming-f16.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5070 · 32GB</span><span class="latest-review-title">ASUS TUF Gaming F16</span><span class="latest-review-cta">Full review →</span></a>
+    <a href="review-asus-tuf-gaming-a16-2026" class="latest-review-card"><span class="latest-review-img"><img width="800" height="800" src="images/laptops/asus-tuf-gaming-a16-amd-advantage.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5070 · 64GB</span><span class="latest-review-title">ASUS TUF Gaming A16</span><span class="latest-review-cta">Full review →</span></a>
+    <a href="review-alienware-16-aurora" class="latest-review-card"><span class="latest-review-img"><img width="800" height="661" src="images/laptops/alienware-16x-aurora-m16.webp" alt="" loading="lazy"></span><span class="latest-review-tag">RTX 5060 · 32GB</span><span class="latest-review-title">Alienware 16 Aurora</span><span class="latest-review-cta">Full review →</span></a>
   </div>
 </section>
 
@@ -193,10 +194,9 @@
         <div class="rc-sub"><span class="tier-label tier-flagship">FLAGSHIP</span>RTX 5090 175W · Core Ultra 9 275HX · 18" MiniLED QHD+ 240Hz</div>
         <div class="rc-score-row">
           <div><div class="rc-score-label">Overall Score</div><div class="rc-score-big">9<span>.6</span></div></div>
-          <p>Historical editorial score; current value depends on the exact offer.</p>
         </div>
       </div>
-      <a href="https://www.amazon.com/dp/B0DW1WX8H2?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">See price on Amazon ↓</a>
+      <a href="https://www.amazon.com/dp/B0DW1WX8H2?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">Check price on Amazon →</a>
     </div>
   </div>
   <div class="rc-body">
@@ -229,7 +229,6 @@
     </div>
     </details>
     <div class="cta-row">
-      <a href="https://www.amazon.com/dp/B0DW1WX8H2?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored">Check Price on Amazon</a>
       <a href="review-asus-rog-strix-scar-18-2026" class="btn-ghost">Full Review →</a>
     </div>
   </div>
@@ -254,10 +253,9 @@
         <div class="rc-sub"><span class="tier-label tier-flagship">FLAGSHIP</span>RTX 5080 175W &middot; Core Ultra 9 275HX &middot; 16&quot; MiniLED QHD 240Hz &middot; 2.8kg</div>
         <div class="rc-score-row">
           <div><div class="rc-score-label">Overall Score</div><div class="rc-score-big">9<span>.4</span></div></div>
-          <p>Historical editorial score; current value depends on the exact offer.</p>
         </div>
       </div>
-      <a href="https://www.amazon.com/dp/B0DW1SB1F9?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">See price on Amazon &#8595;</a>
+      <a href="https://www.amazon.com/dp/B0DW1SB1F9?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">Check price on Amazon →</a>
     </div>
   </div>
   <div class="rc-body">
@@ -290,7 +288,6 @@
     </div>
     </details>
     <div class="cta-row">
-      <a href="https://www.amazon.com/dp/B0DW1SB1F9?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored">Check Price on Amazon</a>
       <a href="review-asus-rog-strix-scar-16-2026" class="btn-ghost">Full Review &rarr;</a>
     </div>
   </div>
@@ -313,7 +310,7 @@
         <div class="rc-sub"><span class="tier-label tier-flagship">FLAGSHIP</span>RTX 5080 120W · Core Ultra 9 285H · 16&quot; OLED 240Hz · under 2kg</div>
         <div class="rc-score-row"><div><div class="rc-score-label">Editorial status</div><div class="rc-score-big" style="font-size:42px">N/R</div></div><p class="bench-evidence-note">Specification review. Not ranked without matching controlled test evidence.</p></div>
       </div>
-      <a href="https://www.amazon.com/dp/B0DYZ8BSQY?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored noopener" target="_blank">View on Amazon ↓</a>
+      <a href="https://www.amazon.com/dp/B0DYZ8BSQY?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored noopener" target="_blank">Check price on Amazon →</a>
     </div>
   </div>
   <div class="rc-body">
@@ -344,7 +341,6 @@
     </div>
     </details>
     <div class="cta-row">
-      <a href="https://www.amazon.com/dp/B0DYZ8BSQY?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored noopener" target="_blank">View ASUS ROG Zephyrus G16 on Amazon</a>
       <a href="review-asus-rog-zephyrus-g16-2026" class="btn-ghost">Full Review &rarr;</a>
     </div>
   </div>
@@ -436,10 +432,9 @@
         <div class="rc-sub"><span class="tier-label tier-flagship">FLAGSHIP</span>RTX 5080 175W · Core Ultra 9 275HX · 16" OLED QHD 240Hz</div>
         <div class="rc-score-row">
           <div><div class="rc-score-label">Overall Score</div><div class="rc-score-big">9<span>.4</span></div></div>
-          <p>Historical editorial score; current value depends on the exact offer.</p>
         </div>
       </div>
-      <a href="https://www.amazon.com/dp/B0FL4HLJ56?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">See price on Amazon ↓</a>
+      <a href="https://www.amazon.com/dp/B0FL4HLJ56?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">Check price on Amazon →</a>
     </div>
   </div>
   <div class="rc-body">
@@ -472,7 +467,6 @@
     </div>
     </details>
     <div class="cta-row">
-      <a href="https://www.amazon.com/dp/B0FL4HLJ56?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored">Check Price on Amazon</a>
       <a href="review-lenovo-legion-pro-7i-gen10" class="btn-ghost">Full Review →</a>
     </div>
   </div>
@@ -497,7 +491,6 @@
         <div class="rc-sub"><span class="tier-label tier-mid">MID-RANGE</span>RTX 5070 · Core Ultra 9 275HX · 16" OLED QHD 240Hz</div>
         <div class="rc-score-row">
           <div><div class="rc-score-label">Overall Score</div><div class="rc-score-big">9<span>.0</span></div></div>
-          <p>Historical editorial score; current value depends on the exact offer.</p>
         </div>
       </div>
       <span class="retail-link-unavailable">Linked Amazon listing under review</span>
@@ -554,7 +547,7 @@
         <div class="rc-sub"><span class="tier-label tier-budget">MID-RANGE</span>RTX 5070 115W · Core Ultra 7 255HX · 15.1" OLED 165Hz</div>
         <div class="rc-score-row"><div><div class="rc-score-label">Editorial status</div><div class="rc-score-big" style="font-size:42px">N/R</div></div><p class="bench-evidence-note">Not ranked: the available benchmark source is a different i7/IPS configuration, not this OLED retail model.</p></div>
       </div>
-      <a href="https://www.amazon.com/dp/B0FSY77WS1?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">See price on Amazon ↓</a>
+      <a href="https://www.amazon.com/dp/B0FSY77WS1?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">Check price on Amazon →</a>
     </div>
   </div>
   <div class="rc-body">
@@ -583,7 +576,6 @@
     </div>
     </details>
     <div class="cta-row">
-      <a href="https://www.amazon.com/dp/B0FSY77WS1?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored">Check Price on Amazon</a>
       <a href="review-lenovo-legion-5i-gen10" class="btn-ghost">Full Review →</a>
     </div>
   </div>
@@ -611,7 +603,7 @@
           <div class="rc-subscores"><div class="ss"><div class="ss-label">Coverage</div><div class="ss-val m">Specs only</div></div></div>
         </div>
       </div>
-      <a href="https://www.amazon.com/dp/B0FPFP4T1R?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">See exact 16GB SKU on Amazon &#8595;</a>
+      <a href="https://www.amazon.com/dp/B0FPFP4T1R?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">Check price on Amazon →</a>
     </div>
   </div>
   <div class="rc-body">
@@ -642,7 +634,6 @@
     </div>
     </details>
     <div class="cta-row">
-      <a href="https://www.amazon.com/dp/B0FPFP4T1R?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored">View Lenovo Legion 5 on Amazon</a>
       <a href="review-lenovo-legion-5-gen10-amd" class="btn-ghost">Full Review &rarr;</a>
     </div>
   </div>
@@ -677,7 +668,6 @@
         <div class="rc-sub"><span class="tier-label tier-flagship">FLAGSHIP</span>RTX 5080 175W · Core Ultra 9 285HX · 18" IPS QHD+ 240Hz</div>
         <div class="rc-score-row">
           <div><div class="rc-score-label">Overall Score</div><div class="rc-score-big">9<span>.3</span></div></div>
-          <p>Historical editorial score; current value depends on the exact offer.</p>
         </div>
       </div>
       <span class="retail-link-unavailable">Linked Amazon listing under review</span>
@@ -736,10 +726,9 @@
         <div class="rc-sub"><span class="tier-label tier-mid">MID-RANGE</span>RTX 5080 · Core Ultra 9 275HX · 16" QHD+ 240Hz</div>
         <div class="rc-score-row">
           <div><div class="rc-score-label">Overall Score</div><div class="rc-score-big">9<span>.0</span></div></div>
-          <p>Historical editorial score; current value depends on the exact offer.</p>
         </div>
       </div>
-      <a href="https://www.amazon.com/dp/B0DTN19VXZ?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">See price on Amazon ↓</a>
+      <a href="https://www.amazon.com/dp/B0DTN19VXZ?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">Check price on Amazon →</a>
     </div>
   </div>
   <div class="rc-body">
@@ -770,7 +759,6 @@
     </div>
     </details>
     <div class="cta-row">
-      <a href="https://www.amazon.com/dp/B0DTN19VXZ?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored">Check Price on Amazon</a>
       <a href="review-msi-vector-16-hx-ai" class="btn-ghost">MSI Vector 16 HX AI RTX 5080 review &rarr;</a>
     </div>
   </div>
@@ -795,7 +783,7 @@
         <div class="rc-sub"><span class="tier-label tier-flagship">HIGH-END</span>RTX 5070 Ti · Ryzen 9 HX 370 · 16" OLED QHD+ 240Hz</div>
         <div class="rc-score-row"><div><div class="rc-score-label">Specification review · related-configuration benchmarks</div><div class="rc-score-big">N/R</div></div></div>
       </div>
-      <a href="https://www.amazon.com/dp/B0DYSHDBPN?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">See price on Amazon ↓</a>
+      <a href="https://www.amazon.com/dp/B0DYSHDBPN?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">Check price on Amazon →</a>
     </div>
   </div>
   <div class="rc-body">
@@ -826,7 +814,6 @@
     </div>
     </details>
     <div class="cta-row">
-      <a href="https://www.amazon.com/dp/B0DYSHDBPN?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored">Check Price on Amazon</a>
     
       <a href="review-msi-stealth-a16-ai-plus" class="btn-ghost">Full Review →</a></div>
   </div>
@@ -850,10 +837,9 @@
         <div class="rc-sub"><span class="tier-label tier-mid">MID-RANGE</span>RTX 5070 115W · Core i9-14900HX · 15.6" QHD 165Hz</div>
         <div class="rc-score-row">
           <div><div class="rc-score-label">Overall Score</div><div class="rc-score-big">7<span>.9</span></div></div>
-          <p>Historical editorial score; current value depends on the exact offer.</p>
         </div>
       </div>
-      <a href="https://www.amazon.com/dp/B0DZFVBQLK?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">See price on Amazon ↓</a>
+      <a href="https://www.amazon.com/dp/B0DZFVBQLK?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">Check price on Amazon →</a>
     </div>
   </div>
   <div class="rc-body">
@@ -884,7 +870,6 @@
     </div>
     </details>
     <div class="cta-row">
-      <a href="https://www.amazon.com/dp/B0DZFVBQLK?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored">Check Price on Amazon</a>
       <a href="review-msi-katana-15-hx" class="btn-ghost">Full Review →</a>
     </div>
   </div>
@@ -920,7 +905,7 @@
         <div class="rc-sub"><span class="tier-label tier-flagship">FLAGSHIP</span>RTX 5090 up to 165W · Core Ultra 9 386H · 16" OLED QHD+ 240Hz · 2.14kg</div>
         <div class="rc-score-row"><div><div class="rc-score-label">Editorial status</div><div class="rc-score-big" style="font-size:42px">N/R</div></div><p class="bench-evidence-note">Not ranked until a controlled FRAMELIMIT test or sufficient matching evidence supports a score.</p></div>
       </div>
-      <a href="https://www.amazon.com/dp/B0H31WLMW8?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">Check price on Amazon ↓</a>
+      <a href="https://www.amazon.com/dp/B0H31WLMW8?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">Check price on Amazon →</a>
     </div>
   </div>
   <div class="rc-body">
@@ -952,7 +937,6 @@
     </div>
     </details>
     <div class="cta-row">
-      <a href="https://www.amazon.com/dp/B0H31WLMW8?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored">Check price on Amazon</a>
       <a href="review-razer-blade-16-2026" class="btn-ghost">Full Review →</a>
     </div>
   </div>
@@ -977,7 +961,7 @@
         <div class="rc-sub"><span class="tier-label tier-mid">MID-RANGE</span>RTX 5070 115W · Ryzen AI 9 365 · 14" OLED 3K 120Hz · 1.63kg</div>
         <div class="rc-score-row"><div><div class="rc-score-label">Editorial status</div><div class="rc-score-big" style="font-size:42px">N/R</div></div><p class="bench-evidence-note">Not ranked until a controlled FRAMELIMIT test or sufficient matching evidence supports a score.</p></div>
       </div>
-      <a href="https://www.amazon.com/dp/B0DYLB2QRF?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored noopener" target="_blank">VIEW RAZER BLADE 14 ON AMAZON ↓</a>
+      <a href="https://www.amazon.com/dp/B0DYLB2QRF?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored noopener" target="_blank">Check price on Amazon →</a>
     </div>
   </div>
   <div class="rc-body">
@@ -1008,7 +992,6 @@
     </div>
     </details>
     <div class="cta-row">
-      <a href="https://www.amazon.com/dp/B0DYLB2QRF?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored noopener" target="_blank">View Razer Blade 14 on Amazon</a>
       <a href="review-razer-blade-14-2026" class="btn-ghost">Full Review →</a></div>
   </div>
 </article>
@@ -1042,7 +1025,6 @@
         <div class="rc-sub"><span class="tier-label tier-flagship">FLAGSHIP</span>RTX 5090 · Core Ultra 9 275HX · 18" WQXGA 300Hz</div>
         <div class="rc-score-row">
           <div><div class="rc-score-label">Overall Score</div><div class="rc-score-big">9<span>.2</span></div></div>
-          <p>Historical editorial score; current value depends on the exact offer.</p>
         </div>
       </div>
       <span class="retail-link-unavailable">Linked Amazon listing under review</span>
@@ -1105,10 +1087,9 @@
         <div class="rc-sub"><span class="tier-label tier-budget">BUDGET</span>RTX 5070 115W · Core Ultra 9 275HX · 16" IPS 240Hz · 2.66kg</div>
         <div class="rc-score-row">
           <div><div class="rc-score-label">Overall Score</div><div class="rc-score-big">8<span>.7</span></div></div>
-          <p>Historical editorial score; current value depends on the exact offer.</p>
         </div>
       </div>
-      <a href="https://www.amazon.com/dp/B0FWCQ2B6J?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">See price on Amazon ↓</a>
+      <a href="https://www.amazon.com/dp/B0FWCQ2B6J?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">Check price on Amazon →</a>
     </div>
   </div>
   <div class="rc-body">
@@ -1140,7 +1121,6 @@
     </div>
     </details>
     <div class="cta-row">
-      <a href="https://www.amazon.com/dp/B0FWCQ2B6J?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored">View Alienware 16X Aurora on Amazon</a>
       <a href="review-alienware-16x-aurora" class="btn-ghost">Full Review &rarr;</a>
     </div>
   </div>
@@ -1177,10 +1157,9 @@
         <div class="rc-sub"><span class="tier-label tier-budget">BUDGET</span>RTX 5070 · Core Ultra 9 285H · 14" OLED 3K 120Hz · 1.63kg</div>
         <div class="rc-score-row">
           <div><div class="rc-score-label">Overall Score</div><div class="rc-score-big">8<span>.6</span></div></div>
-          <p>Historical editorial score; current value depends on the exact offer.</p>
         </div>
       </div>
-      <a href="https://www.amazon.com/dp/B0HB3LP5JK?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">See price on Amazon ↓</a>
+      <a href="https://www.amazon.com/dp/B0HB3LP5JK?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">Check price on Amazon →</a>
     </div>
   </div>
   <div class="rc-body">
@@ -1209,7 +1188,6 @@
     </div>
     </details>
     <div class="cta-row">
-      <a href="https://www.amazon.com/dp/B0HB3LP5JK?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored">View HP Omen Transcend 14 on Amazon</a>
     
       <a href="review-hp-omen-transcend-14" class="btn-ghost">Full Review →</a></div>
   </div>
@@ -1244,7 +1222,6 @@
         <div class="rc-sub"><span class="tier-label tier-mid">MID-RANGE</span>RTX 5070 Ti 115W &middot; Core Ultra 9 275HX &middot; 16" OLED 165Hz</div>
         <div class="rc-score-row">
           <div><div class="rc-score-label">Overall Score</div><div class="rc-score-big">8<span>.7</span></div></div>
-          <p>Historical editorial score; current value depends on the exact offer.</p>
         </div>
       </div>
       <span class="retail-link-unavailable">Linked Amazon listing under review</span>
@@ -1302,10 +1279,9 @@
         <div class="rc-sub"><span class="tier-label tier-budget">BUDGET</span>RTX 5060 85W &middot; AMD Ryzen 7 260 &middot; 16&quot; WUXGA 180Hz</div>
         <div class="rc-score-row">
           <div><div class="rc-score-label">Overall Score</div><div class="rc-score-big">8<span>.1</span></div></div>
-          <p>Historical editorial score; current value depends on the exact offer.</p>
         </div>
       </div>
-      <a href="https://www.amazon.com/dp/B0F195W823?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">Check price &darr;</a>
+      <a href="https://www.amazon.com/dp/B0F195W823?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">Check price on Amazon →</a>
     </div>
   </div>
   <div class="rc-body">
@@ -1335,7 +1311,6 @@
     </div>
     </details>
     <div class="cta-row">
-      <a href="https://www.amazon.com/dp/B0F195W823?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored">Check price on Amazon</a>
       <a href="review-acer-nitro-v-16-2026" class="btn-ghost">Full Review &rarr;</a>
     </div>
   </div>
@@ -1421,7 +1396,7 @@
         <div class="rc-sub"><span class="tier-label tier-budget">BUDGET</span>RTX 5060 85W · Core i7-13620H · 16" 1920x1200 165Hz</div>
         <div class="rc-score-row"><div><div class="rc-score-label">Retail evidence review</div><div class="rc-score-big">N/R</div></div></div>
       </div>
-      <a href="https://www.amazon.com/dp/B0FDMN25CZ?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">See price on Amazon ↓</a>
+      <a href="https://www.amazon.com/dp/B0FDMN25CZ?tag=framelimit20-20" class="rc-price rc-price-live" rel="nofollow sponsored" target="_blank">Check price on Amazon →</a>
     </div>
   </div>
   <div class="rc-body">
@@ -1452,7 +1427,6 @@
     </div>
     </details>
     <div class="cta-row">
-      <a href="https://www.amazon.com/dp/B0FDMN25CZ?tag=framelimit20-20" class="btn-buy am" rel="nofollow sponsored">Check Price on Amazon</a>
       <a href="review-gigabyte-gaming-a16" class="btn-ghost">Full Review →</a>
     </div>
   </div>
@@ -1627,7 +1601,7 @@ setTimeout(()=>{
 </script>
 <script src="laptops.js?v=20260930-1"></script>
 <script src="benchmark-data.js?v=20260930-1"></script>
-<script src="reviews-sync.js?v=20260930-3"></script>
+<script src="reviews-sync.js?v=20260930-6"></script>
 <script>
 /* Open a collapsed card section when a link points inside it (e.g. reviews#verified-...-benchmark) */
 function openHashTarget() {

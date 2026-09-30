@@ -158,7 +158,7 @@
 
     /* ── 8. Replace ALL buy buttons / price links in this card ── */
     article.querySelectorAll('a[href*="amazon.com"]').forEach(a => {
-      if (!l.amazonUrl) { a.replaceWith(document.createTextNode('Exact retail listing under review')); return; }
+      if (!l.amazonUrl) { a.replaceWith(document.createTextNode('Amazon listing under review')); return; }
       a.href = l.amazonUrl;
       /* keep existing label text but update the link */
     });
@@ -166,12 +166,12 @@
     /* ── 8. Update the rc-price-live badge — no fake price, just CTA ── */
     const priceLive = article.querySelector('.rc-price-live, .rc-price');
     if (priceLive && !l.amazonUrl) {
-      priceLive.replaceWith(document.createTextNode('Exact retail listing under review'));
+      priceLive.replaceWith(document.createTextNode('Amazon listing under review'));
     } else if (priceLive) {
       priceLive.href = l.amazonUrl;
       const isAmazon = /amazon\.com\/dp\//.test(l.amazonUrl || '');
       priceLive.rel = isAmazon ? 'nofollow sponsored noopener' : 'noopener';
-      priceLive.textContent = isAmazon ? 'Check Price on Amazon ↓' : `Check at ${l.retailerName || 'retailer'} ↓`;
+      priceLive.textContent = isAmazon ? 'Check Price on Amazon →' : `Check at ${l.retailerName || 'retailer'} →`;
     }
 
     /* ── 9. Add review link if not already present ── */
@@ -201,7 +201,7 @@
       note.style.cssText = 'font-family:"JetBrains Mono",monospace;font-size:11px;color:#7A94A8;margin-top:10px';
       const status = window.flRetailerStatus ? window.flRetailerStatus(l) : 'Retailer link';
       const checked = window.FL_DATA_LAST_CHECKED_LABEL || 'Price/spec checked recently';
-      note.textContent = `Affiliate link · framelimit20-20 · ${status} · ${checked}`;
+      note.textContent = `Affiliate link · ${status} · ${checked}`;
       ctaRow.appendChild(note);
     }
   }

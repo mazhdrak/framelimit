@@ -403,3 +403,13 @@ Remaining audit order: (2) one shared footer, minimum text/tap-target sizes, and
 
 - Every static `<img>` pointing at `images/` now carries its intrinsic `width`/`height` (132 tags), so the browser reserves space before the WebP loads. Layout is unchanged: a browser pass over all sitemap pages at 375px and 1440px found no overflow and no image rendered outside its natural aspect ratio. Images rendered by laptop-cards.js already sit in fixed-height boxes and were left as they are. Add width/height to any new static image.
 - All 27 audits and both tests pass.
+- Step 4 published in `a8aba67`.
+
+## Design audit, follow-up — September 30, 2026
+
+- RTX vs AMD: removed the July 14 Dell price ($2,299.99) and the order/SKU codes from the price round (owner approved; no individual prices policy). Both machines now show "Check live price"; the round notes that the Alienware m18 R1 AMD is a 2023 model.
+- Homepage hero: right column is a "Shop by budget" panel linking the five budget guides and the flagship guide (subtitles follow each guide's current contents; update them when a budget guide changes GPU tiers). Emoji removed from the tools bar.
+- Laptop Finder: over-budget fill-in cards are labelled "Just Above Budget" and the summary says how many are shown for comparison.
+- Reviews hub: one Amazon link per card (the link beside the score, now "Check price on Amazon →"; the duplicate bottom button was removed from 15 cards). reviews-sync.js labels it with → instead of ↓ and no longer prints the affiliate tag in the card note. The twelve "Historical editorial score…" lines became one `.hub-score-note` above the cards. Brand filters are left-aligned with the category chips; "Review details" / "Review + retail mapping" links now read "Full review".
+- Not changed on purpose: page titles/meta descriptions over Google's display length (change them only alongside Search Console CTR data) and "Updated July" dates (update only after a real content check).
+- Versions: `style.css?v=20260930-7`, `reviews-sync.js?v=20260930-6`. All 27 audits and both tests pass.
