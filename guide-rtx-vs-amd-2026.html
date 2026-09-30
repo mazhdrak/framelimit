@@ -11,7 +11,7 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260930-3">
+<link rel="stylesheet" href="style.css?v=20260930-4">
 <style>
   /* RTX vs AMD specific styles */
   :root { --amd: #ED1C24; --nvidia: #76B900; }
@@ -139,7 +139,7 @@
   <div class="article-body">
 
     <h2>The Setup</h2>
-    <p>The original version incorrectly assigned the Radeon RX 7900M to an ASUS ROG Strix G18. AMD launched the 180W RX 7900M in the <strong>Alienware m18 R1 AMD</strong>; Dell order code <strong>useahctom18r1amd09</strong> pairs it with a Ryzen 9 7945HX, 32GB DDR5-4800, 1TB SSD, QHD+ 165Hz display and 97Wh battery.</p>
+    <p>AMD launched the 180W RX 7900M in the <strong>Alienware m18 R1 AMD</strong>. The Dell configuration we checked pairs it with a Ryzen 9 7945HX, 32GB DDR5-4800, 1TB SSD, QHD+ 165Hz display and 97Wh battery.</p>
     <p>For the Nvidia side, MSI specifies the Raider 18 HX AI A2XWIG family with a Core Ultra 9 285HX and RTX 5080 Laptop GPU up to 175W. These machines come from different GPU generations and there is no controlled, matching FRAMELIMIT dataset between them. The sections below compare verified capabilities and purchasing context, not invented cross-source averages.</p>
 
     <h2>Round 1: Hardware and Evidence</h2>
@@ -194,18 +194,18 @@
     <div class="round-card">
       <div class="round-header">
         <div class="round-label">Round 3 — Path Tracing, Cyberpunk 2077, 1440p</div>
-        <div class="round-winner nvidia">Matching dataset required</div>
+        <div class="round-winner nvidia">No matched test yet</div>
       </div>
       <div class="round-body">
         <p>Nvidia and AMD ray-tracing results must be compared using the same game build, path-tracing preset, resolution, upscaling mode, Frame Generation state, and laptop power class. This guide does not publish a normalized winner from unmatched configurations.</p>
         <div class="round-stats">
           <div class="round-stat">
             <div class="round-stat-label">RTX 5080 — Cyberpunk PT</div>
-            <div class="round-stat-val" style="color:var(--nvidia)">Exact dataset required</div>
+            <div class="round-stat-val" style="color:var(--nvidia);font-size:22px">Not tested on the same settings</div>
           </div>
           <div class="round-stat">
             <div class="round-stat-label">RX 7900M — Cyberpunk PT</div>
-            <div class="round-stat-val" style="color:var(--amd)">Exact dataset required</div>
+            <div class="round-stat-val" style="color:var(--amd);font-size:22px">Not tested on the same settings</div>
           </div>
         </div>
       </div>
@@ -216,7 +216,7 @@
     <div class="round-card">
       <div class="round-header">
         <div class="round-label">Round 4 — Battery Capacity, Not Runtime</div>
-        <div class="round-winner amd">Matching runtime test required</div>
+        <div class="round-winner amd">No matched battery test yet</div>
       </div>
       <div class="round-body">
         <p>MSI publishes a 99.9Wh capacity for the checked A2XWIG-014US reference SKU; Dell publishes 97Wh for useahctom18r1amd09. Capacity alone does not establish runtime. Screen, firmware, hybrid-graphics behavior, workload and power profile must match before declaring an efficiency winner.</p>
@@ -237,7 +237,7 @@
     <div class="round-card">
       <div class="round-header">
         <div class="round-label">Round 5 — Official Store Check · July 14, 2026</div>
-        <div class="round-winner amd">Current price + exact dataset required</div>
+        <div class="round-winner amd">Depends on current prices</div>
       </div>
       <div class="round-body">
         <p>Dell listed the exact Alienware useahctom18r1amd09 at $2,299.99 during the July 14 check. The checked MSI A2XWIG-014US page exposed specifications but no usable current product price in the captured offer. Without two live prices and a matching cross-vendor dataset, this guide does not declare a numeric frames-per-dollar winner.</p>

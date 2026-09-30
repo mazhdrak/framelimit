@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gaming Laptop Comparison Tool 2026 — Compare Specs Side by Side | FRAMELIMIT</title>
-<meta name="description" content="Compare 34 gaming laptops side by side by GPU power, display, weight, battery, scores, and evidence status.">
+<meta name="description" content="Compare gaming laptops side by side by GPU power, display, weight, battery, scores, and evidence status.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://framelimit.com/compare">
 <meta property="og:title" content="Gaming Laptop Comparison Tool 2026 | FRAMELIMIT">
-<meta property="og:description" content="Compare any two of 34 gaming laptops side by side by specifications, scores, and evidence status.">
+<meta property="og:description" content="Compare any two gaming laptops side by side by specifications, scores, and evidence status.">
 <meta property="og:image" content="https://framelimit.com/og-default.jpg">
 <meta property="og:site_name" content="FRAMELIMIT">
 <meta name="twitter:card" content="summary_large_image">
@@ -16,7 +16,7 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260930-3">
+<link rel="stylesheet" href="style.css?v=20260930-4">
 <style>
 /* ── COMPARE PAGE STYLES ── */
 .compare-hero {
@@ -360,6 +360,7 @@
   border-color: var(--cyan);
   color: var(--cyan);
 }
+.popular-guide { display:block; text-decoration:none; border-color:var(--cyan); color:var(--cyan); }
 .popular-btn .vs {
   color: var(--orange);
   margin: 0 4px;
@@ -386,9 +387,9 @@
 
 <!-- HERO -->
 <div class="compare-hero">
-  <div class="compare-hero-label">Tool · Side by Side · All 34 Laptops</div>
+  <div class="compare-hero-label" id="compareHeroLabel">Side by side · every laptop we cover</div>
   <h1>LAPTOP <span>VS</span><br>LAPTOP</h1>
-  <p>Pick any two machines from our research database. Specs, editorial scores, and a plain-English verdict.</p>
+  <p>Pick any two laptops to see their specs, scores and a plain-English verdict side by side.</p>
 </div>
 
 <!-- SELECTOR BAR -->
@@ -419,17 +420,20 @@
 
 <!-- POPULAR COMPARISONS -->
 <div class="popular-section" id="popularSection">
-  <div class="popular-title">Popular Comparisons</div>
+  <div class="popular-title">Quick comparisons</div>
   <div class="popular-grid" id="popularGrid"></div>
-  <a href="guide-razer-blade-14-vs-zephyrus-g14-2025" class="popular-btn" style="display:block;margin-top:12px;text-decoration:none;border-color:var(--cyan);color:var(--cyan)">Compare exact Razer Blade 14 <span class="vs">vs</span> Zephyrus G14 RTX 5070 OLED configurations &rarr;</a>
-  <a href="guide-asus-tuf-a16-vs-tuf-f16-rtx-5070" class="popular-btn" style="display:block;margin-top:12px;text-decoration:none;border-color:var(--cyan);color:var(--cyan)">Compare exact ASUS TUF A16 64GB <span class="vs">vs</span> TUF F16 32GB RTX 5070 configurations &rarr;</a>
-  <a href="guide-legion-pro-7i-vs-rog-strix-g16-rtx-5080" class="popular-btn" style="display:block;margin-top:12px;text-decoration:none;border-color:var(--cyan);color:var(--cyan)">Read the evidence-based Legion Pro 7i <span class="vs">vs</span> ROG Strix G16 RTX 5080 guide →</a>
-  <a href="guide-razer-blade-16-vs-legion-pro-7i-2026" class="popular-btn" style="display:block;margin-top:12px;text-decoration:none;border-color:var(--cyan);color:var(--cyan)">Compare the exact Razer Blade 16 RTX 5090 <span class="vs">vs</span> Legion Pro 7i RTX 5080 configurations →</a>
-  <a href="guide-rog-flow-z13-vs-zephyrus-g14-2025" class="popular-btn" style="display:block;margin-top:12px;text-decoration:none;border-color:var(--cyan);color:var(--cyan)">Compare the exact ROG Flow Z13 <span class="vs">vs</span> Zephyrus G14 retail configurations &rarr;</a>
-  <a href="guide-msi-raider-a18-hx-vs-raider-18-hx-ai" class="popular-btn" style="display:block;margin-top:12px;text-decoration:none;border-color:var(--cyan);color:var(--cyan)">Compare AMD X3D <span class="vs">vs</span> Intel in exact MSI Raider 18 RTX 5090 configurations &rarr;</a>
-  <a href="guide-lenovo-loq-15-vs-acer-nitro-v-16s" class="popular-btn" style="display:block;margin-top:12px;text-decoration:none;border-color:var(--cyan);color:var(--cyan)">Compare exact Lenovo LOQ 15 <span class="vs">vs</span> Acer Nitro V 16S RTX 5060 configurations &rarr;</a>
-  <a href="guide-lenovo-loq-15-vs-gigabyte-gaming-a16-2026" class="popular-btn" style="display:block;margin-top:12px;text-decoration:none;border-color:var(--cyan);color:var(--cyan)">Compare Lenovo LOQ 15 <span class="vs">vs</span> Gigabyte Gaming A16 RTX 5060 retail configurations &rarr;</a>
-  <a href="guide-hp-omen-max-16-vs-msi-vector-16-hx-ai" class="popular-btn" style="display:block;margin-top:12px;text-decoration:none;border-color:var(--cyan);color:var(--cyan)">Compare exact HP Omen Max 16 <span class="vs">vs</span> MSI Vector 16 RTX 5080 configurations &rarr;</a>
+  <div class="popular-title" style="margin-top:36px">Full written comparisons</div>
+  <div class="popular-grid">
+    <a href="guide-lenovo-loq-15-vs-acer-nitro-v-16s" class="popular-btn popular-guide">Lenovo LOQ 15 <span class="vs">vs</span> Acer Nitro V 16S &rarr;</a>
+    <a href="guide-lenovo-loq-15-vs-gigabyte-gaming-a16-2026" class="popular-btn popular-guide">Lenovo LOQ 15 <span class="vs">vs</span> Gigabyte Gaming A16 &rarr;</a>
+    <a href="guide-asus-tuf-a16-vs-tuf-f16-rtx-5070" class="popular-btn popular-guide">ASUS TUF A16 <span class="vs">vs</span> TUF F16 &rarr;</a>
+    <a href="guide-razer-blade-14-vs-zephyrus-g14-2025" class="popular-btn popular-guide">Razer Blade 14 <span class="vs">vs</span> Zephyrus G14 &rarr;</a>
+    <a href="guide-rog-flow-z13-vs-zephyrus-g14-2025" class="popular-btn popular-guide">ROG Flow Z13 <span class="vs">vs</span> Zephyrus G14 &rarr;</a>
+    <a href="guide-hp-omen-max-16-vs-msi-vector-16-hx-ai" class="popular-btn popular-guide">HP Omen Max 16 <span class="vs">vs</span> MSI Vector 16 HX AI &rarr;</a>
+    <a href="guide-legion-pro-7i-vs-rog-strix-g16-rtx-5080" class="popular-btn popular-guide">Legion Pro 7i <span class="vs">vs</span> ROG Strix G16 &rarr;</a>
+    <a href="guide-razer-blade-16-vs-legion-pro-7i-2026" class="popular-btn popular-guide">Razer Blade 16 <span class="vs">vs</span> Legion Pro 7i &rarr;</a>
+    <a href="guide-msi-raider-a18-hx-vs-raider-18-hx-ai" class="popular-btn popular-guide">MSI Raider A18 HX <span class="vs">vs</span> Raider 18 HX AI &rarr;</a>
+  </div>
 </div>
 
 <p class="related-links"><span>Related:</span> <a href="guide-best-gaming-laptops-2026">Best Laptops 2026</a></p>
@@ -818,6 +822,8 @@ function loadFromURL() {
 document.addEventListener('DOMContentLoaded', () => {
   populateSelects();
   buildPopular();
+  const label = document.getElementById('compareHeroLabel');
+  if (label && Array.isArray(window.LAPTOPS)) label.textContent = `Side by side · all ${window.LAPTOPS.length} laptops`;
   loadFromURL();
 });
 </script>

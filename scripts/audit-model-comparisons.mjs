@@ -8,56 +8,56 @@ const COMPARISONS = [
   {
     page: 'guide-legion-pro-7i-vs-rog-strix-g16-rtx-5080.html',
     ids: ['lenovo-legion-pro-7i-gen10', 'asus-rog-strix-g16-2026'],
-    required: ['No Defensible Universal Winner', 'not a live checkout price'],
+    required: ['No single winner for every buyer', 'not a live checkout price'],
     backlinks: ['guides.html', 'compare.html', 'guide-best-rtx-5080-gaming-laptop-2026.html', 'review-lenovo-legion-pro-7i-gen10.html', 'review-asus-rog-strix-g16-2026.html']
   },
   {
     page: 'guide-rog-flow-z13-vs-zephyrus-g14-2025.html',
     ids: ['asus-rog-flow-z13-radeon-8060s', 'asus-rog-zephyrus-g14-2026'],
     requireDisplayDetails: true,
-    required: ['No Defensible Universal Winner', 'not a live checkout price', 'GU405AR', 'configuration error'],
+    required: ['No single winner for every buyer', 'not a live checkout price', 'GU405AR', 'configuration error'],
     backlinks: ['guides.html', 'compare.html', 'guide-best-amd-gaming-laptop-2026.html', 'guide-best-14-inch-gaming-laptop-2026.html', 'review-asus-rog-flow-z13-radeon-8060s.html', 'review-asus-rog-zephyrus-g14-2026.html']
   },
   {
     page: 'guide-msi-raider-a18-hx-vs-raider-18-hx-ai.html',
     ids: ['msi-raider-a18-hx-amd', 'msi-raider-16-max-hx'],
     requireDisplayDetails: true,
-    required: ['No Defensible Universal Winner', 'not a live checkout price', 'same BIOS, power mode, memory, game and settings'],
+    required: ['No single winner for every buyer', 'not a live checkout price', 'same BIOS, power mode, memory, game and settings'],
     backlinks: ['guides.html', 'compare.html', 'guide-best-amd-gaming-laptop-2026.html', 'guide-best-rtx-5090-gaming-laptop-2026.html', 'review-msi-raider-a18-hx-amd.html', 'review-msi-raider-18-hx-ai.html']
   },
   {
     page: 'guide-lenovo-loq-15-vs-acer-nitro-v-16s.html',
     ids: ['lenovo-loq-15-gen10', 'acer-nitro-v-16'],
     requireDisplayDetails: true,
-    required: ['No Defensible Universal Winner', 'not a live checkout price', '118 FPS', '98 FPS', 'This is not a matched head-to-head result'],
+    required: ['No single winner for every buyer', 'not a live checkout price', '118 FPS', '98 FPS', 'This is not a matched head-to-head result'],
     backlinks: ['guides.html', 'compare.html', 'guide-best-gaming-laptop-under-1500.html', 'review-lenovo-loq-15-gen10.html', 'review-acer-nitro-v-16-2026.html']
   },
   {
     page: 'guide-lenovo-loq-15-vs-gigabyte-gaming-a16-2026.html',
     ids: ['lenovo-loq-15-gen10', 'gigabyte-gaming-a16-rtx5060'],
     requireDisplayDetails: true,
-    required: ['No Defensible Universal Winner', 'not a live checkout price', 'related regional 16GB', 'not a matched head-to-head'],
+    required: ['No single winner for every buyer', 'not a live checkout price', 'related regional 16GB', 'not a matched head-to-head'],
     backlinks: ['guides.html', 'compare.html', 'guide-best-gaming-laptop-under-1500.html', 'review-lenovo-loq-15-gen10.html', 'review-gigabyte-gaming-a16.html']
   },
   {
     page: 'guide-hp-omen-max-16-vs-msi-vector-16-hx-ai.html',
     ids: ['hp-omen-max-16-2026', 'msi-vector-16-hx-ai'],
     requireDisplayDetails: true,
-    required: ['No Defensible Universal Winner', 'not a live checkout price', '16-ah0070ca', 'Specifications-only for this exact retail SKU'],
+    required: ['No single winner for every buyer', 'not a live checkout price', '16-ah0070ca', 'Specifications-only for this exact retail SKU'],
     backlinks: ['guides.html', 'compare.html', 'guide-best-gaming-laptop-under-3000.html', 'guide-best-rtx-5080-gaming-laptop-2026.html', 'review-hp-omen-max-16-2026.html', 'review-msi-vector-16-hx-ai.html']
   },
   {
     page: 'guide-asus-tuf-a16-vs-tuf-f16-rtx-5070.html',
     ids: ['asus-tuf-a16-entry', 'asus-tuf-gaming-f16-rtx5070'],
     requireDisplayDetails: false,
-    required: ['No Defensible Universal Winner', 'not a live checkout price', 'Ryzen 7 260 / RTX 5060', 'does not apply'],
+    required: ['No single winner for every buyer', 'not a live checkout price', 'Ryzen 7 260 / RTX 5060', 'does not apply'],
     backlinks: ['guides.html', 'compare.html', 'guide-best-gaming-laptop-under-2000.html', 'review-asus-tuf-gaming-a16-2026.html', 'review-asus-tuf-gaming-f16-rtx5070.html']
   },
   {
     page: 'guide-razer-blade-14-vs-zephyrus-g14-2025.html',
     ids: ['razer-blade-14-2025', 'asus-rog-zephyrus-g14-2026'],
     requireDisplayDetails: true,
-    required: ['No Defensible Universal Winner', 'not a live checkout price', 'GU405AR', 'does not apply', 'not a matched head-to-head'],
+    required: ['No single winner for every buyer', 'not a live checkout price', 'GU405AR', 'does not apply', 'not a matched head-to-head'],
     backlinks: ['guides.html', 'compare.html', 'guide-best-14-inch-gaming-laptop-2026.html', 'guide-best-thin-light-gaming-laptop-2026.html', 'review-razer-blade-14-2026.html', 'review-asus-rog-zephyrus-g14-2026.html']
   }
 ];

@@ -155,7 +155,7 @@
     if (record && record.retailBlocked) {
       const note = document.createElement('span');
       note.className = 'retail-link-unavailable';
-      note.textContent = 'Exact Amazon listing under review';
+      note.textContent = 'Amazon listing under review';
       link.replaceWith(note);
       return;
     }
@@ -238,6 +238,8 @@
 
   function addPricePolicy() {
     if (!document.body.matches('[data-price-guide]') || document.querySelector('.price-guide-policy')) return;
+    // Guides that open with a short answer already carry this note in plain language.
+    if (document.querySelector('.short-answer')) return;
     const quickPicks = document.querySelector('.quick-picks');
     if (!quickPicks) return;
     const policy = document.createElement('div');

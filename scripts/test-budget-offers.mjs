@@ -13,7 +13,7 @@ for (const id of blocked) {
   assert.equal(sandbox.window.flGetFreshOffer(id), null);
   if (sandbox.window.LAPTOPS.includes(record)) {
     const card = sandbox.window.flRenderCard(record);
-    assert.ok(card.includes('Exact Amazon listing under review'));
+    assert.ok(card.includes('Amazon listing under review'));
     assert.ok(!/href="(?:undefined|null|)"/.test(card));
   }
 }

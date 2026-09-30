@@ -386,3 +386,14 @@ Remaining audit order: (2) one shared footer, minimum text/tap-target sizes, and
 - Minimum font size is now 11px: every 5–10px `font-size`/`font` declaration in style.css, review-conversion.css, laptop-cards.js, reviews-sync.js and page `<style>`/inline styles was raised to 11px. Nav links are 12px. Browser check: no sub-11px text on any sitemap page, no document overflow at 375px or 1024px.
 - Versions: `style.css`, `review-conversion.css` and `nav.js` are `?v=20260930-3` on all pages (nav.js was unversioned); `laptop-cards.js` and `reviews-sync.js` are `?v=20260930-3`.
 - All 27 audits and both tests pass.
+- Step 2 published in `56a0768`.
+
+## Design audit, step 3 — September 30, 2026 (plain language on the buying path)
+
+- Seven comparison pages now show a "Which one should you buy?" block right after the verdict note: product photo (the review's image), the existing "Choose X if..." text, the same Amazon link (or the withheld-link notice) and a review link. The original choice pair at the bottom was moved, not duplicated. Legion Pro 7i vs Strix G16 and Blade 16 vs Legion Pro 7i keep their bottom verdicts with a "Skip to which one to buy" link at the top.
+- "No Defensible Universal Winner" is now "No single winner for every buyer" (`audit-model-comparisons.mjs` updated). Labels "Exact-SKU Comparison" and headings like "Exact Retail Specifications" / "Nearest Published Game Evidence" were replaced with plain wording; leads no longer show factory codes. `seo-query-map.json` still requires "LOQ 15AHP10" and "ANV16S-41-R2AJ", so that comparison table has a "Model number" row.
+- RTX vs AMD: removed the "original version incorrectly assigned" sentence and the order code from the setup paragraph; the "Exact dataset required" placeholders now read "Not tested on the same settings" / "No matched test yet". Not changed: the page still quotes a July 14 Dell price ($2,299.99), which conflicts with the no-individual-prices policy — owner decision.
+- Compare page: hero count is rendered from `LAPTOPS.length` (was a hardcoded 34), the nine written comparisons use plain labels in a grid, meta descriptions no longer carry a count.
+- Budget guides with a short answer hide the duplicate dated quick-pick list (`.short-answer ~ .quick-picks`, markup kept for hydration) and skip the injected "Budget checks" note (price-data.js). "Exact Amazon listing under review" is now "Amazon listing under review" (laptop-cards.js, price-data.js, test-budget-offers.mjs).
+- guides.html comparison tags and blurbs no longer say "exact SKU".
+- Versions: `style.css?v=20260930-4`, `price-data.js?v=20260930-4`, `laptop-cards.js?v=20260930-4`. All 27 audits and both tests pass.
