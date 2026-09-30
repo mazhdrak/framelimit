@@ -47,11 +47,11 @@
     'hp-omen-transcend-14': {
       id: 'hp-omen-transcend-14',
       name: 'HP Omen Transcend 14',
-      price: 2499,
+      price: 2569,
       priceCheckedAt: '2026-09-30',
-      amazonUrl: 'https://www.amazon.com/dp/B0HB3LQFM9?tag=framelimit20-20',
-      amazonAsin: 'B0HB3LQFM9',
-      retailNote: 'Seller bundle with 512GB SSD, not the reviewed 1TB configuration.'
+      amazonUrl: 'https://www.amazon.com/dp/B0HB3LP5JK?tag=framelimit20-20',
+      amazonAsin: 'B0HB3LP5JK',
+      retailNote: 'Third-party seller bundle; no HP product number shown.'
     }
   };
 

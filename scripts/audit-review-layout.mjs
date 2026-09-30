@@ -7,7 +7,7 @@ const laptopAsins = new Set(catalogContext.window.LAPTOPS.map(laptop => laptop.a
 // Stealth is a maintained review-only product, also managed by the retail updater.
 laptopAsins.add('B0DYSHDBPN');
 // Omen Transcend 14 is a review-only laptop record kept in price-data.js.
-laptopAsins.add('B0HB3LQFM9');
+laptopAsins.add('B0HB3LP5JK');
 
 const errors = [];
 let count = 0;
