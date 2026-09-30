@@ -413,3 +413,4 @@ Remaining audit order: (2) one shared footer, minimum text/tap-target sizes, and
 - Reviews hub: one Amazon link per card (the link beside the score, now "Check price on Amazon →"; the duplicate bottom button was removed from 15 cards). reviews-sync.js labels it with → instead of ↓ and no longer prints the affiliate tag in the card note. The twelve "Historical editorial score…" lines became one `.hub-score-note` above the cards. Brand filters are left-aligned with the category chips; "Review details" / "Review + retail mapping" links now read "Full review".
 - Not changed on purpose: page titles/meta descriptions over Google's display length (change them only alongside Search Console CTR data) and "Updated July" dates (update only after a real content check).
 - Versions: `style.css?v=20260930-7`, `reviews-sync.js?v=20260930-6`. All 27 audits and both tests pass.
+- Published in `b272f87` and verified live (hero panel, hub note, no Dell price).
