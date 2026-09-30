@@ -397,3 +397,9 @@ Remaining audit order: (2) one shared footer, minimum text/tap-target sizes, and
 - Budget guides with a short answer hide the duplicate dated quick-pick list (`.short-answer ~ .quick-picks`, markup kept for hydration) and skip the injected "Budget checks" note (price-data.js). "Exact Amazon listing under review" is now "Amazon listing under review" (laptop-cards.js, price-data.js, test-budget-offers.mjs).
 - guides.html comparison tags and blurbs no longer say "exact SKU".
 - Versions: `style.css?v=20260930-4`, `price-data.js?v=20260930-4`, `laptop-cards.js?v=20260930-4`. All 27 audits and both tests pass.
+- Step 3 published in `6429647`.
+
+## Design audit, step 4 — September 30, 2026
+
+- Every static `<img>` pointing at `images/` now carries its intrinsic `width`/`height` (132 tags), so the browser reserves space before the WebP loads. Layout is unchanged: a browser pass over all sitemap pages at 375px and 1440px found no overflow and no image rendered outside its natural aspect ratio. Images rendered by laptop-cards.js already sit in fixed-height boxes and were left as they are. Add width/height to any new static image.
+- All 27 audits and both tests pass.
