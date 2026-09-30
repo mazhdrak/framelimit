@@ -47,11 +47,11 @@
     'hp-omen-transcend-14': {
       id: 'hp-omen-transcend-14',
       name: 'HP Omen Transcend 14',
-      price: null,
-      priceCheckedAt: null,
-      amazonUrl: '',
-      retailBlocked: true,
-      retailIssue: "The former Amazon listing identifies an RTX 5060 / Core Ultra 7 configuration, not the reviewed RTX 5070 model."
+      price: 2499,
+      priceCheckedAt: '2026-09-30',
+      amazonUrl: 'https://www.amazon.com/dp/B0HB3LQFM9?tag=framelimit20-20',
+      amazonAsin: 'B0HB3LQFM9',
+      retailNote: 'Seller bundle with 512GB SSD, not the reviewed 1TB configuration.'
     }
   };
 

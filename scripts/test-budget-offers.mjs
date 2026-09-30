@@ -5,7 +5,7 @@ import vm from 'node:vm';
 const read = file => fs.readFileSync(new URL('../' + file, import.meta.url), 'utf8');
 const sandbox = {window: {}, document: {addEventListener() {}, readyState: 'loading'}, Date, Intl};
 for (const file of ['laptops.js', 'price-data.js', 'laptop-cards.js']) vm.runInNewContext(read(file), sandbox);
-const blocked = ['acer-predator-helios-neo-16-2025', 'hp-omen-max-16-2026', 'lenovo-legion-7i-gen10', 'hp-omen-transcend-14', 'alienware-18-area-51'];
+const blocked = ['acer-predator-helios-neo-16-2025', 'hp-omen-max-16-2026', 'lenovo-legion-7i-gen10', 'alienware-18-area-51'];
 for (const id of blocked) {
   const record = sandbox.window.flGetPriceRecord(id);
   assert.ok(record.retailBlocked && record.retailIssue, id);
