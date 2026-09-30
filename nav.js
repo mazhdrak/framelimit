@@ -16,85 +16,69 @@
   if (!root) return;
 
   root.innerHTML = `
-<div class="aff-ribbon">⚠ This site contains affiliate links. Prices and availability can change; always check the retailer page before buying. <a href="affiliate-disclosure" style="color:var(--yellow)">Disclosure</a> — Commissions never influence our scores.</div>
+<div class="aff-ribbon">This site contains affiliate links: we may earn a commission at no extra cost to you. It never changes our picks. <a href="affiliate-disclosure">Disclosure</a></div>
 
 <nav>
   <a href="/" class="nav-logo">FRAME<span>LIMIT</span></a>
   <ul class="nav-links">
     <li><a href="guide-best-gaming-laptops-2026">Best Laptops</a></li>
-    <li><a href="guide-gaming-laptop-buying-guide-2026">Buying Guide</a></li>
     <li><a href="reviews">Reviews</a></li>
     <li><a href="compare">Compare</a></li>
     <li><a href="guides">Guides</a></li>
     <li><a href="upgrades">Upgrades</a></li>
-    <li><a href="methodology">Methodology</a></li>
     <li><a href="about">About</a></li>
   </ul>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="window.__flToggleNav()">
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" onclick="window.__flToggleNav()">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="mobile-drawer" id="fl-mobile-drawer">
   <div class="md-section">
-    <div class="md-label">Main</div>
+    <div class="md-label">Shop by budget</div>
     <ul class="md-links">
-      <li><a href="/" onclick="window.__flToggleNav()">🏠 Home</a></li>
-      <li><a href="reviews" onclick="window.__flToggleNav()">⭐ Full Reviews</a></li>
-      <li><a href="compare" onclick="window.__flToggleNav()">⚖️ Compare Laptops</a></li>
-      <li><a href="guide-rtx-50-laptop-tgp-database" onclick="window.__flToggleNav()">RTX 50 TGP Database</a></li>
-      <li><a href="guide-gaming-laptop-display-database" onclick="window.__flToggleNav()">Laptop Display Database</a></li>
-      <li><a href="guide-dlss-fsr-frame-generation-database" onclick="window.__flToggleNav()">DLSS / FSR Benchmark Database</a></li>
-      <li><a href="guide-gaming-laptop-price-report-july-2026" onclick="window.__flToggleNav()">Monthly Price Report</a></li>
-      <li><a href="upgrades" onclick="window.__flToggleNav()">Laptop Upgrades</a></li>
-      <li><a href="methodology" onclick="window.__flToggleNav()">Methodology</a></li>
-      <li><a href="about" onclick="window.__flToggleNav()">👤 About</a></li>
-      <li><a href="contact" onclick="window.__flToggleNav()">✉️ Contact</a></li>
-      <li><a href="affiliate-disclosure" onclick="window.__flToggleNav()">⚠️ Affiliate Disclosure</a></li>
-    </ul>
-  </div>
-  <div class="md-section">
-    <div class="md-label">Best Picks</div>
-    <ul class="md-links">
-      <li><a href="guide-best-gaming-laptops-2026" onclick="window.__flToggleNav()">Best Laptops 2026</a></li>
-      <li><a href="guide-gaming-laptop-buying-guide-2026" onclick="window.__flToggleNav()">Buying Guide</a></li>
+      <li><a href="guide-best-gaming-laptops-2026" onclick="window.__flToggleNav()">Best laptops 2026</a></li>
       <li><a href="guide-best-gaming-laptop-under-1000" onclick="window.__flToggleNav()">Under $1,000</a></li>
       <li><a href="guide-best-gaming-laptop-under-1500" onclick="window.__flToggleNav()">Under $1,500</a></li>
       <li><a href="guide-best-gaming-laptop-under-2000" onclick="window.__flToggleNav()">Under $2,000</a></li>
+      <li><a href="guide-best-gaming-laptop-under-2500" onclick="window.__flToggleNav()">Under $2,500</a></li>
+      <li><a href="guide-best-gaming-laptop-under-3000" onclick="window.__flToggleNav()">Under $3,000</a></li>
+    </ul>
+  </div>
+  <div class="md-section">
+    <div class="md-label">Find a laptop</div>
+    <ul class="md-links">
+      <li><a href="/" onclick="window.__flToggleNav()">Home</a></li>
+      <li><a href="reviews" onclick="window.__flToggleNav()">All reviews</a></li>
+      <li><a href="compare" onclick="window.__flToggleNav()">Compare two laptops</a></li>
       <li><a href="guide-best-rtx-5080-gaming-laptop-2026" onclick="window.__flToggleNav()">Best RTX 5080</a></li>
-      <li><a href="guide-best-thin-light-gaming-laptop-2026" onclick="window.__flToggleNav()">Best Thin &amp; Light</a></li>
+      <li><a href="guide-best-thin-light-gaming-laptop-2026" onclick="window.__flToggleNav()">Best thin &amp; light</a></li>
       <li><a href="guide-best-14-inch-gaming-laptop-2026" onclick="window.__flToggleNav()">Best 14-inch</a></li>
       <li><a href="guide-best-amd-gaming-laptop-2026" onclick="window.__flToggleNav()">Best AMD</a></li>
-      <li><a href="guide-best-gaming-laptop-college-2026" onclick="window.__flToggleNav()">Best for College</a></li>
+      <li><a href="guide-best-gaming-laptop-college-2026" onclick="window.__flToggleNav()">Best for college</a></li>
+      <li><a href="guides" onclick="window.__flToggleNav()">All guides</a></li>
     </ul>
   </div>
   <div class="md-section">
-    <div class="md-label">Use Case Guides</div>
+    <div class="md-label">Upgrades &amp; data</div>
     <ul class="md-links">
-      <li><a href="guide-best-gaming-laptop-video-editing-2026" onclick="window.__flToggleNav()">Video Editing</a></li>
-      <li><a href="guide-best-gaming-laptop-streaming-2026" onclick="window.__flToggleNav()">Streaming</a></li>
-      <li><a href="guide-best-gaming-laptop-fortnite-2026" onclick="window.__flToggleNav()">Fortnite</a></li>
-      <li><a href="guide-best-gaming-laptop-minecraft-2026" onclick="window.__flToggleNav()">Minecraft</a></li>
-      <li><a href="guide-best-gaming-laptop-college-budget-2026" onclick="window.__flToggleNav()">College Budget</a></li>
+      <li><a href="upgrades" onclick="window.__flToggleNav()">RAM &amp; SSD upgrades</a></li>
+      <li><a href="guide-rtx-50-laptop-tgp-database" onclick="window.__flToggleNav()">RTX 50 TGP database</a></li>
+      <li><a href="guide-gaming-laptop-display-database" onclick="window.__flToggleNav()">Display database</a></li>
+      <li><a href="guide-dlss-fsr-frame-generation-database" onclick="window.__flToggleNav()">DLSS / FSR benchmarks</a></li>
+      <li><a href="guide-gaming-laptop-price-report-july-2026" onclick="window.__flToggleNav()">Retail coverage report</a></li>
     </ul>
   </div>
   <div class="md-section">
-    <div class="md-label">Tools &amp; Guides</div>
+    <div class="md-label">About</div>
     <ul class="md-links">
-      <li><a href="compare" onclick="window.__flToggleNav()">⚖️ Compare Laptops</a></li>
-      <li><a href="upgrades" onclick="window.__flToggleNav()">RAM &amp; SSD Upgrades</a></li>
-      <li><a href="guide-best-ddr5-sodimm-gaming-laptop-2026" onclick="window.__flToggleNav()">DDR5 SO-DIMM Guide</a></li>
-      <li><a href="guide-best-ssd-gaming-laptop-2026" onclick="window.__flToggleNav()">Gaming Laptop SSD Guide</a></li>
-      <li><a href="guide-how-much-vram-gaming-laptop-2026" onclick="window.__flToggleNav()">Gaming Laptop VRAM Guide</a></li>
-      <li><a href="methodology" onclick="window.__flToggleNav()">Methodology</a></li>
-      <li><a href="guide-gaming-laptop-display-database" onclick="window.__flToggleNav()">Laptop Display Database</a></li>
-      <li><a href="guide-dlss-fsr-frame-generation-database" onclick="window.__flToggleNav()">DLSS / FSR Benchmark Database</a></li>
-      <li><a href="guide-rtx-vs-amd-2026" onclick="window.__flToggleNav()">RTX vs AMD</a></li>
-      <li><a href="guide-gaming-laptop-vs-desktop-2026" onclick="window.__flToggleNav()">Laptop vs Desktop</a></li>
-      <li><a href="guide-gaming-laptop-cooling-thermals-2026" onclick="window.__flToggleNav()">Cooling Guide</a></li>
+      <li><a href="about" onclick="window.__flToggleNav()">About us</a></li>
+      <li><a href="methodology" onclick="window.__flToggleNav()">How we review</a></li>
+      <li><a href="affiliate-disclosure" onclick="window.__flToggleNav()">Affiliate disclosure</a></li>
+      <li><a href="contact" onclick="window.__flToggleNav()">Contact</a></li>
     </ul>
   </div>
-  <a href="guide-best-gaming-laptops-2026" class="md-cta" onclick="window.__flToggleNav()">🏆 See Best Laptops 2026</a>
+  <a href="guide-best-gaming-laptops-2026" class="md-cta" onclick="window.__flToggleNav()">See the best laptops of 2026</a>
 </div>
 <div class="drawer-overlay" id="fl-drawer-overlay" onclick="window.__flToggleNav()"></div>
 `;
@@ -104,17 +88,22 @@
     const drawer = document.getElementById('fl-mobile-drawer');
     const overlay = document.getElementById('fl-drawer-overlay');
     if (!drawer) return;
-    drawer.classList.toggle('open');
-    if (overlay) overlay.classList.toggle('open');
+    const open = drawer.classList.toggle('open');
+    if (overlay) overlay.classList.toggle('open', open);
+    const button = document.getElementById('nav-hamburger');
+    if (button) {
+      button.classList.toggle('open', open);
+      button.setAttribute('aria-expanded', String(open));
+    }
   };
 
-  // Mark active nav link based on current page
-  const path = window.location.pathname.split('/').pop() || '/';
+  // Mark the active section: reviews and guides pages light up their hub link
+  const path = window.location.pathname.split('/').pop().replace(/\.html$/, '') || '/';
+  const section = path.startsWith('review-') ? 'reviews'
+    : (path.startsWith('guide-') && path !== 'guide-best-gaming-laptops-2026') ? 'guides'
+    : path;
   root.querySelectorAll('.nav-links a').forEach(a => {
-    const href = a.getAttribute('href');
-    if (href && href.split('#')[0] === path) {
-      a.style.color = 'var(--cyan)';
-    }
+    if (a.getAttribute('href') === section) a.setAttribute('aria-current', 'page');
   });
 
   // Re-align deep links after async benchmark blocks above the target finish rendering.

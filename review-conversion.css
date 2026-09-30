@@ -12,7 +12,7 @@
 .review-overview-image{display:flex;align-items:center;justify-content:center;min-width:0;margin:0}
 .review-overview-image img{display:block;width:100%;height:auto;max-height:245px;object-fit:contain}
 .review-overview .review-glance{grid-column:1/-1;margin:0;border-left:0}
-.review-conversion .review-glance-label{font-size:10px;color:#aabcca;letter-spacing:1px}
+.review-conversion .review-glance-label{font-size:11px;color:#aabcca;letter-spacing:1px}
 .review-conversion .review-glance-value{font-size:17px;font-weight:600}
 .review-overview-actions{grid-column:1/-1;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .review-conversion a.review-amazon,.review-conversion a.review-amazon:visited{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:15px 22px;background:#ff8a45;color:#101419!important;border:1px solid #ff8a45;border-radius:3px;font:700 16px/1.4 'Barlow',sans-serif;letter-spacing:0;text-transform:none;white-space:normal;text-align:center;text-decoration:none;box-shadow:0 4px 18px #0003}
@@ -48,7 +48,7 @@
 .review-further ul{margin-top:18px}
 @media(max-width:600px){
  .review-conversion.article-wrap{padding:32px 16px 50px}
- .review-conversion .article-cat{font-size:10px;letter-spacing:1px}
+ .review-conversion .article-cat{font-size:11px;letter-spacing:1px}
  .review-conversion .article-subtitle{font-size:17px}
  .review-overview{grid-template-columns:1fr;padding:20px;gap:20px}
  .review-overview h2{font-size:32px}

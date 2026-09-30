@@ -373,6 +373,16 @@ Owner principle for all design work: a visitor should find a laptop they like an
 - Orange buy buttons (`.btn-buy`, `.btn-buy.am`, `.nav-cta`), orange/purple badges and inline orange/grey budget badges now use dark text. White on orange measured 2.6–3.2:1; dark text is about 5.7–7:1.
 - Removed the visible "ADVERTISEMENT · 728×90" placeholders from five guides.
 - Reviews hub: brand counts corrected (ASUS 3, Lenovo 4, MSI 4, HP 1) and now recalculated from the visible cards at runtime. Removed the empty Dell header and its filter button; the hidden archived Dell record remains. The "Acer Predator" filter is now "Acer".
+- Published in `7bc997d` and verified live.
 - All 27 audits and both tests pass.
 
 Remaining audit order: (2) one shared footer, minimum text/tap-target sizes, and the nav wrapping between 769 and 1100px; (3) plain-language copy on comparisons/RTX vs AMD/Compare and less repetition in budget guides; (4) image width/height and active nav state.
+
+## Design audit, step 2 — September 30, 2026
+
+- One shared footer (`.site-footer`, root-relative links) on every indexable page: Shop by budget / Find a laptop / About, plus the Amazon Associates line. It replaces the three earlier variants (full homepage footer, one-line `article-footer`, none). Footer columns are `<div role="navigation">`, not `<nav>`, because the global `nav` style is fixed-position. The three noindex redirect aliases without nav.js were left alone.
+- Links that existed only in a page's old footer came back as a `<p class="related-links">` line above the footer (internal-link, TGP, price-report and linkable-asset audits depend on them). Do not delete that line without rerunning the audits.
+- nav.js: six top links (Best Laptops, Reviews, Compare, Guides, Upgrades, About) so the bar no longer wraps between 769 and 1100px. Buying Guide and Methodology moved to the drawer/footer. Review pages mark Reviews and guide pages mark Guides via `aria-current`. Drawer regrouped (budget first), emoji and duplicate entries removed, the hamburger now toggles `aria-expanded` and its X state. The ribbon text is shorter, 11px, and the Disclosure link has a larger tap area; `audit-affiliate-disclosure.mjs` requires the phrase "contains affiliate links" and `audit-price-report.mjs` requires the report link in the drawer.
+- Minimum font size is now 11px: every 5–10px `font-size`/`font` declaration in style.css, review-conversion.css, laptop-cards.js, reviews-sync.js and page `<style>`/inline styles was raised to 11px. Nav links are 12px. Browser check: no sub-11px text on any sitemap page, no document overflow at 375px or 1024px.
+- Versions: `style.css`, `review-conversion.css` and `nav.js` are `?v=20260930-3` on all pages (nav.js was unversioned); `laptop-cards.js` and `reviews-sync.js` are `?v=20260930-3`.
+- All 27 audits and both tests pass.

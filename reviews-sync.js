@@ -95,7 +95,7 @@
     const subLabels = ['Perf', 'Display', 'Thermals', 'Battery', 'Build', 'Value'];
     if (!l.scores) {
       const subScoreWrap = article.querySelector('.rc-subscores');
-      if (subScoreWrap) subScoreWrap.innerHTML = '<div style="font-family:JetBrains Mono,monospace;font-size:9px;color:var(--muted)">OFFICIAL SPECS + ATTRIBUTED INDEPENDENT EVIDENCE</div>';
+      if (subScoreWrap) subScoreWrap.innerHTML = '<div style="font-family:JetBrains Mono,monospace;font-size:11px;color:var(--muted)">OFFICIAL SPECS + ATTRIBUTED INDEPENDENT EVIDENCE</div>';
     } else if (ssEls.length >= subKeys.length) {
       subKeys.forEach((key, i) => {
         const val = l.scores[key];
@@ -198,7 +198,7 @@
       // Add affiliate note (no price)
       const note = document.createElement('div');
       note.className = 'fl-review-injected';
-      note.style.cssText = 'font-family:"JetBrains Mono",monospace;font-size:9px;color:#7A94A8;margin-top:10px';
+      note.style.cssText = 'font-family:"JetBrains Mono",monospace;font-size:11px;color:#7A94A8;margin-top:10px';
       const status = window.flRetailerStatus ? window.flRetailerStatus(l) : 'Retailer link';
       const checked = window.FL_DATA_LAST_CHECKED_LABEL || 'Price/spec checked recently';
       note.textContent = `Affiliate link · framelimit20-20 · ${status} · ${checked}`;
