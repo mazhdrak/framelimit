@@ -331,7 +331,7 @@ The owner supplied Amazon and manufacturer links for the TUF F16 and Omen Transc
 
 ## Design pass — September 30, 2026
 
-Owner asked for a "normal visitor" review of the live site. Findings: the design is coherent, but copy reads like an audit log, the homepage repeats the same models in four sections (~17,800px on a 375px phone), review FPS numbers were hidden behind horizontal scroll, and several cards had no images. Fixed in this pass (not yet committed at the time of writing):
+Owner asked for a "normal visitor" review of the live site. Findings: the design is coherent, but copy reads like an audit log, the homepage repeats the same models in four sections (~17,800px on a 375px phone), review FPS numbers were hidden behind horizontal scroll, and several cards had no images. Fixed in this pass (commit `ab05693`, pushed and verified live Sep 30; review pages load `benchmark-data.js` through unversioned `nav.js`, which Cloudflare serves with max-age=14400, so returning visitors can see the old table for up to 4 hours):
 
 - Homepage: removed the visible `ADVERTISEMENT · 728×90 · AdSense / Ezoic Unit` placeholder; Laptop Finder no longer prints individual reference prices (shows "Within/Above this budget at our last offer check" plus the offer-check date; filtering still uses the internal price); hero says "N Scored · M Specs-Only" instead of "Ranked + New Reviews"; removed the duplicate "All N Laptops — Specs at a Glance" heading (count moved into the section subtitle); corrected the stale under-$1,500, under-$3,000 and "31-model" card copy.
 - Images: tier pick cards now show the catalog photo; the 20 guide cards use a relevant existing product photo (or a text label for concept guides) instead of emoji, some of which rendered as faint glyphs. No new images were downloaded.
@@ -341,7 +341,12 @@ Owner asked for a "normal visitor" review of the live site. Findings: the design
 - All 27 audits and both tests pass; Amazon audit 42 managed ASINs, 0 unresolved, 237 direct HTML links.
 - `.claude/launch.json` (python http.server on 8765) was added for local preview; it is untracked and not part of the site.
 
-Still open from the review (owner decision needed): shorten the homepage (merge Top Picks with the tier section, move the full spec table to /compare or collapse it); rewrite guide openings in buyer language ("with $X, buy Y because Z") and fold methodology into a collapsible "How we checked" block; reconsider the large "N/R" on budget-guide #1 cards.
+Second pass the same day (owner approved all three open items):
+
+- Homepage order is now hero → tools bar → Top Picks (tier tabs, with review links) → Laptop Finder → guides → GPU leaderboard → spec table. The separate `data-fl-deals` "Top Picks Right Now" section was removed; `#deals-section` survives as an empty anchor before `#best-picks`, and the hero CTA/footer link point to `#best-picks`. Guides show six featured cards (best overall, buying guide, under $1,000/$1,500/$2,000/$2,500) plus a compact "More guides and comparisons" list that keeps every other homepage guide link. Desktop page height fell from ~11,300px to ~6,500px.
+- Guide pick cards with no score (49 across 12 guides) now carry `is-unscored` on the score wrapper and the label "Not scored yet"; CSS hides the large "N/R" text but the markup still contains it, which `audit-ranking-consistency.mjs` relies on. Budget badges now read "Within budget at last check · not ranked" / "Watchlist · not ranked" ("not ranked" must stay for the audit).
+- The five under-$X guides open with a "The short answer" box (who each eligible laptop suits, what to skip) written only from facts already on the page; unsupported "best value/best build" labels were avoided. The repeated ZIP 10001 methodology paragraph is inside `<details class="how-checked">`. When the budget order changes, update the short answer together with the quick-picks list — no audit checks it.
+- Replaced the visible "Exact <model code> model code" pros (8 cards, under-$1,000 to $2,500) with "Listing names the exact factory model code" to follow the public naming policy.
 
 ## Next steps — updated September 30, 2026
 
