@@ -417,6 +417,8 @@ Remaining audit order: (2) one shared footer, minimum text/tap-target sizes, and
 
 ## Search Console and Associates check — October 1, 2026
 
-- Owner exports: Search Console last 7 days (to Sep 28) 2,364 impressions / 11 clicks; Associates US last 30 days 151 clicks, 0 ordered items. Two Amazon click spikes of ~40 (Sep 21, Sep 27) match our own browser offer checks through tagged links, so real visitor clicks are roughly 70. Future offer checks should open `amazon.com/dp/ASIN` without `tag=`; this rule is now in AGENTS.md and in the weekly scout task prompt.
-- `guide-best-gaming-laptop-under-2000` had 1,740 impressions and 0 clicks at average position 9.2; its top queries are generic ("budget laptop 2026" 405, "best gaming laptop 2026" 378, "best gaming laptops 2026" 344, "cheap gaming laptop" 114, "gaming laptop price comparison" 70 at position ~2). Rewrote its title, meta/OG/schema description and subtitle in plain language ("5 RTX 50 Picks"). The "5" equals the eligible laptops in the short answer; change the title when the eligible list changes. Compare equal 7-day CTR periods before judging it; do not change other titles without similar data.
-- Owner to check in Associates Central: the 180-day / 3-qualifying-sales rule for new accounts, and the Country selector for EU global-earning clicks.
+Traffic and earnings numbers are private: `audit-site-2026-09-08/search-associates-2026-10-01-PRIVATE.md` (untracked). Public summary:
+
+- Search Console showed the under-$2,000 guide getting most of the site's impressions for generic budget and "best gaming laptop 2026" queries, with no clicks. Rewrote its title, meta/OG/schema description and subtitle in plain language ("5 RTX 50 Picks", commit `31e6ce2`). The "5" equals the eligible laptops in the short answer; change the title when that list changes. Compare equal 7-day CTR periods from about October 10–15 before changing other titles.
+- Part of September's Associates clicks came from our own offer checks through tagged links. Offer checks must open `amazon.com/dp/ASIN` without `tag=` (rule in AGENTS.md and the weekly scout prompt).
+- The Associates account has qualifying sales this year, so the new-account sales rule is satisfied. Global earning attributes UK/DE clicks. Missing recent sales is the likely reason for the API eligibility failure (inference).
