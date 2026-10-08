@@ -422,3 +422,12 @@ Traffic and earnings numbers are private: `audit-site-2026-09-08/search-associat
 - Search Console showed the under-$2,000 guide getting most of the site's impressions for generic budget and "best gaming laptop 2026" queries, with no clicks. Rewrote its title, meta/OG/schema description and subtitle in plain language ("5 RTX 50 Picks", commit `31e6ce2`). The "5" equals the eligible laptops in the short answer; change the title when that list changes. Compare equal 7-day CTR periods from about October 10–15 before changing other titles.
 - Part of September's Associates clicks came from our own offer checks through tagged links. Offer checks must open `amazon.com/dp/ASIN` without `tag=` (rule in AGENTS.md and the weekly scout prompt).
 - The Associates account has qualifying sales this year, so the new-account sales rule is satisfied. Global earning attributes UK/DE clicks. Missing recent sales is the likely reason for the API eligibility failure (inference).
+
+## Search Console and Associates check — October 8, 2026
+
+Traffic and earnings numbers stay private (owner's GSC export for Sep 8 – Oct 5 and the Associates report for Sep 8 – Oct 7). Public summary:
+
+- The under-$2,500 guide and the Reviews hub were the next pages with many impressions and almost no clicks. The under-$2,500 title, meta/OG/schema description and subtitle still read like an offer log ("Budget Offer Check", "qualifying new offers on September 27"). Rewrote them in plain language ("3 Picks Checked"). The "3" equals the eligible laptops in the short answer (Katana 15 HX, Alienware 16X Aurora, ROG Flow Z13); change the title when that list changes.
+- Reviews hub: title and meta description now name RTX 50, the brands, GPU wattage, screen specs and verdicts instead of "Evidence-Based Analysis" / "attributed evidence". Schema description unchanged.
+- The October 1 under-$2,000 rewrite is not yet measurable in this export (data ends Oct 5). Compare each edited page against its own previous 7-day period from about October 15–20; evaluate pages separately in the Pages report because the three edits overlap in time.
+- Associates: two click spikes on Sep 22 and Sep 27 had no matching Search traffic and line up with offer checks made through tagged links. Real visitor clicks are far lower than the report total. The untagged-URL rule in AGENTS.md covers this from now on.
