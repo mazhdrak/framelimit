@@ -431,3 +431,12 @@ Traffic and earnings numbers stay private (owner's GSC export for Sep 8 – Oct 
 - Reviews hub: title and meta description now name RTX 50, the brands, GPU wattage, screen specs and verdicts instead of "Evidence-Based Analysis" / "attributed evidence". Schema description unchanged.
 - The October 1 under-$2,000 rewrite is not yet measurable in this export (data ends Oct 5). Compare each edited page against its own previous 7-day period from about October 15–20; evaluate pages separately in the Pages report because the three edits overlap in time.
 - Associates: two click spikes on Sep 22 and Sep 27 had no matching Search traffic and line up with offer checks made through tagged links. Real visitor clicks are far lower than the report total. The untagged-URL rule in AGENTS.md covers this from now on.
+
+## Search Console check — October 19, 2026
+
+Numbers stay private. Public summary of the Oct 10–16 export compared with Oct 3–9:
+
+- Clicks rose and CTR roughly doubled, while impressions fell by about a third. Google stopped showing the site for generic head terms ("best gaming laptop 2026", "budget laptop 2026"); those queries disappeared from the export. Remaining traffic is long tail (model reviews, databases, budget guides).
+- The CTR gain cannot be attributed cleanly to the Oct 1 / Oct 8 snippet rewrites because the low-CTR head-term impressions left at the same time. The under-$2,000 guide moved from almost no clicks to a few clicks per week at a lower position, which is consistent with the rewrite helping.
+- Model review snippets were reviewed and left unchanged: they already follow the pattern of the reviews that get clicks, and their weekly impressions are too low for zero clicks to mean anything.
+- Rewrote the under-$1,500 title and meta/OG/schema description in the same plain-language pattern ("3 RTX 50 Picks"). The "3" equals the eligible laptops in the short answer (Gigabyte Gaming A16, Acer Nitro V 16, Acer Nitro V 16S); change the title when that list changes. This guide ranks around position 30–45 for "best gaming laptop under 1500", so ranking and content depth, not the snippet, are its main problem.
