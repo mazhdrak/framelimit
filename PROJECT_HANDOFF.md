@@ -440,3 +440,15 @@ Numbers stay private. Public summary of the Oct 10–16 export compared with Oct
 - The CTR gain cannot be attributed cleanly to the Oct 1 / Oct 8 snippet rewrites because the low-CTR head-term impressions left at the same time. The under-$2,000 guide moved from almost no clicks to a few clicks per week at a lower position, which is consistent with the rewrite helping.
 - Model review snippets were reviewed and left unchanged: they already follow the pattern of the reviews that get clicks, and their weekly impressions are too low for zero clicks to mean anything.
 - Rewrote the under-$1,500 title and meta/OG/schema description in the same plain-language pattern ("3 RTX 50 Picks"). The "3" equals the eligible laptops in the short answer (Gigabyte Gaming A16, Acer Nitro V 16, Acer Nitro V 16S); change the title when that list changes. This guide ranks around position 30–45 for "best gaming laptop under 1500", so ranking and content depth, not the snippet, are its main problem.
+
+## Amazon offer recheck — October 19, 2026
+
+Checked on Amazon US in the built-in browser with delivery set to ZIP 10001, opening untagged `amazon.com/dp/<ASIN>` URLs only (no Associates clicks). 21 listings: every budget-guide card plus the dated flagship reference prices. Eligibility rule unchanged: new-item price plus shipping before tax. Individual prices are private (owner's project notes), not in this file.
+
+- Acer Nitro V 16 ANV16-72-72ZY (B0FRNL6NQ7): the listing now describes an RTX 5050 / Core 5 210H / 512GB laptop, not the RTX 5070 configuration. Record is now `retailBlocked` with `retailIssue`, link removed from the under-$1,500 and under-$2,000 guides, ASIN added to the forbidden list in `test-budget-offers.mjs`. No replacement ASIN was guessed.
+- Alienware 16X Aurora: every new offer was above $2,500, so it moved from the under-$2,500 guide to the under-$3,000 guide (third by observed total).
+- Budget membership and order now: under $1,000 Victus 15; under $1,500 Gigabyte A16 RTX 5060, Nitro V 16S; under $2,000 those two plus Gigabyte A16 RTX 5070 and Vector RTX 5070 Ti; under $2,500 Flow Z13, Katana 15 HX (paid delivery, still within budget); under $3,000 Omen Transcend 14, TUF F16 RTX 5070, Alienware 16X Aurora, Vector RTX 5080.
+- Titles updated to the new pick counts: under-$1,500 "2 RTX 5060 Picks", under-$2,000 "4 RTX 50 Picks", under-$2,500 "2 Picks Checked", under-$3,000 rewritten in the same pattern ("4 RTX 50 Picks"; the old description was an offer log). Homepage and guides-hub blurbs for under-$1,500 now say RTX 5060.
+- Gigabyte A16 RTX 5070 and Vector RTX 5080 now show a featured offer, so the "All Buying Options" wording was removed. Nearly all budget offers are third-party sellers; Amazon.com sells only the Flow Z13 among budget cards.
+- Still unavailable (no buy box): LOQ 15, TUF Gaming A16, Legion 5i Gen 10. Blade 14: no qualifying new offer. Legion Pro 7i stays above $3,000.
+- All 12 dated catalog prices and four `price-data.js` extra records are dated 2026-10-19 (next expiry around November 18). `laptops.js?v=20261019-1`, `price-data.js?v=20261019-1`. All audits and both tests pass.

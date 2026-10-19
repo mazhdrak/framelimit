@@ -24,10 +24,10 @@
   ];
 
   const EXTRA_RECORDS = {
-    'acer-nitro-anv16-72-72zy': { id: 'acer-nitro-anv16-72-72zy', name: 'Acer Nitro V 16', price: 1299.99, priceCheckedAt: '2026-09-27', amazonUrl: 'https://www.amazon.com/dp/B0FRNL6NQ7?tag=framelimit20-20' },
-    'hp-victus-15-fa1040nr': { id: 'hp-victus-15-fa1040nr', name: 'HP Victus 15', price: 989.99, priceCheckedAt: '2026-09-27', amazonUrl: 'https://www.amazon.com/dp/B0C6WJMFYH?tag=framelimit20-20' },
-    'gigabyte-a16-cwhi3us864sh': { id: 'gigabyte-a16-cwhi3us864sh', name: 'Gigabyte Gaming A16', price: 1549.99, priceCheckedAt: '2026-09-27', amazonUrl: 'https://www.amazon.com/dp/B0FDM3M1WF?tag=framelimit20-20' },
-    'msi-vector-a2xwhg-212us': { id: 'msi-vector-a2xwhg-212us', name: 'MSI Vector 16 HX AI', price: 1649.99, priceCheckedAt: '2026-09-27', amazonUrl: 'https://www.amazon.com/dp/B0DTN2RZ1Q?tag=framelimit20-20' },
+    'acer-nitro-anv16-72-72zy': { id: 'acer-nitro-anv16-72-72zy', name: 'Acer Nitro V 16', price: null, priceCheckedAt: null, amazonUrl: '', retailBlocked: true, retailIssue: 'On October 19, 2026 the former Amazon listing described an RTX 5050 / Core 5 210H / 512GB configuration, not ANV16-72-72ZY with RTX 5070.' },
+    'hp-victus-15-fa1040nr': { id: 'hp-victus-15-fa1040nr', name: 'HP Victus 15', price: 999, priceCheckedAt: '2026-10-19', amazonUrl: 'https://www.amazon.com/dp/B0C6WJMFYH?tag=framelimit20-20' },
+    'gigabyte-a16-cwhi3us864sh': { id: 'gigabyte-a16-cwhi3us864sh', name: 'Gigabyte Gaming A16', price: 1629, priceCheckedAt: '2026-10-19', amazonUrl: 'https://www.amazon.com/dp/B0FDM3M1WF?tag=framelimit20-20' },
+    'msi-vector-a2xwhg-212us': { id: 'msi-vector-a2xwhg-212us', name: 'MSI Vector 16 HX AI', price: 1644.49, priceCheckedAt: '2026-10-19', amazonUrl: 'https://www.amazon.com/dp/B0DTN2RZ1Q?tag=framelimit20-20' },
     'lenovo-legion-7i-gen10': {
       id: 'lenovo-legion-7i-gen10',
       name: 'Lenovo Legion 7i Gen 10',
@@ -47,8 +47,8 @@
     'hp-omen-transcend-14': {
       id: 'hp-omen-transcend-14',
       name: 'HP Omen Transcend 14',
-      price: 2569,
-      priceCheckedAt: '2026-09-30',
+      price: 2556.16,
+      priceCheckedAt: '2026-10-19',
       amazonUrl: 'https://www.amazon.com/dp/B0HB3LP5JK?tag=framelimit20-20',
       amazonAsin: 'B0HB3LP5JK',
       retailNote: 'Third-party seller bundle; no HP product number shown.'
