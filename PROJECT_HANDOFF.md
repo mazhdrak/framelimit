@@ -470,3 +470,8 @@ Checked on Amazon US in the built-in browser with delivery set to ZIP 10001, ope
 - Placed in the thin-and-light guide (new unranked section + cluster entry) and the reviews hub (Lenovo section now 5 models, comparison row). Image: Lenovo PSREF Glacier White product shot (owner approved), cropped to 800×534, white background.
 - Homepage benchmark leaderboard mapping now includes the Area-51 16 2026 and Legion 7a datasets. Area-51 Gizmodo row label now names its source.
 - Counts: DLSS 28 datasets / 146 rows / 30 games / 19 generated / 31 lows; display 37 / 11 OLED / 25 brightness / 14 HDR / 17 fast; TGP 35 / 33; price report 37. Cache: laptops.js?v=20261019-3, benchmark-data.js?v=20261019-2, nav.js?v=20261019-2. All audits and tests pass.
+
+## Under-$1,500 content depth — October 19, 2026
+
+- Added a "Gigabyte Gaming A16 or Acer Nitro V 16S?" decision table and recommendation (specs from laptops.js; evidence status; relative totals only, no prices), rewrote the stale Bottom Line callout (it still described LOQ as the reference), corrected "These four configurations" to the two eligible ones, and added a four-question FAQ with FAQPage schema (RTX 5070 availability, 16GB vs 32GB, what was checked, screen types).
+- Not done yet: a fresh Amazon search for additional qualifying RTX 5060/5070 offers under $1,500. The linked computer disconnected mid-check; candidates to check are the catalog's unavailable records (LOQ 15, TUF A16, Legion 5 Gen 10 AMD, HP Omen 16, Dell G16) and the Acer Nitro 16S AI (B0FS861DH8).
