@@ -353,6 +353,27 @@
         ['PC Gamer AA18250 configuration verification', 'https://www.pcgamer.com/hardware/gaming-laptops/alienware-18-area-51-2025-review/']
       ]
     },
+    'verified-area51-16-2026-benchmark': {
+      title: 'Alienware 16 Area-51 (2026)',
+      updated: 'Oct 19, 2026',
+      configuration: 'AA16250 · Core Ultra 9 290HX Plus · RTX 5080 Laptop · 175W max TGP · 32GB DDR5-6400 · 2560x1600 OLED 240Hz · 1TB (Tom\'s Guide) / 2TB (Gizmodo) storage',
+      games: [
+        ['Assassin\'s Creed Shadows', '2560×1600 · Max', 'Native · DLSS/FG off', '175W max TGP', 65, null, null],
+        ['Doom: The Dark Ages', '2560×1600 · Max', 'Native · DLSS/FG off', '175W max TGP', 70, null, null],
+        ['Cyberpunk 2077', '2560×1600 · Max', 'Native · DLSS/FG off', '175W max TGP', 38, null, null],
+        ['Cyberpunk 2077', '2560×1600 · Ultra · RT off (built-in benchmark, approx.)', 'Upscaling/FG not stated', '175W max TGP', 92, null, null]
+      ],
+      synthetics: [
+        ['Cinebench R23', 'Multi-core', 39514], ['Cinebench R23', 'Single-core', 2319],
+        ['Cinebench 2024', 'Multi-core', 2195], ['Geekbench 6', 'Multi-core', 20920], ['Geekbench 6', 'Single-core', 3170]
+      ],
+      sources: [
+        ['Tom\'s Guide exact-configuration review (game table)', 'https://www.tomsguide.com/computing/gaming-laptops/alienware-16-area-51-gaming-laptop-2026-review'],
+        ['Gizmodo exact-configuration review (Cyberpunk Ultra row)', 'https://gizmodo.com/alienware-16-alien-51-2026-review-oled-screen-fixes-previous-gaming-laptop-problem-2000762742'],
+        ['Notebookcheck exact-configuration review (CPU results)', 'https://www.notebookcheck.net/Alienware-16-Area-51-review-New-Core-Ultra-9-290HX-Plus-is-all-power-at-any-cost.1276167.0.html'],
+        ['Dell AA16250 specifications', 'https://www.dell.com/en-us/shop/dell-laptops/spd/alienware16area51aa16250']
+      ]
+    },
     'verified-omenmax-benchmark': {
       title: 'HP Omen Max 16 (2025)',
       configuration: '16-ah0070ca · Core Ultra 9 275HX · RTX 5080 Laptop · 175W max TGP · 32GB DDR5 · 2560x1600 IPS 240Hz',
@@ -561,7 +582,7 @@
     section.innerHTML = `
       <div class="verified-bench-head">
         <div><div class="verified-bench-kicker">Verified published measurements</div><h3>${data.title}</h3></div>
-        <span>Updated Jul 13, 2026</span>
+        <span>Updated ${data.updated || 'Jul 13, 2026'}</span>
       </div>
       <p class="verified-config">${data.configuration}</p>
       <p class="verified-bench-intro">Publisher results for the exact configuration above. Generated FPS is identified separately and should not be compared directly with native rendered FPS. N/A means the source did not publish that metric.</p>

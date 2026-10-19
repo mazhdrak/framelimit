@@ -312,6 +312,7 @@ const clusters = [
       'review-hp-omen-max-16-2026.html',
       'review-asus-rog-zephyrus-g16-2026.html',
       'review-asus-rog-strix-g16-2026.html',
+      'review-alienware-16-area-51-2026.html',
     ],
   },
   {

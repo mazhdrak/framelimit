@@ -452,3 +452,12 @@ Checked on Amazon US in the built-in browser with delivery set to ZIP 10001, ope
 - Gigabyte A16 RTX 5070 and Vector RTX 5080 now show a featured offer, so the "All Buying Options" wording was removed. Nearly all budget offers are third-party sellers; Amazon.com sells only the Flow Z13 among budget cards.
 - Still unavailable (no buy box): LOQ 15, TUF Gaming A16, Legion 5i Gen 10. Blade 14: no qualifying new offer. Legion Pro 7i stays above $3,000.
 - All 12 dated catalog prices and four `price-data.js` extra records are dated 2026-10-19 (next expiry around November 18). `laptops.js?v=20261019-1`, `price-data.js?v=20261019-1`. All audits and both tests pass.
+
+## New review: Alienware 16 Area-51 (2026) — October 19, 2026
+
+- Added `alienware-16-area-51-2026` (AA16250 with Core Ultra 9 290HX Plus, RTX 5080 175W, 32GB DDR5-6400, 240Hz matte OLED) as an unscored `evidence-review` record, `review-alienware-16-area-51-2026.html`, a reviews-hub card and comparison row, an RTX 5080 guide evidence row, sitemap entry and internal-link cluster membership. Specs from Dell's US configurator (checked Oct 19).
+- Evidence: Notebookcheck (88%, CPU and display), Tom's Hardware and Tom's Guide (display, battery, game table; identical display/battery figures, treated as one lab), Gizmodo (Cyberpunk Ultra row). Dataset `verified-area51-16-2026-benchmark` in `benchmark-data.js`; datasets can now carry an `updated` label (default stays "Jul 13, 2026").
+- Amazon US had no 2026 listing on Oct 19 (only 2025 275HX/IPS AA16250 units), so the record is `retailBlocked` with a documented `retailIssue`. When a 2026 290HX Plus / OLED listing sold by Amazon.com or Dell appears, add the ASIN and remove the block.
+- Image: Dell's official AA16250 product shot, converted to WebP 800×582 (owner approved the download).
+- Counts updated: DLSS database 27 datasets / 141 rows, display database 36 / 10 OLED / 16 fast, TGP database 34 / 32 (exports regenerated), price report 36. Cache: `laptops.js?v=20261019-2`, `benchmark-data.js?v=20261019-1`, `nav.js?v=20261019-1`. All audits and tests pass.
+- Considered and deferred: Legion 7a Gen 11 RTX 5070 (Amazon third-party listings B0FMBTDX9L, B0GYVB8MCX, B0HGS17515 at about $3,400–3,543; every published review tests the RTX 5060 version) and RTX Spark laptops (MSI Prestige N16 Flip AI+ N1X B0HLMSQLTJ sold by Amazon.com; no gaming benchmarks yet).

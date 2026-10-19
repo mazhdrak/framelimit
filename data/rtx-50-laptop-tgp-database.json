@@ -59,6 +59,21 @@
     {
       "datasetVersion": "1.0.0",
       "releaseDate": "2026-07-17",
+      "id": "alienware-16-area-51-2026",
+      "manufacturer": "Alienware",
+      "model": "Alienware 16 Area-51 2026",
+      "exactModelSku": "Alienware 16 Area-51 AA16250 (2026, Core Ultra 9 290HX Plus)",
+      "gpu": "RTX 5080",
+      "gpuVram": "16GB GDDR7",
+      "oemMaximumGpuPowerWatts": 175,
+      "nvidiaGpuSubsystemPowerRangeWatts": "80-150",
+      "evidenceStatus": "official-oem-specification",
+      "sourceUrl": "https://www.dell.com/en-us/shop/dell-laptops/spd/alienware16area51aa16250",
+      "lastVerified": "2026-10-19"
+    },
+    {
+      "datasetVersion": "1.0.0",
+      "releaseDate": "2026-07-17",
       "id": "alienware-18-area-51",
       "manufacturer": "Alienware",
       "model": "Alienware 18 Area-51",
