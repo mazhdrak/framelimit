@@ -345,6 +345,7 @@ const clusters = [
       'review-razer-blade-14-2026.html',
       'review-lenovo-legion-5-gen10-amd.html',
       'review-asus-rog-zephyrus-g16-2026.html',
+      'review-lenovo-legion-7a-gen11.html',
     ],
   },
   {

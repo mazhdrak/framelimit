@@ -361,7 +361,7 @@
         ['Assassin\'s Creed Shadows', '2560×1600 · Max', 'Native · DLSS/FG off', '175W max TGP', 65, null, null],
         ['Doom: The Dark Ages', '2560×1600 · Max', 'Native · DLSS/FG off', '175W max TGP', 70, null, null],
         ['Cyberpunk 2077', '2560×1600 · Max', 'Native · DLSS/FG off', '175W max TGP', 38, null, null],
-        ['Cyberpunk 2077', '2560×1600 · Ultra · RT off (built-in benchmark, approx.)', 'Upscaling/FG not stated', '175W max TGP', 92, null, null]
+        ['Cyberpunk 2077 (Gizmodo)', '2560×1600 · Ultra · RT off (built-in benchmark, approx.)', 'Upscaling/FG not stated', '175W max TGP', 92, null, null]
       ],
       synthetics: [
         ['Cinebench R23', 'Multi-core', 39514], ['Cinebench R23', 'Single-core', 2319],
@@ -372,6 +372,26 @@
         ['Gizmodo exact-configuration review (Cyberpunk Ultra row)', 'https://gizmodo.com/alienware-16-alien-51-2026-review-oled-screen-fixes-previous-gaming-laptop-problem-2000762742'],
         ['Notebookcheck exact-configuration review (CPU results)', 'https://www.notebookcheck.net/Alienware-16-Area-51-review-New-Core-Ultra-9-290HX-Plus-is-all-power-at-any-cost.1276167.0.html'],
         ['Dell AA16250 specifications', 'https://www.dell.com/en-us/shop/dell-laptops/spd/alienware16area51aa16250']
+      ]
+    },
+    'verified-legion7a-gen11-benchmark': {
+      title: 'Lenovo Legion 7a Gen 11 (RTX 5060 configuration)',
+      updated: 'Oct 19, 2026',
+      configuration: 'Legion 7 16AGP11 · Ryzen AI 9 HX 470 · RTX 5060 Laptop · about 95W in Performance mode (115W rated) · 32GB LPDDR5X-8533 · 2560x1600 OLED 240Hz',
+      games: [
+        ['Cyberpunk 2077', '2560×1600 · Ultra · RT off', 'DLSS Balanced · FG off', '~95W (Performance mode)', 42, 24, null],
+        ['Cyberpunk 2077', '2560×1600 · RT Overdrive', 'DLSS Balanced · MFG 4x (generated frames)', '~95W (Performance mode)', 100, 22, null],
+        ['Red Dead Redemption 2', '2560×1600 · Ultra Optimized · TAA', 'Native · upscaling/FG off', '~95W (Performance mode)', 81, 58, null],
+        ['Shadow of the Tomb Raider', '2560×1600 · Highest · TAA', 'Native · upscaling/FG off', '~95W (Performance mode)', 96, 74, null],
+        ['Black Myth: Wukong', '2560×1600 · Cinematic · RT off', 'TSR · FG not stated', '~95W (Performance mode)', 36, 22, null]
+      ],
+      synthetics: [
+        ['3DMark Time Spy', 'Overall', 11188], ['3DMark Fire Strike', 'Overall', 27383], ['3DMark Port Royal', 'Overall', 7307],
+        ['3DMark Speed Way', 'Overall', 2795], ['3DMark Steel Nomad', 'Overall', 2605]
+      ],
+      sources: [
+        ['Ultrabookreview RTX 5060 configuration review', 'https://www.ultrabookreview.com/76626-lenovo-legion-7a-review/'],
+        ['Lenovo PSREF Legion 7 16AGP11', 'https://psref.lenovo.com/Product/Legion/Legion_7_16AGP11']
       ]
     },
     'verified-omenmax-benchmark': {

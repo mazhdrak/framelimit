@@ -359,6 +359,21 @@
     {
       "datasetVersion": "1.0.0",
       "releaseDate": "2026-07-17",
+      "id": "lenovo-legion-7a-gen11",
+      "manufacturer": "Lenovo",
+      "model": "Legion 7a Gen 11 RTX 5070",
+      "exactModelSku": "Legion 7 16AGP11 (RTX 5070 12GB, Glacier White)",
+      "gpu": "RTX 5070",
+      "gpuVram": "12GB GDDR7",
+      "oemMaximumGpuPowerWatts": 115,
+      "nvidiaGpuSubsystemPowerRangeWatts": "50-100",
+      "evidenceStatus": "official-oem-specification",
+      "sourceUrl": "https://psref.lenovo.com/Product/Legion/Legion_7_16AGP11",
+      "lastVerified": "2026-10-19"
+    },
+    {
+      "datasetVersion": "1.0.0",
+      "releaseDate": "2026-07-17",
       "id": "lenovo-legion-pro-7i-gen10",
       "manufacturer": "Lenovo",
       "model": "Legion Pro 7i Gen 10",
